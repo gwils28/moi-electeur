@@ -1,7 +1,7 @@
-# SPEC — Moi Électeur : Boussole & Explorateur de Programmes
+# SPEC de Moi Électeur (Boussole & Explorateur de Programmes)
 
-> Statut : **v0.2 — points ouverts tranchés** (2026-11-17). Issu de l'interview du 2026-11-17.
-> Nom public : **Moi Électeur** — domaine visé `moi-electeur.fr` (libre au 2026-11-17, à réserver).
+> Statut : **v0.2, points ouverts tranchés** (2026-11-17). Issu de l'interview du 2026-11-17.
+> Nom public : **Moi Électeur**, domaine visé `moi-electeur.fr` (libre au 2026-11-17, à réserver).
 
 ## 1. Objectif
 
@@ -91,13 +91,13 @@ Validé par JSON Schema (`schemas/election_config.schema.json`), types TS et Pyd
 }
 ```
 
-### 4.2 `statements.json` — 25 à 35 affirmations
+### 4.2 `statements.json` : 25 à 35 affirmations
 ```jsonc
 { "id": "s01", "theme": "economie", "text": "…", "axis": "x", "direction": 1, "weight_in_axis": 1.0 }
 ```
 `direction` : +1 si « d'accord » pousse vers +10 sur l'axe, -1 sinon. Sens alternés pour limiter le biais d'acquiescement. Couverture : ≥ 4 affirmations par thème, ≥ 10 par axe.
 
-### 4.3 `positions.json` — positions validées des candidats
+### 4.3 `positions.json` : positions validées des candidats
 ```jsonc
 { "candidate_id": "c1", "statement_id": "s01",
   "value": 2,                       // -2..+2, ou null = silence du programme
@@ -107,7 +107,7 @@ Validé par JSON Schema (`schemas/election_config.schema.json`), types TS et Pyd
 ```
 Le front ne charge **que** les positions `validated` ou `corrected`. Un silence (`null`) est exclu du calcul de distance pour cette affirmation (et signalé).
 
-### 4.4 `measures.json` — mesures phares & chiffrages (comparateur + radar)
+### 4.4 `measures.json` : mesures phares & chiffrages (comparateur + radar)
 ```jsonc
 { "candidate_id": "c1", "theme": "social", "title": "…", "summary": "…",
   "costing": { "status": "chiffre|partiel|intention", "amount_eur": 12000000000, "period": "par an", "quote": "…" },
@@ -117,7 +117,7 @@ Le front ne charge **que** les positions `validated` ou `corrected`. Un silence 
 ### 4.5 Chunks (Postgres)
 Table `chunks` : `id, election_id, candidate_id, theme, document_title, page_number, section_title, source_url, text, tsv (tsvector french), embedding vector(N)`. Index HNSW sur `embedding`, GIN sur `tsv`.
 
-## 5. Fonctionnalité 1 — Boussole (100 % client)
+## 5. Fonctionnalité 1 : Boussole (100 % client)
 
 ### 5.1 Questionnaire
 - Likert 5 niveaux (-2 … +2) + « Neutre / Sans avis » (`null`, exclu du calcul).
@@ -125,7 +125,7 @@ Table `chunks` : `id, election_id, candidate_id, theme, document_title, page_num
 - Ordre des affirmations : **groupé par thème** (ordre des thèmes fixe, défini dans la config), avec indicateur de progression par thème.
 - État conservé en mémoire ; option de sauvegarde **locale** (localStorage) explicite, désactivée par défaut ; export / import d'un code de réponses (URL fragment `#r=…`, jamais envoyé au serveur).
 
-### 5.2 Proximité — distance de Manhattan normalisée pondérée
+### 5.2 Proximité : distance de Manhattan normalisée pondérée
 Pour un candidat c, sur l'ensemble S des affirmations où l'utilisateur **et** le candidat ont une valeur non nulle :
 
 ```
@@ -135,7 +135,7 @@ proximité   = 100 · (1 − d(c) / d_max(c))
 couverture  = |S| / |affirmations répondues|      → affichée ; si < 50 %, avertissement
 ```
 
-### 5.3 Projection 2D — deux modes
+### 5.3 Projection 2D : deux modes
 **Mode A (affirmations taguées, défaut)** :
 ```
 X = 10 · Σ_{s∈S_x} w(s)·dir(s)·v_s / Σ_{s∈S_x} w(s)·2      (v ∈ [-2,2] → X ∈ [-10,10])
@@ -157,7 +157,7 @@ Noms, photos, partis, couleurs remplacés par des alias (`blind_alias`) et une p
 ### 5.6 Simulateur « Et si… »
 Sur l'écran de résultats, modifier une réponse ou un poids → recalcul instantané, trace animée de l'ancien au nouveau point, delta de proximité par candidat.
 
-## 6. Fonctionnalité 2 — Chat RAG sourcé
+## 6. Fonctionnalité 2 : Chat RAG sourcé
 
 ### 6.1 Retrieval
 - Embedding de la question (même modèle que l'indexation, préfixe `query:` si e5).
@@ -260,13 +260,13 @@ moi-electeur/
 ```
 
 ## 14. Jalons proposés
-1. **M0** — Socle : monorepo, Docker Compose, schémas JSON, CI, données fictives de démo.
-2. **M1** — Moteur de calcul (test d'abord) + questionnaire + échiquier + mode aveugle + « Et si ».
-3. **M2** — Pipeline d'ingestion + rag-service + chat RAG streaming (sur corpus 2022).
-4. **M3** — Proposition/revue des positions et mesures ; comparateur + radar.
-5. **M4** — Backtest 2022 complet, rapport, choix modèles.
-6. **M5** — Accessibilité, page méthodologie, déploiement VPS.
-7. **M6** — Branchement 2027 au fil de la publication des programmes.
+1. **M0** : socle (monorepo, Docker Compose, schémas JSON, CI, données fictives de démo).
+2. **M1** : Moteur de calcul (test d'abord) + questionnaire + échiquier + mode aveugle + « Et si ».
+3. **M2** : Pipeline d'ingestion + rag-service + chat RAG streaming (sur corpus 2022).
+4. **M3** : Proposition/revue des positions et mesures ; comparateur + radar.
+5. **M4** : Backtest 2022 complet, rapport, choix modèles.
+6. **M5** : Accessibilité, page méthodologie, déploiement VPS.
+7. **M6** : Branchement 2027 au fil de la publication des programmes.
 
 ## 15. Décisions sur les points ouverts (2026-11-17)
 | # | Sujet | Décision | Justification |
