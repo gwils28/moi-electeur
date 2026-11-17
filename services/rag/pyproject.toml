@@ -1,0 +1,17 @@
+[project]
+name = "moi-electeur-rag"
+version = "0.0.0"
+description = "Service de retrieval (embedding local, hybride pgvector + FTS, RRF)."
+license = "AGPL-3.0-only"
+requires-python = ">=3.12,<3.13"
+dependencies = ["fastapi>=0.163", "uvicorn>=0.54"]
+
+[dependency-groups]
+dev = ["httpx>=0.28", "mypy>=2.4", "pytest>=9.2", "ruff>=0.17"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

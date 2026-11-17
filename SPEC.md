@@ -246,11 +246,12 @@ Garde-fous : limite de débit par IP (ex. 10 questions / 10 min, compteur en mé
 ```
 moi-electeur/
 ├── apps/web/                    Next.js (UI + API route /api/ask)
-│   └── src/{app,components,lib/engine,lib/rag}
+│   └── src/{app,components,lib/rag}
 ├── packages/engine/             moteur de calcul TS pur, zéro dépendance, zéro I/O (proximité, projections A/B)
 ├── services/rag/                FastAPI : /embed, /retrieve
 ├── pipeline/                    Python : fetch, extract, chunk, index, propose, review, build
 ├── eval/                        backtests, jeux annotés, rapports
+├── notebooks/                   notebooks R&D marimo (PLAN § 1 bis)
 ├── schemas/                     JSON Schemas (source unique des types)
 ├── prompts/                     prompts versionnés (rag_system.md, propose_positions.md…)
 ├── data/elections/<id>/         config, statements, positions, measures (sources/ ignorées par git)

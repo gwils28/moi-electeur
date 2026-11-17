@@ -1,0 +1,3778 @@
+{
+  "election_id": "demo-fictive",
+  "positions": [
+    {
+      "candidate_id": "c1",
+      "statement_id": "s01",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « Il faut baisser l'impôt sur les sociétés pour renforcer la compétitivité des entreprises. »",
+          "document_title": "Programme fictif de Amandine Vérac",
+          "page": 1,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c1",
+      "statement_id": "s02",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +2 sur « L'État doit augmenter les impôts sur les plus hauts patrimoines. »",
+          "document_title": "Programme fictif de Amandine Vérac",
+          "page": 2,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c1",
+      "statement_id": "s03",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « Les dépenses publiques doivent être réduites pour revenir à l'équilibre budgétaire. »",
+          "document_title": "Programme fictif de Amandine Vérac",
+          "page": 3,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c1",
+      "statement_id": "s04",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +2 sur « L'État doit pouvoir nationaliser des entreprises jugées stratégiques. »",
+          "document_title": "Programme fictif de Amandine Vérac",
+          "page": 4,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c1",
+      "statement_id": "s05",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -2 sur « Il faut assouplir le droit du travail pour faciliter les embauches. »",
+          "document_title": "Programme fictif de Amandine Vérac",
+          "page": 5,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c1",
+      "statement_id": "s06",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +2 sur « Le salaire minimum doit être fortement augmenté. »",
+          "document_title": "Programme fictif de Amandine Vérac",
+          "page": 6,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c1",
+      "statement_id": "s07",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -2 sur « L'âge légal de départ à la retraite doit être reculé. »",
+          "document_title": "Programme fictif de Amandine Vérac",
+          "page": 7,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c1",
+      "statement_id": "s08",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -2 sur « Les allocations chômage doivent être réduites pour encourager le retour à l'emploi. »",
+          "document_title": "Programme fictif de Amandine Vérac",
+          "page": 8,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c1",
+      "statement_id": "s09",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +1 sur « Les soins à l'hôpital public doivent être entièrement gratuits. »",
+          "document_title": "Programme fictif de Amandine Vérac",
+          "page": 9,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c1",
+      "statement_id": "s10",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « Les aides sociales doivent être réservées en priorité aux nationaux. »",
+          "document_title": "Programme fictif de Amandine Vérac",
+          "page": 10,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c1",
+      "statement_id": "s11",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +2 sur « La fiscalité doit taxer davantage les activités les plus polluantes. »",
+          "document_title": "Programme fictif de Amandine Vérac",
+          "page": 11,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c1",
+      "statement_id": "s12",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -2 sur « Les normes environnementales imposées aux entreprises doivent être allégées. »",
+          "document_title": "Programme fictif de Amandine Vérac",
+          "page": 12,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c1",
+      "statement_id": "s13",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +2 sur « Les énergies renouvelables doivent être financées en priorité par l'argent public. »",
+          "document_title": "Programme fictif de Amandine Vérac",
+          "page": 13,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c1",
+      "statement_id": "s14",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -2 sur « L'agriculture doit être libérée des contraintes environnementales européennes. »",
+          "document_title": "Programme fictif de Amandine Vérac",
+          "page": 14,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c1",
+      "statement_id": "s15",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +2 sur « L'État doit réglementer plus strictement les véhicules polluants. »",
+          "document_title": "Programme fictif de Amandine Vérac",
+          "page": 15,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c1",
+      "statement_id": "s16",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +2 sur « La France doit renforcer l'intégration européenne, y compris en matière de défense. »",
+          "document_title": "Programme fictif de Amandine Vérac",
+          "page": 16,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c1",
+      "statement_id": "s17",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « Le droit national doit primer sur le droit européen. »",
+          "document_title": "Programme fictif de Amandine Vérac",
+          "page": 17,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c1",
+      "statement_id": "s18",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -2 sur « La France doit quitter le commandement intégré de l'OTAN. »",
+          "document_title": "Programme fictif de Amandine Vérac",
+          "page": 18,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c1",
+      "statement_id": "s19",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +1 sur « Les décisions européennes doivent pouvoir être prises à la majorité, sans veto national. »",
+          "document_title": "Programme fictif de Amandine Vérac",
+          "page": 19,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c1",
+      "statement_id": "s20",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « Il faut rétablir des contrôles permanents aux frontières nationales. »",
+          "document_title": "Programme fictif de Amandine Vérac",
+          "page": 20,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c1",
+      "statement_id": "s21",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « L'immigration de travail doit être réduite. »",
+          "document_title": "Programme fictif de Amandine Vérac",
+          "page": 21,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c1",
+      "statement_id": "s22",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +1 sur « Les étrangers en situation régulière doivent pouvoir voter aux élections locales. »",
+          "document_title": "Programme fictif de Amandine Vérac",
+          "page": 22,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c1",
+      "statement_id": "s23",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « Des peines de prison minimales doivent être instaurées pour certains délits. »",
+          "document_title": "Programme fictif de Amandine Vérac",
+          "page": 23,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c1",
+      "statement_id": "s24",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +1 sur « La consommation de cannabis doit être légalisée et encadrée. »",
+          "document_title": "Programme fictif de Amandine Vérac",
+          "page": 24,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c1",
+      "statement_id": "s25",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « Les effectifs de police doivent être fortement augmentés. »",
+          "document_title": "Programme fictif de Amandine Vérac",
+          "page": 25,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c1",
+      "statement_id": "s26",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +1 sur « La proportionnelle doit être introduite aux élections législatives. »",
+          "document_title": "Programme fictif de Amandine Vérac",
+          "page": 26,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c1",
+      "statement_id": "s27",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « Le nombre de parlementaires doit être réduit. »",
+          "document_title": "Programme fictif de Amandine Vérac",
+          "page": 27,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c1",
+      "statement_id": "s28",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +1 sur « Le droit de vote doit être ouvert dès 16 ans. »",
+          "document_title": "Programme fictif de Amandine Vérac",
+          "page": 28,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c1",
+      "statement_id": "s29",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « Le président de la République doit recourir davantage au référendum. »",
+          "document_title": "Programme fictif de Amandine Vérac",
+          "page": 29,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c1",
+      "statement_id": "s30",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -2 sur « Les collectivités locales doivent disposer d'une plus grande autonomie fiscale. »",
+          "document_title": "Programme fictif de Amandine Vérac",
+          "page": 30,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c2",
+      "statement_id": "s01",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « Il faut baisser l'impôt sur les sociétés pour renforcer la compétitivité des entreprises. »",
+          "document_title": "Programme fictif de Bastien Morel",
+          "page": 1,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c2",
+      "statement_id": "s02",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « L'État doit augmenter les impôts sur les plus hauts patrimoines. »",
+          "document_title": "Programme fictif de Bastien Morel",
+          "page": 2,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c2",
+      "statement_id": "s03",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « Les dépenses publiques doivent être réduites pour revenir à l'équilibre budgétaire. »",
+          "document_title": "Programme fictif de Bastien Morel",
+          "page": 3,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c2",
+      "statement_id": "s04",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « L'État doit pouvoir nationaliser des entreprises jugées stratégiques. »",
+          "document_title": "Programme fictif de Bastien Morel",
+          "page": 4,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c2",
+      "statement_id": "s05",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « Il faut assouplir le droit du travail pour faciliter les embauches. »",
+          "document_title": "Programme fictif de Bastien Morel",
+          "page": 5,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c2",
+      "statement_id": "s06",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +1 sur « Le salaire minimum doit être fortement augmenté. »",
+          "document_title": "Programme fictif de Bastien Morel",
+          "page": 6,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c2",
+      "statement_id": "s07",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « L'âge légal de départ à la retraite doit être reculé. »",
+          "document_title": "Programme fictif de Bastien Morel",
+          "page": 7,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c2",
+      "statement_id": "s08",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « Les allocations chômage doivent être réduites pour encourager le retour à l'emploi. »",
+          "document_title": "Programme fictif de Bastien Morel",
+          "page": 8,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c2",
+      "statement_id": "s09",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +2 sur « Les soins à l'hôpital public doivent être entièrement gratuits. »",
+          "document_title": "Programme fictif de Bastien Morel",
+          "page": 9,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c2",
+      "statement_id": "s10",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « Les aides sociales doivent être réservées en priorité aux nationaux. »",
+          "document_title": "Programme fictif de Bastien Morel",
+          "page": 10,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c2",
+      "statement_id": "s11",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « La fiscalité doit taxer davantage les activités les plus polluantes. »",
+          "document_title": "Programme fictif de Bastien Morel",
+          "page": 11,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c2",
+      "statement_id": "s12",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « Les normes environnementales imposées aux entreprises doivent être allégées. »",
+          "document_title": "Programme fictif de Bastien Morel",
+          "page": 12,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "rejected",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": "Rejet volontaire (test du filtrage)."
+      }
+    },
+    {
+      "candidate_id": "c2",
+      "statement_id": "s13",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +1 sur « Les énergies renouvelables doivent être financées en priorité par l'argent public. »",
+          "document_title": "Programme fictif de Bastien Morel",
+          "page": 13,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c2",
+      "statement_id": "s14",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « L'agriculture doit être libérée des contraintes environnementales européennes. »",
+          "document_title": "Programme fictif de Bastien Morel",
+          "page": 14,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c2",
+      "statement_id": "s15",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +1 sur « L'État doit réglementer plus strictement les véhicules polluants. »",
+          "document_title": "Programme fictif de Bastien Morel",
+          "page": 15,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c2",
+      "statement_id": "s16",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « La France doit renforcer l'intégration européenne, y compris en matière de défense. »",
+          "document_title": "Programme fictif de Bastien Morel",
+          "page": 16,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c2",
+      "statement_id": "s17",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « Le droit national doit primer sur le droit européen. »",
+          "document_title": "Programme fictif de Bastien Morel",
+          "page": 17,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c2",
+      "statement_id": "s18",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « La France doit quitter le commandement intégré de l'OTAN. »",
+          "document_title": "Programme fictif de Bastien Morel",
+          "page": 18,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c2",
+      "statement_id": "s19",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +1 sur « Les décisions européennes doivent pouvoir être prises à la majorité, sans veto national. »",
+          "document_title": "Programme fictif de Bastien Morel",
+          "page": 19,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c2",
+      "statement_id": "s20",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « Il faut rétablir des contrôles permanents aux frontières nationales. »",
+          "document_title": "Programme fictif de Bastien Morel",
+          "page": 20,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c2",
+      "statement_id": "s21",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « L'immigration de travail doit être réduite. »",
+          "document_title": "Programme fictif de Bastien Morel",
+          "page": 21,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c2",
+      "statement_id": "s22",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « Les étrangers en situation régulière doivent pouvoir voter aux élections locales. »",
+          "document_title": "Programme fictif de Bastien Morel",
+          "page": 22,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c2",
+      "statement_id": "s23",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « Des peines de prison minimales doivent être instaurées pour certains délits. »",
+          "document_title": "Programme fictif de Bastien Morel",
+          "page": 23,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c2",
+      "statement_id": "s24",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « La consommation de cannabis doit être légalisée et encadrée. »",
+          "document_title": "Programme fictif de Bastien Morel",
+          "page": 24,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c2",
+      "statement_id": "s25",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « Les effectifs de police doivent être fortement augmentés. »",
+          "document_title": "Programme fictif de Bastien Morel",
+          "page": 25,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c2",
+      "statement_id": "s26",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « La proportionnelle doit être introduite aux élections législatives. »",
+          "document_title": "Programme fictif de Bastien Morel",
+          "page": 26,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c2",
+      "statement_id": "s27",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « Le nombre de parlementaires doit être réduit. »",
+          "document_title": "Programme fictif de Bastien Morel",
+          "page": 27,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c2",
+      "statement_id": "s28",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « Le droit de vote doit être ouvert dès 16 ans. »",
+          "document_title": "Programme fictif de Bastien Morel",
+          "page": 28,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c2",
+      "statement_id": "s29",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « Le président de la République doit recourir davantage au référendum. »",
+          "document_title": "Programme fictif de Bastien Morel",
+          "page": 29,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c2",
+      "statement_id": "s30",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « Les collectivités locales doivent disposer d'une plus grande autonomie fiscale. »",
+          "document_title": "Programme fictif de Bastien Morel",
+          "page": 30,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c3",
+      "statement_id": "s01",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +1 sur « Il faut baisser l'impôt sur les sociétés pour renforcer la compétitivité des entreprises. »",
+          "document_title": "Programme fictif de Claire Duvallon",
+          "page": 1,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c3",
+      "statement_id": "s02",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « L'État doit augmenter les impôts sur les plus hauts patrimoines. »",
+          "document_title": "Programme fictif de Claire Duvallon",
+          "page": 2,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c3",
+      "statement_id": "s03",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « Les dépenses publiques doivent être réduites pour revenir à l'équilibre budgétaire. »",
+          "document_title": "Programme fictif de Claire Duvallon",
+          "page": 3,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c3",
+      "statement_id": "s04",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « L'État doit pouvoir nationaliser des entreprises jugées stratégiques. »",
+          "document_title": "Programme fictif de Claire Duvallon",
+          "page": 4,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c3",
+      "statement_id": "s05",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « Il faut assouplir le droit du travail pour faciliter les embauches. »",
+          "document_title": "Programme fictif de Claire Duvallon",
+          "page": 5,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c3",
+      "statement_id": "s06",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « Le salaire minimum doit être fortement augmenté. »",
+          "document_title": "Programme fictif de Claire Duvallon",
+          "page": 6,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c3",
+      "statement_id": "s07",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « L'âge légal de départ à la retraite doit être reculé. »",
+          "document_title": "Programme fictif de Claire Duvallon",
+          "page": 7,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c3",
+      "statement_id": "s08",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +1 sur « Les allocations chômage doivent être réduites pour encourager le retour à l'emploi. »",
+          "document_title": "Programme fictif de Claire Duvallon",
+          "page": 8,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c3",
+      "statement_id": "s09",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « Les soins à l'hôpital public doivent être entièrement gratuits. »",
+          "document_title": "Programme fictif de Claire Duvallon",
+          "page": 9,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c3",
+      "statement_id": "s10",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « Les aides sociales doivent être réservées en priorité aux nationaux. »",
+          "document_title": "Programme fictif de Claire Duvallon",
+          "page": 10,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c3",
+      "statement_id": "s11",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « La fiscalité doit taxer davantage les activités les plus polluantes. »",
+          "document_title": "Programme fictif de Claire Duvallon",
+          "page": 11,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c3",
+      "statement_id": "s12",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +1 sur « Les normes environnementales imposées aux entreprises doivent être allégées. »",
+          "document_title": "Programme fictif de Claire Duvallon",
+          "page": 12,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c3",
+      "statement_id": "s13",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « Les énergies renouvelables doivent être financées en priorité par l'argent public. »",
+          "document_title": "Programme fictif de Claire Duvallon",
+          "page": 13,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c3",
+      "statement_id": "s14",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « L'agriculture doit être libérée des contraintes environnementales européennes. »",
+          "document_title": "Programme fictif de Claire Duvallon",
+          "page": 14,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c3",
+      "statement_id": "s15",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « L'État doit réglementer plus strictement les véhicules polluants. »",
+          "document_title": "Programme fictif de Claire Duvallon",
+          "page": 15,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c3",
+      "statement_id": "s16",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +2 sur « La France doit renforcer l'intégration européenne, y compris en matière de défense. »",
+          "document_title": "Programme fictif de Claire Duvallon",
+          "page": 16,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c3",
+      "statement_id": "s17",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -2 sur « Le droit national doit primer sur le droit européen. »",
+          "document_title": "Programme fictif de Claire Duvallon",
+          "page": 17,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c3",
+      "statement_id": "s18",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c3",
+      "statement_id": "s19",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +1 sur « Les décisions européennes doivent pouvoir être prises à la majorité, sans veto national. »",
+          "document_title": "Programme fictif de Claire Duvallon",
+          "page": 19,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c3",
+      "statement_id": "s20",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « Il faut rétablir des contrôles permanents aux frontières nationales. »",
+          "document_title": "Programme fictif de Claire Duvallon",
+          "page": 20,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c3",
+      "statement_id": "s21",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « L'immigration de travail doit être réduite. »",
+          "document_title": "Programme fictif de Claire Duvallon",
+          "page": 21,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c3",
+      "statement_id": "s22",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +2 sur « Les étrangers en situation régulière doivent pouvoir voter aux élections locales. »",
+          "document_title": "Programme fictif de Claire Duvallon",
+          "page": 22,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c3",
+      "statement_id": "s23",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -2 sur « Des peines de prison minimales doivent être instaurées pour certains délits. »",
+          "document_title": "Programme fictif de Claire Duvallon",
+          "page": 23,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c3",
+      "statement_id": "s24",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +2 sur « La consommation de cannabis doit être légalisée et encadrée. »",
+          "document_title": "Programme fictif de Claire Duvallon",
+          "page": 24,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c3",
+      "statement_id": "s25",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -2 sur « Les effectifs de police doivent être fortement augmentés. »",
+          "document_title": "Programme fictif de Claire Duvallon",
+          "page": 25,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c3",
+      "statement_id": "s26",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +1 sur « La proportionnelle doit être introduite aux élections législatives. »",
+          "document_title": "Programme fictif de Claire Duvallon",
+          "page": 26,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c3",
+      "statement_id": "s27",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « Le nombre de parlementaires doit être réduit. »",
+          "document_title": "Programme fictif de Claire Duvallon",
+          "page": 27,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c3",
+      "statement_id": "s28",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +1 sur « Le droit de vote doit être ouvert dès 16 ans. »",
+          "document_title": "Programme fictif de Claire Duvallon",
+          "page": 28,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c3",
+      "statement_id": "s29",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -2 sur « Le président de la République doit recourir davantage au référendum. »",
+          "document_title": "Programme fictif de Claire Duvallon",
+          "page": 29,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c3",
+      "statement_id": "s30",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « Les collectivités locales doivent disposer d'une plus grande autonomie fiscale. »",
+          "document_title": "Programme fictif de Claire Duvallon",
+          "page": 30,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c4",
+      "statement_id": "s01",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +2 sur « Il faut baisser l'impôt sur les sociétés pour renforcer la compétitivité des entreprises. »",
+          "document_title": "Programme fictif de Damien Arkhel",
+          "page": 1,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c4",
+      "statement_id": "s02",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -2 sur « L'État doit augmenter les impôts sur les plus hauts patrimoines. »",
+          "document_title": "Programme fictif de Damien Arkhel",
+          "page": 2,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c4",
+      "statement_id": "s03",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +1 sur « Les dépenses publiques doivent être réduites pour revenir à l'équilibre budgétaire. »",
+          "document_title": "Programme fictif de Damien Arkhel",
+          "page": 3,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c4",
+      "statement_id": "s04",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -2 sur « L'État doit pouvoir nationaliser des entreprises jugées stratégiques. »",
+          "document_title": "Programme fictif de Damien Arkhel",
+          "page": 4,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c4",
+      "statement_id": "s05",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +1 sur « Il faut assouplir le droit du travail pour faciliter les embauches. »",
+          "document_title": "Programme fictif de Damien Arkhel",
+          "page": 5,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c4",
+      "statement_id": "s06",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -2 sur « Le salaire minimum doit être fortement augmenté. »",
+          "document_title": "Programme fictif de Damien Arkhel",
+          "page": 6,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c4",
+      "statement_id": "s07",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +2 sur « L'âge légal de départ à la retraite doit être reculé. »",
+          "document_title": "Programme fictif de Damien Arkhel",
+          "page": 7,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c4",
+      "statement_id": "s08",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +1 sur « Les allocations chômage doivent être réduites pour encourager le retour à l'emploi. »",
+          "document_title": "Programme fictif de Damien Arkhel",
+          "page": 8,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c4",
+      "statement_id": "s09",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -2 sur « Les soins à l'hôpital public doivent être entièrement gratuits. »",
+          "document_title": "Programme fictif de Damien Arkhel",
+          "page": 9,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c4",
+      "statement_id": "s10",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « Les aides sociales doivent être réservées en priorité aux nationaux. »",
+          "document_title": "Programme fictif de Damien Arkhel",
+          "page": 10,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c4",
+      "statement_id": "s11",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -2 sur « La fiscalité doit taxer davantage les activités les plus polluantes. »",
+          "document_title": "Programme fictif de Damien Arkhel",
+          "page": 11,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c4",
+      "statement_id": "s12",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +2 sur « Les normes environnementales imposées aux entreprises doivent être allégées. »",
+          "document_title": "Programme fictif de Damien Arkhel",
+          "page": 12,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c4",
+      "statement_id": "s13",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -2 sur « Les énergies renouvelables doivent être financées en priorité par l'argent public. »",
+          "document_title": "Programme fictif de Damien Arkhel",
+          "page": 13,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c4",
+      "statement_id": "s14",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « L'agriculture doit être libérée des contraintes environnementales européennes. »",
+          "document_title": "Programme fictif de Damien Arkhel",
+          "page": 14,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c4",
+      "statement_id": "s15",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -2 sur « L'État doit réglementer plus strictement les véhicules polluants. »",
+          "document_title": "Programme fictif de Damien Arkhel",
+          "page": 15,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c4",
+      "statement_id": "s16",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « La France doit renforcer l'intégration européenne, y compris en matière de défense. »",
+          "document_title": "Programme fictif de Damien Arkhel",
+          "page": 16,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c4",
+      "statement_id": "s17",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « Le droit national doit primer sur le droit européen. »",
+          "document_title": "Programme fictif de Damien Arkhel",
+          "page": 17,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c4",
+      "statement_id": "s18",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « La France doit quitter le commandement intégré de l'OTAN. »",
+          "document_title": "Programme fictif de Damien Arkhel",
+          "page": 18,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c4",
+      "statement_id": "s19",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « Les décisions européennes doivent pouvoir être prises à la majorité, sans veto national. »",
+          "document_title": "Programme fictif de Damien Arkhel",
+          "page": 19,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c4",
+      "statement_id": "s20",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +1 sur « Il faut rétablir des contrôles permanents aux frontières nationales. »",
+          "document_title": "Programme fictif de Damien Arkhel",
+          "page": 20,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c4",
+      "statement_id": "s21",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +1 sur « L'immigration de travail doit être réduite. »",
+          "document_title": "Programme fictif de Damien Arkhel",
+          "page": 21,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c4",
+      "statement_id": "s22",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « Les étrangers en situation régulière doivent pouvoir voter aux élections locales. »",
+          "document_title": "Programme fictif de Damien Arkhel",
+          "page": 22,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c4",
+      "statement_id": "s23",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « Des peines de prison minimales doivent être instaurées pour certains délits. »",
+          "document_title": "Programme fictif de Damien Arkhel",
+          "page": 23,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c4",
+      "statement_id": "s24",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « La consommation de cannabis doit être légalisée et encadrée. »",
+          "document_title": "Programme fictif de Damien Arkhel",
+          "page": 24,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c4",
+      "statement_id": "s25",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « Les effectifs de police doivent être fortement augmentés. »",
+          "document_title": "Programme fictif de Damien Arkhel",
+          "page": 25,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c4",
+      "statement_id": "s26",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « La proportionnelle doit être introduite aux élections législatives. »",
+          "document_title": "Programme fictif de Damien Arkhel",
+          "page": 26,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c4",
+      "statement_id": "s27",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +1 sur « Le nombre de parlementaires doit être réduit. »",
+          "document_title": "Programme fictif de Damien Arkhel",
+          "page": 27,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c4",
+      "statement_id": "s28",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « Le droit de vote doit être ouvert dès 16 ans. »",
+          "document_title": "Programme fictif de Damien Arkhel",
+          "page": 28,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c4",
+      "statement_id": "s29",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « Le président de la République doit recourir davantage au référendum. »",
+          "document_title": "Programme fictif de Damien Arkhel",
+          "page": 29,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c4",
+      "statement_id": "s30",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +2 sur « Les collectivités locales doivent disposer d'une plus grande autonomie fiscale. »",
+          "document_title": "Programme fictif de Damien Arkhel",
+          "page": 30,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c5",
+      "statement_id": "s01",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « Il faut baisser l'impôt sur les sociétés pour renforcer la compétitivité des entreprises. »",
+          "document_title": "Programme fictif de Élise Fontanes",
+          "page": 1,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c5",
+      "statement_id": "s02",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « L'État doit augmenter les impôts sur les plus hauts patrimoines. »",
+          "document_title": "Programme fictif de Élise Fontanes",
+          "page": 2,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c5",
+      "statement_id": "s03",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « Les dépenses publiques doivent être réduites pour revenir à l'équilibre budgétaire. »",
+          "document_title": "Programme fictif de Élise Fontanes",
+          "page": 3,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c5",
+      "statement_id": "s04",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « L'État doit pouvoir nationaliser des entreprises jugées stratégiques. »",
+          "document_title": "Programme fictif de Élise Fontanes",
+          "page": 4,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c5",
+      "statement_id": "s05",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « Il faut assouplir le droit du travail pour faciliter les embauches. »",
+          "document_title": "Programme fictif de Élise Fontanes",
+          "page": 5,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c5",
+      "statement_id": "s06",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « Le salaire minimum doit être fortement augmenté. »",
+          "document_title": "Programme fictif de Élise Fontanes",
+          "page": 6,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c5",
+      "statement_id": "s07",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « L'âge légal de départ à la retraite doit être reculé. »",
+          "document_title": "Programme fictif de Élise Fontanes",
+          "page": 7,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "rejected",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": "Rejet volontaire (test du filtrage)."
+      }
+    },
+    {
+      "candidate_id": "c5",
+      "statement_id": "s08",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « Les allocations chômage doivent être réduites pour encourager le retour à l'emploi. »",
+          "document_title": "Programme fictif de Élise Fontanes",
+          "page": 8,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c5",
+      "statement_id": "s09",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « Les soins à l'hôpital public doivent être entièrement gratuits. »",
+          "document_title": "Programme fictif de Élise Fontanes",
+          "page": 9,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c5",
+      "statement_id": "s10",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +2 sur « Les aides sociales doivent être réservées en priorité aux nationaux. »",
+          "document_title": "Programme fictif de Élise Fontanes",
+          "page": 10,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c5",
+      "statement_id": "s11",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « La fiscalité doit taxer davantage les activités les plus polluantes. »",
+          "document_title": "Programme fictif de Élise Fontanes",
+          "page": 11,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c5",
+      "statement_id": "s12",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « Les normes environnementales imposées aux entreprises doivent être allégées. »",
+          "document_title": "Programme fictif de Élise Fontanes",
+          "page": 12,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c5",
+      "statement_id": "s13",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « Les énergies renouvelables doivent être financées en priorité par l'argent public. »",
+          "document_title": "Programme fictif de Élise Fontanes",
+          "page": 13,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c5",
+      "statement_id": "s14",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +1 sur « L'agriculture doit être libérée des contraintes environnementales européennes. »",
+          "document_title": "Programme fictif de Élise Fontanes",
+          "page": 14,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c5",
+      "statement_id": "s15",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +1 sur « L'État doit réglementer plus strictement les véhicules polluants. »",
+          "document_title": "Programme fictif de Élise Fontanes",
+          "page": 15,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c5",
+      "statement_id": "s16",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -2 sur « La France doit renforcer l'intégration européenne, y compris en matière de défense. »",
+          "document_title": "Programme fictif de Élise Fontanes",
+          "page": 16,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c5",
+      "statement_id": "s17",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +1 sur « Le droit national doit primer sur le droit européen. »",
+          "document_title": "Programme fictif de Élise Fontanes",
+          "page": 17,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c5",
+      "statement_id": "s18",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +2 sur « La France doit quitter le commandement intégré de l'OTAN. »",
+          "document_title": "Programme fictif de Élise Fontanes",
+          "page": 18,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c5",
+      "statement_id": "s19",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -2 sur « Les décisions européennes doivent pouvoir être prises à la majorité, sans veto national. »",
+          "document_title": "Programme fictif de Élise Fontanes",
+          "page": 19,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c5",
+      "statement_id": "s20",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +1 sur « Il faut rétablir des contrôles permanents aux frontières nationales. »",
+          "document_title": "Programme fictif de Élise Fontanes",
+          "page": 20,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c5",
+      "statement_id": "s21",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +1 sur « L'immigration de travail doit être réduite. »",
+          "document_title": "Programme fictif de Élise Fontanes",
+          "page": 21,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c5",
+      "statement_id": "s22",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -2 sur « Les étrangers en situation régulière doivent pouvoir voter aux élections locales. »",
+          "document_title": "Programme fictif de Élise Fontanes",
+          "page": 22,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c5",
+      "statement_id": "s23",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +1 sur « Des peines de prison minimales doivent être instaurées pour certains délits. »",
+          "document_title": "Programme fictif de Élise Fontanes",
+          "page": 23,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c5",
+      "statement_id": "s24",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -2 sur « La consommation de cannabis doit être légalisée et encadrée. »",
+          "document_title": "Programme fictif de Élise Fontanes",
+          "page": 24,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c5",
+      "statement_id": "s25",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +2 sur « Les effectifs de police doivent être fortement augmentés. »",
+          "document_title": "Programme fictif de Élise Fontanes",
+          "page": 25,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c5",
+      "statement_id": "s26",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -2 sur « La proportionnelle doit être introduite aux élections législatives. »",
+          "document_title": "Programme fictif de Élise Fontanes",
+          "page": 26,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c5",
+      "statement_id": "s27",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +1 sur « Le nombre de parlementaires doit être réduit. »",
+          "document_title": "Programme fictif de Élise Fontanes",
+          "page": 27,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c5",
+      "statement_id": "s28",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -2 sur « Le droit de vote doit être ouvert dès 16 ans. »",
+          "document_title": "Programme fictif de Élise Fontanes",
+          "page": 28,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c5",
+      "statement_id": "s29",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +2 sur « Le président de la République doit recourir davantage au référendum. »",
+          "document_title": "Programme fictif de Élise Fontanes",
+          "page": 29,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c5",
+      "statement_id": "s30",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « Les collectivités locales doivent disposer d'une plus grande autonomie fiscale. »",
+          "document_title": "Programme fictif de Élise Fontanes",
+          "page": 30,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c6",
+      "statement_id": "s01",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +1 sur « Il faut baisser l'impôt sur les sociétés pour renforcer la compétitivité des entreprises. »",
+          "document_title": "Programme fictif de François Lemarcq",
+          "page": 1,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c6",
+      "statement_id": "s02",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « L'État doit augmenter les impôts sur les plus hauts patrimoines. »",
+          "document_title": "Programme fictif de François Lemarcq",
+          "page": 2,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c6",
+      "statement_id": "s03",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +1 sur « Les dépenses publiques doivent être réduites pour revenir à l'équilibre budgétaire. »",
+          "document_title": "Programme fictif de François Lemarcq",
+          "page": 3,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c6",
+      "statement_id": "s04",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -2 sur « L'État doit pouvoir nationaliser des entreprises jugées stratégiques. »",
+          "document_title": "Programme fictif de François Lemarcq",
+          "page": 4,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c6",
+      "statement_id": "s05",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +1 sur « Il faut assouplir le droit du travail pour faciliter les embauches. »",
+          "document_title": "Programme fictif de François Lemarcq",
+          "page": 5,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c6",
+      "statement_id": "s06",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « Le salaire minimum doit être fortement augmenté. »",
+          "document_title": "Programme fictif de François Lemarcq",
+          "page": 6,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c6",
+      "statement_id": "s07",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +2 sur « L'âge légal de départ à la retraite doit être reculé. »",
+          "document_title": "Programme fictif de François Lemarcq",
+          "page": 7,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c6",
+      "statement_id": "s08",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +1 sur « Les allocations chômage doivent être réduites pour encourager le retour à l'emploi. »",
+          "document_title": "Programme fictif de François Lemarcq",
+          "page": 8,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c6",
+      "statement_id": "s09",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « Les soins à l'hôpital public doivent être entièrement gratuits. »",
+          "document_title": "Programme fictif de François Lemarcq",
+          "page": 9,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c6",
+      "statement_id": "s10",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +1 sur « Les aides sociales doivent être réservées en priorité aux nationaux. »",
+          "document_title": "Programme fictif de François Lemarcq",
+          "page": 10,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c6",
+      "statement_id": "s11",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « La fiscalité doit taxer davantage les activités les plus polluantes. »",
+          "document_title": "Programme fictif de François Lemarcq",
+          "page": 11,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c6",
+      "statement_id": "s12",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « Les normes environnementales imposées aux entreprises doivent être allégées. »",
+          "document_title": "Programme fictif de François Lemarcq",
+          "page": 12,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c6",
+      "statement_id": "s13",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « Les énergies renouvelables doivent être financées en priorité par l'argent public. »",
+          "document_title": "Programme fictif de François Lemarcq",
+          "page": 13,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c6",
+      "statement_id": "s14",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +2 sur « L'agriculture doit être libérée des contraintes environnementales européennes. »",
+          "document_title": "Programme fictif de François Lemarcq",
+          "page": 14,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c6",
+      "statement_id": "s15",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « L'État doit réglementer plus strictement les véhicules polluants. »",
+          "document_title": "Programme fictif de François Lemarcq",
+          "page": 15,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c6",
+      "statement_id": "s16",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « La France doit renforcer l'intégration européenne, y compris en matière de défense. »",
+          "document_title": "Programme fictif de François Lemarcq",
+          "page": 16,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c6",
+      "statement_id": "s17",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +1 sur « Le droit national doit primer sur le droit européen. »",
+          "document_title": "Programme fictif de François Lemarcq",
+          "page": 17,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c6",
+      "statement_id": "s18",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +1 sur « La France doit quitter le commandement intégré de l'OTAN. »",
+          "document_title": "Programme fictif de François Lemarcq",
+          "page": 18,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c6",
+      "statement_id": "s19",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « Les décisions européennes doivent pouvoir être prises à la majorité, sans veto national. »",
+          "document_title": "Programme fictif de François Lemarcq",
+          "page": 19,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c6",
+      "statement_id": "s20",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +2 sur « Il faut rétablir des contrôles permanents aux frontières nationales. »",
+          "document_title": "Programme fictif de François Lemarcq",
+          "page": 20,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c6",
+      "statement_id": "s21",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +2 sur « L'immigration de travail doit être réduite. »",
+          "document_title": "Programme fictif de François Lemarcq",
+          "page": 21,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c6",
+      "statement_id": "s22",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « Les étrangers en situation régulière doivent pouvoir voter aux élections locales. »",
+          "document_title": "Programme fictif de François Lemarcq",
+          "page": 22,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c6",
+      "statement_id": "s23",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +1 sur « Des peines de prison minimales doivent être instaurées pour certains délits. »",
+          "document_title": "Programme fictif de François Lemarcq",
+          "page": 23,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c6",
+      "statement_id": "s24",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « La consommation de cannabis doit être légalisée et encadrée. »",
+          "document_title": "Programme fictif de François Lemarcq",
+          "page": 24,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c6",
+      "statement_id": "s25",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +2 sur « Les effectifs de police doivent être fortement augmentés. »",
+          "document_title": "Programme fictif de François Lemarcq",
+          "page": 25,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c6",
+      "statement_id": "s26",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -1 sur « La proportionnelle doit être introduite aux élections législatives. »",
+          "document_title": "Programme fictif de François Lemarcq",
+          "page": 26,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c6",
+      "statement_id": "s27",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +1 sur « Le nombre de parlementaires doit être réduit. »",
+          "document_title": "Programme fictif de François Lemarcq",
+          "page": 27,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c6",
+      "statement_id": "s28",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position -2 sur « Le droit de vote doit être ouvert dès 16 ans. »",
+          "document_title": "Programme fictif de François Lemarcq",
+          "page": 28,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c6",
+      "statement_id": "s29",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +0 sur « Le président de la République doit recourir davantage au référendum. »",
+          "document_title": "Programme fictif de François Lemarcq",
+          "page": 29,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "candidate_id": "c6",
+      "statement_id": "s30",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Extrait fictif : position +2 sur « Les collectivités locales doivent disposer d'une plus grande autonomie fiscale. »",
+          "document_title": "Programme fictif de François Lemarcq",
+          "page": 30,
+          "chunk_id": null
+        }
+      ],
+      "proposed_by": "demo-generator",
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    }
+  ]
+}

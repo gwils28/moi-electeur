@@ -1,0 +1,27 @@
+[project]
+name = "moi-electeur-pipeline"
+version = "0.0.0"
+description = "Pipeline hors ligne : sources, extraction, chunks, index, propositions, revue, build."
+license = "AGPL-3.0-only"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "jsonschema>=4.26",
+  "pydantic>=2.14",
+  "referencing>=0.37",
+  "rfc3339-validator>=0.1.4",
+  "rfc3986-validator>=0.1.1",
+  "typer>=0.29",
+]
+
+[project.scripts]
+pipeline = "moi_electeur_pipeline.cli:app"
+
+[dependency-groups]
+dev = ["datamodel-code-generator>=0.97", "mypy>=2.4", "pytest>=9.2", "ruff>=0.17", "types-jsonschema"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

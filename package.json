@@ -1,0 +1,25 @@
+{
+  "name": "moi-electeur",
+  "private": true,
+  "license": "AGPL-3.0-only",
+  "packageManager": "pnpm@12.9.1",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "lint": "eslint . && prettier --check .",
+    "format": "prettier --write .",
+    "typecheck": "pnpm -r --if-present typecheck",
+    "test": "pnpm -r --if-present test",
+    "gen:types": "pnpm --filter @moi-electeur/schemas-ts gen",
+    "check:hygiene": "python3 scripts/check-no-em-dash.py && python3 scripts/check-forbidden-words.py",
+    "check": "pnpm lint && pnpm typecheck && pnpm test && pnpm check:hygiene"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.0",
+    "eslint": "^10.0.0",
+    "prettier": "^3.10.1",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.73.0"
+  }
+}

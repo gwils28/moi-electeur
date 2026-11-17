@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://moi-electeur.fr/schemas/positions.schema.json",
+  "title": "PositionsFile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["election_id", "positions"],
+  "properties": {
+    "election_id": { "type": "string" },
+    "positions": {
+      "type": "array",
+      "items": {
+        "title": "Position",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "candidate_id",
+          "statement_id",
+          "value",
+          "confidence",
+          "evidence",
+          "proposed_by",
+          "review"
+        ],
+        "properties": {
+          "candidate_id": { "type": "string" },
+          "statement_id": { "type": "string" },
+          "value": {
+            "type": ["integer", "null"],
+            "minimum": -2,
+            "maximum": 2,
+            "description": "null = silence du programme."
+          },
+          "confidence": { "type": "string", "enum": ["high", "medium", "low"] },
+          "evidence": { "type": "array", "items": { "$ref": "evidence.schema.json" } },
+          "proposed_by": { "type": "string" },
+          "review": { "$ref": "review.schema.json" }
+        }
+      }
+    }
+  }
+}

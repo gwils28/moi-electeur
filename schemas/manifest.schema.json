@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://moi-electeur.fr/schemas/manifest.schema.json",
+  "title": "Manifest",
+  "description": "Sortie de pipeline build : versions et empreintes des fichiers servis au front.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["election_id", "built_at", "corpus_version", "files"],
+  "properties": {
+    "election_id": { "type": "string" },
+    "built_at": { "type": "string", "format": "date-time" },
+    "corpus_version": { "type": "string" },
+    "files": {
+      "type": "array",
+      "items": {
+        "title": "ManifestFile",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "sha256"],
+        "properties": {
+          "path": { "type": "string" },
+          "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+# Environnement de développement (PLAN § 2.5). La prod (caddy, TLS) arrive au jalon M5.
+name: moi-electeur
+
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-moi_electeur}
+      POSTGRES_USER: ${POSTGRES_USER:-moi_electeur}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-dev-only-password}
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  rag:
+    build:
+      context: .
+      dockerfile: services/rag/Dockerfile
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-moi_electeur}:${POSTGRES_PASSWORD:-dev-only-password}@db:5432/${POSTGRES_DB:-moi_electeur}
+    ports:
+      - "127.0.0.1:8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')",
+        ]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    environment:
+      RAG_URL: http://rag:8000
+    ports:
+      - "127.0.0.1:3000:3000"
+    depends_on:
+      rag:
+        condition: service_healthy
+
+volumes:
+  db-data:

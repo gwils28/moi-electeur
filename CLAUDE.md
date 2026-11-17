@@ -3,7 +3,7 @@
 Boussole électorale + explorateur RAG des programmes officiels. Spécification : @SPEC.md. Plan en cours : `PLAN.md`. Notes d'implémentation : `docs/notes-implementation.md`.
 
 ## Règles non négociables
-- Les réponses au questionnaire, les poids et (X_user, Y_user) ne quittent **jamais** le navigateur. Aucun appel réseau dans `lib/engine`.
+- Les réponses au questionnaire, les poids et (X_user, Y_user) ne quittent **jamais** le navigateur. Aucun appel réseau dans `packages/engine` (vérifié par ESLint et `packages/engine/test/no-io.test.ts`).
 - Ne jamais logguer le contenu des questions du chat (donnée d'opinion, RGPD art. 9).
 - Le front ne charge que des positions/mesures au statut `validated` ou `corrected`.
 - Aucun texte produit par l'app ne classe un candidat (« meilleur », « plus crédible »…). Ordre des candidats aléatoire.
@@ -19,7 +19,15 @@ Boussole électorale + explorateur RAG des programmes officiels. Spécification 
 - Tiret cadratin (U+2014) interdit partout (code, commentaires, docs, réponses) : virgule, deux-points, parenthèses ou tiret simple "-". Imposé par le hook `.claude/hooks/no-em-dash.py`.
 
 ## Commandes
-_(à compléter au jalon M0)_
+- Installer : `pnpm install && uv sync --all-packages`
+- Tout contrôler (JS) : `pnpm check` (lint, typecheck, tests, hygiène)
+- Tests JS : `pnpm test` ; E2E : `pnpm --filter @moi-electeur/web e2e`
+- Tests Python : `uv run --project pipeline pytest -q pipeline` (idem `services/rag`, `eval`, `notebooks`)
+- Lint Python : `uv run --project pipeline ruff check . && uv run --project pipeline ruff format --check . && uv run --project pipeline mypy pipeline/src services/rag/src eval/src`
+- Données : `uv run pipeline validate` ; démo : `uv run pipeline make-demo [--check]`
+- Types depuis `schemas/` : `pnpm gen:types` (TS) et `uv run pipeline gen-models [--check]` (Pydantic)
+- Notebooks : `uv run --project notebooks marimo edit notebooks/<fichier>.py`
+- Stack locale : `docker compose up -d --build --wait` (web :3000, rag :8000, db :5432)
 
 ## Compaction
 En cas de compaction, conserver : fichiers modifiés, commandes de test et leur dernier résultat, décisions de modélisation (formules, schémas), points ouverts de SPEC.md § 15.

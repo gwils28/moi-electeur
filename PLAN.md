@@ -101,11 +101,11 @@ Membre uv `notebooks` (marimo, numpy, pandas, matplotlib), gabarit, `m0-01-donne
 - `README.md` : démarrage rapide.
 
 ### 2.8 Critères d'acceptation M0
-- [ ] `pnpm check` vert ; `uv run pytest` vert (sorties collées dans la PR).
-- [ ] `docker compose up -d` : `db` healthy, `curl localhost:8000/health` → 200, `localhost:3000` répond.
-- [ ] `uv run pipeline validate data/elections/demo-fictive` vert ; un fichier volontairement cassé est rejeté (test).
-- [ ] Le test « zéro I/O » échoue si on ajoute `fetch` dans `packages/engine` (vérifié puis retiré).
-- [ ] CI verte sur la PR.
+- [x] `pnpm check` vert ; `uv run pytest` vert (sorties collées dans la PR).
+- [x] `docker compose up -d` : `db` healthy, `curl localhost:8000/health` → 200, `localhost:3000` répond.
+- [x] `uv run pipeline validate data/elections/demo-fictive` vert ; un fichier volontairement cassé est rejeté (test).
+- [x] Le test « zéro I/O » échoue si on ajoute `fetch` dans `packages/engine` (vérifié puis retiré).
+- [ ] CI verte sur la PR (à vérifier après push).
 
 > 📝 Annotation : ok
 
