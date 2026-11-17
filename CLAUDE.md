@@ -16,6 +16,7 @@ Boussole électorale + explorateur RAG des programmes officiels. Spécification 
 - Consigner dans `docs/notes-implementation.md` tout écart au plan et tout choix conservateur.
 - Ne pas commiter ni pousser : préparer le diff, lancer les contrôles, proposer un message Conventional Commits.
 - Rien n'est « fini » sans preuve : sortie de test ou commande lancée.
+- Tiret cadratin (U+2014) interdit partout (code, commentaires, docs, réponses) : virgule, deux-points, parenthèses ou tiret simple "-". Imposé par le hook `.claude/hooks/no-em-dash.py`.
 
 ## Commandes
 _(à compléter au jalon M0)_
