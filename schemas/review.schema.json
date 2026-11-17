@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://moi-electeur.fr/schemas/review.schema.json",
+  "title": "Review",
+  "description": "Décision de revue humaine. Seuls validated et corrected sont chargés par le front.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["status"],
+  "properties": {
+    "status": { "type": "string", "enum": ["pending", "validated", "corrected", "rejected"] },
+    "reviewer": { "type": ["string", "null"] },
+    "date": { "type": ["string", "null"], "format": "date" },
+    "note": { "type": ["string", "null"] }
+  },
+  "if": { "properties": { "status": { "enum": ["validated", "corrected", "rejected"] } } },
+  "then": {
+    "required": ["reviewer", "date"],
+    "properties": { "reviewer": { "type": "string", "minLength": 1 }, "date": { "type": "string" } }
+  }
+}

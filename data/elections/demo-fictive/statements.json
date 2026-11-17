@@ -1,0 +1,245 @@
+{
+  "election_id": "demo-fictive",
+  "statements": [
+    {
+      "id": "s01",
+      "theme": "economie",
+      "text": "Il faut baisser l'impôt sur les sociétés pour renforcer la compétitivité des entreprises.",
+      "axis": "x",
+      "direction": 1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s02",
+      "theme": "economie",
+      "text": "L'État doit augmenter les impôts sur les plus hauts patrimoines.",
+      "axis": "x",
+      "direction": -1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s03",
+      "theme": "economie",
+      "text": "Les dépenses publiques doivent être réduites pour revenir à l'équilibre budgétaire.",
+      "axis": "x",
+      "direction": 1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s04",
+      "theme": "economie",
+      "text": "L'État doit pouvoir nationaliser des entreprises jugées stratégiques.",
+      "axis": "x",
+      "direction": -1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s05",
+      "theme": "economie",
+      "text": "Il faut assouplir le droit du travail pour faciliter les embauches.",
+      "axis": "x",
+      "direction": 1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s06",
+      "theme": "social",
+      "text": "Le salaire minimum doit être fortement augmenté.",
+      "axis": "x",
+      "direction": -1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s07",
+      "theme": "social",
+      "text": "L'âge légal de départ à la retraite doit être reculé.",
+      "axis": "x",
+      "direction": 1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s08",
+      "theme": "social",
+      "text": "Les allocations chômage doivent être réduites pour encourager le retour à l'emploi.",
+      "axis": "x",
+      "direction": 1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s09",
+      "theme": "social",
+      "text": "Les soins à l'hôpital public doivent être entièrement gratuits.",
+      "axis": "x",
+      "direction": -1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s10",
+      "theme": "social",
+      "text": "Les aides sociales doivent être réservées en priorité aux nationaux.",
+      "axis": "y",
+      "direction": 1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s11",
+      "theme": "ecologie",
+      "text": "La fiscalité doit taxer davantage les activités les plus polluantes.",
+      "axis": "x",
+      "direction": -1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s12",
+      "theme": "ecologie",
+      "text": "Les normes environnementales imposées aux entreprises doivent être allégées.",
+      "axis": "x",
+      "direction": 1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s13",
+      "theme": "ecologie",
+      "text": "Les énergies renouvelables doivent être financées en priorité par l'argent public.",
+      "axis": "x",
+      "direction": -1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s14",
+      "theme": "ecologie",
+      "text": "L'agriculture doit être libérée des contraintes environnementales européennes.",
+      "axis": "y",
+      "direction": 1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s15",
+      "theme": "ecologie",
+      "text": "L'État doit réglementer plus strictement les véhicules polluants.",
+      "axis": "x",
+      "direction": -1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s16",
+      "theme": "europe_international",
+      "text": "La France doit renforcer l'intégration européenne, y compris en matière de défense.",
+      "axis": "y",
+      "direction": -1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s17",
+      "theme": "europe_international",
+      "text": "Le droit national doit primer sur le droit européen.",
+      "axis": "y",
+      "direction": 1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s18",
+      "theme": "europe_international",
+      "text": "La France doit quitter le commandement intégré de l'OTAN.",
+      "axis": "y",
+      "direction": 1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s19",
+      "theme": "europe_international",
+      "text": "Les décisions européennes doivent pouvoir être prises à la majorité, sans veto national.",
+      "axis": "y",
+      "direction": -1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s20",
+      "theme": "europe_international",
+      "text": "Il faut rétablir des contrôles permanents aux frontières nationales.",
+      "axis": "y",
+      "direction": 1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s21",
+      "theme": "regalien_immigration",
+      "text": "L'immigration de travail doit être réduite.",
+      "axis": "y",
+      "direction": 1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s22",
+      "theme": "regalien_immigration",
+      "text": "Les étrangers en situation régulière doivent pouvoir voter aux élections locales.",
+      "axis": "y",
+      "direction": -1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s23",
+      "theme": "regalien_immigration",
+      "text": "Des peines de prison minimales doivent être instaurées pour certains délits.",
+      "axis": "y",
+      "direction": 1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s24",
+      "theme": "regalien_immigration",
+      "text": "La consommation de cannabis doit être légalisée et encadrée.",
+      "axis": "y",
+      "direction": -1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s25",
+      "theme": "regalien_immigration",
+      "text": "Les effectifs de police doivent être fortement augmentés.",
+      "axis": "y",
+      "direction": 1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s26",
+      "theme": "institutions",
+      "text": "La proportionnelle doit être introduite aux élections législatives.",
+      "axis": "y",
+      "direction": -1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s27",
+      "theme": "institutions",
+      "text": "Le nombre de parlementaires doit être réduit.",
+      "axis": "y",
+      "direction": 1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s28",
+      "theme": "institutions",
+      "text": "Le droit de vote doit être ouvert dès 16 ans.",
+      "axis": "y",
+      "direction": -1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s29",
+      "theme": "institutions",
+      "text": "Le président de la République doit recourir davantage au référendum.",
+      "axis": "y",
+      "direction": 1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s30",
+      "theme": "institutions",
+      "text": "Les collectivités locales doivent disposer d'une plus grande autonomie fiscale.",
+      "axis": "x",
+      "direction": 1,
+      "weight_in_axis": 1.0
+    }
+  ]
+}

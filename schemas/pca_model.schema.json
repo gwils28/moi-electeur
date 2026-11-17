@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://moi-electeur.fr/schemas/pca_model.schema.json",
+  "title": "PcaModel",
+  "description": "Chargements ACP précalculés par le pipeline (mode B). La projection reste calculée côté client.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "election_id",
+    "statement_ids",
+    "mean",
+    "components",
+    "explained_variance_ratio",
+    "scale",
+    "top_statements"
+  ],
+  "properties": {
+    "election_id": { "type": "string" },
+    "statement_ids": { "type": "array", "items": { "type": "string" }, "minItems": 2 },
+    "mean": { "type": "array", "items": { "type": "number" } },
+    "components": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": { "type": "array", "items": { "type": "number" } },
+      "description": "Composantes 1 et 2, orientées selon les axes x et y du mode A (décision D3)."
+    },
+    "explained_variance_ratio": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": { "type": "number", "minimum": 0, "maximum": 1 }
+    },
+    "scale": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": { "type": "number", "exclusiveMinimum": 0 },
+      "description": "Facteurs tels que max |coord candidat| = 9 (décision D4)."
+    },
+    "top_statements": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": { "type": "array", "items": { "type": "string" } },
+      "description": "Affirmations les plus contributives par composante, pour l'interprétation des axes."
+    }
+  }
+}

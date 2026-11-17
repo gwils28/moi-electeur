@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://moi-electeur.fr/schemas/measures.schema.json",
+  "title": "MeasuresFile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["election_id", "measures"],
+  "properties": {
+    "election_id": { "type": "string" },
+    "measures": {
+      "type": "array",
+      "items": {
+        "title": "Measure",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "candidate_id",
+          "theme",
+          "title",
+          "summary",
+          "costing",
+          "evidence",
+          "review"
+        ],
+        "properties": {
+          "id": { "type": "string", "pattern": "^m[0-9]{3}$" },
+          "candidate_id": { "type": "string" },
+          "theme": { "type": "string" },
+          "title": { "type": "string", "minLength": 1 },
+          "summary": { "type": "string" },
+          "costing": {
+            "title": "Costing",
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["status"],
+            "properties": {
+              "status": { "type": "string", "enum": ["chiffre", "partiel", "intention"] },
+              "amount_eur": { "type": ["number", "null"] },
+              "period": { "type": ["string", "null"] },
+              "quote": { "type": ["string", "null"] }
+            }
+          },
+          "evidence": { "type": "array", "items": { "$ref": "evidence.schema.json" } },
+          "review": { "$ref": "review.schema.json" }
+        }
+      }
+    }
+  }
+}

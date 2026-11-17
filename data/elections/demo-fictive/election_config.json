@@ -1,0 +1,108 @@
+{
+  "id": "demo-fictive",
+  "name": "Élection de démonstration (candidats fictifs)",
+  "country": "FR",
+  "date_first_round": "2027-04-11",
+  "fictional": true,
+  "axes": {
+    "x": {
+      "label": "Économie",
+      "min_label": "Interventionnisme / Redistribution",
+      "max_label": "Libéralisme / Baisse de la fiscalité"
+    },
+    "y": {
+      "label": "Société & souveraineté",
+      "min_label": "Progressisme / Intégration européenne",
+      "max_label": "Conservatisme / Autorité / Souverainisme"
+    }
+  },
+  "quadrants": {
+    "tl": "Interventionniste et conservateur",
+    "tr": "Libéral et conservateur",
+    "bl": "Interventionniste et progressiste",
+    "br": "Libéral et progressiste"
+  },
+  "themes": [
+    {
+      "id": "economie",
+      "label": "Économie"
+    },
+    {
+      "id": "social",
+      "label": "Social"
+    },
+    {
+      "id": "ecologie",
+      "label": "Écologie"
+    },
+    {
+      "id": "europe_international",
+      "label": "Europe & international"
+    },
+    {
+      "id": "regalien_immigration",
+      "label": "Régalien & immigration"
+    },
+    {
+      "id": "institutions",
+      "label": "Institutions"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "c1",
+      "name": "Amandine Vérac",
+      "party": "Mouvement des Communs (fictif)",
+      "color": "#b2182b",
+      "photo": null,
+      "program_url": "https://example.org/demo-fictive/c1",
+      "blind_alias": "Candidat·e A"
+    },
+    {
+      "id": "c2",
+      "name": "Bastien Morel",
+      "party": "Alliance sociale (fictif)",
+      "color": "#ef8a62",
+      "photo": null,
+      "program_url": "https://example.org/demo-fictive/c2",
+      "blind_alias": "Candidat·e B"
+    },
+    {
+      "id": "c3",
+      "name": "Claire Duvallon",
+      "party": "Renouveau central (fictif)",
+      "color": "#e6ab02",
+      "photo": null,
+      "program_url": "https://example.org/demo-fictive/c3",
+      "blind_alias": "Candidat·e C"
+    },
+    {
+      "id": "c4",
+      "name": "Damien Arkhel",
+      "party": "Parti de l'entreprise (fictif)",
+      "color": "#1b7837",
+      "photo": null,
+      "program_url": "https://example.org/demo-fictive/c4",
+      "blind_alias": "Candidat·e D"
+    },
+    {
+      "id": "c5",
+      "name": "Élise Fontanes",
+      "party": "Rassemblement souverain (fictif)",
+      "color": "#2166ac",
+      "photo": null,
+      "program_url": "https://example.org/demo-fictive/c5",
+      "blind_alias": "Candidat·e E"
+    },
+    {
+      "id": "c6",
+      "name": "François Lemarcq",
+      "party": "Droite républicaine (fictif)",
+      "color": "#542788",
+      "photo": null,
+      "program_url": "https://example.org/demo-fictive/c6",
+      "blind_alias": "Candidat·e F"
+    }
+  ],
+  "corpus": []
+}

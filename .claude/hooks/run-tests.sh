@@ -21,7 +21,7 @@ run() { # $1 = label, $2.. = commande
 if echo "$changed" | grep -qE '^(apps|packages)/' && [ -f package.json ]; then
   run "js-tests" pnpm -r --if-present test
 fi
-for d in pipeline services/rag eval; do
+for d in pipeline services/rag eval notebooks; do
   if echo "$changed" | grep -q "^$d/" && [ -f "$d/pyproject.toml" ]; then
     run "pytest" uv run --project "$d" pytest -q "$d"
   fi

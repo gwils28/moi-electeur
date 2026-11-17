@@ -1,0 +1,208 @@
+/* Fichier généré par packages/schemas-ts/scripts/gen.mjs depuis schemas/. Ne pas éditer. */
+
+export interface AllSchemas {
+  election_config?: ElectionConfig;
+  evidence?: Evidence;
+  manifest?: Manifest;
+  measures?: MeasuresFile;
+  pca_model?: PcaModel;
+  positions?: PositionsFile;
+  review?: Review;
+  statements?: StatementsFile;
+}
+/**
+ * Configuration d'une élection : axes, thèmes (dans l'ordre d'affichage), candidats, corpus officiel.
+ */
+export interface ElectionConfig {
+  id: string;
+  name: string;
+  country: string;
+  date_first_round: string;
+  /**
+   * Vrai pour une élection de démonstration aux candidats inventés.
+   */
+  fictional?: boolean;
+  axes: {
+    x: Axis;
+    y: Axis;
+  };
+  quadrants: {
+    tl: string;
+    tr: string;
+    bl: string;
+    br: string;
+  };
+  /**
+   * L'ordre du tableau est l'ordre d'affichage du questionnaire.
+   *
+   * @minItems 1
+   */
+  themes: Theme[];
+  /**
+   * @minItems 2
+   */
+  candidates: Candidate[];
+  corpus: CorpusDocument[];
+}
+export interface Axis {
+  label: string;
+  /**
+   * Libellé du pôle -10.
+   */
+  min_label: string;
+  /**
+   * Libellé du pôle +10.
+   */
+  max_label: string;
+}
+export interface Theme {
+  id: string;
+  label: string;
+}
+/**
+ * Aucune coordonnée (x, y) ici : elles sont calculées, jamais saisies.
+ */
+export interface Candidate {
+  id: string;
+  name: string;
+  party: string;
+  color: string;
+  photo?: string | null;
+  program_url: string;
+  blind_alias: string;
+}
+export interface CorpusDocument {
+  candidate_id: string;
+  document_title: string;
+  type: "pdf" | "html" | "markdown";
+  source_url: string;
+  local_path: string;
+  sha256: string;
+  retrieved_at: string;
+}
+/**
+ * Citation extraite d'un document officiel du corpus, justifiant une position ou une mesure.
+ */
+export interface Evidence {
+  /**
+   * Citation exacte (sous-chaîne du document).
+   */
+  quote: string;
+  document_title: string;
+  page?: number | null;
+  chunk_id?: string | null;
+}
+/**
+ * Sortie de pipeline build : versions et empreintes des fichiers servis au front.
+ */
+export interface Manifest {
+  election_id: string;
+  built_at: string;
+  corpus_version: string;
+  files: ManifestFile[];
+}
+export interface ManifestFile {
+  path: string;
+  sha256: string;
+}
+export interface MeasuresFile {
+  election_id: string;
+  measures: Measure[];
+}
+export interface Measure {
+  id: string;
+  candidate_id: string;
+  theme: string;
+  title: string;
+  summary: string;
+  costing: Costing;
+  evidence: Evidence[];
+  review: Review;
+}
+export interface Costing {
+  status: "chiffre" | "partiel" | "intention";
+  amount_eur?: number | null;
+  period?: string | null;
+  quote?: string | null;
+}
+/**
+ * Décision de revue humaine. Seuls validated et corrected sont chargés par le front.
+ */
+export interface Review {
+  status: "pending" | "validated" | "corrected" | "rejected";
+  reviewer?: string | null;
+  date?: string | null;
+  note?: string | null;
+}
+/**
+ * Chargements ACP précalculés par le pipeline (mode B). La projection reste calculée côté client.
+ */
+export interface PcaModel {
+  election_id: string;
+  /**
+   * @minItems 2
+   */
+  statement_ids: string[];
+  mean: number[];
+  /**
+   * Composantes 1 et 2, orientées selon les axes x et y du mode A (décision D3).
+   *
+   * @minItems 2
+   * @maxItems 2
+   */
+  components: number[][];
+  /**
+   * @minItems 2
+   * @maxItems 2
+   */
+  explained_variance_ratio: number[];
+  /**
+   * Facteurs tels que max |coord candidat| = 9 (décision D4).
+   *
+   * @minItems 2
+   * @maxItems 2
+   */
+  scale: number[];
+  /**
+   * Affirmations les plus contributives par composante, pour l'interprétation des axes.
+   *
+   * @minItems 2
+   * @maxItems 2
+   */
+  top_statements: string[][];
+}
+export interface PositionsFile {
+  election_id: string;
+  positions: Position[];
+}
+export interface Position {
+  candidate_id: string;
+  statement_id: string;
+  /**
+   * null = silence du programme.
+   */
+  value: number | null;
+  confidence: "high" | "medium" | "low";
+  evidence: Evidence[];
+  proposed_by: string;
+  review: Review;
+}
+export interface StatementsFile {
+  election_id: string;
+  /**
+   * @minItems 25
+   * @maxItems 35
+   */
+  statements: Statement[];
+}
+export interface Statement {
+  id: string;
+  theme: string;
+  text: string;
+  axis: "x" | "y";
+  /**
+   * +1 si « d'accord » pousse vers +10 sur l'axe.
+   */
+  direction: -1 | 1;
+  weight_in_axis: number;
+}

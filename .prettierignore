@@ -1,0 +1,13 @@
+pnpm-lock.yaml
+uv.lock
+.next/
+coverage/
+node_modules/
+apps/web/public/data/
+packages/schemas-ts/src/generated/
+apps/web/next-env.d.ts
+*.md
+.claude/
+data/
+.venv/
+schemas/fixtures/engine_cases.json

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://moi-electeur.fr/schemas/evidence.schema.json",
+  "title": "Evidence",
+  "description": "Citation extraite d'un document officiel du corpus, justifiant une position ou une mesure.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["quote", "document_title"],
+  "properties": {
+    "quote": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Citation exacte (sous-chaîne du document)."
+    },
+    "document_title": { "type": "string", "minLength": 1 },
+    "page": { "type": ["integer", "null"], "minimum": 1 },
+    "chunk_id": { "type": ["string", "null"] }
+  }
+}

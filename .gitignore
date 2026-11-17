@@ -18,3 +18,8 @@ eval/runs/
 models/
 *.log
 .DS_Store
+apps/web/public/data/
+test-results/
+playwright-report/
+next-env.d.ts
+__marimo__/

@@ -1,0 +1,167 @@
+{
+  "election_id": "demo-fictive",
+  "measures": [
+    {
+      "id": "m001",
+      "candidate_id": "c1",
+      "theme": "social",
+      "title": "Revalorisation du salaire minimum",
+      "summary": "Hausse du salaire minimum en deux étapes.",
+      "costing": {
+        "status": "chiffre",
+        "amount_eur": 9000000000,
+        "period": "par an",
+        "quote": null
+      },
+      "evidence": [
+        {
+          "quote": "Extrait fictif : Hausse du salaire minimum en deux étapes.",
+          "document_title": "Programme fictif",
+          "page": 1,
+          "chunk_id": null
+        }
+      ],
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "id": "m002",
+      "candidate_id": "c2",
+      "theme": "ecologie",
+      "title": "Plan de rénovation thermique",
+      "summary": "Aide à la rénovation des logements anciens.",
+      "costing": {
+        "status": "partiel",
+        "amount_eur": 4000000000,
+        "period": "par an",
+        "quote": null
+      },
+      "evidence": [
+        {
+          "quote": "Extrait fictif : Aide à la rénovation des logements anciens.",
+          "document_title": "Programme fictif",
+          "page": 1,
+          "chunk_id": null
+        }
+      ],
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "id": "m003",
+      "candidate_id": "c3",
+      "theme": "europe_international",
+      "title": "Défense européenne commune",
+      "summary": "Fonds européen d'investissement de défense.",
+      "costing": {
+        "status": "intention",
+        "amount_eur": null,
+        "period": null,
+        "quote": null
+      },
+      "evidence": [
+        {
+          "quote": "Extrait fictif : Fonds européen d'investissement de défense.",
+          "document_title": "Programme fictif",
+          "page": 1,
+          "chunk_id": null
+        }
+      ],
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "id": "m004",
+      "candidate_id": "c4",
+      "theme": "economie",
+      "title": "Baisse de l'impôt sur les sociétés",
+      "summary": "Taux ramené progressivement à 20 %.",
+      "costing": {
+        "status": "chiffre",
+        "amount_eur": 12000000000,
+        "period": "par an",
+        "quote": null
+      },
+      "evidence": [
+        {
+          "quote": "Extrait fictif : Taux ramené progressivement à 20 %.",
+          "document_title": "Programme fictif",
+          "page": 1,
+          "chunk_id": null
+        }
+      ],
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "id": "m005",
+      "candidate_id": "c5",
+      "theme": "regalien_immigration",
+      "title": "Contrôles aux frontières",
+      "summary": "Recrutement de douaniers supplémentaires.",
+      "costing": {
+        "status": "partiel",
+        "amount_eur": 1500000000,
+        "period": "par an",
+        "quote": null
+      },
+      "evidence": [
+        {
+          "quote": "Extrait fictif : Recrutement de douaniers supplémentaires.",
+          "document_title": "Programme fictif",
+          "page": 1,
+          "chunk_id": null
+        }
+      ],
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    },
+    {
+      "id": "m006",
+      "candidate_id": "c6",
+      "theme": "institutions",
+      "title": "Réduction du nombre de parlementaires",
+      "summary": "Diminution d'un tiers des sièges.",
+      "costing": {
+        "status": "intention",
+        "amount_eur": null,
+        "period": null,
+        "quote": null
+      },
+      "evidence": [
+        {
+          "quote": "Extrait fictif : Diminution d'un tiers des sièges.",
+          "document_title": "Programme fictif",
+          "page": 1,
+          "chunk_id": null
+        }
+      ],
+      "review": {
+        "status": "validated",
+        "reviewer": "demo",
+        "date": "2026-11-17",
+        "note": null
+      }
+    }
+  ]
+}

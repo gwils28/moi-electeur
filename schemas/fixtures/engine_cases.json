@@ -1,0 +1,837 @@
+{
+ "description": "Généré par `uv run pipeline engine-fixtures` (référence Python). Ne pas éditer.",
+ "statements": [
+  {
+   "id": "s01",
+   "theme": "economie",
+   "text": "Il faut baisser l'impôt sur les sociétés pour renforcer la compétitivité des entreprises.",
+   "axis": "x",
+   "direction": 1,
+   "weight_in_axis": 1.0
+  },
+  {
+   "id": "s02",
+   "theme": "economie",
+   "text": "L'État doit augmenter les impôts sur les plus hauts patrimoines.",
+   "axis": "x",
+   "direction": -1,
+   "weight_in_axis": 1.0
+  },
+  {
+   "id": "s03",
+   "theme": "economie",
+   "text": "Les dépenses publiques doivent être réduites pour revenir à l'équilibre budgétaire.",
+   "axis": "x",
+   "direction": 1,
+   "weight_in_axis": 1.0
+  },
+  {
+   "id": "s04",
+   "theme": "economie",
+   "text": "L'État doit pouvoir nationaliser des entreprises jugées stratégiques.",
+   "axis": "x",
+   "direction": -1,
+   "weight_in_axis": 1.0
+  },
+  {
+   "id": "s05",
+   "theme": "economie",
+   "text": "Il faut assouplir le droit du travail pour faciliter les embauches.",
+   "axis": "x",
+   "direction": 1,
+   "weight_in_axis": 1.0
+  },
+  {
+   "id": "s06",
+   "theme": "social",
+   "text": "Le salaire minimum doit être fortement augmenté.",
+   "axis": "x",
+   "direction": -1,
+   "weight_in_axis": 1.0
+  },
+  {
+   "id": "s07",
+   "theme": "social",
+   "text": "L'âge légal de départ à la retraite doit être reculé.",
+   "axis": "x",
+   "direction": 1,
+   "weight_in_axis": 1.0
+  },
+  {
+   "id": "s08",
+   "theme": "social",
+   "text": "Les allocations chômage doivent être réduites pour encourager le retour à l'emploi.",
+   "axis": "x",
+   "direction": 1,
+   "weight_in_axis": 1.0
+  },
+  {
+   "id": "s09",
+   "theme": "social",
+   "text": "Les soins à l'hôpital public doivent être entièrement gratuits.",
+   "axis": "x",
+   "direction": -1,
+   "weight_in_axis": 1.0
+  },
+  {
+   "id": "s10",
+   "theme": "social",
+   "text": "Les aides sociales doivent être réservées en priorité aux nationaux.",
+   "axis": "y",
+   "direction": 1,
+   "weight_in_axis": 1.0
+  },
+  {
+   "id": "s11",
+   "theme": "ecologie",
+   "text": "La fiscalité doit taxer davantage les activités les plus polluantes.",
+   "axis": "x",
+   "direction": -1,
+   "weight_in_axis": 1.0
+  },
+  {
+   "id": "s12",
+   "theme": "ecologie",
+   "text": "Les normes environnementales imposées aux entreprises doivent être allégées.",
+   "axis": "x",
+   "direction": 1,
+   "weight_in_axis": 1.0
+  },
+  {
+   "id": "s13",
+   "theme": "ecologie",
+   "text": "Les énergies renouvelables doivent être financées en priorité par l'argent public.",
+   "axis": "x",
+   "direction": -1,
+   "weight_in_axis": 1.0
+  },
+  {
+   "id": "s14",
+   "theme": "ecologie",
+   "text": "L'agriculture doit être libérée des contraintes environnementales européennes.",
+   "axis": "y",
+   "direction": 1,
+   "weight_in_axis": 1.0
+  },
+  {
+   "id": "s15",
+   "theme": "ecologie",
+   "text": "L'État doit réglementer plus strictement les véhicules polluants.",
+   "axis": "x",
+   "direction": -1,
+   "weight_in_axis": 1.0
+  },
+  {
+   "id": "s16",
+   "theme": "europe_international",
+   "text": "La France doit renforcer l'intégration européenne, y compris en matière de défense.",
+   "axis": "y",
+   "direction": -1,
+   "weight_in_axis": 1.0
+  },
+  {
+   "id": "s17",
+   "theme": "europe_international",
+   "text": "Le droit national doit primer sur le droit européen.",
+   "axis": "y",
+   "direction": 1,
+   "weight_in_axis": 1.0
+  },
+  {
+   "id": "s18",
+   "theme": "europe_international",
+   "text": "La France doit quitter le commandement intégré de l'OTAN.",
+   "axis": "y",
+   "direction": 1,
+   "weight_in_axis": 1.0
+  },
+  {
+   "id": "s19",
+   "theme": "europe_international",
+   "text": "Les décisions européennes doivent pouvoir être prises à la majorité, sans veto national.",
+   "axis": "y",
+   "direction": -1,
+   "weight_in_axis": 1.0
+  },
+  {
+   "id": "s20",
+   "theme": "europe_international",
+   "text": "Il faut rétablir des contrôles permanents aux frontières nationales.",
+   "axis": "y",
+   "direction": 1,
+   "weight_in_axis": 1.0
+  },
+  {
+   "id": "s21",
+   "theme": "regalien_immigration",
+   "text": "L'immigration de travail doit être réduite.",
+   "axis": "y",
+   "direction": 1,
+   "weight_in_axis": 1.0
+  },
+  {
+   "id": "s22",
+   "theme": "regalien_immigration",
+   "text": "Les étrangers en situation régulière doivent pouvoir voter aux élections locales.",
+   "axis": "y",
+   "direction": -1,
+   "weight_in_axis": 1.0
+  },
+  {
+   "id": "s23",
+   "theme": "regalien_immigration",
+   "text": "Des peines de prison minimales doivent être instaurées pour certains délits.",
+   "axis": "y",
+   "direction": 1,
+   "weight_in_axis": 1.0
+  },
+  {
+   "id": "s24",
+   "theme": "regalien_immigration",
+   "text": "La consommation de cannabis doit être légalisée et encadrée.",
+   "axis": "y",
+   "direction": -1,
+   "weight_in_axis": 1.0
+  },
+  {
+   "id": "s25",
+   "theme": "regalien_immigration",
+   "text": "Les effectifs de police doivent être fortement augmentés.",
+   "axis": "y",
+   "direction": 1,
+   "weight_in_axis": 1.0
+  },
+  {
+   "id": "s26",
+   "theme": "institutions",
+   "text": "La proportionnelle doit être introduite aux élections législatives.",
+   "axis": "y",
+   "direction": -1,
+   "weight_in_axis": 1.0
+  },
+  {
+   "id": "s27",
+   "theme": "institutions",
+   "text": "Le nombre de parlementaires doit être réduit.",
+   "axis": "y",
+   "direction": 1,
+   "weight_in_axis": 1.0
+  },
+  {
+   "id": "s28",
+   "theme": "institutions",
+   "text": "Le droit de vote doit être ouvert dès 16 ans.",
+   "axis": "y",
+   "direction": -1,
+   "weight_in_axis": 1.0
+  },
+  {
+   "id": "s29",
+   "theme": "institutions",
+   "text": "Le président de la République doit recourir davantage au référendum.",
+   "axis": "y",
+   "direction": 1,
+   "weight_in_axis": 1.0
+  },
+  {
+   "id": "s30",
+   "theme": "institutions",
+   "text": "Les collectivités locales doivent disposer d'une plus grande autonomie fiscale.",
+   "axis": "x",
+   "direction": 1,
+   "weight_in_axis": 1.0
+  }
+ ],
+ "candidates": {
+  "c1": {
+   "answers": {
+    "s01": -1,
+    "s02": 2,
+    "s03": -1,
+    "s04": 2,
+    "s05": -2,
+    "s06": 2,
+    "s07": -2,
+    "s08": -2,
+    "s09": 1,
+    "s10": -1,
+    "s11": 2,
+    "s12": -2,
+    "s13": 2,
+    "s14": -2,
+    "s15": 2,
+    "s16": 2,
+    "s17": 0,
+    "s18": -2,
+    "s19": 1,
+    "s20": -1,
+    "s21": -1,
+    "s22": 1,
+    "s23": -1,
+    "s24": 1,
+    "s25": -1,
+    "s26": 1,
+    "s27": -1,
+    "s28": 1,
+    "s29": -1,
+    "s30": -2
+   },
+   "point": {
+    "x": -8.928571428571429,
+    "y": -5.625
+   }
+  },
+  "c2": {
+   "answers": {
+    "s01": -1,
+    "s02": 0,
+    "s03": 0,
+    "s04": 0,
+    "s05": 0,
+    "s06": 1,
+    "s07": -1,
+    "s08": -1,
+    "s09": 2,
+    "s10": 0,
+    "s11": 0,
+    "s12": null,
+    "s13": 1,
+    "s14": 0,
+    "s15": 1,
+    "s16": 0,
+    "s17": 0,
+    "s18": -1,
+    "s19": 1,
+    "s20": 0,
+    "s21": 0,
+    "s22": 0,
+    "s23": -1,
+    "s24": 0,
+    "s25": 0,
+    "s26": 0,
+    "s27": -1,
+    "s28": 0,
+    "s29": 0,
+    "s30": -1
+   },
+   "point": {
+    "x": -3.4615384615384617,
+    "y": -1.25
+   }
+  },
+  "c3": {
+   "answers": {
+    "s01": 1,
+    "s02": -1,
+    "s03": 0,
+    "s04": -1,
+    "s05": 0,
+    "s06": -1,
+    "s07": 0,
+    "s08": 1,
+    "s09": -1,
+    "s10": -1,
+    "s11": -1,
+    "s12": 1,
+    "s13": 0,
+    "s14": -1,
+    "s15": -1,
+    "s16": 2,
+    "s17": -2,
+    "s18": null,
+    "s19": 1,
+    "s20": -1,
+    "s21": -1,
+    "s22": 2,
+    "s23": -2,
+    "s24": 2,
+    "s25": -2,
+    "s26": 1,
+    "s27": 0,
+    "s28": 1,
+    "s29": -2,
+    "s30": 0
+   },
+   "point": {
+    "x": 3.2142857142857144,
+    "y": -7.0
+   }
+  },
+  "c4": {
+   "answers": {
+    "s01": 2,
+    "s02": -2,
+    "s03": 1,
+    "s04": -2,
+    "s05": 1,
+    "s06": -2,
+    "s07": 2,
+    "s08": 1,
+    "s09": -2,
+    "s10": 0,
+    "s11": -2,
+    "s12": 2,
+    "s13": -2,
+    "s14": 0,
+    "s15": -2,
+    "s16": 0,
+    "s17": 0,
+    "s18": 0,
+    "s19": -1,
+    "s20": 1,
+    "s21": 1,
+    "s22": -1,
+    "s23": 0,
+    "s24": 0,
+    "s25": 0,
+    "s26": 0,
+    "s27": 1,
+    "s28": 0,
+    "s29": 0,
+    "s30": 2
+   },
+   "point": {
+    "x": 8.928571428571429,
+    "y": 1.5625
+   }
+  },
+  "c5": {
+   "answers": {
+    "s01": 0,
+    "s02": 0,
+    "s03": 0,
+    "s04": 0,
+    "s05": 0,
+    "s06": 0,
+    "s07": null,
+    "s08": 0,
+    "s09": 0,
+    "s10": 2,
+    "s11": 0,
+    "s12": 0,
+    "s13": 0,
+    "s14": 1,
+    "s15": 1,
+    "s16": -2,
+    "s17": 1,
+    "s18": 2,
+    "s19": -2,
+    "s20": 1,
+    "s21": 1,
+    "s22": -2,
+    "s23": 1,
+    "s24": -2,
+    "s25": 2,
+    "s26": -2,
+    "s27": 1,
+    "s28": -2,
+    "s29": 2,
+    "s30": 0
+   },
+   "point": {
+    "x": -0.38461538461538464,
+    "y": 8.125
+   }
+  },
+  "c6": {
+   "answers": {
+    "s01": 1,
+    "s02": -1,
+    "s03": 1,
+    "s04": -2,
+    "s05": 1,
+    "s06": -1,
+    "s07": 2,
+    "s08": 1,
+    "s09": -1,
+    "s10": 1,
+    "s11": -1,
+    "s12": 0,
+    "s13": -1,
+    "s14": 2,
+    "s15": -1,
+    "s16": -1,
+    "s17": 1,
+    "s18": 1,
+    "s19": -1,
+    "s20": 2,
+    "s21": 2,
+    "s22": -1,
+    "s23": 1,
+    "s24": -1,
+    "s25": 2,
+    "s26": -1,
+    "s27": 1,
+    "s28": -2,
+    "s29": 0,
+    "s30": 2
+   },
+   "point": {
+    "x": 5.714285714285714,
+    "y": 6.25
+   }
+  }
+ },
+ "users": [
+  {
+   "answers": {
+    "s01": 0,
+    "s02": -1,
+    "s03": 1,
+    "s04": null,
+    "s05": -2,
+    "s06": -2,
+    "s07": 2,
+    "s08": -2,
+    "s09": 0,
+    "s10": 2,
+    "s11": -2,
+    "s12": 2,
+    "s13": -1,
+    "s14": -2,
+    "s15": -2,
+    "s16": 1,
+    "s17": 1,
+    "s18": -2,
+    "s19": -1,
+    "s20": -2,
+    "s21": 2,
+    "s22": 1,
+    "s23": -2,
+    "s24": 2,
+    "s25": -2,
+    "s26": -1,
+    "s27": null,
+    "s28": null,
+    "s29": 2,
+    "s30": -2
+   },
+   "weights": {
+    "economie": 3,
+    "social": 3,
+    "ecologie": 2,
+    "europe_international": 1,
+    "regalien_immigration": 1,
+    "institutions": 1
+   },
+   "point": {
+    "x": 2.6923076923076925,
+    "y": -1.7857142857142858
+   },
+   "proximity": {
+    "c1": {
+     "score": 50.0,
+     "coverage": 1.0,
+     "n": 27,
+     "answered": 27,
+     "lowCoverage": false
+    },
+    "c2": {
+     "score": 55.72916666666667,
+     "coverage": 0.9629629629629629,
+     "n": 26,
+     "answered": 27,
+     "lowCoverage": false
+    },
+    "c3": {
+     "score": 63.775510204081634,
+     "coverage": 0.9629629629629629,
+     "n": 26,
+     "answered": 27,
+     "lowCoverage": false
+    },
+    "c4": {
+     "score": 65.99999999999999,
+     "coverage": 1.0,
+     "n": 27,
+     "answered": 27,
+     "lowCoverage": false
+    },
+    "c5": {
+     "score": 60.1063829787234,
+     "coverage": 0.9629629629629629,
+     "n": 26,
+     "answered": 27,
+     "lowCoverage": false
+    },
+    "c6": {
+     "score": 63.5,
+     "coverage": 1.0,
+     "n": 27,
+     "answered": 27,
+     "lowCoverage": false
+    }
+   }
+  },
+  {
+   "answers": {
+    "s01": 2,
+    "s02": -1,
+    "s03": 0,
+    "s04": 1,
+    "s05": -1,
+    "s06": 2,
+    "s07": -2,
+    "s08": 2,
+    "s09": 0,
+    "s10": 2,
+    "s11": null,
+    "s12": -1,
+    "s13": -2,
+    "s14": 2,
+    "s15": 2,
+    "s16": null,
+    "s17": -1,
+    "s18": 0,
+    "s19": -2,
+    "s20": 2,
+    "s21": null,
+    "s22": -2,
+    "s23": 2,
+    "s24": -2,
+    "s25": 2,
+    "s26": -1,
+    "s27": 1,
+    "s28": null,
+    "s29": 2,
+    "s30": 1
+   },
+   "weights": {
+    "economie": 2,
+    "social": 2,
+    "ecologie": 3,
+    "europe_international": 2,
+    "regalien_immigration": 2,
+    "institutions": 2
+   },
+   "point": {
+    "x": -0.38461538461538464,
+    "y": 7.3076923076923075
+   },
+   "proximity": {
+    "c1": {
+     "score": 45.08928571428571,
+     "coverage": 1.0,
+     "n": 26,
+     "answered": 26,
+     "lowCoverage": false
+    },
+    "c2": {
+     "score": 55.660377358490564,
+     "coverage": 0.9615384615384616,
+     "n": 25,
+     "answered": 26,
+     "lowCoverage": false
+    },
+    "c3": {
+     "score": 44.44444444444444,
+     "coverage": 0.9615384615384616,
+     "n": 25,
+     "answered": 26,
+     "lowCoverage": false
+    },
+    "c4": {
+     "score": 57.58928571428572,
+     "coverage": 1.0,
+     "n": 26,
+     "answered": 26,
+     "lowCoverage": false
+    },
+    "c5": {
+     "score": 77.31481481481481,
+     "coverage": 0.9615384615384616,
+     "n": 25,
+     "answered": 26,
+     "lowCoverage": false
+    },
+    "c6": {
+     "score": 69.19642857142857,
+     "coverage": 1.0,
+     "n": 26,
+     "answered": 26,
+     "lowCoverage": false
+    }
+   }
+  },
+  {
+   "answers": {
+    "s01": -1,
+    "s02": -1,
+    "s03": null,
+    "s04": -1,
+    "s05": -2,
+    "s06": 2,
+    "s07": 0,
+    "s08": 2,
+    "s09": 1,
+    "s10": 0,
+    "s11": null,
+    "s12": 1,
+    "s13": 0,
+    "s14": 2,
+    "s15": -2,
+    "s16": -2,
+    "s17": 2,
+    "s18": 1,
+    "s19": -1,
+    "s20": 0,
+    "s21": -1,
+    "s22": 1,
+    "s23": 1,
+    "s24": -2,
+    "s25": null,
+    "s26": -2,
+    "s27": 2,
+    "s28": 2,
+    "s29": 0,
+    "s30": 0
+   },
+   "weights": {
+    "economie": 3,
+    "social": 2,
+    "ecologie": 3,
+    "europe_international": 2,
+    "regalien_immigration": 3,
+    "institutions": 2
+   },
+   "point": {
+    "x": 0.4166666666666667,
+    "y": 3.6666666666666665
+   },
+   "proximity": {
+    "c1": {
+     "score": 50.75757575757576,
+     "coverage": 1.0,
+     "n": 27,
+     "answered": 27,
+     "lowCoverage": false
+    },
+    "c2": {
+     "score": 63.49206349206349,
+     "coverage": 0.9629629629629629,
+     "n": 26,
+     "answered": 27,
+     "lowCoverage": false
+    },
+    "c3": {
+     "score": 60.9375,
+     "coverage": 0.9629629629629629,
+     "n": 26,
+     "answered": 27,
+     "lowCoverage": false
+    },
+    "c4": {
+     "score": 59.84848484848485,
+     "coverage": 1.0,
+     "n": 27,
+     "answered": 27,
+     "lowCoverage": false
+    },
+    "c5": {
+     "score": 68.359375,
+     "coverage": 0.9629629629629629,
+     "n": 26,
+     "answered": 27,
+     "lowCoverage": false
+    },
+    "c6": {
+     "score": 67.04545454545455,
+     "coverage": 1.0,
+     "n": 27,
+     "answered": 27,
+     "lowCoverage": false
+    }
+   }
+  },
+  {
+   "answers": {
+    "s01": -2,
+    "s02": -2,
+    "s03": 0,
+    "s04": 1,
+    "s05": null,
+    "s06": null,
+    "s07": -2,
+    "s08": -2,
+    "s09": null,
+    "s10": null,
+    "s11": 0,
+    "s12": null,
+    "s13": 2,
+    "s14": null,
+    "s15": 1,
+    "s16": 0,
+    "s17": null,
+    "s18": 1,
+    "s19": null,
+    "s20": 0,
+    "s21": -2,
+    "s22": 1,
+    "s23": 0,
+    "s24": -1,
+    "s25": 2,
+    "s26": -2,
+    "s27": 1,
+    "s28": -2,
+    "s29": -1,
+    "s30": 0
+   },
+   "weights": {
+    "economie": 1,
+    "social": 3,
+    "ecologie": 1,
+    "europe_international": 2,
+    "regalien_immigration": 2,
+    "institutions": 2
+   },
+   "point": {
+    "x": -4.0,
+    "y": 2.0833333333333335
+   },
+   "proximity": {
+    "c1": {
+     "score": 64.1025641025641,
+     "coverage": 1.0,
+     "n": 22,
+     "answered": 22,
+     "lowCoverage": false
+    },
+    "c2": {
+     "score": 71.15384615384616,
+     "coverage": 1.0,
+     "n": 22,
+     "answered": 22,
+     "lowCoverage": false
+    },
+    "c3": {
+     "score": 52.702702702702695,
+     "coverage": 0.9545454545454546,
+     "n": 21,
+     "answered": 22,
+     "lowCoverage": false
+    },
+    "c4": {
+     "score": 53.84615384615385,
+     "coverage": 1.0,
+     "n": 22,
+     "answered": 22,
+     "lowCoverage": false
+    },
+    "c5": {
+     "score": 70.13888888888889,
+     "coverage": 0.9545454545454546,
+     "n": 21,
+     "answered": 22,
+     "lowCoverage": false
+    },
+    "c6": {
+     "score": 59.61538461538461,
+     "coverage": 1.0,
+     "n": 22,
+     "answered": 22,
+     "lowCoverage": false
+    }
+   }
+  }
+ ]
+}
