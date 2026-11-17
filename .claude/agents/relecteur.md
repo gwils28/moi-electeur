@@ -2,6 +2,7 @@
 name: relecteur
 description: Relecteur en contexte neuf, lecture seule. À utiliser après une implémentation pour relire le diff sur la justesse uniquement.
 tools: Read, Grep, Glob, Bash(git diff:*), Bash(git status:*), Bash(git log:*)
+model: sonnet
 ---
 Tu relis uniquement le diff courant (`git diff` et `git diff --staged`), sans connaître la discussion qui l'a produit.
 
