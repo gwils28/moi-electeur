@@ -62,6 +62,20 @@ export default tseslint.config(
     },
   },
   {
+    // Mode aveugle (SPEC § 5.5) : identité des candidats uniquement via displayCandidate().
+    files: ["apps/web/src/components/**/*.tsx"],
+    rules: {
+      "no-restricted-syntax": [
+        "error",
+        {
+          selector:
+            "MemberExpression[property.name=/^(name|party|color|photo|blind_alias|document_title)$/]:not([object.property.name='display'])",
+          message: "Passer par displayCandidate() (lib/present.ts) pour respecter le mode aveugle.",
+        },
+      ],
+    },
+  },
+  {
     files: ["**/*.mjs", "**/*.cjs", "**/*.js"],
     languageOptions: { globals: { process: "readonly", console: "readonly", URL: "readonly" } },
   },

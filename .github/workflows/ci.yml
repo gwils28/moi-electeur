@@ -18,7 +18,9 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: pnpm
+      - uses: astral-sh/setup-uv@v6
       - run: pnpm install --frozen-lockfile
+      - run: uv sync --all-packages --frozen
       - run: pnpm lint
       - run: pnpm typecheck
       - run: pnpm test
@@ -34,7 +36,9 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: pnpm
+      - uses: astral-sh/setup-uv@v6
       - run: pnpm install --frozen-lockfile
+      - run: uv sync --all-packages --frozen
       - run: pnpm --filter @moi-electeur/web exec playwright install --with-deps chromium
       - run: pnpm --filter @moi-electeur/web e2e
 
@@ -60,6 +64,7 @@ jobs:
       - run: uv run pipeline validate
       - run: uv run pipeline make-demo --check
       - run: uv run pipeline gen-models --check
+      - run: uv run pipeline engine-fixtures --check
 
   notebooks:
     runs-on: ubuntu-latest

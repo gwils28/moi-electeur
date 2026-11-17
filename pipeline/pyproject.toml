@@ -6,6 +6,7 @@ license = "AGPL-3.0-only"
 requires-python = ">=3.12,<3.13"
 dependencies = [
   "jsonschema>=4.26",
+  "numpy>=2.5",
   "pydantic>=2.14",
   "referencing>=0.37",
   "rfc3339-validator>=0.1.4",

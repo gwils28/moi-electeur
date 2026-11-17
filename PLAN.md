@@ -154,10 +154,10 @@ Le calcul des chargements ACP (mode B) est fait côté pipeline (numpy) en M1 au
 - Playwright : parcours complet (desktop + mobile 360 px), mode aveugle (aucun nom réel dans le DOM), « Et si », export/import `#r=`, **aucune requête réseau sortante après le chargement initial** (interception des requêtes), axe-core sans violation sur chaque écran.
 
 ### 3.4 Critères d'acceptation M1
-- [ ] Tests moteur verts, couverture ≥ 90 % (sortie fournie).
-- [ ] Playwright + axe verts en CI.
-- [ ] Parcours fonctionnel en local (`pnpm dev`), captures d'écran desktop et mobile jointes.
-- [ ] Revue `relecteur` sans problème bloquant.
+- [x] Tests moteur verts, couverture ≥ 90 % (sortie fournie).
+- [ ] Playwright + axe verts en CI (verts en local, CI à vérifier après push).
+- [x] Parcours fonctionnel en local (`pnpm dev`), captures d'écran desktop et mobile jointes.
+- [x] Revue `relecteur` sans problème bloquant.
 
 > 📝 Annotation : ok
 

@@ -15,11 +15,16 @@ IGNORED = ["__pycache__", ".ruff_cache"]
 
 
 def _generate(target: Path) -> None:
+    # Seuls les *.schema.json sont des schémas (schemas/fixtures/ contient des données de test).
+    source = target.parent / "schemas"  # même nom que la source : en-tête généré stable
+    source.mkdir()
+    for schema in schemas_dir().glob("*.schema.json"):
+        shutil.copy(schema, source / schema.name)
     subprocess.run(
         [
             "datamodel-codegen",
             "--input",
-            str(schemas_dir()),
+            str(source),
             "--input-file-type",
             "jsonschema",
             "--output",

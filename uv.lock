@@ -671,6 +671,7 @@ version = "0.0.0"
 source = { editable = "pipeline" }
 dependencies = [
     { name = "jsonschema" },
+    { name = "numpy" },
     { name = "pydantic" },
     { name = "referencing" },
     { name = "rfc3339-validator" },
@@ -690,6 +691,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "jsonschema", specifier = ">=4.26" },
+    { name = "numpy", specifier = ">=2.5" },
     { name = "pydantic", specifier = ">=2.14" },
     { name = "referencing", specifier = ">=0.37" },
     { name = "rfc3339-validator", specifier = ">=0.1.4" },

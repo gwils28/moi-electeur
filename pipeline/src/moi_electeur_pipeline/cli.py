@@ -8,9 +8,11 @@ from typing import Annotated
 
 import typer
 
+from .build import BuildError, build_election
 from .codegen import generate_models
 from .demo import ELECTION_ID, build_demo, write_demo
-from .paths import elections_dir
+from .engine_fixtures import build_engine_cases
+from .paths import elections_dir, repo_root
 from .validate import validate_election
 
 app = typer.Typer(no_args_is_help=True, help="Pipeline hors ligne de Moi Électeur.")
@@ -71,6 +73,39 @@ def make_demo(
         typer.echo(f"Écrit {path}")
 
 
+@app.command()
+def build(
+    dirs: Annotated[list[Path] | None, typer.Argument(help="Dossiers d'élection.")] = None,
+    out: Annotated[Path | None, typer.Option(help="Dossier de sortie.")] = None,
+) -> None:
+    """Génère les JSON statiques du front (positions/mesures validées uniquement, modèle ACP)."""
+    out_root = out or repo_root() / "apps" / "web" / "public" / "data"
+    targets = dirs or sorted(p for p in elections_dir().iterdir() if p.is_dir())
+    for d in targets:
+        try:
+            typer.echo(f"Écrit {build_election(d, out_root)}")
+        except BuildError as exc:
+            typer.echo(f"ÉCHEC {d.name} :\n{exc}", err=True)
+            raise typer.Exit(1) from exc
+
+
+@app.command("engine-fixtures")
+def engine_fixtures(
+    check: Annotated[bool, typer.Option(help="Échoue si la fixture commitée diffère.")] = False,
+) -> None:
+    """(Re)génère schemas/fixtures/engine_cases.json depuis la référence Python."""
+    path = repo_root() / "schemas" / "fixtures" / "engine_cases.json"
+    cases = build_engine_cases()
+    if check:
+        if not path.is_file() or json.loads(path.read_text(encoding="utf-8")) != cases:
+            typer.echo("Fixture moteur désynchronisée : lancer `uv run pipeline engine-fixtures`.")
+            raise typer.Exit(1)
+        typer.echo("Fixture moteur à jour.")
+        return
+    path.write_text(json.dumps(cases, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    typer.echo(f"Écrit {path}")
+
+
 def _not_implemented(name: str, milestone: str) -> None:
     def command() -> None:
         typer.echo(f"`{name}` : non implémenté (jalon {milestone}).", err=True)
@@ -88,6 +123,5 @@ for _name, _milestone in [
     ("propose-positions", "M3"),
     ("propose-measures", "M3"),
     ("review", "M3"),
-    ("build", "M1"),
 ]:
     _not_implemented(_name, _milestone)

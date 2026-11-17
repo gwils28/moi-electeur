@@ -11,3 +11,6 @@ l'analytique (ACP, backtest). Voir PLAN § 1 bis.
 | Notebook | Sujet | Statut |
 |---|---|---|
 | [m0-01-donnees-demo.py](m0-01-donnees-demo.py) | Construction et contrôle des données fictives | décision prise |
+| [m1-01-proximite.py](m1-01-proximite.py) | Score de proximité (Manhattan pondérée), effet des poids, D2 | décision prise |
+| [m1-02-projection-a.py](m1-02-projection-a.py) | Projection mode A (affirmations taguées) | décision prise |
+| [m1-03-acp-mode-b.py](m1-03-acp-mode-b.py) | ACP mode B, orientation D3, échelle D4 | décision prise |
