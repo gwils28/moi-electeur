@@ -42,15 +42,21 @@ export default tseslint.config(
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {
+    rules: {
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
+      ],
+    },
+  },
+  {
     files: ["packages/engine/src/**/*.ts"],
     rules: {
       "no-restricted-globals": ["error", ...ENGINE_FORBIDDEN_GLOBALS],
       "no-restricted-imports": [
         "error",
         {
-          patterns: [
-            { group: ["*", "!./*", "!../*"], message: "Aucun import externe dans le moteur." },
-          ],
+          patterns: [{ regex: "^(?!\\.{1,2}/)", message: "Aucun import externe dans le moteur." }],
         },
       ],
     },

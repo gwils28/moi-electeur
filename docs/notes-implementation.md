@@ -26,3 +26,11 @@ Suites de la relecture M0 :
 - Un couple (candidat, affirmation) dont la seule position est `pending` ou `rejected` sera traité par le moteur comme un **silence** (exclu du calcul, signalé). À tester en M1.
 - Citations : hors élection fictive, `evidence.document_title` doit appartenir au corpus du candidat (la démo n'a pas de corpus).
 - Le contrôle des mots qui classent couvre aussi `services/rag/src` ; les exceptions marquées sont affichées en CI.
+
+## 2026-11-17 : M1 (moteur, tests d'abord)
+
+- **Correctif M0** : la règle ESLint `no-restricted-imports` du moteur (motif `group` avec négations) bloquait aussi les imports relatifs ; remplacée par une regex `^(?!\.{1,2}/)`. Vérifié : `lodash` refusé, `./types` accepté.
+- `no-unused-vars` ignore les paramètres préfixés `_` (stubs « non implémenté » de la phase test d'abord).
+- Fixture ACP partagée `schemas/fixtures/pca_toy.json` (calculable à la main), utilisée par Vitest, puis par pytest et le notebook m1-03.
+- Code `#r=` : une lettre par affirmation (`a`..`e` pour -2..+2, `n` pour sans avis), puis `.`, puis un chiffre 1-3 par thème ; préfixe de version `1`.
+- Valeurs hors [-2, 2] ou non entières, poids non strictement positifs : `RangeError` (entrée corrompue, jamais silencieusement corrigée).
