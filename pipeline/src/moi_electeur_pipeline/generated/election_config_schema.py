@@ -50,6 +50,10 @@ class Theme(BaseModel):
     )
     id: Slug
     label: constr(min_length=1)
+    description: constr(min_length=1) | None = Field(
+        None,
+        description="Courte description du périmètre du thème, utilisée pour classer les extraits du corpus (PLAN D16).",
+    )
 
 
 class Candidate(BaseModel):

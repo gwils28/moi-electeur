@@ -21,13 +21,15 @@ MIN_PER_THEME = 4
 MIN_PER_AXIS = 10
 LOADED_STATUSES = {"validated", "corrected"}
 
-# Fichier de données -> schéma ; None = fichier facultatif.
+# Fichier de données -> (schéma, obligatoire pour la boussole).
 FILES: dict[str, tuple[str, bool]] = {
     "election_config.json": ("election_config.schema.json", True),
     "statements.json": ("statements.schema.json", True),
     "positions.json": ("positions.schema.json", True),
     "measures.json": ("measures.schema.json", False),
 }
+# PLAN D13 : sans aucun de ces fichiers, l'élection est « corpus seul » (pas de boussole).
+COMPASS_FILES = ("statements.json", "positions.json", "measures.json")
 
 
 @dataclass(frozen=True)
@@ -64,6 +66,14 @@ def schema_issues(data: Any, schema_name: str, file: str) -> list[Issue]:
     ]
 
 
+def local_path_issue(local_path: str) -> str | None:
+    """Un document du corpus doit rester sous `sources/` du dossier d'élection (ignoré par git)."""
+    path = Path(local_path)
+    if path.is_absolute() or path.parts[:1] != ("sources",) or ".." in path.parts:
+        return f"chemin local hors de sources/ : {local_path}"
+    return None
+
+
 def _duplicates(values: list[str]) -> list[str]:
     return sorted(v for v, n in Counter(values).items() if n > 1)
 
@@ -71,8 +81,9 @@ def _duplicates(values: list[str]) -> list[str]:
 def cross_issues(election_dir: Path, docs: dict[str, Any]) -> list[Issue]:
     issues: list[Issue] = []
     config = docs["election_config.json"]
-    statements = docs["statements.json"]["statements"]
-    positions = docs["positions.json"]["positions"]
+    compass = "statements.json" in docs
+    statements = docs["statements.json"]["statements"] if compass else []
+    positions = docs["positions.json"]["positions"] if compass else []
     measures = docs.get("measures.json", {"measures": []})["measures"]
 
     def add(file: str, message: str) -> None:
@@ -110,6 +121,15 @@ def cross_issues(election_dir: Path, docs: dict[str, Any]) -> list[Issue]:
     for doc in config["corpus"]:
         if doc["candidate_id"] not in cand_ids:
             add("election_config.json", f"corpus : candidat inconnu {doc['candidate_id']}")
+        problem = local_path_issue(doc["local_path"])
+        if problem:
+            add("election_config.json", f"corpus : {problem}")
+    for label, key in [("URL", "source_url"), ("sha256", "sha256"), ("chemin local", "local_path")]:
+        for dup in _duplicates([d[key] for d in config["corpus"]]):
+            add("election_config.json", f"corpus : {label} en double : {dup}")
+
+    if not compass:
+        return issues
 
     # Couverture des affirmations (SPEC § 4.2).
     for s in statements:
@@ -177,10 +197,11 @@ def validate_election(election_dir: Path) -> list[Issue]:
     """Renvoie la liste des problèmes (vide si les données sont valides)."""
     issues: list[Issue] = []
     docs: dict[str, Any] = {}
+    corpus_only = not any((election_dir / f).is_file() for f in COMPASS_FILES)
     for file, (schema_name, required) in FILES.items():
         path = election_dir / file
         if not path.is_file():
-            if required:
+            if required and not (corpus_only and file in COMPASS_FILES):
                 issues.append(Issue(file, "fichier manquant"))
             continue
         try:

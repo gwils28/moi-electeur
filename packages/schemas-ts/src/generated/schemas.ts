@@ -1,6 +1,7 @@
 /* Fichier généré par packages/schemas-ts/scripts/gen.mjs depuis schemas/. Ne pas éditer. */
 
 export interface AllSchemas {
+  chunk?: Chunk;
   election_config?: ElectionConfig;
   evidence?: Evidence;
   manifest?: Manifest;
@@ -9,6 +10,42 @@ export interface AllSchemas {
   positions?: PositionsFile;
   review?: Review;
   statements?: StatementsFile;
+}
+/**
+ * Extrait d'un document officiel du corpus, unité d'indexation et de citation du chat RAG (SPEC § 4.5). Produit par `pipeline chunk`, une ligne JSON par extrait.
+ */
+export interface Chunk {
+  /**
+   * 12 premiers caractères du sha256 du document, puis rang de l'extrait dans le document.
+   */
+  id: string;
+  election_id: string;
+  candidate_id: string;
+  document_title: string;
+  source_url: string;
+  document_sha256: string;
+  /**
+   * Numéro de page du PDF (celui affiché par un lecteur PDF) où commence l'extrait ; 1 pour un document HTML ou Markdown.
+   */
+  page_number: number;
+  page_end: number;
+  /**
+   * Titre de section du premier passage propre à l'extrait (hors recouvrement repris de l'extrait précédent) ; null si le document n'a pas encore de titre à cet endroit.
+   */
+  section_title: string | null;
+  /**
+   * Thème attribué à l'indexation (PLAN D16) ; null si non attribué ou ambigu.
+   */
+  theme: string | null;
+  text: string;
+  /**
+   * Nombre de tokens (tokenizer XLM-RoBERTa, PLAN D17).
+   */
+  token_count: number;
+  /**
+   * Empreinte des documents (sha256), des paramètres de découpage, du tokenizer et du contenu des extraits (texte et métadonnées) : change dès qu'un extrait change.
+   */
+  corpus_version: string;
 }
 /**
  * Configuration d'une élection : axes, thèmes (dans l'ordre d'affichage), candidats, corpus officiel.
@@ -58,6 +95,10 @@ export interface Axis {
 export interface Theme {
   id: string;
   label: string;
+  /**
+   * Courte description du périmètre du thème, utilisée pour classer les extraits du corpus (PLAN D16).
+   */
+  description?: string;
 }
 /**
  * Aucune coordonnée (x, y) ici : elles sont calculées, jamais saisies.
