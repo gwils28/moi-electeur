@@ -232,3 +232,53 @@ def test_silence_valide_sans_citation(
     p = next(p for p in demo_docs["positions.json"]["positions"] if p["value"] is None)
     assert p["review"]["status"] == "validated" and p["evidence"] == []
     assert validate_election(write_election(demo_docs)) == []
+
+
+# Élection « corpus seul » (PLAN D13) et contrôles du corpus.
+
+
+def _corpus_entry(n: int, **over: Any) -> dict[str, Any]:
+    entry = {
+        "candidate_id": "c1",
+        "document_title": f"Document {n}",
+        "type": "pdf",
+        "source_url": f"https://a.fr/{n}.pdf",
+        "local_path": f"sources/c1/{n}.pdf",
+        "sha256": f"{n:x}" * 64 if n < 16 else "0" * 64,
+        "retrieved_at": "2026-11-19",
+    }
+    return {**entry, **over}
+
+
+def test_corpus_seul_valide(tmp_path: Path) -> None:
+    from helpers import write_corpus_election
+
+    election = write_corpus_election(tmp_path, [_corpus_entry(1), _corpus_entry(2)])
+    assert validate_election(election) == []
+
+
+def test_corpus_seul_avec_mesures_exige_affirmations_et_positions(
+    demo_docs: Docs, write_election: Callable[[Docs], Path]
+) -> None:
+    del demo_docs["statements.json"]
+    del demo_docs["positions.json"]
+    msgs = messages(write_election(demo_docs))
+    assert "statements.json: fichier manquant" in msgs
+    assert "positions.json: fichier manquant" in msgs
+
+
+@pytest.mark.parametrize(
+    ("over", "expected"),
+    [
+        ({"source_url": "https://a.fr/1.pdf"}, "URL en double"),
+        ({"sha256": "1" * 64}, "sha256 en double"),
+        ({"local_path": "sources/c1/1.pdf"}, "chemin local en double"),
+        ({"local_path": "../hors-dossier.pdf"}, "chemin local hors de sources/"),
+        ({"local_path": "/tmp/absolu.pdf"}, "chemin local hors de sources/"),
+    ],
+)
+def test_corpus_doublons_et_chemins(tmp_path: Path, over: dict[str, Any], expected: str) -> None:
+    from helpers import write_corpus_election
+
+    election = write_corpus_election(tmp_path, [_corpus_entry(1), _corpus_entry(2, **over)])
+    assert expected in messages(election)

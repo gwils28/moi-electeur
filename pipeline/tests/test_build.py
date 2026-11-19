@@ -105,3 +105,12 @@ def test_build_refuse_des_donnees_invalides(tmp_path: Path) -> None:
     (bad / "election_config.json").write_text("{}")
     with pytest.raises(BuildError):
         build_election(bad, tmp_path / "out")
+
+
+def test_build_ignore_une_election_corpus_seul(tmp_path: Path) -> None:
+    """PLAN D13 : pas d'affirmations, pas de boussole publiée."""
+    from helpers import write_corpus_election
+
+    election = write_corpus_election(tmp_path / "data")
+    assert build_election(election, tmp_path / "out") is None
+    assert not (tmp_path / "out").exists()
