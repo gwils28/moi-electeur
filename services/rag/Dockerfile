@@ -1,4 +1,4 @@
-# Service RAG (FastAPI). Le modèle d'embedding (M2) sera monté en volume, pas inclus dans l'image.
+# Service RAG (FastAPI). Torch CPU uniquement ; les poids des modèles sont montés en volume (/models), pas inclus dans l'image.
 FROM python:3.12-slim
 COPY --from=ghcr.io/astral-sh/uv:0.12 /uv /bin/uv
 ENV UV_COMPILE_BYTECODE=1 UV_LINK_MODE=copy UV_PROJECT_ENVIRONMENT=/opt/venv PATH=/opt/venv/bin:$PATH
@@ -8,7 +8,8 @@ COPY pipeline/pyproject.toml pipeline/pyproject.toml
 COPY eval/pyproject.toml eval/pyproject.toml
 COPY notebooks/pyproject.toml notebooks/pyproject.toml
 COPY services/rag services/rag
-RUN uv sync --frozen --no-dev --package moi-electeur-rag
+# --no-cache : le cache de uv (plus de 1 Go avec torch) ne reste pas dans la couche.
+RUN uv sync --frozen --no-dev --no-cache --package moi-electeur-rag
 RUN useradd --system --uid 1001 app
 USER app
 EXPOSE 8000

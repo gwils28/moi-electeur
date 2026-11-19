@@ -70,7 +70,13 @@ BULLET_FONTS = re.compile(r"dingbat|wingding", re.IGNORECASE)
 LEADER_DOTS = re.compile(r"(?:\.\s*){4,}|…(?:\s*…)+")  # points de conduite d'un sommaire
 
 
+# Caractères de contrôle (glyphes mal décodés : \x00, \x07…) ; PostgreSQL refuse \x00.
+CONTROL_CHARS = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]")
+
+
 def _clean(text: str) -> str:
+    # U+00AD (trait d'union conditionnel) est invisible : retiré, titres compris.
+    text = CONTROL_CHARS.sub(" ", text).replace("\xad", "")
     return re.sub(r"\s+", " ", text).strip()
 
 
@@ -88,9 +94,14 @@ def join_lines(lines: list[str]) -> str:
         stripped = line.strip()
         if not stripped:
             continue
+        if text.endswith("\xad"):
+            # Trait d'union conditionnel (U+00AD) : césure typographique, on recolle sans lui.
+            text = text[:-1] + stripped
+            continue
         glued = re.search(r"[a-zà-ÿ]-$", text) and stripped[0].islower()
         text = f"{text}{stripped}" if glued or not text else f"{text} {stripped}"
-    return text
+    # Les traits d'union conditionnels restants sont invisibles : retirés.
+    return text.replace("\xad", "")
 
 
 def _span_text(span: dict[str, Any]) -> str:

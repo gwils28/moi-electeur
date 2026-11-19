@@ -24,6 +24,12 @@ services:
       dockerfile: services/rag/Dockerfile
     environment:
       DATABASE_URL: postgresql://${POSTGRES_USER:-moi_electeur}:${POSTGRES_PASSWORD:-dev-only-password}@db:5432/${POSTGRES_DB:-moi_electeur}
+      EMBEDDING_MODEL: ${EMBEDDING_MODEL:-bge-m3}
+      MODELS_DIR: /models
+      # Poids lus dans le volume : aucun téléchargement au démarrage du service.
+      HF_HUB_OFFLINE: "1"
+    volumes:
+      - ./models:/models:ro
     ports:
       - "127.0.0.1:8000:8000"
     depends_on:
@@ -40,6 +46,7 @@ services:
       interval: 10s
       timeout: 3s
       retries: 10
+      start_period: 60s
 
   web:
     build:

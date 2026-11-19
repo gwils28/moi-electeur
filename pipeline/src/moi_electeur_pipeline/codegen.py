@@ -8,9 +8,12 @@ import subprocess
 import tempfile
 from pathlib import Path
 
-from .paths import schemas_dir
+from .paths import repo_root, schemas_dir
 
 GENERATED = Path(__file__).parent / "generated"
+# Mêmes modèles pour le service RAG (qui ne dépend pas du pipeline) : /retrieve, chunk.
+RAG_GENERATED = repo_root() / "services" / "rag" / "src" / "moi_electeur_rag" / "generated"
+TARGETS = [GENERATED, RAG_GENERATED]
 IGNORED = ["__pycache__", ".ruff_cache"]
 
 
@@ -62,8 +65,9 @@ def generate_models(check: bool = False) -> bool:
         target = Path(tmp) / "generated"
         _generate(target)
         if check:
-            return GENERATED.is_dir() and _same_tree(target, GENERATED)
-        if GENERATED.exists():
-            shutil.rmtree(GENERATED)
-        shutil.copytree(target, GENERATED, ignore=shutil.ignore_patterns(*IGNORED))
+            return all(d.is_dir() and _same_tree(target, d) for d in TARGETS)
+        for destination in TARGETS:
+            if destination.exists():
+                shutil.rmtree(destination)
+            shutil.copytree(target, destination, ignore=shutil.ignore_patterns(*IGNORED))
         return True

@@ -6,6 +6,7 @@ license = "AGPL-3.0-only"
 requires-python = ">=3.12,<3.13"
 dependencies = [
   "jsonschema>=4.26",
+  "moi-electeur-rag",
   "numpy>=2.5",
   "pydantic>=2.14",
   "pymupdf>=2.1",
@@ -29,3 +30,11 @@ build-backend = "hatchling.build"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+markers = [
+  "db: nécessite PostgreSQL + pgvector (DATABASE_URL ; ignoré en local sans base, obligatoire en CI)",
+  "model: télécharge un vrai modèle d'embedding (lancé à la main : -m model)",
+]
+addopts = "-m 'not model'"
+
+[tool.uv.sources]
+moi-electeur-rag = { workspace = true }
