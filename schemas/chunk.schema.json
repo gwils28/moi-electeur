@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://moi-electeur.fr/schemas/chunk.schema.json",
+  "title": "Chunk",
+  "description": "Extrait d'un document officiel du corpus, unité d'indexation et de citation du chat RAG (SPEC § 4.5). Produit par `pipeline chunk`, une ligne JSON par extrait.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "election_id",
+    "candidate_id",
+    "document_title",
+    "source_url",
+    "document_sha256",
+    "page_number",
+    "page_end",
+    "section_title",
+    "theme",
+    "text",
+    "token_count",
+    "corpus_version"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{12}-[0-9]{4}$",
+      "description": "12 premiers caractères du sha256 du document, puis rang de l'extrait dans le document."
+    },
+    "election_id": { "$ref": "#/$defs/slug" },
+    "candidate_id": { "$ref": "#/$defs/slug" },
+    "document_title": { "type": "string", "minLength": 1 },
+    "source_url": { "type": "string", "format": "uri" },
+    "document_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "page_number": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Numéro de page du PDF (celui affiché par un lecteur PDF) où commence l'extrait ; 1 pour un document HTML ou Markdown."
+    },
+    "page_end": { "type": "integer", "minimum": 1 },
+    "section_title": {
+      "type": ["string", "null"],
+      "minLength": 1,
+      "maxLength": 200,
+      "description": "Titre de section du premier passage propre à l'extrait (hors recouvrement repris de l'extrait précédent) ; null si le document n'a pas encore de titre à cet endroit."
+    },
+    "theme": {
+      "anyOf": [{ "$ref": "#/$defs/slug" }, { "type": "null" }],
+      "description": "Thème attribué à l'indexation (PLAN D16) ; null si non attribué ou ambigu."
+    },
+    "text": { "type": "string", "minLength": 1 },
+    "token_count": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Nombre de tokens (tokenizer XLM-RoBERTa, PLAN D17)."
+    },
+    "corpus_version": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{16}$",
+      "description": "Empreinte des documents (sha256), des paramètres de découpage, du tokenizer et du contenu des extraits (texte et métadonnées) : change dès qu'un extrait change."
+    }
+  },
+  "$defs": {
+    "slug": { "type": "string", "pattern": "^[a-z0-9][a-z0-9_-]*$" }
+  }
+}

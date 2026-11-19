@@ -32,10 +32,13 @@ def _dump(doc: Any) -> str:
     return json.dumps(doc, ensure_ascii=False, separators=(",", ":"))
 
 
-def build_election(election_dir: Path, out_root: Path) -> Path:
+def build_election(election_dir: Path, out_root: Path) -> Path | None:
+    """Écrit les JSON du front ; None pour une élection « corpus seul » (PLAN D13)."""
     issues = validate_election(election_dir)
     if issues:
         raise BuildError(issues)
+    if not (election_dir / "statements.json").is_file():
+        return None
     election_id = election_dir.name
     docs = {f: _read(election_dir / f) for f in SOURCE_FILES if (election_dir / f).is_file()}
     config = docs["election_config.json"]

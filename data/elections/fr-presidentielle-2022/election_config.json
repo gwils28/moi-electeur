@@ -1,0 +1,384 @@
+{
+  "id": "fr-presidentielle-2022",
+  "name": "Élection présidentielle 2022 (1er tour)",
+  "country": "FR",
+  "date_first_round": "2022-04-10",
+  "axes": {
+    "x": {
+      "label": "Économie",
+      "min_label": "Interventionnisme / Redistribution",
+      "max_label": "Libéralisme / Baisse de la fiscalité"
+    },
+    "y": {
+      "label": "Société & souveraineté",
+      "min_label": "Progressisme / Intégration européenne",
+      "max_label": "Conservatisme / Autorité / Souverainisme"
+    }
+  },
+  "quadrants": {
+    "tl": "Interventionniste et conservateur",
+    "tr": "Libéral et conservateur",
+    "bl": "Interventionniste et progressiste",
+    "br": "Libéral et progressiste"
+  },
+  "themes": [
+    {
+      "id": "economie",
+      "label": "Économie",
+      "description": "Fiscalité et impôts, dette et dépenses publiques, entreprises, emploi et chômage, salaires et pouvoir d'achat, industrie, commerce."
+    },
+    {
+      "id": "social",
+      "label": "Social",
+      "description": "Retraites, santé et hôpital, protection sociale, logement, éducation, famille, handicap, lutte contre la pauvreté, services publics."
+    },
+    {
+      "id": "ecologie",
+      "label": "Écologie",
+      "description": "Climat, énergie (nucléaire, renouvelables), transports, biodiversité, agriculture et alimentation, condition animale, pollution."
+    },
+    {
+      "id": "europe_international",
+      "label": "Europe & international",
+      "description": "Union européenne et traités, défense et armées, diplomatie, commerce international, OTAN, coopération et aide au développement."
+    },
+    {
+      "id": "regalien_immigration",
+      "label": "Régalien & immigration",
+      "description": "Sécurité et police, justice et prisons, immigration et asile, nationalité, laïcité, lutte contre le terrorisme."
+    },
+    {
+      "id": "institutions",
+      "label": "Institutions",
+      "description": "Constitution, mode de scrutin et référendum, décentralisation et collectivités, outre-mer, démocratie participative, vie publique."
+    }
+  ],
+  "candidates": [
+    {
+      "id": "arthaud",
+      "name": "Nathalie Arthaud",
+      "party": "Lutte ouvrière",
+      "color": "#332288",
+      "photo": null,
+      "program_url": "https://www.nathalie-arthaud.info/sites/default/files/documents/brochure-janvier_2022_bd.pdf",
+      "blind_alias": "Candidat·e A"
+    },
+    {
+      "id": "dupont-aignan",
+      "name": "Nicolas Dupont-Aignan",
+      "party": "Debout la France",
+      "color": "#88ccee",
+      "photo": null,
+      "program_url": "https://2022nda.fr/wp-content/uploads/2022/03/Programme-general-1.pdf",
+      "blind_alias": "Candidat·e B"
+    },
+    {
+      "id": "hidalgo",
+      "name": "Anne Hidalgo",
+      "party": "Parti socialiste",
+      "color": "#44aa99",
+      "photo": null,
+      "program_url": "https://www.2022avechidalgo.fr/notre_programme",
+      "blind_alias": "Candidat·e C"
+    },
+    {
+      "id": "jadot",
+      "name": "Yannick Jadot",
+      "party": "Europe Écologie Les Verts",
+      "color": "#117733",
+      "photo": null,
+      "program_url": "https://www.jadot2022.fr/programme",
+      "blind_alias": "Candidat·e D"
+    },
+    {
+      "id": "lassalle",
+      "name": "Jean Lassalle",
+      "party": "Résistons !",
+      "color": "#999933",
+      "photo": null,
+      "program_url": "https://jl2022.fr/wp-content/uploads/2022/03/Programme-A4-V5-25_02_22.pdf",
+      "blind_alias": "Candidat·e E"
+    },
+    {
+      "id": "le-pen",
+      "name": "Marine Le Pen",
+      "party": "Rassemblement national",
+      "color": "#ddcc77",
+      "photo": null,
+      "program_url": "https://mlafrance.fr/pdfs/manifeste-m-la-france-programme-presidentiel.pdf",
+      "blind_alias": "Candidat·e F"
+    },
+    {
+      "id": "macron",
+      "name": "Emmanuel Macron",
+      "party": "La République en marche",
+      "color": "#cc6677",
+      "photo": null,
+      "program_url": "https://avecvous.fr/wp-content/uploads/2022/03/Emmanuel-Macron-Avec-Vous-24-pages.pdf",
+      "blind_alias": "Candidat·e G"
+    },
+    {
+      "id": "melenchon",
+      "name": "Jean-Luc Mélenchon",
+      "party": "La France insoumise",
+      "color": "#882255",
+      "photo": null,
+      "program_url": "https://melenchon2022.fr/programme/",
+      "blind_alias": "Candidat·e H"
+    },
+    {
+      "id": "pecresse",
+      "name": "Valérie Pécresse",
+      "party": "Les Républicains",
+      "color": "#aa4499",
+      "photo": null,
+      "program_url": "https://valeriepecresse.fr/wp-content/uploads/2022/03/16P-VP2022-ok.pdf",
+      "blind_alias": "Candidat·e I"
+    },
+    {
+      "id": "poutou",
+      "name": "Philippe Poutou",
+      "party": "Nouveau Parti anticapitaliste",
+      "color": "#6699cc",
+      "photo": null,
+      "program_url": "https://poutou2022.org/programme",
+      "blind_alias": "Candidat·e J"
+    },
+    {
+      "id": "roussel",
+      "name": "Fabien Roussel",
+      "party": "Parti communiste français",
+      "color": "#888888",
+      "photo": null,
+      "program_url": "https://www.fabienroussel2022.fr/le_programme",
+      "blind_alias": "Candidat·e K"
+    },
+    {
+      "id": "zemmour",
+      "name": "Éric Zemmour",
+      "party": "Reconquête",
+      "color": "#661100",
+      "photo": null,
+      "program_url": "https://programme.zemmour2022.fr/",
+      "blind_alias": "Candidat·e L"
+    }
+  ],
+  "corpus": [
+    {
+      "candidate_id": "arthaud",
+      "document_title": "Profession de foi, 1er tour",
+      "type": "pdf",
+      "source_url": "https://web.archive.org/web/20220328220458id_/https://www.cnccep.fr/pdfs/Candidat-01-Nathalie-Arthaud-Declaration.pdf",
+      "local_path": "sources/arthaud/candidat-01-nathalie-arthaud-declaration.pdf",
+      "sha256": "3f15e26228232909dc4745cd883fb952734407eb58e96414098e7d1a34a35c45",
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "candidate_id": "dupont-aignan",
+      "document_title": "Profession de foi, 1er tour",
+      "type": "pdf",
+      "source_url": "https://web.archive.org/web/20220408213655id_/https://www.cnccep.fr/pdfs/Candidat-02-Nicolas-Dupont-Aignan-Declaration-accessible.pdf",
+      "local_path": "sources/dupont-aignan/candidat-02-nicolas-dupont-aignan-declaration-accessible.pdf",
+      "sha256": "5888d0bd6617b92dfa25d4453150781cef7f7c87054efe51283c82fc75840894",
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "candidate_id": "hidalgo",
+      "document_title": "Profession de foi, 1er tour",
+      "type": "pdf",
+      "source_url": "https://web.archive.org/web/20220328220437id_/https://www.cnccep.fr/pdfs/Candidat-03-Anne-Hidalgo-Declaration.pdf",
+      "local_path": "sources/hidalgo/candidat-03-anne-hidalgo-declaration.pdf",
+      "sha256": "ffeffbfe25e9e85efcad8fab21425684082d21bffe5a4e9404ae8ab12b63d6b9",
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "candidate_id": "jadot",
+      "document_title": "Profession de foi, 1er tour",
+      "type": "pdf",
+      "source_url": "https://web.archive.org/web/20220328220436id_/https://www.cnccep.fr/pdfs/Candidat-04-Yannick-Jadot-Declaration-accessible.pdf",
+      "local_path": "sources/jadot/candidat-04-yannick-jadot-declaration-accessible.pdf",
+      "sha256": "5d01b64c995babedc44f45549b10d9e63c70d72060f3e9612deaaa532909aacc",
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "candidate_id": "lassalle",
+      "document_title": "Profession de foi, 1er tour",
+      "type": "pdf",
+      "source_url": "https://web.archive.org/web/20220328220512id_/https://www.cnccep.fr/pdfs/Candidat-05-Jean-Lassalle-Declaration.pdf",
+      "local_path": "sources/lassalle/candidat-05-jean-lassalle-declaration.pdf",
+      "sha256": "47412fb981ef141b3329cd79e51370a277c4aec97e67413ed5f0097a8dd069c5",
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "candidate_id": "le-pen",
+      "document_title": "Profession de foi, 1er tour",
+      "type": "pdf",
+      "source_url": "https://web.archive.org/web/20220328220437id_/https://www.cnccep.fr/pdfs/Candidat-06-Marine-Le-Pen-Declaration-accessible.pdf",
+      "local_path": "sources/le-pen/candidat-06-marine-le-pen-declaration-accessible.pdf",
+      "sha256": "68a296ebf9a7e50956398dd0418c719237f1a7c81ddf4d3f14e467596387aa14",
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "candidate_id": "macron",
+      "document_title": "Profession de foi, 1er tour",
+      "type": "pdf",
+      "source_url": "https://web.archive.org/web/20220329144919id_/https://www.cnccep.fr/pdfs/Candidat-07-Emmanuel-Macron-Declaration.pdf",
+      "local_path": "sources/macron/candidat-07-emmanuel-macron-declaration.pdf",
+      "sha256": "67f312ed6f9920f411e2f1ab41bccec1416b378e01cfee8feebb2f54bcd58b6a",
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "candidate_id": "melenchon",
+      "document_title": "Profession de foi, 1er tour",
+      "type": "pdf",
+      "source_url": "https://web.archive.org/web/20220328220532id_/https://www.cnccep.fr/pdfs/Candidat-08-Jean-Luc-Melenchon-Declaration-accessible.pdf",
+      "local_path": "sources/melenchon/candidat-08-jean-luc-melenchon-declaration-accessible.pdf",
+      "sha256": "2dc0d46164c48c165950bd3a75c7777a8538ac24d3c1989c52922629c4bc0f49",
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "candidate_id": "pecresse",
+      "document_title": "Profession de foi, 1er tour",
+      "type": "pdf",
+      "source_url": "https://web.archive.org/web/20220328220502id_/https://www.cnccep.fr/pdfs/Candidat-09-Valerie-Pecresse-Declaration-accessible.pdf",
+      "local_path": "sources/pecresse/candidat-09-valerie-pecresse-declaration-accessible.pdf",
+      "sha256": "ea0a3bc08ffd5c3c1610b6bee7657c181da892117a426126c90f47863fc657b2",
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "candidate_id": "poutou",
+      "document_title": "Profession de foi, 1er tour",
+      "type": "pdf",
+      "source_url": "https://web.archive.org/web/20220328220443id_/https://www.cnccep.fr/pdfs/Candidat-10-Philippe-Poutou-Declaration.pdf",
+      "local_path": "sources/poutou/candidat-10-philippe-poutou-declaration.pdf",
+      "sha256": "e8400f091f7996cdc770399772f124b367b9d0d366ca5a2905dd10698aa26c02",
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "candidate_id": "roussel",
+      "document_title": "Profession de foi, 1er tour",
+      "type": "pdf",
+      "source_url": "https://web.archive.org/web/20220328220449id_/https://www.cnccep.fr/pdfs/Candidat-11-Fabien-Roussel-Declaration-accessible.pdf",
+      "local_path": "sources/roussel/candidat-11-fabien-roussel-declaration-accessible.pdf",
+      "sha256": "c37cd69cef21e85c4a1401d71c6d50d6f4a81c87350a5e5efe08d95b26632751",
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "candidate_id": "zemmour",
+      "document_title": "Profession de foi, 1er tour",
+      "type": "pdf",
+      "source_url": "https://web.archive.org/web/20220328220458id_/https://www.cnccep.fr/pdfs/Candidat-12-Eric-Zemmour-Declaration.pdf",
+      "local_path": "sources/zemmour/candidat-12-eric-zemmour-declaration.pdf",
+      "sha256": "68c2185419daf8a50291fb8e21c5e3b5ccfb960f92560344ddf73d9e68e1634e",
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "candidate_id": "arthaud",
+      "document_title": "Brochure de campagne « Nathalie Arthaud candidate à l'élection présidentielle »",
+      "type": "pdf",
+      "source_url": "https://web.archive.org/web/20220304230512id_/https://www.nathalie-arthaud.info/sites/default/files/documents/brochure-janvier_2022_bd.pdf",
+      "local_path": "sources/arthaud/brochure-janvier-2022-bd.pdf",
+      "sha256": "5aba0abf8857a8d5132145f1c91dddf74af652fee8db231cd9d09aecce8c505a",
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "candidate_id": "dupont-aignan",
+      "document_title": "Programme général",
+      "type": "pdf",
+      "source_url": "https://web.archive.org/web/20220401142413id_/https://2022nda.fr/wp-content/uploads/2022/03/Programme-general-1.pdf",
+      "local_path": "sources/dupont-aignan/programme-general-1.pdf",
+      "sha256": "b29932e0541b04e4433ef8053ac0b74c58edf13826a06058fe59ad1b36738deb",
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "candidate_id": "hidalgo",
+      "document_title": "Programme officiel, 70 propositions pour la France",
+      "type": "pdf",
+      "source_url": "https://web.archive.org/web/20220301150408id_/https://assets.nationbuilder.com/2022avechidalgo/pages/208/attachments/original/1645795527/Anne_Hidalgo_Programme_officiel_en_A4_l%C3%A9ger.pdf",
+      "local_path": "sources/hidalgo/anne-hidalgo-programme-officiel-en-a4-leger.pdf",
+      "sha256": "8a78650816befc329920cc67bbee75066ea72ac1451e048e978759d46fa9f2fd",
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "candidate_id": "jadot",
+      "document_title": "Programme des écologistes",
+      "type": "pdf",
+      "source_url": "https://web.archive.org/web/20220327012752id_/https://assets.nationbuilder.com/themes/6181b6eb4445ea720389b314/attachments/original/1648232746/programme_des_ecologistes.pdf",
+      "local_path": "sources/jadot/programme-des-ecologistes.pdf",
+      "sha256": "dd71c05a16f2fa3c4cdc6ddaa87a112ffc2cfe69a57af16120ca18e445ca6a36",
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "candidate_id": "lassalle",
+      "document_title": "La France authentique, programme",
+      "type": "pdf",
+      "source_url": "https://web.archive.org/web/20220314141131id_/https://jl2022.fr/wp-content/uploads/2022/03/Programme-A4-V5-25_02_22.pdf",
+      "local_path": "sources/lassalle/programme-a4-v5-25-02-22.pdf",
+      "sha256": "4df5adab7e6192bb40ca5911f46bc15bb1b8c0fb4c15cce4eeb8f54706301f66",
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "candidate_id": "le-pen",
+      "document_title": "Manifeste « M la France », programme présidentiel",
+      "type": "pdf",
+      "source_url": "https://web.archive.org/web/20220329165019id_/https://mlafrance.fr/pdfs/manifeste-m-la-france-programme-presidentiel.pdf",
+      "local_path": "sources/le-pen/manifeste-m-la-france-programme-presidentiel.pdf",
+      "sha256": "2228cf277a7b413270225101de778b5adb6c20a372108a3f96a5c317f2f558ea",
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "candidate_id": "macron",
+      "document_title": "Emmanuel Macron avec vous, programme",
+      "type": "pdf",
+      "source_url": "https://web.archive.org/web/20220317215226id_/https://avecvous.fr/wp-content/uploads/2022/03/Emmanuel-Macron-Avec-Vous-24-pages.pdf",
+      "local_path": "sources/macron/emmanuel-macron-avec-vous-24-pages.pdf",
+      "sha256": "e9a608824a051434cca8438da38c836d242283f560e8c7f524f11fb7de20e201",
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "candidate_id": "melenchon",
+      "document_title": "L'Avenir en commun, programme en version abrégée",
+      "type": "pdf",
+      "source_url": "https://web.archive.org/web/20220410183816id_/https://melenchon2022.fr/wp-content/uploads/2022/04/LAvenir-en-commun-le-programme-en-version-abregee.pdf",
+      "local_path": "sources/melenchon/lavenir-en-commun-le-programme-en-version-abregee.pdf",
+      "sha256": "df249374c3241d1bcfcbaba30dced1fbb15d46d940cf2bc8f1125cb6ec1b27ad",
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "candidate_id": "pecresse",
+      "document_title": "Le courage de faire, programme",
+      "type": "pdf",
+      "source_url": "https://web.archive.org/web/20220324170011id_/https://valeriepecresse.fr/wp-content/uploads/2022/03/16P-VP2022-ok.pdf",
+      "local_path": "sources/pecresse/16p-vp2022-ok.pdf",
+      "sha256": "370f8774f585099da1fb436f1c98ad8ac60f7c0def3158d43bca69243dd7c0f6",
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "candidate_id": "poutou",
+      "document_title": "Brochure programme Poutou 2022",
+      "type": "pdf",
+      "source_url": "https://web.archive.org/web/20220401130549id_/https://poutou2022.org/sites/default/files/2022-02/brochure_programme_poutou_2022_2.pdf",
+      "local_path": "sources/poutou/brochure-programme-poutou-2022-2.pdf",
+      "sha256": "feb3406f22b15d963d977fd067a8861e47c73b7968d6cfadd03ad978d8d28c6b",
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "candidate_id": "roussel",
+      "document_title": "La France des Jours heureux, livre-programme",
+      "type": "pdf",
+      "source_url": "https://web.archive.org/web/20220125104923id_/https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf",
+      "local_path": "sources/roussel/exe-la-france-des-jours-heureux-livre-stc.pdf",
+      "sha256": "d0836d522538c7594f33280ff5914c245953d773872d309784a1c08c0f3e86b7",
+      "retrieved_at": "2026-11-19"
+    },
+    {
+      "candidate_id": "zemmour",
+      "document_title": "Pour que la France reste la France, mon programme",
+      "type": "pdf",
+      "source_url": "https://web.archive.org/web/20220326170951id_/https://assets.nationbuilder.com/themes/61c071ce4764e8b1483d1a8c/attachments/original/1648220408/programme_eric_zemmour_presidentielle_2022.pdf",
+      "local_path": "sources/zemmour/programme-eric-zemmour-presidentielle-2022.pdf",
+      "sha256": "08a8c9c9a7b450df7b7bde511970cb98379f59b7700c76e227f9241a4876b123",
+      "retrieved_at": "2026-11-19"
+    }
+  ]
+}

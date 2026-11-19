@@ -31,6 +31,9 @@ def scan(paths: list[Path], allowed: list[str] | None = None) -> list[str]:
         if not base.exists():
             continue
         for path in sorted(p for p in base.rglob("*") if p.is_file()):
+            # Caches compilés (__pycache__/*.pyc) : binaires, hors périmètre.
+            if "__pycache__" in path.parts or path.suffix == ".pyc":
+                continue
             for i, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
                 m = PATTERN.search(line)
                 if not m:

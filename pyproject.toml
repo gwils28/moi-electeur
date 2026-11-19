@@ -24,3 +24,5 @@ known-first-party = ["moi_electeur_pipeline", "moi_electeur_rag", "moi_electeur_
 python_version = "3.12"
 strict = true
 exclude = ["generated/", "notebooks/"]
+# PyMuPDF expose des signatures incomplètes : ses appels non typés sont tolérés.
+untyped_calls_exclude = ["pymupdf"]

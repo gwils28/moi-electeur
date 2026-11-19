@@ -1,8 +1,8 @@
 # PLAN de Moi Électeur
 
-> Statut : **v0.2, validé** (2026-11-17, décisions D1 à D10 acceptées, ajout du § 1 bis sur les notebooks R&D). Dérivé de [SPEC.md](SPEC.md) v0.2.
+> Statut : **v0.3, validé** (2026-11-19 : M2 détaillé, décisions D11 à D21 acceptées ; v0.2 validée le 2026-11-17 : décisions D1 à D10, § 1 bis notebooks R&D ; M0 et M1 livrés). Dérivé de [SPEC.md](SPEC.md) v0.2.
 > Mode d'emploi : annoter directement sous les blocs `> 📝 Annotation :` (ou n'importe où). Rien n'est implémenté avant ton retour.
-> Niveau de détail : M0 et M1 détaillés (prochaines étapes), M2 à M6 en grandes lignes, détaillés au moment venu.
+> Niveau de détail : M0, M1 et M2 détaillés, M3 à M6 en grandes lignes, détaillés au moment venu.
 
 ## 0. Décisions à trancher avant de coder
 
@@ -105,7 +105,7 @@ Membre uv `notebooks` (marimo, numpy, pandas, matplotlib), gabarit, `m0-01-donne
 - [x] `docker compose up -d` : `db` healthy, `curl localhost:8000/health` → 200, `localhost:3000` répond.
 - [x] `uv run pipeline validate data/elections/demo-fictive` vert ; un fichier volontairement cassé est rejeté (test).
 - [x] Le test « zéro I/O » échoue si on ajoute `fetch` dans `packages/engine` (vérifié puis retiré).
-- [ ] CI verte sur la PR (à vérifier après push).
+- [x] CI verte sur la PR (#3, 2026-11-17).
 
 > 📝 Annotation : ok
 
@@ -155,7 +155,7 @@ Le calcul des chargements ACP (mode B) est fait côté pipeline (numpy) en M1 au
 
 ### 3.4 Critères d'acceptation M1
 - [x] Tests moteur verts, couverture ≥ 90 % (sortie fournie).
-- [ ] Playwright + axe verts en CI (verts en local, CI à vérifier après push).
+- [x] Playwright + axe verts en CI (#3, 2026-11-17).
 - [x] Parcours fonctionnel en local (`pnpm dev`), captures d'écran desktop et mobile jointes.
 - [x] Revue `relecteur` sans problème bloquant.
 
@@ -163,17 +163,91 @@ Le calcul des chargements ACP (mode B) est fait côté pipeline (numpy) en M1 au
 
 ## 4. M2 : Ingestion, rag-service, chat RAG (corpus 2022)
 
-Grandes lignes, détaillées à l'ouverture du jalon :
-1. **Corpus 2022** : constituer `data/elections/fr-presidentielle-2022/election_config.json` (12 candidats, programmes + professions de foi officielles archivées, URL + sha256). Tâche manuelle d'abord : je propose la liste des sources, tu valides.
-2. **Pipeline** `fetch`, `extract` (PyMuPDF / trafilatura, n° de page), `chunk` (300-600 tokens, métadonnées obligatoires, test qui rejette un chunk incomplet), `embed` + `index` (Postgres, HNSW + GIN).
-3. **Modèle d'embedding** : intégrer `bge-m3` et `multilingual-e5-large` derrière une interface commune ; le choix définitif se fait en M4.
-4. **rag-service** : `/embed`, `/retrieve` (top-k par candidat, hybride pgvector + FTS `french`, fusion RRF), tests sur base de test Docker.
-5. **`/api/ask`** (Next.js) : rate limit en mémoire, plafond `DAILY_BUDGET_USD`, cache LRU mémoire (§ 6.2 bis), prompt `prompts/rag_system.md` versionné, blocs `document` + citations natives, jetons `{{cN}}`, post-validation des citations, streaming SSE, **aucun log du contenu des questions** (test qui inspecte les logs émis).
-6. **UI chat** : historique client 3 tours, citations cliquables, marquage « non vérifiée », compatible mode aveugle.
+Objectif : poser une question en français dans `/explorer` et recevoir, en streaming, une réponse neutre couvrant chaque candidat 2022, chaque affirmation étant adossée à une citation vérifiée d'un document officiel (titre, page, lien). **Coût LLM < 2 $** (Haiku, tests manuels uniquement ; aucun appel réel en CI).
 
-Coût estimé du jalon : développement et tests manuels du chat sur Haiku, **< 2 $** (quelques centaines de questions à ≈ 0,0024 $). Le prompt, les modèles et les paramètres Claude seront vérifiés contre la doc API à jour au moment de l'implémentation.
+### 4.0 Décisions à trancher (M2)
 
-> 📝 Annotation : ok
+| # | Sujet | Proposition | Alternative |
+|---|---|---|---|
+| D11 | Liste des sources 2022 | **Proposée dans `docs/sources-2022.md`** (une ligne par document : URL d'origine, URL d'archive, statut), tu valides ligne par ligne, puis `pipeline add-source` remplit `election_config.json` | Saisie directe dans `election_config.json` |
+| D12 | Ajout d'une source | **`pipeline add-source <election> <candidat> <url> --title … --type …`** télécharge, calcule le sha256 et écrit l'entrée `corpus` complète : le schéma reste strict (sha256 obligatoire), aucune saisie manuelle de hash | Rendre `sha256` / `retrieved_at` facultatifs jusqu'au premier `fetch` |
+| D13 | Élection « corpus seul » | **2022 existe en M2 sans `statements` / `positions` / `measures`** : `validate` et `build` les tolèrent absents (contrôles de couverture ignorés, boussole non publiée pour cette élection), ils deviennent obligatoires dès qu'un des trois existe | Rédiger un brouillon d'affirmations 2022 dès M2 |
+| D14 | Stockage des embeddings | **Table `chunks` (texte + métadonnées + `tsv`) et table `chunk_embeddings(chunk_id, model, embedding vector(1024))`**, un index HNSW partiel par modèle : `bge-m3` et `multilingual-e5-large` (tous deux en 1024 dimensions) coexistent pour la comparaison M4. Écart à SPEC § 4.5 (une colonne `embedding` dans `chunks`), SPEC corrigée après validation | Une base ou une colonne par modèle |
+| D15 | Code d'embedding partagé | **Module `moi_electeur_rag.embedding`** (interface `Embedder` : `embed_documents`, `embed_query`, préfixes `query:` / `passage:` pour e5) importé par le pipeline (dépendance de workspace uv) : une seule implémentation pour l'indexation et la requête. Les tests utilisent un `FakeEmbedder` déterministe ; aucun modèle réel n'est téléchargé en CI | Le pipeline appelle `/embed` du service |
+| D16 | Thème des chunks | **Similarité d'embedding avec une courte description par thème** (champ facultatif `description` ajouté au thème dans `election_config.schema.json`), `theme = null` si la marge entre les deux meilleurs thèmes est faible. **Pas de LLM en M2** ; l'arbitrage LLM des cas ambigus (SPEC § 8.3) est reporté et mesuré en M4 | Classifieur LLM dès M2 (coût faible mais non nul) |
+| D17 | Mesure des 300-600 tokens | **Tokenizer XLM-RoBERTa**, commun aux deux modèles candidats (même découpage quel que soit le modèle retenu) | Approximation en mots |
+| D18 | Schéma SQL | **SQL brut versionné** (`services/rag/sql/NNN_*.sql`), appliqué par `uv run pipeline db-migrate` (table `schema_migrations`), driver `psycopg` 3 ; pas d'ORM ni d'Alembic | SQLAlchemy + Alembic |
+| D19 | Tests avec base | **Marqueur pytest `db`** : base éphémère créée par test de session sur le Postgres du compose en local, service container `pgvector/pgvector:pg16` en CI ; ignorés avec un message clair si aucune base n'est joignable en local, **jamais ignorés en CI** | testcontainers-python |
+| D20 | PDF sans couche texte | **Détecté par `extract`, signalé et exclu** (pas d'OCR en M2) ; si un document indispensable est concerné, OCR (`tesseract`) ajouté en écart consigné | OCR systématique |
+| D21 | Sous-lots et branches | **Quatre PR** : `feat/m2a-ingestion` (4.1-4.2), `feat/m2b-rag-service` (4.3-4.4), `feat/m2c-api-ask` (4.5), `feat/m2d-chat-ui` (4.6-4.7) | Une seule PR M2 |
+
+> 📝 Annotation : OK
+
+### 4.1 Corpus 2022 (`data/elections/fr-presidentielle-2022/`)
+- `docs/sources-2022.md` : pour chaque candidat, la **profession de foi du 1er tour** (source État en priorité) et le **programme principal** (archive Wayback Machine, URL brute `id_/`), plus les livrets complémentaires à trancher. Uniquement des documents du candidat, de son parti ou de l'État (SPEC § 1, non-objectifs).
+- `election_config.json` : 12 candidats (`id`, `name`, `party`, `color` neutre par défaut, `program_url`, `blind_alias`), mêmes axes, quadrants et thèmes que la démo (+ descriptions D16), `corpus` rempli par `add-source` (D12).
+- Les fichiers téléchargés vont dans `data/elections/<id>/sources/` (déjà ignoré par git, pas de redistribution) ; seuls URL et sha256 sont versionnés.
+
+### 4.2 Pipeline d'ingestion (`pipeline`), test d'abord
+| Commande | Rôle | Tests clés |
+|---|---|---|
+| `add-source` | télécharge, hash, ajoute l'entrée `corpus` (refuse un doublon d'URL ou de sha256) | entrée conforme au schéma ; doublon refusé ; réseau simulé |
+| `fetch <election>` | télécharge ce qui manque, **vérifie le sha256** (échec explicite si le document a changé), idempotent | sha256 faux → erreur ; fichier présent et correct → aucun téléchargement |
+| `extract <election>` | PDF : PyMuPDF, texte par page, titres repérés par la taille de police ; HTML : trafilatura ; sortie JSONL `pages` (`document`, `page_number`, `text`, `headings`) dans `sources/` | fixtures PDF/HTML minimales générées dans les tests ; PDF sans texte → signalé (D20) |
+| `chunk <election>` | découpe par sections puis fenêtres de 300-600 tokens (D17), chevauchement ≈ 50 tokens, jamais à cheval sur deux documents ; un chunk peut couvrir deux pages (`page_number` = première page, `page_end` conservé) | **chunk sans métadonnée obligatoire rejeté** ; bornes de taille ; texte reconstruit sans perte ; déterminisme |
+| `index <election> --model bge-m3` | embeddings (D15), thème (D16), écriture `chunks` + `chunk_embeddings` dans une transaction ; réindexation = remplacement complet de l'élection pour ce modèle ; **version du corpus** = hash des sha256 et des paramètres de découpage, écrite en base | idempotence ; version de corpus stable ; `FakeEmbedder` |
+| `db-migrate` | applique les scripts SQL (D18) | migrations rejouables, schéma attendu présent |
+
+Table `chunks` : `id, election_id, candidate_id, document_title, source_url, page_number, page_end, section_title, theme (nullable), text, tsv (tsvector 'french', colonne générée), token_count, corpus_version`. Index GIN sur `tsv`, B-tree sur `(election_id, candidate_id)`.
+
+### 4.3 Modèles d'embedding
+- `bge-m3` et `multilingual-e5-large` via `sentence-transformers`, **torch CPU uniquement** (index `download.pytorch.org/whl/cpu` dans uv), poids téléchargés dans `models/` (ignoré par git, volume Docker).
+- Normalisation L2, distance cosinus. Modèle par défaut du service : variable `EMBEDDING_MODEL` (défaut `bge-m3`, choix définitif en M4).
+- Un test « vrai modèle » marqué `model`, lancé à la main seulement (≈ 2 Go par modèle).
+
+### 4.4 rag-service (`services/rag`)
+- `POST /retrieve` : `{ election_id, question, candidate_ids?, theme?, k = 4 }` → par candidat : top 20 sémantique (HNSW) et top 20 FTS (`websearch_to_tsquery('french', …)`), **fusion RRF (k = 60)**, garde les `k` meilleurs ; renvoie chunks + métadonnées + `corpus_version`. La récupération par candidat garantit qu'aucun candidat n'est absent faute de score.
+- `POST /embed` : utilitaire de débogage, désactivé hors dev.
+- Accès réseau : écoute sur le réseau Docker interne uniquement en prod (M5) ; en dev, `127.0.0.1:8000`.
+- **Aucun log du corps des requêtes** : journal d'accès uvicorn limité (méthode, chemin, code, latence) ; test qui capture les logs d'une requête `/retrieve` et vérifie que la question n'y figure pas.
+- Tests : RRF sur des classements jouets calculés à la main ; couverture par candidat (un candidat sans résultat FTS reste présent) ; filtres candidat et thème ; tests `db` avec `FakeEmbedder`.
+
+### 4.5 `/api/ask` (Next.js, runtime Node)
+- Seule partie dynamique de l'application ; la boussole reste statique. Clé `ANTHROPIC_API_KEY` lue côté serveur uniquement, modèle `CHAT_MODEL` (défaut `claude-haiku-5-5`). SDK `@anthropic-ai/sdk`, client injecté pour être simulé dans les tests.
+- Chaîne : validation de l'entrée (longueur ≤ 500 caractères, 3 tours d'historique max) → **rate limit** (10 questions / 10 min par IP, compteur en mémoire, IP jamais écrite) → **plafond `DAILY_BUDGET_USD`** (coût calculé depuis l'`usage` renvoyé par l'API et une table de tarifs versionnée ; au-delà, message clair et code 503) → **cache LRU** (§ 6.2 bis, première question seulement) → `/retrieve` → appel Claude en streaming → relais SSE.
+- **Prompt** `prompts/rag_system.md` (en-tête `version:`), consignes SPEC § 6.2 : extraits seuls, phrase exacte pour les silences, ton encyclopédique, ordre des candidats imposé (**tiré au sort par requête côté serveur**), longueur comparable, noms remplacés par `{{cN}}`.
+- **Extraits en blocs `document` avec citations natives** (un bloc par chunk, titre `{{cN}} · <document> · p. X`) ; post-validation : chaque `cited_text` doit être une sous-chaîne (espaces normalisés) d'un chunk renvoyé, sinon marqué « non vérifiée ». En mode aveugle, les citations restent masquées côté client (décision M1).
+- Garde-fou de neutralité en sortie : la liste de mots interdits (§ 1) est vérifiée sur la réponse complète ; une occurrence est signalée dans la réponse (pas de réécriture silencieuse) et comptée dans les métriques.
+- **Logs** limités à : horodatage, modèle, tokens in/out, coût, latence, code retour, cache hit. Test qui capture tout ce que la route écrit (console et logger) et vérifie l'absence de la question et de l'historique.
+- Format du flux SSE documenté (`delta`, `citation`, `done`, `error`), types TS dans `apps/web/src/lib/rag/`.
+- Les détails d'API (blocs `document`, citations, streaming, `max_tokens`, tarifs) sont vérifiés contre la doc Claude à jour au moment d'écrire la route.
+
+### 4.6 UI chat (`/explorer`)
+- Sélecteur d'élection limité aux élections indexées (2022 en M2 ; la démo fictive n'a pas de corpus), filtres candidats et thème.
+- Réponse streamée, jetons `{{cN}}` remplacés par `displayCandidate` (nom ou alias), citations cliquables (document, page, lien vers l'archive), badge « non vérifiée », historique client de 3 tours, rien en `localStorage`.
+- Mentions visibles : réponses générées automatiquement à partir des seuls programmes officiels, peuvent contenir des erreurs, lien vers la source.
+- Accessibilité : zone `aria-live="polite"` pendant le streaming, envoi au clavier, axe-core.
+
+### 4.7 Notebooks M2 et jeu de fumée
+- `m2-01-extraction-chunks.py` (qualité d'extraction par document, distribution des tailles, cas limites), `m2-02-embeddings.py` (bge-m3 vs e5 sur un jeu de fumée), `m2-03-retrieval-rrf.py` (sémantique seul, FTS seul, RRF), `m2-04-prompt-neutralite.py` (réponses enregistrées dans `notebooks/fixtures/`, aucun appel réel en CI).
+- `eval/smoke/questions-2022.jsonl` : ≈ 15 questions avec candidats et pages attendus, dont 3 pièges sur des silences et 2 demandes de recommandation (« pour qui voter ? ») ; sert de test de non-régression du retrieval (rappel@k mesuré, sans LLM). Le jeu complet (≈ 60) arrive en M4.
+
+### 4.8 Docker et CI
+- `rag` : image avec torch CPU, volume `models/`, variable `EMBEDDING_MODEL` ; healthcheck qui vérifie aussi la connexion à la base.
+- `web` : passe de « statique pur » à `next start` avec la route API (déjà le cas en dev) ; `ANTHROPIC_API_KEY` via `.env` (jamais commitée, `.env.example` sans valeur).
+- CI : service container pgvector pour les tests `db` ; dérive des types (nouveau champ `description` des thèmes) ; notebooks M2 exécutés sur fixtures.
+
+### 4.9 Critères d'acceptation M2
+- [x] `docs/sources-2022.md` validé, `pipeline fetch` vérifie les 12 candidats (sha256 OK), `pipeline validate` vert sur 2022 (M2a, 2026-11-19 : 24 documents).
+- [ ] `extract` + `chunk` + `index` sur 2022 avec les deux modèles ; aucun chunk sans métadonnée ; rapport de couverture (pages et chunks par candidat) dans le notebook m2-01.
+- [ ] `/retrieve` renvoie au moins un chunk par candidat sur chaque question du jeu de fumée ; rappel@4 mesuré pour les deux modèles et RRF vs sémantique seul (chiffres dans les notes).
+- [ ] `/api/ask` : tests verts (rate limit, budget, cache, post-validation, absence de logs de question) avec client Anthropic simulé.
+- [ ] Parcours manuel dans `/explorer` sur Haiku, captures jointes, coût réel relevé (< 2 $).
+- [ ] Playwright + axe sur `/explorer` (réponse simulée), CI verte, revue `relecteur` sans problème bloquant.
+
+Coût estimé du jalon : **< 2 $** (quelques centaines de questions à ≈ 0,0024 $). Coût de calcul : indexation 2022 en CPU estimée à quelques minutes par modèle (corpus de quelques centaines de pages).
+
+> 📝 Annotation : OK
 
 ## 5. M3 : Positions, mesures, revue ; comparateur et radar
 

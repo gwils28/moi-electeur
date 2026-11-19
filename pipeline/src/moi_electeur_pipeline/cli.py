@@ -9,10 +9,13 @@ from typing import Annotated
 import typer
 
 from .build import BuildError, build_election
+from .chunk import ChunkError, chunk_corpus
 from .codegen import generate_models
 from .demo import ELECTION_ID, build_demo, write_demo
 from .engine_fixtures import build_engine_cases
+from .extract import extract_corpus
 from .paths import elections_dir, repo_root
+from .sources import SourceError, add_source, fetch_corpus
 from .validate import validate_election
 
 app = typer.Typer(no_args_is_help=True, help="Pipeline hors ligne de Moi Électeur.")
@@ -83,10 +86,72 @@ def build(
     targets = dirs or sorted(p for p in elections_dir().iterdir() if p.is_dir())
     for d in targets:
         try:
-            typer.echo(f"Écrit {build_election(d, out_root)}")
+            written = build_election(d, out_root)
         except BuildError as exc:
             typer.echo(f"ÉCHEC {d.name} :\n{exc}", err=True)
             raise typer.Exit(1) from exc
+        if written is None:
+            typer.echo(f"IGNORÉ {d.name} (corpus seul : pas de boussole publiée)")
+        else:
+            typer.echo(f"Écrit {written}")
+
+
+ElectionDir = Annotated[Path, typer.Argument(help="Dossier d'élection (data/elections/<id>).")]
+
+
+@app.command("add-source")
+def add_source_cmd(
+    election: ElectionDir,
+    candidate: Annotated[str, typer.Argument(help="Identifiant du candidat.")],
+    url: Annotated[str, typer.Argument(help="URL du document (instantané Wayback id_/).")],
+    title: Annotated[str, typer.Option(help="Titre du document, tel que cité.")],
+    doc_type: Annotated[str, typer.Option("--type", help="pdf, html ou markdown.")] = "pdf",
+) -> None:
+    """Télécharge un document, calcule son sha256 et l'ajoute au corpus (PLAN D12)."""
+    try:
+        entry = add_source(election, candidate, url, title, doc_type)
+    except SourceError as exc:
+        typer.echo(f"ÉCHEC : {exc}", err=True)
+        raise typer.Exit(1) from exc
+    typer.echo(f"Ajouté {entry['local_path']} ({entry['sha256'][:12]})")
+
+
+@app.command()
+def fetch(election: ElectionDir) -> None:
+    """Télécharge les documents manquants du corpus et vérifie leur sha256."""
+    try:
+        report = fetch_corpus(election)
+    except SourceError as exc:
+        typer.echo(f"ÉCHEC : {exc}", err=True)
+        raise typer.Exit(1) from exc
+    typer.echo(
+        f"{len(report.present)} présent(s), {len(report.downloaded)} téléchargé(s), sha256 OK"
+    )
+
+
+@app.command()
+def extract(election: ElectionDir) -> None:
+    """Extrait le texte des documents, page par page (PDF, HTML, Markdown)."""
+    report = extract_corpus(election)
+    typer.echo(f"{len(report.written)} document(s) extrait(s)")
+    for title, pages in report.empty_pages.items():
+        typer.echo(f"  pages sans texte (non indexées) dans « {title} » : {pages}")
+    for title in report.excluded:
+        typer.echo(f"  EXCLU (aucun texte, OCR non prévu) : « {title} »")
+
+
+@app.command()
+def chunk(election: ElectionDir) -> None:
+    """Découpe les documents extraits en extraits de 300 à 600 tokens."""
+    try:
+        report = chunk_corpus(election)
+    except ChunkError as exc:
+        typer.echo(f"ÉCHEC : {exc}", err=True)
+        raise typer.Exit(1) from exc
+    total = sum(report.chunks_per_candidate.values())
+    typer.echo(f"{total} extraits, version du corpus {report.corpus_version} -> {report.path}")
+    for candidate, n in sorted(report.chunks_per_candidate.items()):
+        typer.echo(f"  {candidate} : {n}")
 
 
 @app.command("engine-fixtures")
@@ -116,9 +181,6 @@ def _not_implemented(name: str, milestone: str) -> None:
 
 
 for _name, _milestone in [
-    ("fetch", "M2"),
-    ("extract", "M2"),
-    ("chunk", "M2"),
     ("index", "M2"),
     ("propose-positions", "M3"),
     ("propose-measures", "M3"),

@@ -53,7 +53,12 @@
         "required": ["id", "label"],
         "properties": {
           "id": { "$ref": "#/$defs/slug" },
-          "label": { "type": "string", "minLength": 1 }
+          "label": { "type": "string", "minLength": 1 },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Courte description du périmètre du thème, utilisée pour classer les extraits du corpus (PLAN D16)."
+          }
         }
       }
     },

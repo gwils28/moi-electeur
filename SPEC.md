@@ -115,7 +115,8 @@ Le front ne charge **que** les positions `validated` ou `corrected`. Un silence 
 ```
 
 ### 4.5 Chunks (Postgres)
-Table `chunks` : `id, election_id, candidate_id, theme, document_title, page_number, section_title, source_url, text, tsv (tsvector french), embedding vector(N)`. Index HNSW sur `embedding`, GIN sur `tsv`.
+Table `chunks` : `id, election_id, candidate_id, theme (nullable), document_title, page_number, page_end, section_title, source_url, text, tsv (tsvector french), token_count, corpus_version`. Index GIN sur `tsv`.
+Table `chunk_embeddings` : `chunk_id, model, embedding vector(1024)`, un index HNSW partiel par modèle, pour faire coexister plusieurs modèles d'embedding (comparaison en backtest). Décision PLAN D14 (2026-11-19).
 
 ## 5. Fonctionnalité 1 : Boussole (100 % client)
 

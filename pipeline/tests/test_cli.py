@@ -35,7 +35,7 @@ def test_modeles_pydantic_a_jour() -> None:
     assert result.exit_code == 0, result.output
 
 
-@pytest.mark.parametrize("command", ["fetch", "extract", "chunk", "index", "review"])
+@pytest.mark.parametrize("command", ["index", "review"])
 def test_commandes_non_implementees_echouent(command: str) -> None:
     result = runner.invoke(app, [command])
     assert result.exit_code == 2
@@ -53,4 +53,10 @@ def test_modeles_generes_chargent_la_demo() -> None:
 
 def test_fixture_moteur_a_jour() -> None:
     result = runner.invoke(app, ["engine-fixtures", "--check"])
+    assert result.exit_code == 0, result.output
+
+
+@pytest.mark.parametrize("command", ["add-source", "fetch", "extract", "chunk"])
+def test_commandes_ingestion_disponibles(command: str) -> None:
+    result = runner.invoke(app, [command, "--help"])
     assert result.exit_code == 0, result.output

@@ -24,6 +24,7 @@ Boussole électorale + explorateur RAG des programmes officiels. Spécification 
 - Tests JS : `pnpm test` ; E2E : `pnpm --filter @moi-electeur/web e2e`
 - Tests Python : `uv run --project pipeline pytest -q pipeline` (idem `services/rag`, `eval`, `notebooks`)
 - Lint Python : `uv run --project pipeline ruff check . && uv run --project pipeline ruff format --check . && uv run --project pipeline mypy pipeline/src services/rag/src eval/src`
+- Corpus (E = `data/elections/<id>`) : `uv run pipeline add-source E <candidat> <url> --title …` puis `fetch E`, `extract E`, `chunk E` (fichiers dans `E/sources/`, ignoré par git)
 - Données : `uv run pipeline validate` ; démo : `uv run pipeline make-demo [--check]` ; JSON du front : `uv run pipeline build` (lancé par `pnpm dev`/`pnpm build` du web)
 - Fixture croisée Python/TS du moteur : `uv run pipeline engine-fixtures [--check]`
 - Types depuis `schemas/` : `pnpm gen:types` (TS) et `uv run pipeline gen-models [--check]` (Pydantic)

@@ -24,3 +24,10 @@ def test_exception_assumee_listee(tmp_path: Path) -> None:
 def test_texte_neutre(tmp_path: Path) -> None:
     (tmp_path / "a.ts").write_text('export const t = "Proximité avec chaque candidat";\n')
     assert cfw.scan([tmp_path]) == []
+
+
+def test_ignore_les_caches_compiles(tmp_path: Path) -> None:
+    cache = tmp_path / "__pycache__"
+    cache.mkdir()
+    (cache / "app.cpython-312.pyc").write_bytes(b"\xcb\x0d\x0d\x0a meilleur")
+    assert cfw.scan([tmp_path]) == []
