@@ -1,3 +1,8 @@
 packages:
   - "apps/*"
   - "packages/*"
+
+# Script d'installation d'esbuild (dépendance de tsx) non exécuté : il ne fait que vérifier le
+# binaire, fourni par le paquet propre à la plateforme (@esbuild/<os>-<arch>).
+allowBuilds:
+  esbuild: false
