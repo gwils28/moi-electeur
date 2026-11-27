@@ -25,6 +25,8 @@ COPY packages packages
 # Schémas (validation de /api/ask) et prompts (prompt système, mots interdits) : lus par la route.
 COPY schemas schemas
 COPY prompts prompts
+# Méthodologie et déclaration d'accessibilité : lues par les pages /methodologie et /accessibilite.
+COPY docs/methodologie.md docs/accessibilite.md docs/
 COPY apps/web apps/web
 COPY --from=data /app/apps/web/public/data apps/web/public/data
 # Données déjà produites par l'étape « data » : on saute le prebuild (pnpm data).

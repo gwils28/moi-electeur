@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import type { ReactNode } from "react";
 import { MainNav } from "@/components/MainNav";
 import { fr } from "@/i18n/fr";
@@ -20,6 +21,21 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <div id="contenu" tabIndex={-1} className="outline-none">
           {children}
         </div>
+        <footer
+          aria-label={fr.footer.label}
+          className="mx-auto mt-8 flex max-w-6xl flex-wrap gap-4 border-t px-4 py-4 text-sm sm:px-6"
+        >
+          <Link href="/methodologie" prefetch={false} className="underline">
+            {fr.footer.methodology}
+          </Link>
+          <Link href="/accessibilite" prefetch={false} className="underline">
+            {fr.footer.accessibility}
+          </Link>
+          <a href="https://github.com/gwils28/moi-electeur" className="underline">
+            {fr.footer.source}
+          </a>
+          <span>{fr.footer.license}</span>
+        </footer>
       </body>
     </html>
   );

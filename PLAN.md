@@ -358,7 +358,7 @@ Plan initial (annoté « ok ») : audit RGAA manuel en plus d'axe, `docs/methodo
 
 ### 7.1 Critères d'acceptation M5
 - [x] Audit RGAA documenté, écarts corrigés ou justifiés, déclaration d'accessibilité publiée ; axe sans violation (auto-évaluation ; publication sur le site avec la page méthodologie).
-- [ ] Page `/methodologie` publiée, à jour du backtest et de la validation en bloc.
+- [x] Page `/methodologie` publiée, à jour du backtest et de la validation en bloc.
 - [ ] Stack de production prête (compose, Caddy, CSP stricte vérifiée par test), déploiement documenté ; CI verte.
 - [ ] Mise en ligne sur le VPS du mainteneur (hors de portée de l'agent sans accès).
 

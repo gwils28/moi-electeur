@@ -79,6 +79,14 @@ export const fr = {
     compass: "Boussole",
     comparator: "Comparateur",
     explorer: "Explorateur",
+    methodology: "Méthodologie",
+  },
+  footer: {
+    label: "Informations sur le site",
+    methodology: "Méthodologie",
+    accessibility: "Accessibilité",
+    source: "Code source et données",
+    license: "Code sous licence AGPL-3.0, données sous licence CC BY-SA 4.0.",
   },
   election: "Élection",
   pastElection: (date: string) =>

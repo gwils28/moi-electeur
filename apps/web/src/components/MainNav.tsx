@@ -8,6 +8,7 @@ const LINKS = [
   { href: "/", label: fr.nav.compass },
   { href: "/comparateur", label: fr.nav.comparator },
   { href: "/explorer", label: fr.nav.explorer },
+  { href: "/methodologie", label: fr.nav.methodology },
 ] as const;
 
 /** Navigation principale ; la page courante est signalée (`aria-current`, RGAA 12). */
@@ -24,6 +25,8 @@ export function MainNav() {
           <Link
             key={l.href}
             href={l.href}
+            // Aucune requête une fois la page chargée (la boussole fonctionne hors ligne).
+            prefetch={false}
             className={current ? "font-semibold underline" : "underline"}
             aria-current={current ? "page" : undefined}
           >
