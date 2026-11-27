@@ -772,3 +772,42 @@ def test_cli_mesures_pilote(election: Path, cli: dict[str, Any]) -> None:
     assert result.exit_code == 0, result.output
     assert len(cli["client"].calls) == 6
     assert len(load_records(proposals_path(election, "measure"))) == 6
+
+
+def test_rapport_de_relecture(election: Path) -> None:
+    from moi_electeur_pipeline.propose import render_report
+
+    _all_positions(election)
+    item = _position_items(election, candidates=["c2"])[0]
+    path = proposals_path(election, "position")
+    from moi_electeur_pipeline.propose import append_record
+
+    append_record(path, _record(item, _position(2, [])))
+    report = render_report(election, "position", candidates=["c1", "c2"])
+    statement = _read(election, "statements.json")["statements"][0]
+    assert f"### s01 · {statement['text']}" in report
+    assert "**+1**" in report and "✅" in report
+    assert "valeur_sans_citation" in report and "refusée" in report
+    _all_measures(election, measure_reply)
+    measures = render_report(election, "measure", candidates=["c1"])
+    assert "Ramener l'âge de départ à 60 ans" in measures and "10 000 000 000 €" in measures
+
+
+def test_propositions_d_une_autre_version_redemandees(election: Path) -> None:
+    item = _position_items(election, candidates=["c1"])[0]
+    old = _record(item, _position(None, []), prompt_version=1)
+    assert done_ids({old["custom_id"]: old}, prompt_version=1) == {old["custom_id"]}
+    assert done_ids({old["custom_id"]: old}, prompt_version=2) == set()
+
+
+def test_citations_adjacentes_recollees(election: Path) -> None:
+    item = _position_items(election, candidates=["c1"])[1]  # extrait 2 : deux phrases
+    first = {"extrait": 2, "text": "L’âge de départ sera ramené à 60 ans."}
+    second = {"extrait": 2, "text": "Coût : 10 milliards d'euros par an."}
+    other = {"extrait": 1, "text": item.chunks[0]["text"]}
+    rec = _record(item, _position(2, [first, second, other]))
+    assert [q["text"] for q in rec["quotes"]] == [
+        "L’âge de départ sera ramené à 60 ans. Coût : 10 milliards d'euros par an.",
+        item.chunks[0]["text"],
+    ]
+    assert all(q["verified"] for q in rec["quotes"])
