@@ -202,7 +202,7 @@ def index(
     election: ElectionDir,
     model: Annotated[
         str, typer.Option(help="bge-m3, multilingual-e5-large (ou fake pour les tests).")
-    ] = "bge-m3",
+    ] = "multilingual-e5-large",
     theme_margin: Annotated[
         float,
         typer.Option(help="Écart de similarité minimal entre les deux thèmes les plus proches."),
@@ -392,7 +392,7 @@ def propose_positions_cmd(
     dry_run: DryRun = False,
     yes: Yes = False,
     max_usd: MaxUsd = 10.0,
-    embedding: Embedding = "bge-m3",
+    embedding: Embedding = "multilingual-e5-large",
     dsn: Dsn = None,
 ) -> None:
     """Propose les positions (candidat x affirmation) par Claude, en extraction aveugle."""
@@ -417,7 +417,7 @@ def propose_measures_cmd(
     dry_run: DryRun = False,
     yes: Yes = False,
     max_usd: MaxUsd = 10.0,
-    embedding: Embedding = "bge-m3",
+    embedding: Embedding = "multilingual-e5-large",
     dsn: Dsn = None,
 ) -> None:
     """Propose les mesures phares (candidat x thème) et leur chiffrage par Claude."""

@@ -334,7 +334,7 @@ Plan initial (annoté « ok ») : jeu d'environ 60 questions annotées (dont pi�
 > 📝 Annotation : autonomie déléguée par le mainteneur (2026-11-27) ; plan suivi par l'agent, écarts consignés dans `docs/notes-implementation.md`.
 
 ### 6.1 Critères d'acceptation M4
-- [ ] 60 questions annotées, `check-smoke` vert, rappel@4 des deux modèles d'embedding avec intervalle ; modèle d'embedding tranché.
+- [x] 60 questions annotées, `check-smoke` vert, rappel@4 des deux modèles d'embedding avec intervalle ; modèle d'embedding tranché (e5, D37).
 - [ ] Chat évalué en mode rapide et approfondi (citations, silences, refus, juge LLM, permutations) ; modèle par défaut tranché ; coût relevé, sous 25 $.
 - [ ] Feuille de codage de référence prête ; profils synthétiques mesurés ; CHES prêt à brancher.
 - [ ] Rapport `eval/reports/<date>.md` reproductible par une commande ; CI verte.

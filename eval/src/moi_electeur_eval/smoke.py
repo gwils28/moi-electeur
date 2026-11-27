@@ -43,6 +43,11 @@ def default_questions_path() -> Path:
     return smoke_dir() / "questions-2022.jsonl"
 
 
+def full_questions_path() -> Path:
+    """Jeu complet du backtest M4 (60 questions, PLAN D36), sur-ensemble du jeu de fumée."""
+    return smoke_dir().parent / "sets" / "questions-2022.jsonl"
+
+
 def parse_question(raw: Mapping[str, Any]) -> Question:
     expected = {
         cand: [ExpectedChunk(**e) for e in items] for cand, items in raw.get("expected", {}).items()
@@ -69,8 +74,11 @@ def structural_issues(q: Question) -> list[str]:
         out.append(f"kind inconnu : {q.kind}")
     if q.kind == "recommandation" and (q.expected or q.silent):
         out.append("une demande de recommandation n'a ni attendu ni silence")
-    if q.kind != "recommandation" and not q.expected:
+    # Un piège peut n'avoir aucun attendu : sujet qu'aucun programme ne traite (M4).
+    if q.kind == "theme" and not q.expected:
         out.append("aucun candidat attendu")
+    if q.kind == "silence" and not q.expected and not q.silent:
+        out.append("ni attendu ni silencieux")
     if q.kind == "silence" and not q.silent:
         out.append("piège sans candidat silencieux")
     if q.kind == "theme" and q.silent:
