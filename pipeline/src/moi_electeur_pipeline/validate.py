@@ -30,6 +30,15 @@ FILES: dict[str, tuple[str, bool]] = {
 }
 # PLAN D13 : sans aucun de ces fichiers, l'élection est « corpus seul » (pas de boussole).
 COMPASS_FILES = ("statements.json", "positions.json", "measures.json")
+# M3 : affirmations validées, positions et mesures pas encore extraites ni revues. La couverture
+# des affirmations est contrôlée, aucune boussole n'est publiée.
+PREPARATION_FILES = ("positions.json", "measures.json")
+
+
+def compass_ready(election_dir: Path) -> bool:
+    """Vrai si la boussole peut être publiée (positions présentes), faux en « corpus seul » ou
+    en préparation."""
+    return (election_dir / "positions.json").is_file()
 
 
 @dataclass(frozen=True)
@@ -83,7 +92,8 @@ def cross_issues(election_dir: Path, docs: dict[str, Any]) -> list[Issue]:
     config = docs["election_config.json"]
     compass = "statements.json" in docs
     statements = docs["statements.json"]["statements"] if compass else []
-    positions = docs["positions.json"]["positions"] if compass else []
+    positions = docs["positions.json"]["positions"] if "positions.json" in docs else []
+    preparation = compass and "positions.json" not in docs
     measures = docs.get("measures.json", {"measures": []})["measures"]
 
     def add(file: str, message: str) -> None:
@@ -149,6 +159,9 @@ def cross_issues(election_dir: Path, docs: dict[str, Any]) -> list[Issue]:
         if len({s["direction"] for s in on_axis}) < 2:
             add("statements.json", f"axe {axis} : sens non alternés (biais d'acquiescement)")
 
+    if preparation:
+        return issues
+
     corpus_titles: dict[str, set[str]] = {}
     for doc in config["corpus"]:
         corpus_titles.setdefault(doc["candidate_id"], set()).add(doc["document_title"])
@@ -175,6 +188,8 @@ def cross_issues(election_dir: Path, docs: dict[str, Any]) -> list[Issue]:
                         "positions.json",
                         f"{ref} : document cité hors corpus ({ev['document_title']})",
                     )
+        if "proposed_value" in p and p["review"]["status"] != "corrected":
+            add("positions.json", f"{ref} : proposed_value hors statut corrected")
     for (cand, stmt), n in pairs.items():
         if n > 1:
             add("positions.json", f"{cand}/{stmt} : {n} positions pour le même couple")
@@ -190,6 +205,8 @@ def cross_issues(election_dir: Path, docs: dict[str, Any]) -> list[Issue]:
             add("measures.json", f"{m['id']} : thème inconnu {m['theme']}")
         if m["review"]["status"] in LOADED_STATUSES and not m["evidence"]:
             add("measures.json", f"{m['id']} : mesure retenue sans citation")
+        if "proposed" in m and m["review"]["status"] != "corrected":
+            add("measures.json", f"{m['id']} : proposed hors statut corrected")
     return issues
 
 
@@ -198,10 +215,16 @@ def validate_election(election_dir: Path) -> list[Issue]:
     issues: list[Issue] = []
     docs: dict[str, Any] = {}
     corpus_only = not any((election_dir / f).is_file() for f in COMPASS_FILES)
+    preparation = (election_dir / "statements.json").is_file() and not any(
+        (election_dir / f).is_file() for f in PREPARATION_FILES
+    )
     for file, (schema_name, required) in FILES.items():
         path = election_dir / file
         if not path.is_file():
-            if required and not (corpus_only and file in COMPASS_FILES):
+            optional = (corpus_only and file in COMPASS_FILES) or (
+                preparation and file in PREPARATION_FILES
+            )
+            if required and not optional:
                 issues.append(Issue(file, "fichier manquant"))
             continue
         try:

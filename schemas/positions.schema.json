@@ -34,6 +34,12 @@
           "confidence": { "type": "string", "enum": ["high", "medium", "low"] },
           "evidence": { "type": "array", "items": { "$ref": "evidence.schema.json" } },
           "proposed_by": { "type": "string" },
+          "proposed_value": {
+            "type": ["integer", "null"],
+            "minimum": -2,
+            "maximum": 2,
+            "description": "Valeur proposée par l'extraction, conservée quand la revue la corrige (statut corrected seulement)."
+          },
           "review": { "$ref": "review.schema.json" }
         }
       }

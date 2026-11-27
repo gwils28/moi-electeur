@@ -6,7 +6,9 @@
   "additionalProperties": false,
   "required": ["election_id", "measures"],
   "properties": {
-    "election_id": { "type": "string" },
+    "election_id": {
+      "type": "string"
+    },
     "measures": {
       "type": "array",
       "items": {
@@ -24,25 +26,75 @@
           "review"
         ],
         "properties": {
-          "id": { "type": "string", "pattern": "^m[0-9]{3}$" },
-          "candidate_id": { "type": "string" },
-          "theme": { "type": "string" },
-          "title": { "type": "string", "minLength": 1 },
-          "summary": { "type": "string" },
+          "id": {
+            "type": "string",
+            "pattern": "^m[0-9]{3}$"
+          },
+          "candidate_id": {
+            "type": "string"
+          },
+          "theme": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "summary": {
+            "type": "string"
+          },
           "costing": {
-            "title": "Costing",
-            "type": "object",
-            "additionalProperties": false,
-            "required": ["status"],
-            "properties": {
-              "status": { "type": "string", "enum": ["chiffre", "partiel", "intention"] },
-              "amount_eur": { "type": ["number", "null"] },
-              "period": { "type": ["string", "null"] },
-              "quote": { "type": ["string", "null"] }
+            "$ref": "#/$defs/costing"
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "$ref": "evidence.schema.json"
             }
           },
-          "evidence": { "type": "array", "items": { "$ref": "evidence.schema.json" } },
-          "review": { "$ref": "review.schema.json" }
+          "proposed": {
+            "title": "ProposedMeasure",
+            "description": "Contenu proposé par l'extraction, conservé quand la revue le corrige (statut corrected seulement).",
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "summary": {
+                "type": "string"
+              },
+              "costing": {
+                "$ref": "#/$defs/costing"
+              }
+            }
+          },
+          "review": {
+            "$ref": "review.schema.json"
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "costing": {
+      "title": "Costing",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["chiffre", "partiel", "intention"]
+        },
+        "amount_eur": {
+          "type": ["number", "null"]
+        },
+        "period": {
+          "type": ["string", "null"]
+        },
+        "quote": {
+          "type": ["string", "null"]
         }
       }
     }

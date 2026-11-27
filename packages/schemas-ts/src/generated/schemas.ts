@@ -292,6 +292,7 @@ export interface Measure {
   summary: string;
   costing: Costing;
   evidence: Evidence[];
+  proposed?: ProposedMeasure;
   review: Review;
 }
 export interface Costing {
@@ -299,6 +300,14 @@ export interface Costing {
   amount_eur?: number | null;
   period?: string | null;
   quote?: string | null;
+}
+/**
+ * Contenu proposé par l'extraction, conservé quand la revue le corrige (statut corrected seulement).
+ */
+export interface ProposedMeasure {
+  title?: string;
+  summary?: string;
+  costing?: Costing;
 }
 /**
  * Décision de revue humaine. Seuls validated et corrected sont chargés par le front.
@@ -360,6 +369,10 @@ export interface Position {
   confidence: "high" | "medium" | "low";
   evidence: Evidence[];
   proposed_by: string;
+  /**
+   * Valeur proposée par l'extraction, conservée quand la revue la corrige (statut corrected seulement).
+   */
+  proposed_value?: number | null;
   review: Review;
 }
 /**

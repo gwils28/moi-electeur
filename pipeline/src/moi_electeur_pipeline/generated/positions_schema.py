@@ -25,6 +25,10 @@ class Position(BaseModel):
     confidence: Confidence
     evidence: list[evidence_schema.Evidence]
     proposed_by: str
+    proposed_value: conint(ge=-2, le=2) | None = Field(
+        None,
+        description="Valeur proposée par l'extraction, conservée quand la revue la corrige (statut corrected seulement).",
+    )
     review: review_schema.Review
 
 

@@ -13,7 +13,7 @@ from typing import Any
 
 from .engine_ref import LOADED_STATUSES, candidate_answers
 from .pca import fit_pca
-from .validate import Issue, schema_issues, validate_election
+from .validate import Issue, compass_ready, schema_issues, validate_election
 
 SOURCE_FILES = ["election_config.json", "statements.json", "positions.json", "measures.json"]
 
@@ -33,13 +33,14 @@ def _dump(doc: Any) -> str:
 
 
 def build_election(election_dir: Path, out_root: Path) -> Path:
-    """Écrit les JSON du front. Élection « corpus seul » (PLAN D13) : pas de boussole, seule la
-    configuration (candidats, thèmes, sources) est publiée, pour l'explorateur (M2d)."""
+    """Écrit les JSON du front. Élection « corpus seul » (PLAN D13) ou boussole en préparation
+    (affirmations sans positions, M3) : pas de boussole, seule la configuration (candidats,
+    thèmes, sources) est publiée, pour l'explorateur (M2d)."""
     issues = validate_election(election_dir)
     if issues:
         raise BuildError(issues)
     election_id = election_dir.name
-    if not (election_dir / "statements.json").is_file():
+    if not compass_ready(election_dir):
         target = out_root / election_id
         target.mkdir(parents=True, exist_ok=True)
         config_doc = _read(election_dir / "election_config.json")

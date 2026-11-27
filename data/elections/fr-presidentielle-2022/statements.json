@@ -1,0 +1,245 @@
+{
+  "election_id": "fr-presidentielle-2022",
+  "statements": [
+    {
+      "id": "s01",
+      "theme": "economie",
+      "text": "Il faut rétablir un impôt sur la fortune qui porte aussi sur le patrimoine financier.",
+      "axis": "x",
+      "direction": -1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s02",
+      "theme": "economie",
+      "text": "Les impôts de production payés par les entreprises doivent être fortement réduits.",
+      "axis": "x",
+      "direction": 1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s03",
+      "theme": "economie",
+      "text": "L'État doit nationaliser ou reprendre le contrôle d'entreprises stratégiques (énergie, autoroutes, banques).",
+      "axis": "x",
+      "direction": -1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s04",
+      "theme": "economie",
+      "text": "Le nombre de fonctionnaires doit être réduit pour diminuer la dépense publique.",
+      "axis": "x",
+      "direction": 1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s05",
+      "theme": "economie",
+      "text": "La réduction de la dette publique doit passer avant de nouvelles dépenses.",
+      "axis": "x",
+      "direction": 1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s06",
+      "theme": "social",
+      "text": "L'âge légal de départ à la retraite doit être ramené à 60 ans.",
+      "axis": "x",
+      "direction": -1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s07",
+      "theme": "social",
+      "text": "Le SMIC doit être augmenté au-delà des revalorisations automatiques.",
+      "axis": "x",
+      "direction": -1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s08",
+      "theme": "social",
+      "text": "Le versement du RSA ou des allocations chômage doit être davantage conditionné à une activité ou à la reprise d'un emploi.",
+      "axis": "x",
+      "direction": 1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s09",
+      "theme": "social",
+      "text": "Les loyers doivent être encadrés dans les zones où le logement est cher.",
+      "axis": "x",
+      "direction": -1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s10",
+      "theme": "social",
+      "text": "Le port d'un uniforme doit devenir obligatoire à l'école.",
+      "axis": "y",
+      "direction": 1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s11",
+      "theme": "ecologie",
+      "text": "La France doit construire de nouveaux réacteurs nucléaires.",
+      "axis": "y",
+      "direction": 1,
+      "weight_in_axis": 0.5
+    },
+    {
+      "id": "s12",
+      "theme": "ecologie",
+      "text": "Les vols intérieurs doivent être supprimés lorsqu'une alternative en train de moins de quatre heures existe.",
+      "axis": "x",
+      "direction": -1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s13",
+      "theme": "ecologie",
+      "text": "L'installation de nouvelles éoliennes doit être arrêtée.",
+      "axis": "y",
+      "direction": 1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s14",
+      "theme": "ecologie",
+      "text": "La transition écologique justifie de taxer davantage les activités les plus polluantes.",
+      "axis": "x",
+      "direction": -1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s15",
+      "theme": "ecologie",
+      "text": "Les normes environnementales imposées aux agriculteurs doivent être assouplies.",
+      "axis": "x",
+      "direction": 1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s16",
+      "theme": "europe_international",
+      "text": "La France doit quitter le commandement intégré de l'OTAN.",
+      "axis": "y",
+      "direction": 1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s17",
+      "theme": "europe_international",
+      "text": "Le droit français doit pouvoir primer sur le droit européen.",
+      "axis": "y",
+      "direction": 1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s18",
+      "theme": "europe_international",
+      "text": "L'Union européenne doit se doter d'une défense commune.",
+      "axis": "y",
+      "direction": -1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s19",
+      "theme": "europe_international",
+      "text": "La France doit soutenir de nouveaux accords de libre-échange négociés par l'Union européenne.",
+      "axis": "y",
+      "direction": -1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s20",
+      "theme": "europe_international",
+      "text": "Les décisions de l'Union européenne doivent davantage se prendre à la majorité qualifiée plutôt qu'à l'unanimité.",
+      "axis": "y",
+      "direction": -1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s21",
+      "theme": "regalien_immigration",
+      "text": "Des peines minimales obligatoires doivent être instaurées pour les récidivistes.",
+      "axis": "y",
+      "direction": 1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s22",
+      "theme": "regalien_immigration",
+      "text": "Le nombre d'immigrés accueillis chaque année doit être fortement réduit.",
+      "axis": "y",
+      "direction": 1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s23",
+      "theme": "regalien_immigration",
+      "text": "Le droit du sol doit être supprimé.",
+      "axis": "y",
+      "direction": 1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s24",
+      "theme": "regalien_immigration",
+      "text": "Les travailleurs sans papiers qui occupent un emploi doivent pouvoir être régularisés.",
+      "axis": "y",
+      "direction": -1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s25",
+      "theme": "regalien_immigration",
+      "text": "La consommation de cannabis doit être légalisée et encadrée.",
+      "axis": "y",
+      "direction": -1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s26",
+      "theme": "institutions",
+      "text": "Les étrangers non européens résidant en France doivent pouvoir voter aux élections locales.",
+      "axis": "y",
+      "direction": -1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s27",
+      "theme": "institutions",
+      "text": "Le référendum doit pouvoir porter sur l'immigration.",
+      "axis": "y",
+      "direction": 1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s28",
+      "theme": "institutions",
+      "text": "La Constitution doit être refondée par une assemblée constituante (VIe République).",
+      "axis": "y",
+      "direction": -1,
+      "weight_in_axis": 0.5
+    },
+    {
+      "id": "s29",
+      "theme": "institutions",
+      "text": "La Corse doit obtenir un statut d'autonomie.",
+      "axis": "y",
+      "direction": -1,
+      "weight_in_axis": 1.0
+    },
+    {
+      "id": "s30",
+      "theme": "institutions",
+      "text": "Il faut instaurer le référendum d'initiative citoyenne (RIC).",
+      "axis": "y",
+      "direction": 1,
+      "weight_in_axis": 0.5
+    }
+  ]
+}
