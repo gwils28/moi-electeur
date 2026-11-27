@@ -107,10 +107,16 @@ def test_build_refuse_des_donnees_invalides(tmp_path: Path) -> None:
         build_election(bad, tmp_path / "out")
 
 
-def test_build_ignore_une_election_corpus_seul(tmp_path: Path) -> None:
-    """PLAN D13 : pas d'affirmations, pas de boussole publiée."""
-    from helpers import write_corpus_election
+def test_build_corpus_seul_publie_la_configuration_seule(tmp_path: Path) -> None:
+    """PLAN D13 : pas d'affirmations, pas de boussole publiée ; la configuration (candidats,
+    thèmes) est publiée pour l'explorateur (M2d)."""
+    import json
+
+    from helpers import read_config, write_corpus_election
 
     election = write_corpus_election(tmp_path / "data")
-    assert build_election(election, tmp_path / "out") is None
-    assert not (tmp_path / "out").exists()
+    target = build_election(election, tmp_path / "out")
+    assert target == tmp_path / "out" / election.name
+    assert sorted(p.name for p in target.iterdir()) == ["election_config.json"]
+    written = json.loads((target / "election_config.json").read_text(encoding="utf-8"))
+    assert written == read_config(election)

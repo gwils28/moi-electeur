@@ -275,9 +275,9 @@ export function harness(
     modes: {
       rapide: {
         model: opts.model ?? "claude-haiku-5-5",
-        maxTokens: 4096,
+        maxTokens: 8192,
         effort: "low",
-        thinking: false,
+        thinking: "disabled",
         budget: null,
         limiter: null,
       },
@@ -286,7 +286,7 @@ export function harness(
             model: boostOpts.model ?? BOOST_MODEL,
             maxTokens: 8192,
             effort: "medium",
-            thinking: true,
+            thinking: "adaptive",
             budget: boostBudget,
             limiter: boostLimiter,
           }

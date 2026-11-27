@@ -70,4 +70,59 @@ export const fr = {
   editAnswers: "Modifier mes réponses",
   invalidCode: "Le lien de réponses est invalide ou incomplet ; questionnaire vierge.",
   missingData: "Données introuvables : lancer `uv run pipeline build`.",
+  nav: { label: "Navigation principale", compass: "Boussole", explorer: "Explorateur" },
+  explorer: {
+    title: "Explorateur des programmes",
+    intro:
+      "Posez une question : la réponse résume, candidat par candidat, ce que disent leurs documents officiels, avec les passages cités.",
+    disclaimer:
+      "Réponses générées automatiquement à partir des seuls programmes officiels : elles peuvent contenir des erreurs. Vérifiez toujours la source citée.",
+    privacy:
+      "Votre question est envoyée au serveur pour produire la réponse, sans être enregistrée. L'historique de la conversation reste dans cet onglet.",
+    election: "Élection",
+    noElection: "Aucune élection n'est disponible dans l'explorateur.",
+    mode: "Type de réponse",
+    modeFast: "Réponse rapide",
+    modeFastHelp: "Modèle économique, adapté à la plupart des questions.",
+    modeDeep: "Réponse détaillée",
+    modeDeepHelp:
+      "Modèle avec réflexion, plus coûteux : nombre de questions limité. Les deux répondent à partir des mêmes passages.",
+    candidates: "Candidats inclus",
+    allCandidates: "Tous",
+    noCandidates: "Aucun",
+    theme: "Thème",
+    allThemes: "Tous les thèmes",
+    question: "Votre question",
+    questionHelp:
+      "500 caractères au plus. Entrée pour envoyer, Maj + Entrée pour aller à la ligne.",
+    placeholder: "Ex. : Que proposent les candidats sur les retraites ?",
+    send: "Envoyer",
+    stop: "Arrêter",
+    newConversation: "Nouvelle conversation",
+    you: "Votre question",
+    answer: "Réponse",
+    streaming: "Réponse en cours de rédaction…",
+    stopped: "Réponse interrompue.",
+    incomplete: "La réponse s'est interrompue avant la fin : elle peut être incomplète.",
+    sources: "Passages cités",
+    unverified: "non vérifiée",
+    unverifiedHelp:
+      "Le passage cité n'a pas été retrouvé tel quel dans le document : à vérifier à la source.",
+    unverifiedCount: (n: number) =>
+      `${n} citation(s) non vérifiée(s) dans cette réponse : à vérifier à la source.`,
+    neutralityFlag:
+      "Le contrôle automatique de neutralité a repéré dans cette réponse une formulation qui pourrait sembler hiérarchiser les candidats.",
+    truncated: "La réponse a été tronquée (longueur maximale atteinte).",
+    citation: (n: number) => `Citation ${n}`,
+    openSource: "ouvrir le document",
+    page: "page",
+    unknownSource: "Source inconnue",
+    switchToFast: "Reposer la question en réponse rapide",
+    networkError: "Le service ne répond pas. Réessayez dans un instant.",
+    rateLimited: "Trop de questions en peu de temps : réessayez dans quelques minutes.",
+    blindNote:
+      "Mode aveugle : sources et passages cités masqués, ils pourraient révéler le candidat.",
+    historyNote: (n: number) =>
+      `Contexte de la question suivante : ${n} échange(s) précédent(s), 3 au plus.`,
+  },
 } as const;

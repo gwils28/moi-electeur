@@ -881,6 +881,10 @@ wheels = [
 name = "moi-electeur-eval"
 version = "0.0.0"
 source = { editable = "eval" }
+dependencies = [
+    { name = "moi-electeur-rag" },
+    { name = "numpy" },
+]
 
 [package.dev-dependencies]
 dev = [
@@ -890,6 +894,10 @@ dev = [
 ]
 
 [package.metadata]
+requires-dist = [
+    { name = "moi-electeur-rag", editable = "services/rag" },
+    { name = "numpy", specifier = ">=2.5" },
+]
 
 [package.metadata.requires-dev]
 dev = [
@@ -905,6 +913,7 @@ source = { virtual = "notebooks" }
 dependencies = [
     { name = "marimo" },
     { name = "matplotlib" },
+    { name = "moi-electeur-eval" },
     { name = "moi-electeur-pipeline" },
     { name = "numpy" },
     { name = "pandas" },
@@ -919,6 +928,7 @@ dev = [
 requires-dist = [
     { name = "marimo", specifier = ">=0.25" },
     { name = "matplotlib", specifier = ">=3.11" },
+    { name = "moi-electeur-eval", editable = "eval" },
     { name = "moi-electeur-pipeline", editable = "pipeline" },
     { name = "numpy", specifier = ">=2.5" },
     { name = "pandas", specifier = ">=3.1" },

@@ -20,8 +20,11 @@ import { parseAskRequest } from "./validate";
 
 /** Extraits gardés par candidat (SPEC § 6.1). */
 export const K = 4;
-/** Plafond de sortie du mode rapide : ≈ 3 k tokens mesurés pour 12 candidats, marge comprise. */
-export const MAX_TOKENS = 4096;
+/**
+ * Plafond de sortie : 1 300 à 3 000 tokens mesurés pour 12 candidats (M2c, M2d). 4 096 tronquait
+ * une réponse d'Haiku dont la réflexion, active par défaut, consommait environ 2 800 tokens.
+ */
+export const MAX_TOKENS = 8192;
 /** Taille maximale du corps : 500 caractères de question, 3 tours d'historique, filtres. */
 export const MAX_BODY_BYTES = 100_000;
 
@@ -42,8 +45,8 @@ export interface ModeConfig {
   model: string;
   maxTokens: number;
   effort: "low" | "medium" | "high";
-  /** Réflexion adaptative (`thinking: {type: "adaptive"}`) ; sinon réglage par défaut du modèle. */
-  thinking: boolean;
+  /** Réflexion du modèle : adaptative (mode approfondi) ou désactivée (mode rapide). */
+  thinking: "adaptive" | "disabled";
   /** Plafond quotidien propre au mode, imputé en plus du plafond commun. */
   budget: DailyBudget | null;
   /** Limite de débit propre au mode, appliquée en plus de la limite commune. */
