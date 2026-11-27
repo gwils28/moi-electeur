@@ -25,7 +25,7 @@ def _(mo):
         | Fixture | `notebooks/fixtures/m2-retrieval-smoke.json` (`uv run --project eval moi-electeur-eval retrieval`) |
         | Modèle / prompt | bge-m3 et multilingual-e5-large ; PostgreSQL `french` ; aucun appel LLM |
         | Graine | 7 (bootstrap) |
-        | Statut | constat établi, décision à trancher par le mainteneur |
+        | Statut | décision prise : lexèmes fréquents ignorés en plein texte (`MAX_DF` = 0,5, branche `fix/rag-lexical`) |
         | Code | `services/rag/src/moi_electeur_rag/retrieve.py`, `ranking.py` ; `eval/src/moi_electeur_eval/collect.py` |
 
         ## 1. Question et contexte
@@ -55,9 +55,10 @@ def _(mo):
         que la sémantique avait bien classés. Métriques : rappel@k, succès@k et couverture, définis
         dans m2-02 et `moi_electeur_eval.recall`.
 
-        **Variante expérimentale (non servie)** : la même requête plein texte sans les lexèmes de la
-        question présents dans plus de 50 % des extraits (fréquence documentaire calculée sur
-        l'élection par `ts_stat`).
+        **Plein texte servi** : les lexèmes de la question en OU, sans ceux présents dans plus de
+        50 % des extraits de l'élection (`MAX_DF`, compté en SQL via l'index GIN). **Référence
+        « brute » (M2b, non servie)** : tous les lexèmes en OU, la requête d'origine, gardée pour
+        mesurer l'écart avant/après le correctif.
         """
     )
     return
@@ -116,7 +117,7 @@ def _(METHOD_LABELS, mo, pd, res4):
 @app.cell
 def _(METHOD_LABELS, fixture, mo, models, plt, questions, reports):
     _ks = list(range(1, 7))
-    _methods = ["semantique", "plein_texte", "rrf", "rrf_filtre"]
+    _methods = ["semantique", "plein_texte", "rrf", "rrf_brut"]
     fig_k, axes_k = plt.subplots(1, len(models), figsize=(10, 3.2), sharey=True)
     for _ax, _m in zip(axes_k, models, strict=True):
         for _meth in _methods:
@@ -173,12 +174,13 @@ def _(fixture, mo, models, pd):
     mo.vstack(
         [
             mo.md(
-                "### 4.4 Diagnostic du plein texte\n"
+                "### 4.4 Diagnostic du plein texte (référence brute, M2b)\n"
                 "En configuration `french`, « les » est réduit au lexème `le`, qui **n'est pas "
                 "un mot vide** (seul « le » l'est) : il figure dans 99 % des extraits. Avec une "
                 "requête en OU, chaque extrait correspond, et `ts_rank_cd` classe d'abord les "
                 "extraits où `le` est dense. Le plein texte seul devient presque aléatoire et la "
-                "fusion RRF dégrade la sémantique au lieu de la compléter. Autres défauts visibles : "
+                "fusion RRF dégrade la sémantique au lieu de la compléter. Le service ignore "
+                "désormais ces lexèmes (colonne « retirés »). Autres défauts visibles : "
                 "« proposent » n'est pas racinisé (`proposent`), « veulent-ils » produit `veulent-il`."
             ),
             lexemes,
@@ -200,7 +202,9 @@ def _(mo, models, np, res4):
 
     diffs = {
         f"{_m} : RRF servi - sémantique": _diff((_m, "rrf"), (_m, "semantique")) for _m in models
-    } | {f"{_m} : RRF filtré - RRF servi": _diff((_m, "rrf_filtre"), (_m, "rrf")) for _m in models}
+    } | {
+        f"{_m} : RRF servi - RRF brut (M2b)": _diff((_m, "rrf"), (_m, "rrf_brut")) for _m in models
+    }
     mo.md(
         "### 4.5 Écarts et intervalles bootstrap (95 %, questions rééchantillonnées)\n"
         + "\n".join(f"- {k} : {v[0]:+.3f} [{v[1]:+.3f} ; {v[2]:+.3f}]" for k, v in diffs.items())
@@ -219,30 +223,33 @@ def _(diffs, mo, models, res4):
         - **Couverture** : avec RRF, chaque candidat reçoit 4 extraits sur chacune des 15 questions,
           pour les deux modèles (critère PLAN § 4.9 rempli). C'est structurel : il n'y a pas de
           seuil de score et la sémantique classe toujours tous les extraits du candidat.
-        - **RRF servi < sémantique seule** : {res4[(_bge, "rrf")].recall:.3f} contre
-          {res4[(_bge, "semantique")].recall:.3f} en rappel@4 avec {_bge}
-          (écart {diffs[f"{_bge} : RRF servi - sémantique"][0]:+.3f}). Cause : le plein texte en OU,
-          noyé par le lexème `le` (rappel@4 de {res4[(_bge, "plein_texte")].recall:.3f} seul).
-        - **Variante filtrée** : retirer les lexèmes présents dans plus de la moitié des extraits
-          porte le plein texte seul à {res4[(_bge, "plein_texte_filtre")].recall:.3f} et la fusion à
-          {res4[(_bge, "rrf_filtre")].recall:.3f} ({_bge}) et
-          {res4[(models[1], "rrf_filtre")].recall:.3f} ({models[1]}), au-dessus de la sémantique
-          seule ; l'écart avec le RRF servi est net (intervalle bootstrap loin de zéro).
+        - **Avant le correctif (M2b)** : le RRF brut faisait moins bien que la sémantique seule
+          ({res4[(_bge, "rrf_brut")].recall:.3f} contre {res4[(_bge, "semantique")].recall:.3f} en
+          rappel@4 avec {_bge}) : plein texte en OU noyé par le lexème `le` (rappel@4 de
+          {res4[(_bge, "plein_texte_brut")].recall:.3f} seul).
+        - **Plein texte servi** (lexèmes de plus de 50 % des extraits ignorés) : plein texte seul à
+          {res4[(_bge, "plein_texte")].recall:.3f}, fusion à {res4[(_bge, "rrf")].recall:.3f}
+          ({_bge}) et {res4[(models[1], "rrf")].recall:.3f} ({models[1]}), au-dessus de la
+          sémantique seule (écart {diffs[f"{_bge} : RRF servi - sémantique"][0]:+.3f}) ; gain sur
+          la référence brute {diffs[f"{_bge} : RRF servi - RRF brut (M2b)"][0]:+.3f}, intervalle
+          bootstrap loin de zéro.
         - **Limite importante** : les extraits pertinents ont été trouvés en lisant le corpus à
-          partir de mots-clés ; le plein texte est donc avantagé par construction. Le gain de la
-          variante filtrée est probablement surestimé, mais le diagnostic (`le` dans 99 % des
+          partir de mots-clés ; le plein texte est donc avantagé par construction. Le gain du
+          correctif est probablement surestimé, mais le diagnostic (`le` dans 99 % des
           extraits) est indépendant de l'annotation. 13 questions seulement.
         - Les candidats « silencieux » des 3 pièges reçoivent aussi 4 extraits (non pertinents par
           définition) : c'est au prompt de répondre « Aucune proposition recensée », voir m2-04.
 
-        ## 6. Décision (proposée, à trancher)
-        - Pas de modification du service dans ce lot (hors périmètre M2d).
-        - Proposition : dans `LEXICAL_SQL`, retirer de la requête plein texte les lexèmes dont la
-          fréquence documentaire dépasse 50 % (ou ajouter `le` aux mots vides via une configuration
-          `french` personnalisée), avec un test de non-régression sur ce jeu de fumée ; mesurer de
-          nouveau en M4 sur le jeu complet.
+        ## 6. Décision
+        - Prise (2026-11-27, branche `fix/rag-lexical`) : `LEXICAL_SQL` ignore les lexèmes de la
+          question dont la fréquence documentaire dépasse 50 % (`MAX_DF`), comptés en SQL ; tests
+          `db` dans `services/rag/tests/test_store_retrieve.py`. Choix plutôt qu'une configuration
+          `french` personnalisée : générique (tout mot omniprésent, pas seulement `le`), sans
+          réindexation.
+        - e5 devance bge-m3 avec le RRF servi sur ce jeu, mais sur 13 questions annotées par
+          mots-clés : choix du modèle d'embedding maintenu en M4 (jeu d'environ 60 questions).
         - Le jeu de fumée et `moi-electeur-eval report` servent de test de non-régression du
-          retrieval. Notes : `docs/notes-implementation.md` (M2d).
+          retrieval. Notes : `docs/notes-implementation.md` (M2d, correctif du plein texte).
         """
     )
     return

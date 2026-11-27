@@ -2,7 +2,8 @@
 
 Reprend les requêtes SQL et la fusion RRF du service (`moi_electeur_rag.retrieve`) pour
 obtenir, pour chaque question et chaque candidat, trois classements : sémantique seul, plein
-texte seul et RRF (celui que renvoie `/retrieve`). Aucun appel à un modèle de langue.
+texte seul et RRF (celui que renvoie `/retrieve`), plus la référence « brute » de M2b (plein
+texte sans filtre des lexèmes fréquents). Aucun appel à un modèle de langue.
 
 Règle : ne jamais journaliser les questions (ici publiques, mais le code est partagé en esprit
 avec le service).
@@ -18,18 +19,17 @@ import psycopg
 
 from moi_electeur_rag.embedding import Embedder
 from moi_electeur_rag.ranking import RRF_K, rrf
-from moi_electeur_rag.retrieve import LEXICAL_SQL, POOL, SEMANTIC_SQL, NotIndexed
+from moi_electeur_rag.retrieve import LEXICAL_SQL, MAX_DF, POOL, SEMANTIC_SQL, NotIndexed
 
 from .smoke import Question, corpus_issues
 
 METHODS = ("semantique", "plein_texte", "rrf")
-# Variante expérimentale (non servie par /retrieve) : plein texte sans les lexèmes présents dans
-# plus de `MAX_DF` des extraits. En configuration `french`, « les » devient le lexème `le`
-# (non retiré comme mot vide) qui figure dans presque tous les extraits : en OU, il noie la
-# requête. Mesurée pour éclairer la décision, sans modifier le service.
-EXPERIMENTAL = ("plein_texte_filtre", "rrf_filtre")
+# Référence historique (non servie) : plein texte de M2b, tous les lexèmes de la question en OU.
+# En configuration `french`, « les » devient le lexème `le` (non retiré comme mot vide), présent
+# dans presque tous les extraits : il noyait la requête. Le service ignore désormais les lexèmes
+# de fréquence documentaire supérieure à `MAX_DF` ; cette variante mesure l'écart avant/après.
+EXPERIMENTAL = ("plein_texte_brut", "rrf_brut")
 ALL_METHODS = METHODS + EXPERIMENTAL
-MAX_DF = 0.5
 
 QUERY_LEXEMES_SQL = "SELECT unnest(tsvector_to_array(to_tsvector('french', %(question)s))) AS lex"
 
@@ -38,10 +38,10 @@ SELECT word, ndoc::float / (SELECT count(*) FROM chunks WHERE election_id = %(el
 FROM ts_stat(format('SELECT tsv FROM chunks WHERE election_id = %%L', %(election)s::text))
 """
 
-# Même requête que LEXICAL_SQL, mais la tsquery (lexèmes en OU) est fournie toute faite.
-LEXICAL_FILTERED_SQL = LEXICAL_SQL.replace(
-    "replace(plainto_tsquery('french', %(question)s)::text, '&', '|')::tsquery",
-    "%(tsquery)s::tsquery",
+# Même classement que LEXICAL_SQL, avec la requête de M2b (aucun lexème ignoré).
+LEXICAL_RAW_SQL = (
+    "WITH q AS (SELECT replace(plainto_tsquery('french', %(question)s)::text, '&', '|')::tsquery"
+    " AS query)\n" + LEXICAL_SQL[LEXICAL_SQL.index("SELECT * FROM (") :]
 )
 
 SIMILARITY_SQL = """
@@ -54,14 +54,6 @@ WHERE e.election_id = %(election)s AND e.model = %(model)s
 def fuse(semantic: Sequence[str], lexical: Sequence[str]) -> list[str]:
     """Fusion RRF identique à `/retrieve` (k = 60, égalités départagées par identifiant)."""
     return [chunk_id for chunk_id, _ in rrf([semantic, lexical])]
-
-
-def filtered_tsquery(
-    lexemes: Sequence[str], doc_freq: dict[str, float], max_df: float = MAX_DF
-) -> str:
-    """Lexèmes en OU, sans ceux dont la fréquence documentaire dépasse `max_df`."""
-    kept = sorted({lex for lex in lexemes if doc_freq.get(lex, 0.0) <= max_df})
-    return " | ".join("'" + lex.replace("'", "''") + "'" for lex in kept)
 
 
 def query_lexemes(conn: psycopg.Connection[Any], question: str) -> list[str]:
@@ -77,7 +69,6 @@ def question_rankings(
     question: str,
     candidates: Sequence[str],
     pool: int = POOL,
-    doc_freq: dict[str, float] | None = None,
 ) -> tuple[dict[str, dict[str, list[str]]], dict[str, float]]:
     """Classements par méthode et par candidat, et similarité cosinus de chaque extrait."""
     vector = embedder.embed_query(question)
@@ -89,22 +80,21 @@ def question_rankings(
         "pool": pool,
         "vector": vector,
         "question": question,
+        "max_df": MAX_DF,
     }
-    methods = ALL_METHODS if doc_freq is not None else METHODS
-    out: dict[str, dict[str, list[str]]] = {m: {c: [] for c in candidates} for m in methods}
-    queries = [("semantique", SEMANTIC_SQL), ("plein_texte", LEXICAL_SQL)]
-    if doc_freq is not None:
-        params["tsquery"] = filtered_tsquery(query_lexemes(conn, question), doc_freq)
-        if params["tsquery"]:
-            queries.append(("plein_texte_filtre", LEXICAL_FILTERED_SQL))
+    out: dict[str, dict[str, list[str]]] = {m: {c: [] for c in candidates} for m in ALL_METHODS}
+    queries = [
+        ("semantique", SEMANTIC_SQL),
+        ("plein_texte", LEXICAL_SQL),
+        ("plein_texte_brut", LEXICAL_RAW_SQL),
+    ]
     for method, sql in queries:
         rows = conn.execute(sql, params).fetchall()
         for row in sorted(rows, key=lambda r: (r["candidate_id"], r["rank"])):
             out[method][row["candidate_id"]].append(row["id"])
     for cand in candidates:
         out["rrf"][cand] = fuse(out["semantique"][cand], out["plein_texte"][cand])
-        if doc_freq is not None:
-            out["rrf_filtre"][cand] = fuse(out["semantique"][cand], out["plein_texte_filtre"][cand])
+        out["rrf_brut"][cand] = fuse(out["semantique"][cand], out["plein_texte_brut"][cand])
     sims = {r["chunk_id"]: float(r["sim"]) for r in conn.execute(SIMILARITY_SQL, params)}
     return out, sims
 
@@ -167,7 +157,6 @@ def collect(
             election_id=election_id,
             question=q.question,
             candidates=candidates,
-            doc_freq=doc_freq,
         )
         lexemes[q.id] = {
             lex: round(doc_freq.get(lex, 0.0), 3) for lex in query_lexemes(conn, q.question)

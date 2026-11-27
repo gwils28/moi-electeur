@@ -98,8 +98,8 @@ def test_rrf_identique_a_retrieve(conn: psycopg.Connection[Any]) -> None:
         "semantique",
         "plein_texte",
         "rrf",
-        "plein_texte_filtre",
-        "rrf_filtre",
+        "plein_texte_brut",
+        "rrf_brut",
     }
     for q in QUESTIONS:
         served = retrieve(conn, FakeEmbedder(), election_id=ELECTION, question=q.question, k=4)
@@ -114,15 +114,16 @@ def test_rrf_identique_a_retrieve(conn: psycopg.Connection[Any]) -> None:
     assert report.questions[0].recall == 1.0  # chaque candidat a au plus 3 extraits
 
 
-def test_plein_texte_filtre_sans_lexeme_omnipresent(conn: psycopg.Connection[Any]) -> None:
-    # « Les » donne le lexème `le`, présent dans presque tous les extraits jouets : la variante
-    # filtrée ne garde que les extraits qui contiennent un mot discriminant (« nucléaire »).
+def test_plein_texte_servi_sans_lexeme_omnipresent(conn: psycopg.Connection[Any]) -> None:
+    # « Les » donne le lexème `le`, présent dans presque tous les extraits jouets : le plein texte
+    # servi ne garde que les extraits qui contiennent un mot discriminant (« nucléaire ») ; la
+    # référence brute de M2b les gardait tous.
     got = collect(conn, FakeEmbedder(), election_id=ELECTION, questions=QUESTIONS[:1], keep=6)
-    filtered = got["rankings"]["plein_texte_filtre"]["q-nuc"]
-    assert filtered["alice"] == ["aaaaaaaaaaaa-0001"]
-    assert filtered["bruno"] == ["bbbbbbbbbbbb-0000"]
-    assert filtered["david"] == []
-    assert len(got["rankings"]["plein_texte"]["q-nuc"]["alice"]) > 1
+    served = got["rankings"]["plein_texte"]["q-nuc"]
+    assert served["alice"] == ["aaaaaaaaaaaa-0001"]
+    assert served["bruno"] == ["bbbbbbbbbbbb-0000"]
+    assert served["david"] == []
+    assert len(got["rankings"]["plein_texte_brut"]["q-nuc"]["alice"]) > 1
 
 
 def test_attendu_incoherent_refuse(conn: psycopg.Connection[Any]) -> None:

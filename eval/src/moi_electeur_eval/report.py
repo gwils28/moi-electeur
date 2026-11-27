@@ -14,8 +14,8 @@ METHOD_LABELS = {
     "semantique": "sémantique seul",
     "plein_texte": "plein texte seul",
     "rrf": "RRF (servi)",
-    "plein_texte_filtre": "plein texte filtré (exp.)",
-    "rrf_filtre": "RRF filtré (exp.)",
+    "plein_texte_brut": "plein texte brut (M2b)",
+    "rrf_brut": "RRF brut (M2b)",
 }
 
 

@@ -243,7 +243,7 @@ Table `chunks` : `id, election_id, candidate_id, document_title, source_url, pag
 - [x] `/retrieve` renvoie au moins un chunk par candidat sur chaque question du jeu de fumée ; rappel@4 mesuré pour les deux modèles et RRF vs sémantique seul (chiffres dans les notes ; RRF servi sous la sémantique seule, correctif du plein texte à décider).
 - [x] `/api/ask` : tests verts (rate limit, budget, cache, post-validation, absence de logs de question) avec client Anthropic simulé (M2c, 2026-11-27 : 83 tests web).
 - [x] Parcours manuel dans `/explorer` sur Haiku, captures jointes, coût réel relevé (< 2 $) (M2d : `docs/captures/m2d/`, environ 0,47 $ pour tout M2).
-- [ ] Playwright + axe sur `/explorer` (réponse simulée), CI verte, revue `relecteur` sans problème bloquant (M2d : 28 tests e2e verts en local, relecture sans bloquant ; CI à confirmer sur la PR).
+- [x] Playwright + axe sur `/explorer` (réponse simulée), CI verte, revue `relecteur` sans problème bloquant (M2d : 28 tests e2e, CI verte sur la PR #8, relecture sans bloquant).
 
 Coût estimé du jalon : **< 2 $** (quelques centaines de questions à ≈ 0,0024 $). Coût de calcul : indexation 2022 en CPU estimée à quelques minutes par modèle (corpus de quelques centaines de pages).
 
