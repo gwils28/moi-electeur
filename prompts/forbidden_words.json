@@ -1,0 +1,13 @@
+{
+  "description": "Formulations qui classent un candidat (CLAUDE.md, SPEC § 1). Source unique : lue par scripts/check-forbidden-words.py (textes de l'app et prompts) et par /api/ask (garde-fou sur les réponses générées). Expressions régulières Python ; \\b n'apparaît qu'en début ou en fin de motif.",
+  "patterns": [
+    "\\bmeilleure?s?\\b",
+    "\\bpire\\b",
+    "\\bplus\\s+crédibles?\\b",
+    "\\bgagnante?s?\\b",
+    "\\bperdante?s?\\b",
+    "\\brecommand\\w*",
+    "\\bvotez\\b",
+    "\\bfavori(te)?s?\\b"
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://moi-electeur.fr/schemas/ask_event.schema.json",
+  "title": "AskEvent",
+  "description": "Événement du flux SSE de POST /api/ask (PLAN § 4.5). Chaque événement SSE porte `event: <type>` et `data: <JSON conforme à ce schéma>`. Ordre : un `meta`, puis des `delta` et `citation`, puis un `done` ou un `error`.",
+  "oneOf": [
+    { "$ref": "#/$defs/meta" },
+    { "$ref": "#/$defs/delta" },
+    { "$ref": "#/$defs/citation" },
+    { "$ref": "#/$defs/done" },
+    { "$ref": "#/$defs/error" }
+  ],
+  "$defs": {
+    "meta": {
+      "title": "AskMetaEvent",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "election_id",
+        "corpus_version",
+        "prompt_version",
+        "model",
+        "mode",
+        "cached",
+        "candidates"
+      ],
+      "properties": {
+        "type": { "const": "meta" },
+        "election_id": { "type": "string" },
+        "corpus_version": { "type": "string" },
+        "prompt_version": { "type": "string" },
+        "model": { "type": "string", "description": "Modèle Claude qui a produit la réponse." },
+        "mode": {
+          "enum": ["rapide", "approfondi"],
+          "description": "Mode demandé (AskRequest.mode), qui a déterminé le modèle."
+        },
+        "cached": {
+          "type": "boolean",
+          "description": "Réponse re-streamée depuis le cache mémoire (SPEC § 6.2 bis)."
+        },
+        "candidates": {
+          "type": "array",
+          "description": "Ordre de présentation tiré au sort côté serveur ; le jeton {{cN}} désigne candidates[N-1].",
+          "items": {
+            "title": "AskCandidate",
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["token", "candidate_id", "has_excerpts"],
+            "properties": {
+              "token": { "type": "string", "pattern": "^c[1-9][0-9]*$" },
+              "candidate_id": { "type": "string" },
+              "has_excerpts": {
+                "type": "boolean",
+                "description": "Faux si aucun extrait n'a été trouvé pour ce candidat (filtre de thème)."
+              }
+            }
+          }
+        }
+      }
+    },
+    "delta": {
+      "title": "AskDeltaEvent",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "block", "text"],
+      "properties": {
+        "type": { "const": "delta" },
+        "block": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Index du bloc de texte de la réponse."
+        },
+        "text": { "type": "string" }
+      }
+    },
+    "citation": {
+      "title": "AskCitationEvent",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "block",
+        "verified",
+        "cited_text",
+        "chunk_id",
+        "candidate_id",
+        "document_title",
+        "source_url",
+        "page_number",
+        "page_end"
+      ],
+      "properties": {
+        "type": { "const": "citation" },
+        "block": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Bloc de texte (événements `delta`) appuyé par cette citation."
+        },
+        "verified": {
+          "type": "boolean",
+          "description": "Vrai si `cited_text` est une sous-chaîne (espaces normalisés) de l'extrait renvoyé par /retrieve ; sinon la citation est « non vérifiée »."
+        },
+        "cited_text": { "type": "string" },
+        "chunk_id": { "type": ["string", "null"] },
+        "candidate_id": { "type": ["string", "null"] },
+        "document_title": { "type": ["string", "null"] },
+        "source_url": { "type": ["string", "null"] },
+        "page_number": { "type": ["integer", "null"] },
+        "page_end": { "type": ["integer", "null"] }
+      }
+    },
+    "done": {
+      "title": "AskDoneEvent",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "stop_reason", "unverified_citations", "neutrality_flags"],
+      "properties": {
+        "type": { "const": "done" },
+        "stop_reason": {
+          "type": ["string", "null"],
+          "description": "`end_turn` attendu ; `max_tokens` : réponse tronquée ; `refusal` : refus du modèle."
+        },
+        "unverified_citations": { "type": "integer", "minimum": 0 },
+        "neutrality_flags": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Formulations de classement repérées dans la réponse complète (liste prompts/forbidden_words.json) : signalées, jamais réécrites."
+        }
+      }
+    },
+    "error": {
+      "title": "AskErrorEvent",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "code", "message"],
+      "properties": {
+        "type": { "const": "error" },
+        "code": {
+          "enum": ["llm_unavailable", "llm_error", "internal"],
+          "description": "Erreur survenue après le début du flux."
+        },
+        "message": { "type": "string" }
+      }
+    }
+  }
+}
