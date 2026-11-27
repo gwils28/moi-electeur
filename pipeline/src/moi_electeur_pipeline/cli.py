@@ -31,6 +31,7 @@ from .propose import (
     pending_ids,
     position_items,
     proposals_path,
+    recheck_records,
     render_report,
     run_direct,
     submit_batch,
@@ -455,3 +456,11 @@ def proposals_report_cmd(
         typer.echo(f"Écrit {out}")
     else:
         typer.echo(text, nl=False)
+
+
+@app.command("recheck-proposals")
+def recheck_proposals_cmd(election: ElectionDir) -> None:
+    """Refait les vérifications des propositions reçues (sans appel), puis réécrit les fichiers."""
+    for kind in ("position", "measure"):
+        typer.echo(f"{kind} : {recheck_records(election, kind)} proposition(s) mise(s) à jour.")
+    _write_outputs(election)

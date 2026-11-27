@@ -79,6 +79,16 @@ class Item:
     params: dict[str, Any] = field(default_factory=dict)
 
 
+# Le tiret cadratin est interdit dans les fichiers du dépôt (CLAUDE.md), mais les citations
+# exactes des programmes peuvent en contenir : il est écrit échappé (`\\u2014`) dans les JSON,
+# ce qui laisse la donnée lue intacte.
+EM_DASH = chr(0x2014)
+
+
+def dumps(doc: Any, indent: int | None = None) -> str:
+    return json.dumps(doc, ensure_ascii=False, indent=indent).replace(EM_DASH, "\\u2014")
+
+
 FRONT_MATTER = re.compile(r"\A---\nversion: (\d+)\n---\n")
 
 
@@ -237,9 +247,18 @@ def normalize(text: str) -> str:
     return SPACES.sub(" ", unicodedata.normalize("NFC", text).translate(QUOTE_CHARS)).strip()
 
 
+# Césure du PDF (« der-nier », « sociaux-démo- crates ») : le trait d'union entre deux lettres
+# est ignoré des deux côtés, pour la comparaison seulement.
+HYPHEN = re.compile(r"(?<=\w)- ?(?=\w)")
+
+
+def _match_form(text: str) -> str:
+    return HYPHEN.sub("", normalize(text))
+
+
 def _found(quote: str, text: str) -> bool:
-    q = normalize(quote)
-    return len(q) >= MIN_QUOTE_CHARS and q in normalize(text)
+    q = _match_form(quote)
+    return len(q) >= MIN_QUOTE_CHARS and q in _match_form(text)
 
 
 NUMBER = re.compile(r"(\d{1,3}(?:[ .]\d{3})+|\d+)(?:,(\d+))?")
@@ -447,6 +466,33 @@ def make_record(
 # Stockage (D29).
 
 
+def recheck_records(election_dir: Path, kind: str) -> int:
+    """Refait les vérifications (citations, montants, signalements) des propositions déjà
+    reçues, sans appel à l'API, après une évolution des règles. Réécrit le fichier ; renvoie le
+    nombre de propositions dont le résultat a changé."""
+    path = proposals_path(election_dir, kind)
+    if not path.is_file():
+        return 0
+    lookup = load_chunk_lookup(election_dir)
+    check = _check_position if kind == "position" else _check_measures
+    lines, changed = [], 0
+    for line in path.read_text(encoding="utf-8").splitlines():
+        if not line.strip():
+            continue
+        rec = json.loads(line)
+        if rec["output"] is not None:
+            chunks = tuple(lookup[cid] for cid in rec["chunk_ids"])
+            item = Item(kind, rec["custom_id"], rec["candidate_id"], rec["target"], chunks)
+            status, quotes, flags = check(item, rec["output"])
+            new = {**rec, "status": status, "quotes": quotes, "flags": _dedupe(flags)}
+            if new != rec:
+                changed += 1
+                rec = new
+        lines.append(dumps(rec))
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    return changed
+
+
 def proposals_path(election_dir: Path, kind: str) -> Path:
     return election_dir / "proposals" / RECORD_FILES[kind]
 
@@ -469,7 +515,7 @@ def append_record(path: Path, record: dict[str, Any]) -> None:
         raise ValueError("proposition non conforme : " + "; ".join(map(str, issues)))
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("a", encoding="utf-8") as f:
-        f.write(json.dumps(record, ensure_ascii=False) + "\n")
+        f.write(dumps(record) + "\n")
 
 
 def done_ids(records: dict[str, dict[str, Any]], prompt_version: int | None = None) -> set[str]:
@@ -542,7 +588,7 @@ def _load_batches(election_dir: Path) -> list[dict[str, Any]]:
 def _save_batches(election_dir: Path, batches: list[dict[str, Any]]) -> None:
     path = _batches_path(election_dir)
     path.parent.mkdir(parents=True, exist_ok=True)
-    doc = json.dumps({"batches": batches}, ensure_ascii=False, indent=2)
+    doc = dumps({"batches": batches}, indent=2)
     path.write_text(doc + "\n", encoding="utf-8")
 
 
@@ -662,7 +708,7 @@ def collect_batches(
 
 
 def _write_json(path: Path, doc: Any) -> None:
-    path.write_text(json.dumps(doc, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    path.write_text(dumps(doc, indent=2) + "\n", encoding="utf-8")
 
 
 def _evidence(
@@ -906,4 +952,4 @@ def render_report(election_dir: Path, kind: str, *, candidates: Iterable[str] | 
                     out += _quote_lines(
                         (q for q in rec["quotes"] if q["measure"] == i), lookup, "   "
                     )
-    return "\n".join(out) + "\n"
+    return "\n".join(out).replace(EM_DASH, "&#8212;") + "\n"

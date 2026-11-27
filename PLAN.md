@@ -301,7 +301,7 @@ Plan initial (annoté « ok ») : 1. affirmations 2022 proposées par Claude, va
 ### 5.5 Critères d'acceptation M3
 - [x] `statements.json` 2022 validé par le mainteneur, `pipeline validate` vert.
 - [x] `propose-positions` / `propose-measures` testés avec client simulé (aucun appel réel en CI) ; sorties conformes aux schémas ; citations vérifiées.
-- [ ] Pilote revu, prompt ajusté, lot complet traité ; coût réel relevé.
+- [x] Pilote revu, prompt ajusté, lot complet traité ; coût réel relevé (4,68 $).
 - [ ] 100 % des propositions revues, décisions tracées ; notebook m3-02 (taux de correction).
 - [ ] Boussole 2022 publiée (positions revues seulement), comparateur et radar en ligne ; Playwright + axe ; CI verte ; revue `relecteur` sans problème bloquant.
 
