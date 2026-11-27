@@ -307,7 +307,7 @@ def test_citation_verifiee_a_espaces_et_apostrophes_pres(election: Path) -> None
             "measure": None,
             "role": "evidence",
             "chunk_id": item.chunks[1]["id"],
-            "text": quote["text"],
+            "text": "L’âge de départ sera ramené à 60 ans.",  # empan exact de l'extrait
             "verified": True,
         }
     ]
@@ -825,6 +825,8 @@ def test_cesure_du_pdf_ignoree(election: Path) -> None:
     ]
     rec = _record(hyphenated, _position(2, quotes))
     assert rec["status"] == "ok" and rec["quotes"][0]["verified"]
+    # Stockée telle qu'elle figure dans le document (sous-chaîne exacte), césures comprises.
+    assert rec["quotes"][0]["text"] == chunk["text"]
 
 
 def test_reverification_sans_appel(election: Path) -> None:
@@ -871,3 +873,90 @@ def test_tiret_cadratin_des_programmes_echappe(election: Path) -> None:
     )
     report = render_report(election, "position", candidates=["c1"])
     assert em not in report and "&#8212;" in report
+
+
+@pytest.mark.parametrize(
+    ("text", "expected"),
+    [("soit 2.5 milliards d'euros", 2.5e9), ("pour 10 M euros", 1e7), ("12 Md euros", 1.2e10)],
+)
+def test_montants_decimaux_et_unites(text: str, expected: float) -> None:
+    assert expected in parse_amounts(text)
+
+
+def _measures_with(election: Path, measure: dict[str, Any]) -> list[dict[str, Any]]:
+    _write_positions(election, _all_positions(election))
+    records = _all_measures(election, lambda _: message({"measures": [measure]}))
+    write_measures(election, _read(election, "election_config.json"), records)
+    return list(_read(election, "measures.json")["measures"])
+
+
+def test_chiffrage_signale_ramene_a_intention(election: Path) -> None:
+    costing = {**_measure()["costing"], "amount_eur": 2e10}  # montant absent de la citation
+    m = _measures_with(election, _measure(costing=costing))[0]
+    assert m["costing"] == {
+        "status": "intention",
+        "amount_eur": None,
+        "period": None,
+        "quote": None,
+    }
+
+
+def test_chiffrage_verifie_conserve_et_cite(election: Path) -> None:
+    m = _measures_with(election, _measure())[0]
+    assert m["costing"]["status"] == "chiffre" and m["costing"]["amount_eur"] == 1e10
+    assert m["costing"]["quote"] == "Coût : 10 milliards d'euros par an."
+    pages = [(e["quote"], e["page"]) for e in m["evidence"]]
+    assert ("Coût : 10 milliards d'euros par an.", 2) in pages  # page du chiffrage visible
+
+
+def test_mesures_revues_non_reecrites_sans_erreur(election: Path, cli: dict[str, Any]) -> None:
+    _measures_with(election, _measure())
+    doc = _read(election, "measures.json")
+    doc["measures"][0]["review"] = {"status": "validated", "reviewer": "w", "date": "2026-11-28"}
+    (election / "measures.json").write_text(json.dumps(doc), encoding="utf-8")
+    result = _invoke("batch-status", str(election))
+    assert result.exit_code == 0, result.output
+    assert "mesures revues" in result.output
+    assert _read(election, "measures.json") == doc
+
+
+def test_boussole_publiable_une_fois_tout_revu(election: Path) -> None:
+    from moi_electeur_pipeline.validate import compass_ready
+
+    assert not compass_ready(election)
+    _write_positions(election, _all_positions(election))
+    assert not compass_ready(election)
+    doc = _read(election, "positions.json")
+    for p in doc["positions"]:
+        p["review"] = {"status": "validated", "reviewer": "w", "date": "2026-11-28"}
+    (election / "positions.json").write_text(json.dumps(doc), encoding="utf-8")
+    assert compass_ready(election)
+
+
+def test_cle_lue_dans_env_sans_affichage(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
+) -> None:
+    from moi_electeur_pipeline.llm import load_api_key
+
+    monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+    env = tmp_path / ".env"
+    assert not load_api_key(env)
+    env.write_text('AUTRE=1\nANTHROPIC_API_KEY="sk-test-123"\n', encoding="utf-8")
+    assert load_api_key(env)
+    import os
+
+    assert os.environ["ANTHROPIC_API_KEY"] == "sk-test-123"
+    out = capsys.readouterr()
+    assert "sk-test" not in out.out + out.err
+
+
+def test_lot_cree_sans_nouvelle_tentative() -> None:
+    from moi_electeur_pipeline.llm import BATCH_MAX_RETRIES
+
+    assert BATCH_MAX_RETRIES == 0  # un nouvel essai pourrait créer (et facturer) un second lot
+
+
+def test_erreur_tronquee(election: Path) -> None:
+    item = _position_items(election, candidates=["c1"])[0]
+    rec = _record(item, None, error="x" * 5000)
+    assert len(rec["error"]) <= 500
