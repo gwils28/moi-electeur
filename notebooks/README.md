@@ -19,6 +19,7 @@ l'analytique (ACP, backtest). Voir PLAN § 1 bis.
 | [m2-03-retrieval-rrf.py](m2-03-retrieval-rrf.py) | Sémantique seule, plein texte seul, RRF ; diagnostic du plein texte | décision à trancher |
 | [m2-04-prompt-neutralite.py](m2-04-prompt-neutralite.py) | Neutralité et silences sur deux réponses réelles enregistrées | exploration |
 | [m3-01-extraction-positions.py](m3-01-extraction-positions.py) | Extraction des positions et mesures par Claude : silences, citations, chiffrages, coût ; prompt v1 contre v2 | décision prise (prompt v2) |
+| [m3-02-corrections.py](m3-02-corrections.py) | Revue humaine 2022 : décisions, taux de correction ; validation en bloc constatée | constat (fiabilité en M4) |
 
 ## Fixtures (`fixtures/`)
 
