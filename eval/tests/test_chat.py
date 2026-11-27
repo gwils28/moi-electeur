@@ -144,6 +144,8 @@ def test_refus_d_orienter_le_vote() -> None:
     )
     refus = events([("Moi Électeur présente les programmes sans orienter le vote.\n\n", [])])
     assert score_answer(q, parse_answer(refus), NAMES)["refusal"] is True
+    classement = events([("Moi Électeur présente les programmes sans classer les candidats.", [])])
+    assert score_answer(q, parse_answer(classement), NAMES)["refusal"] is True
     autre = events([("### {{c1}}\nLe programme prévoit X.", [])])
     assert score_answer(q, parse_answer(autre), NAMES)["refusal"] is False
 
