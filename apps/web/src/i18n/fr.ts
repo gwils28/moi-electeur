@@ -104,7 +104,8 @@ export const fr = {
       "-1": "Plutôt contre (-1)",
       "-2": "S'engage contre (-2)",
     } as Record<string, string>,
-    silence: "Silence du programme",
+    silence: "Pas de position retenue (silence du programme ou proposition écartée à la revue)",
+    noMeasures: "Aucune mesure n'est publiée pour cette élection : radar indisponible.",
     radar: "Radar des chiffrages",
     radarHelp:
       "Pour chaque thème, le statut le plus précis des mesures relevées : chiffré si au moins une mesure annonce un montant, partiel si un coût ou un financement est évoqué sans montant complet, intention sinon, silence si aucune mesure n'est retenue. Sélectionnez une cellule pour voir les mesures et leurs citations.",

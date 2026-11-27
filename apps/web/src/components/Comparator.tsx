@@ -6,6 +6,7 @@ import { useEffect, useMemo, useState } from "react";
 import {
   divergences,
   formatAmount,
+  maskedMeasure,
   MAX_COMPARED,
   measuresFor,
   RADAR_STATUSES,
@@ -14,7 +15,7 @@ import {
   type RadarStatus,
 } from "@/lib/comparator";
 import { electionOptions, type ElectionData } from "@/lib/data";
-import { displayCandidates, type CandidateDisplay } from "@/lib/present";
+import { displayCandidates, nameMasker, type CandidateDisplay } from "@/lib/present";
 import { sessionSeed } from "@/lib/session";
 import { fr } from "@/i18n/fr";
 import { ElectionPicker, PastElectionNote } from "./ElectionPicker";
@@ -129,6 +130,13 @@ export function Comparator({
   }, [config, seed]);
 
   const byId = useMemo(() => new Map(displays.map((d) => [d.id, d])), [displays]);
+  // Mode aveugle : un titre ou un résumé de mesure peut citer un nom (texte tiré du programme).
+  const mask = useMemo(
+    () => (blind ? nameMasker(config.candidates, (id) => byId.get(id)?.label ?? id) : null),
+    [blind, config, byId],
+  );
+  const cellMeasures = (candidate: string, theme: string) =>
+    measuresFor(measures, candidate, theme).map((m) => maskedMeasure(m, mask));
   const compared = displays.filter((d) => selected.includes(d.id));
   const answers = useMemo(
     () =>
@@ -223,7 +231,7 @@ export function Comparator({
                       {th.label}
                     </th>
                     {compared.map((d) => {
-                      const ms = measuresFor(measures, d.id, th.id);
+                      const ms = cellMeasures(d.id, th.id);
                       return (
                         <td key={d.id} className="border p-2 align-top">
                           {ms.length === 0 ? (
@@ -281,66 +289,74 @@ export function Comparator({
           {t.radar}
         </h2>
         <p className="text-sm">{t.radarHelp}</p>
-        <ul className="flex flex-wrap gap-4 text-sm" aria-label={t.radar}>
-          {RADAR_STATUSES.map((s) => (
-            <li key={s}>
-              <StatusMark status={s} />
-            </li>
-          ))}
-        </ul>
-        <div className="overflow-x-auto" tabIndex={0} role="region" aria-label={t.radarCaption}>
-          <table className="border-collapse text-sm" data-testid="radar">
-            <caption className="mb-2 text-left">{t.radarCaption}</caption>
-            <thead>
-              <tr>
-                <th scope="col" className="border p-2 text-left">
-                  {t.theme}
-                </th>
-                {displays.map((d) => (
-                  <th key={d.id} scope="col" className="border p-2 text-left">
-                    {d.label}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {config.themes.map((th) => (
-                <tr key={th.id}>
-                  <th scope="row" className="border p-2 text-left">
-                    {th.label}
-                  </th>
-                  {displays.map((d) => {
-                    const status = grid[th.id]![d.id]!;
-                    const open = cell?.theme === th.id && cell.candidate === d.id;
-                    return (
-                      <td key={d.id} className="border p-1">
-                        <button
-                          type="button"
-                          className="w-full rounded px-1 py-1 text-left underline-offset-2 hover:underline"
-                          aria-expanded={open}
-                          aria-controls="radar-details"
-                          aria-label={t.cellLabel(d.label, th.label, t.status[status])}
-                          onClick={() => setCell(open ? null : { theme: th.id, candidate: d.id })}
-                        >
-                          <StatusMark status={status} />
-                        </button>
-                      </td>
-                    );
-                  })}
-                </tr>
+        {measures.length === 0 ? (
+          <p className="text-sm">{t.noMeasures}</p>
+        ) : (
+          <>
+            <ul className="flex flex-wrap gap-4 text-sm" aria-label={t.radar}>
+              {RADAR_STATUSES.map((s) => (
+                <li key={s}>
+                  <StatusMark status={s} />
+                </li>
               ))}
-            </tbody>
-          </table>
-        </div>
+            </ul>
+            <div className="overflow-x-auto" tabIndex={0} role="region" aria-label={t.radarCaption}>
+              <table className="border-collapse text-sm" data-testid="radar">
+                <caption className="mb-2 text-left">{t.radarCaption}</caption>
+                <thead>
+                  <tr>
+                    <th scope="col" className="border p-2 text-left">
+                      {t.theme}
+                    </th>
+                    {displays.map((d) => (
+                      <th key={d.id} scope="col" className="border p-2 text-left">
+                        {d.label}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {config.themes.map((th) => (
+                    <tr key={th.id}>
+                      <th scope="row" className="border p-2 text-left">
+                        {th.label}
+                      </th>
+                      {displays.map((d) => {
+                        const status = grid[th.id]![d.id]!;
+                        const open = cell?.theme === th.id && cell.candidate === d.id;
+                        return (
+                          <td key={d.id} className="border p-1">
+                            <button
+                              type="button"
+                              className="w-full rounded px-1 py-1 text-left underline-offset-2 hover:underline"
+                              aria-expanded={open}
+                              aria-controls="radar-details"
+                              aria-label={t.cellLabel(d.label, th.label, t.status[status])}
+                              onClick={() =>
+                                setCell(open ? null : { theme: th.id, candidate: d.id })
+                              }
+                            >
+                              <StatusMark status={status} />
+                            </button>
+                          </td>
+                        );
+                      })}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </>
+        )}
         <div id="radar-details" aria-live="polite">
           {cell && opened && (
             <section className="rounded border p-3" data-testid="radar-details">
               <h3 className="font-semibold">{t.details(opened.label, themeLabel(cell.theme))}</h3>
-              {measuresFor(measures, cell.candidate, cell.theme).length === 0 ? (
+              {cellMeasures(cell.candidate, cell.theme).length === 0 ? (
                 <p className="text-sm">{t.noMeasure}</p>
               ) : (
                 <ul className="mt-2 space-y-3">
-                  {measuresFor(measures, cell.candidate, cell.theme).map((m) => (
+                  {cellMeasures(cell.candidate, cell.theme).map((m) => (
                     <MeasureDetails key={m.id} measure={m} display={opened} />
                   ))}
                 </ul>

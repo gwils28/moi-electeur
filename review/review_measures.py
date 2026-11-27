@@ -88,7 +88,9 @@ def _(mo):
 def _(default_reviewer, mo):
     reviewer = mo.ui.text(value=default_reviewer(), label="Réviseur")
     include_reviewed = mo.ui.checkbox(label="Inclure les mesures déjà revues")
-    blind = mo.ui.checkbox(label="Masquer le nom du candidat")
+    blind = mo.ui.checkbox(
+        label="Masquer le nom du candidat (extraits, citations et justification peuvent encore le révéler)"
+    )
     mo.hstack([reviewer, include_reviewed, blind], justify="start")
     return blind, include_reviewed, reviewer
 
@@ -193,6 +195,13 @@ def _(current, entry, mo, proposal, themes, who):
             f"| Statut | **{current['review']['status']}** |",
             f"| Signalements du groupe | {', '.join(entry['reasons']) or 'aucun'} |",
             "",
+            (
+                "⚠️ Mesure déjà corrigée : **Valider** ou **Rejeter** rétablit le contenu proposé "
+                "par le modèle ; pour garder ou modifier la correction, utiliser **Corriger**."
+                if current["review"]["status"] == "corrected"
+                else ""
+            ),
+            "",
             "Mesures proposées pour ce couple (candidat, thème) :",
             "",
             _listed,
@@ -250,7 +259,8 @@ def _(current, entry, mo):
         options=["chiffre", "partiel", "intention"], value=_c["status"], label="Chiffrage"
     )
     amount = mo.ui.text(
-        value="" if _c["amount_eur"] is None else f"{_c['amount_eur']:.0f}", label="Montant (euros)"
+        value="" if _c["amount_eur"] is None else f"{_c['amount_eur']:f}".rstrip("0").rstrip("."),
+        label="Montant (euros)",
     )
     period = mo.ui.text(value=_c["period"] or "", label="Période")
     cost_quote = mo.ui.text_area(
@@ -271,6 +281,7 @@ def _(
     ReviewError,
     amount,
     cost_quote,
+    current,
     date,
     election,
     entry,
@@ -299,15 +310,17 @@ def _(
             except ValueError:
                 set_message("⚠️ Montant illisible (nombre en euros).")
                 return
+            _costing = {
+                "status": status.value,
+                "amount_eur": _amount,
+                "period": period.value.strip() or None,
+                "quote": cost_quote.value.strip() or None,
+            }
             kwargs.update(
                 title=title.value.strip(),
                 summary=summary.value.strip(),
-                costing={
-                    "status": status.value,
-                    "amount_eur": _amount,
-                    "period": period.value.strip() or None,
-                    "quote": cost_quote.value.strip() or None,
-                },
+                # Chiffrage envoyé seulement s'il a changé (sinon ni réécrit ni revérifié).
+                costing=None if _costing == current["costing"] else _costing,
             )
         try:
             review_measure(

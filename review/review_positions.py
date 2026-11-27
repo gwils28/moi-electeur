@@ -94,7 +94,9 @@ def _(mo):
 def _(default_reviewer, mo):
     reviewer = mo.ui.text(value=default_reviewer(), label="Réviseur")
     include_reviewed = mo.ui.checkbox(label="Inclure les positions déjà revues")
-    blind = mo.ui.checkbox(label="Masquer le nom du candidat")
+    blind = mo.ui.checkbox(
+        label="Masquer le nom du candidat (extraits, citations et justification peuvent encore le révéler)"
+    )
     mo.hstack([reviewer, include_reviewed, blind], justify="start")
     return blind, include_reviewed, reviewer
 
@@ -178,6 +180,13 @@ def _(current, entry, mo, proposal, statement, who):
         _out = (proposal or {}).get("output") or {}
         _flags = ", ".join(entry["reasons"]) or "aucun"
         _proposed = current.get("proposed_value", current["value"])
+        _revert = (
+            "⚠️ Position déjà corrigée : **Valider** ou **Rejeter** rétablit la valeur et les "
+            "citations proposées par le modèle ; pour garder ou modifier la correction, "
+            "utiliser **Corriger**."
+            if current["review"]["status"] == "corrected"
+            else ""
+        )
         _conf = _out.get("confidence", current["confidence"])
         if proposal is not None and proposal["status"] == "invalid":
             _proposal_label = (
@@ -201,6 +210,8 @@ def _(current, entry, mo, proposal, statement, who):
             | Proposition | {current["proposed_by"]} ; {proposal["status"] if proposal else "absente"} |
 
             > {_out.get("rationale", "")}
+
+            {_revert}
             """
         )
     view

@@ -43,6 +43,10 @@ def build_election(election_dir: Path, out_root: Path) -> Path:
     if not compass_ready(election_dir):
         target = out_root / election_id
         target.mkdir(parents=True, exist_ok=True)
+        # Fichiers d'une boussole publiée auparavant : retirés, sinon le front les chargerait.
+        for stale in target.iterdir():
+            if stale.is_file() and stale.name != "election_config.json":
+                stale.unlink()
         config_doc = _read(election_dir / "election_config.json")
         (target / "election_config.json").write_text(_dump(config_doc), encoding="utf-8")
         return target

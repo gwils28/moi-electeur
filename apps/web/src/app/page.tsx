@@ -7,7 +7,11 @@ import { fr } from "@/i18n/fr";
 export default function Home() {
   const elections = loadCompassElections();
   const defaultId = defaultElection(
-    elections.map((e) => ({ id: e.config.id, fictional: e.config.fictional })),
+    elections.map((e) => ({
+      id: e.config.id,
+      fictional: e.config.fictional,
+      date_first_round: e.config.date_first_round,
+    })),
     PREFERRED_ELECTION,
   );
   if (defaultId === null) {
