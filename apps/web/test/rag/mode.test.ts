@@ -21,15 +21,17 @@ const body = (extra: Record<string, unknown> = {}) => ({
 const deep = (extra: Record<string, unknown> = {}) => body({ mode: "approfondi", ...extra });
 
 describe("mode rapide (défaut)", () => {
-  it("sans mode : modèle rapide, effort bas, sans réflexion, meta.mode = rapide", async () => {
+  it("sans mode : modèle rapide, effort bas, réflexion désactivée, meta.mode = rapide", async () => {
     const h = harness();
     const meta = (await readEvents(await h.handler(ask(body()))))[0] as AskMetaEvent;
     expect(meta).toMatchObject({ mode: "rapide", model: "claude-haiku-5-5" });
     const params = h.claude.calls[0]!;
     expect(params.model).toBe("claude-haiku-5-5");
-    expect(params.thinking).toBeUndefined();
+    // Réflexion désactivée : sinon elle consomme le plafond de sortie (réponse réelle tronquée
+    // à 4 096 tokens dont environ 2 800 de réflexion, M2d).
+    expect(params.thinking).toEqual({ type: "disabled" });
     expect(params.output_config).toEqual({ effort: "low" });
-    expect(params.max_tokens).toBe(4096);
+    expect(params.max_tokens).toBe(8192);
   });
 
   it("mode rapide explicite : même requête que sans mode", async () => {

@@ -125,7 +125,7 @@ describe("requête envoyée à Claude", () => {
     const params = h.claude.calls[0]!;
     expect(params.model).toBe("claude-haiku-5-5");
     expect(params.stream === undefined || params.stream === true).toBe(true);
-    expect(params.max_tokens).toBeLessThanOrEqual(4096);
+    expect(params.max_tokens).toBeLessThanOrEqual(8192);
     expect(params.system).toBeDefined();
     const user = params.messages.at(-1)!;
     expect(user.role).toBe("user");
