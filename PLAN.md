@@ -239,11 +239,11 @@ Table `chunks` : `id, election_id, candidate_id, document_title, source_url, pag
 
 ### 4.9 Critères d'acceptation M2
 - [x] `docs/sources-2022.md` validé, `pipeline fetch` vérifie les 12 candidats (sha256 OK), `pipeline validate` vert sur 2022 (M2a, 2026-11-19 : 24 documents).
-- [ ] `extract` + `chunk` + `index` sur 2022 avec les deux modèles ; aucun chunk sans métadonnée ; rapport de couverture (pages et chunks par candidat) dans le notebook m2-01.
-- [ ] `/retrieve` renvoie au moins un chunk par candidat sur chaque question du jeu de fumée ; rappel@4 mesuré pour les deux modèles et RRF vs sémantique seul (chiffres dans les notes).
+- [x] `extract` + `chunk` + `index` sur 2022 avec les deux modèles ; aucun chunk sans métadonnée ; rapport de couverture (pages et chunks par candidat) dans le notebook m2-01 (M2d, 2026-11-27 : 794 chunks par modèle).
+- [x] `/retrieve` renvoie au moins un chunk par candidat sur chaque question du jeu de fumée ; rappel@4 mesuré pour les deux modèles et RRF vs sémantique seul (chiffres dans les notes ; RRF servi sous la sémantique seule, correctif du plein texte à décider).
 - [x] `/api/ask` : tests verts (rate limit, budget, cache, post-validation, absence de logs de question) avec client Anthropic simulé (M2c, 2026-11-27 : 83 tests web).
-- [ ] Parcours manuel dans `/explorer` sur Haiku, captures jointes, coût réel relevé (< 2 $).
-- [ ] Playwright + axe sur `/explorer` (réponse simulée), CI verte, revue `relecteur` sans problème bloquant.
+- [x] Parcours manuel dans `/explorer` sur Haiku, captures jointes, coût réel relevé (< 2 $) (M2d : `docs/captures/m2d/`, environ 0,47 $ pour tout M2).
+- [ ] Playwright + axe sur `/explorer` (réponse simulée), CI verte, revue `relecteur` sans problème bloquant (M2d : 28 tests e2e verts en local, relecture sans bloquant ; CI à confirmer sur la PR).
 
 Coût estimé du jalon : **< 2 $** (quelques centaines de questions à ≈ 0,0024 $). Coût de calcul : indexation 2022 en CPU estimée à quelques minutes par modèle (corpus de quelques centaines de pages).
 

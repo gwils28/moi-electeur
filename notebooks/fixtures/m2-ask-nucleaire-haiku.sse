@@ -1,0 +1,627 @@
+event: meta
+data: {"type":"meta","election_id":"fr-presidentielle-2022","corpus_version":"0b54d163dbe7f40a","prompt_version":"1","model":"claude-haiku-5-5","cached":false,"candidates":[{"token":"c1","candidate_id":"pecresse","has_excerpts":true},{"token":"c2","candidate_id":"roussel","has_excerpts":true},{"token":"c3","candidate_id":"lassalle","has_excerpts":true},{"token":"c4","candidate_id":"zemmour","has_excerpts":true},{"token":"c5","candidate_id":"hidalgo","has_excerpts":true},{"token":"c6","candidate_id":"jadot","has_excerpts":true},{"token":"c7","candidate_id":"arthaud","has_excerpts":true},{"token":"c8","candidate_id":"poutou","has_excerpts":true},{"token":"c9","candidate_id":"le-pen","has_excerpts":true},{"token":"c10","candidate_id":"macron","has_excerpts":true},{"token":"c11","candidate_id":"dupont-aignan","has_excerpts":true},{"token":"c12","candidate_id":"melenchon","has_excerpts":true}]}
+
+event: delta
+data: {"type":"delta","block":1,"text":"###"}
+
+event: delta
+data: {"type":"delta","block":1,"text":" {{c1}}"}
+
+event: delta
+data: {"type":"delta","block":1,"text":"\nLe program"}
+
+event: delta
+data: {"type":"delta","block":1,"text":"me prévoit de "}
+
+event: citation
+data: {"type":"citation","block":2,"verified":true,"cited_text":"Nous respecterons enfin la trajectoire zéro carbone à l’horizon 2050 grâce à une nouvelle ambition énergétique, nucléaire et renouvelable.\n\n","chunk_id":"ea0a3bc08ffd-0001","candidate_id":"pecresse","document_title":"Profession de foi, 1er tour","source_url":"https://web.archive.org/web/20220328220502id_/https://www.cnccep.fr/pdfs/Candidat-09-Valerie-Pecresse-Declaration-accessible.pdf","page_number":2,"page_end":3}
+
+event: delta
+data: {"type":"delta","block":2,"text":"resp"}
+
+event: delta
+data: {"type":"delta","block":2,"text":"ecter la tr"}
+
+event: delta
+data: {"type":"delta","block":2,"text":"ajectoire zéro car"}
+
+event: delta
+data: {"type":"delta","block":2,"text":"bone à l'horizon"}
+
+event: delta
+data: {"type":"delta","block":2,"text":" 2050 grâce à"}
+
+event: delta
+data: {"type":"delta","block":2,"text":" une nouvelle amb"}
+
+event: delta
+data: {"type":"delta","block":2,"text":"ition énergétique, nuc"}
+
+event: delta
+data: {"type":"delta","block":2,"text":"léaire et renouvel"}
+
+event: delta
+data: {"type":"delta","block":2,"text":"able."}
+
+event: delta
+data: {"type":"delta","block":3,"text":" Il ind"}
+
+event: delta
+data: {"type":"delta","block":3,"text":"ique aussi q"}
+
+event: delta
+data: {"type":"delta","block":3,"text":"u'il fa"}
+
+event: delta
+data: {"type":"delta","block":3,"text":"udra "}
+
+event: citation
+data: {"type":"citation","block":4,"verified":true,"cited_text":"Pas d’interdictions sans solutions\n\nPriorité à la transmission des exploitations\n\ngrâce à des exonérations fiscales\n\nd’au moins 6 nouveaux réacteurs EPR, redémarrage du projet de réacteur de nouvelle génération et sans déchets, investissements massifs dans les réacteurs existants pour en prolonger la durée de vie\n\n« Je veux une vraie taxe carbone à nos frontières sur les produits qui ne respectent pas nos règles environnementales. ","chunk_id":"370f8774f585-0014","candidate_id":"pecresse","document_title":"Le courage de faire, programme","source_url":"https://web.archive.org/web/20220324170011id_/https://valeriepecresse.fr/wp-content/uploads/2022/03/16P-VP2022-ok.pdf","page_number":12,"page_end":13}
+
+event: delta
+data: {"type":"delta","block":4,"text":"au mo"}
+
+event: delta
+data: {"type":"delta","block":4,"text":"ins 6 nouvea"}
+
+event: delta
+data: {"type":"delta","block":4,"text":"ux réacteurs EP"}
+
+event: delta
+data: {"type":"delta","block":4,"text":"R, redémarrage du"}
+
+event: delta
+data: {"type":"delta","block":4,"text":" projet de réacteur de"}
+
+event: delta
+data: {"type":"delta","block":4,"text":" nouvelle génération et"}
+
+event: delta
+data: {"type":"delta","block":4,"text":" sans déchets, investiss"}
+
+event: delta
+data: {"type":"delta","block":4,"text":"ements massifs dans les ré"}
+
+event: delta
+data: {"type":"delta","block":4,"text":"acteurs existants pour"}
+
+event: delta
+data: {"type":"delta","block":4,"text":" en prolonger la durée"}
+
+event: delta
+data: {"type":"delta","block":4,"text":" de vie"}
+
+event: delta
+data: {"type":"delta","block":5,"text":".\n\n### {{c"}
+
+event: delta
+data: {"type":"delta","block":5,"text":"2}}\nLe liv"}
+
+event: delta
+data: {"type":"delta","block":5,"text":"re-program"}
+
+event: delta
+data: {"type":"delta","block":5,"text":"me indique que la transition én"}
+
+event: delta
+data: {"type":"delta","block":5,"text":"ergétique "}
+
+event: citation
+data: {"type":"citation","block":6,"verified":true,"cited_text":"Elle devra concerner tous les modes de production d’énergie décarbonée (renouvelables, nucléaire de fission ou de fusion), comme leur interaction avec le réseau (stockage, pilotage etc.).\n\n","chunk_id":"d0836d522538-0037","candidate_id":"roussel","document_title":"La France des Jours heureux, livre-programme","source_url":"https://web.archive.org/web/20220125104923id_/https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf","page_number":30,"page_end":31}
+
+event: delta
+data: {"type":"delta","block":6,"text":"dev"}
+
+event: delta
+data: {"type":"delta","block":6,"text":"ra concerner tous les mod"}
+
+event: delta
+data: {"type":"delta","block":6,"text":"es de production d'énergie"}
+
+event: delta
+data: {"type":"delta","block":6,"text":" décarbonée (renou"}
+
+event: delta
+data: {"type":"delta","block":6,"text":"velables, nucléa"}
+
+event: delta
+data: {"type":"delta","block":6,"text":"ire de fission ou de f"}
+
+event: delta
+data: {"type":"delta","block":6,"text":"usion), comme leur inter"}
+
+event: delta
+data: {"type":"delta","block":6,"text":"action avec le ré"}
+
+event: delta
+data: {"type":"delta","block":6,"text":"seau (stockage, p"}
+
+event: delta
+data: {"type":"delta","block":6,"text":"ilotage etc.)."}
+
+event: delta
+data: {"type":"delta","block":7,"text":" La"}
+
+event: delta
+data: {"type":"delta","block":7,"text":" profession de fo"}
+
+event: delta
+data: {"type":"delta","block":7,"text":"i év"}
+
+event: delta
+data: {"type":"delta","block":7,"text":"oque un "}
+
+event: citation
+data: {"type":"citation","block":8,"verified":true,"cited_text":"Ma France écologique et souveraine • Mix énergétique nucléaire et renouvelable pour assurer notre souveraineté. ","chunk_id":"c37cd69cef21-0002","candidate_id":"roussel","document_title":"Profession de foi, 1er tour","source_url":"https://web.archive.org/web/20220328220449id_/https://www.cnccep.fr/pdfs/Candidat-11-Fabien-Roussel-Declaration-accessible.pdf","page_number":2,"page_end":3}
+
+event: delta
+data: {"type":"delta","block":8,"text":"m"}
+
+event: delta
+data: {"type":"delta","block":8,"text":"ix énergétique nuclé"}
+
+event: delta
+data: {"type":"delta","block":8,"text":"aire et renouvelable"}
+
+event: delta
+data: {"type":"delta","block":8,"text":" pour assurer notre sou"}
+
+event: delta
+data: {"type":"delta","block":8,"text":"veraineté."}
+
+event: delta
+data: {"type":"delta","block":9,"text":"\n\n### {{"}
+
+event: delta
+data: {"type":"delta","block":9,"text":"c3}}\nLe program"}
+
+event: delta
+data: {"type":"delta","block":9,"text":"me prévoit de "}
+
+event: citation
+data: {"type":"citation","block":10,"verified":true,"cited_text":"Rénover et prolonger de 25 ans les centrales nucléaires en fin de vie. ","chunk_id":"4df5adab7e61-0003","candidate_id":"lassalle","document_title":"La France authentique, programme","source_url":"https://web.archive.org/web/20220314141131id_/https://jl2022.fr/wp-content/uploads/2022/03/Programme-A4-V5-25_02_22.pdf","page_number":3,"page_end":3}
+
+event: delta
+data: {"type":"delta","block":10,"text":"r"}
+
+event: delta
+data: {"type":"delta","block":10,"text":"énover et prolonger de"}
+
+event: delta
+data: {"type":"delta","block":10,"text":" 25 ans les centr"}
+
+event: delta
+data: {"type":"delta","block":10,"text":"ales nucléaires en f"}
+
+event: delta
+data: {"type":"delta","block":10,"text":"in de vie."}
+
+event: delta
+data: {"type":"delta","block":11,"text":" Il prop"}
+
+event: delta
+data: {"type":"delta","block":11,"text":"ose aussi de "}
+
+event: citation
+data: {"type":"citation","block":12,"verified":true,"cited_text":"Développer les centrales nucléaires de 4ᵉ génération (plus sûres que les précédentes). ","chunk_id":"4df5adab7e61-0003","candidate_id":"lassalle","document_title":"La France authentique, programme","source_url":"https://web.archive.org/web/20220314141131id_/https://jl2022.fr/wp-content/uploads/2022/03/Programme-A4-V5-25_02_22.pdf","page_number":3,"page_end":3}
+
+event: delta
+data: {"type":"delta","block":12,"text":"développer les centrales n"}
+
+event: delta
+data: {"type":"delta","block":12,"text":"ucléaires de 4"}
+
+event: delta
+data: {"type":"delta","block":12,"text":"ᵉ génération (pl"}
+
+event: delta
+data: {"type":"delta","block":12,"text":"us sûres que les préc"}
+
+event: delta
+data: {"type":"delta","block":12,"text":"édentes)."}
+
+event: delta
+data: {"type":"delta","block":13,"text":" La profession de fo"}
+
+event: delta
+data: {"type":"delta","block":13,"text":"i m"}
+
+event: delta
+data: {"type":"delta","block":13,"text":"entionne "}
+
+event: citation
+data: {"type":"citation","block":14,"verified":true,"cited_text":"Préparer la transition énergétique du nucléaire vers des centrales de 4ᵉ génération, plus sûres et moins chères. ","chunk_id":"47412fb981ef-0002","candidate_id":"lassalle","document_title":"Profession de foi, 1er tour","source_url":"https://web.archive.org/web/20220328220512id_/https://www.cnccep.fr/pdfs/Candidat-05-Jean-Lassalle-Declaration.pdf","page_number":2,"page_end":2}
+
+event: delta
+data: {"type":"delta","block":14,"text":"la"}
+
+event: delta
+data: {"type":"delta","block":14,"text":" transition énergétique du n"}
+
+event: delta
+data: {"type":"delta","block":14,"text":"ucléaire vers des cent"}
+
+event: delta
+data: {"type":"delta","block":14,"text":"rales de 4"}
+
+event: delta
+data: {"type":"delta","block":14,"text":"ᵉ génération, plus s"}
+
+event: delta
+data: {"type":"delta","block":14,"text":"ûres et moins chères."}
+
+event: delta
+data: {"type":"delta","block":15,"text":"\n\n### {{c4}}"}
+
+event: delta
+data: {"type":"delta","block":15,"text":"\nLe programme sou"}
+
+event: delta
+data: {"type":"delta","block":15,"text":"haite "}
+
+event: citation
+data: {"type":"citation","block":16,"verified":true,"cited_text":"RECONQUÉRIR NOTRE EXCELLENCE ET NOTRE PROSPÉRITÉ\n\nrevenir à une politique énergétique raTIONNELLE fondée sur le nucléaire\n\n« Relancer notre filière nucléaire et réduire notre dépendance aux\n\nhydrocarbures pour préserver notre souveraineté énergétique »\n\nLa politique énergétique d’Emmanuel Macron a été aussi incohérente et fluctuante que désastreuse : fermeture de la centrale de Fessenheim, décision de fermer 12 réacteurs nucléaires supplémentaires d’ici 2035, mise à l’arrêt du programme nucléaire de nouvelle génération ASTRID, décision tardive et non engageante sur la construction de nouveaux réacteurs, largesses financières accordées aux énergies renouvelables intermittentes. ","chunk_id":"08a8c9c9a7b4-0030","candidate_id":"zemmour","document_title":"Pour que la France reste la France, mon programme","source_url":"https://web.archive.org/web/20220326170951id_/https://assets.nationbuilder.com/themes/61c071ce4764e8b1483d1a8c/attachments/original/1648220408/programme_eric_zemmour_presidentielle_2022.pdf","page_number":30,"page_end":31}
+
+event: delta
+data: {"type":"delta","block":16,"text":"rev"}
+
+event: delta
+data: {"type":"delta","block":16,"text":"enir à une politique énerg"}
+
+event: delta
+data: {"type":"delta","block":16,"text":"étique rationnelle f"}
+
+event: delta
+data: {"type":"delta","block":16,"text":"ondée sur le nuclé"}
+
+event: delta
+data: {"type":"delta","block":16,"text":"aire"}
+
+event: delta
+data: {"type":"delta","block":17,"text":". Il ind"}
+
+event: delta
+data: {"type":"delta","block":17,"text":"ique v"}
+
+event: delta
+data: {"type":"delta","block":17,"text":"ouloir "}
+
+event: citation
+data: {"type":"citation","block":18,"verified":true,"cited_text":"Je veux que la France de demain défende son industrie nucléaire qui est la troisième filière industrielle française avec 220 000 emplois directs et qui permet à la France de préserver sa souveraineté, d’exporter son électricité et donc de réduire son déficit commercial. ","chunk_id":"08a8c9c9a7b4-0030","candidate_id":"zemmour","document_title":"Pour que la France reste la France, mon programme","source_url":"https://web.archive.org/web/20220326170951id_/https://assets.nationbuilder.com/themes/61c071ce4764e8b1483d1a8c/attachments/original/1648220408/programme_eric_zemmour_presidentielle_2022.pdf","page_number":30,"page_end":31}
+
+event: delta
+data: {"type":"delta","block":18,"text":"que"}
+
+event: delta
+data: {"type":"delta","block":18,"text":" la France de"}
+
+event: delta
+data: {"type":"delta","block":18,"text":" demain défende son industrie"}
+
+event: delta
+data: {"type":"delta","block":18,"text":" nucléaire qui est"}
+
+event: delta
+data: {"type":"delta","block":18,"text":" la troisième filière industr"}
+
+event: delta
+data: {"type":"delta","block":18,"text":"ielle française avec 220 "}
+
+event: delta
+data: {"type":"delta","block":18,"text":"000 emplois directs"}
+
+event: delta
+data: {"type":"delta","block":19,"text":"."}
+
+event: delta
+data: {"type":"delta","block":19,"text":"\n\n### {{c5"}
+
+event: delta
+data: {"type":"delta","block":19,"text":"}}\nA"}
+
+event: delta
+data: {"type":"delta","block":19,"text":"ucune proposition rec"}
+
+event: delta
+data: {"type":"delta","block":19,"text":"ensée dans le"}
+
+event: delta
+data: {"type":"delta","block":19,"text":" programme officiel sur "}
+
+event: delta
+data: {"type":"delta","block":19,"text":"ce point.\n\n### {{c"}
+
+event: delta
+data: {"type":"delta","block":19,"text":"6}}\nLe"}
+
+event: delta
+data: {"type":"delta","block":19,"text":" programme indique :"}
+
+event: delta
+data: {"type":"delta","block":19,"text":" "}
+
+event: citation
+data: {"type":"citation","block":20,"verified":true,"cited_text":"Nous sortirons du nucléaire\n\nNous ne construirons pas de nouvelles centrales, et nous fermerons progressivement les réacteurs actuellement en fonctionnement, au fur et à mesure de leur obsolescence et de notre capacité à les remplacer par des économies d’énergie et de l’électricité renouvelable.\n\n","chunk_id":"dd71c05a16f2-0007","candidate_id":"jadot","document_title":"Programme des écologistes","source_url":"https://web.archive.org/web/20220327012752id_/https://assets.nationbuilder.com/themes/6181b6eb4445ea720389b314/attachments/original/1648232746/programme_des_ecologistes.pdf","page_number":11,"page_end":12}
+
+event: delta
+data: {"type":"delta","block":20,"text":"Nous "}
+
+event: delta
+data: {"type":"delta","block":20,"text":"ne constru"}
+
+event: delta
+data: {"type":"delta","block":20,"text":"irons pas de nouv"}
+
+event: delta
+data: {"type":"delta","block":20,"text":"elles centrales, et n"}
+
+event: delta
+data: {"type":"delta","block":20,"text":"ous fermerons progressiv"}
+
+event: delta
+data: {"type":"delta","block":20,"text":"ement les réacteurs act"}
+
+event: delta
+data: {"type":"delta","block":20,"text":"uellement en fonction"}
+
+event: delta
+data: {"type":"delta","block":20,"text":"nement, au fur et à"}
+
+event: delta
+data: {"type":"delta","block":20,"text":" mesure de leur ob"}
+
+event: delta
+data: {"type":"delta","block":20,"text":"solescence et de not"}
+
+event: delta
+data: {"type":"delta","block":20,"text":"re capacité à les"}
+
+event: delta
+data: {"type":"delta","block":20,"text":" remplacer par des économies"}
+
+event: delta
+data: {"type":"delta","block":20,"text":" d'énergie et de l"}
+
+event: delta
+data: {"type":"delta","block":20,"text":"'électricité renouvel"}
+
+event: delta
+data: {"type":"delta","block":20,"text":"able."}
+
+event: delta
+data: {"type":"delta","block":21,"text":" Il préc"}
+
+event: delta
+data: {"type":"delta","block":21,"text":"ise que"}
+
+event: delta
+data: {"type":"delta","block":21,"text":" "}
+
+event: citation
+data: {"type":"citation","block":22,"verified":true,"cited_text":"Au moins 10 réacteurs nucléaires seront arrêtés d’ici 2035.\n\n","chunk_id":"dd71c05a16f2-0007","candidate_id":"jadot","document_title":"Programme des écologistes","source_url":"https://web.archive.org/web/20220327012752id_/https://assets.nationbuilder.com/themes/6181b6eb4445ea720389b314/attachments/original/1648232746/programme_des_ecologistes.pdf","page_number":11,"page_end":12}
+
+event: delta
+data: {"type":"delta","block":22,"text":"au"}
+
+event: delta
+data: {"type":"delta","block":22,"text":" moins 10 réacte"}
+
+event: delta
+data: {"type":"delta","block":22,"text":"urs nucléaires se"}
+
+event: delta
+data: {"type":"delta","block":22,"text":"ront arrêtés d'"}
+
+event: delta
+data: {"type":"delta","block":22,"text":"ici 2035."}
+
+event: delta
+data: {"type":"delta","block":23,"text":"\n\n### {{c7}}"}
+
+event: delta
+data: {"type":"delta","block":23,"text":"\nAucune proposition rec"}
+
+event: delta
+data: {"type":"delta","block":23,"text":"ensée dans le programme offic"}
+
+event: delta
+data: {"type":"delta","block":23,"text":"iel sur ce point."}
+
+event: delta
+data: {"type":"delta","block":23,"text":"\n\n### {{c8}}"}
+
+event: delta
+data: {"type":"delta","block":23,"text":"\nLe programme v"}
+
+event: delta
+data: {"type":"delta","block":23,"text":"ise à "}
+
+event: citation
+data: {"type":"citation","block":24,"verified":true,"cited_text":"L’enjeu est d’engager la sortie du nucléaire et des énergies fossiles, vers une alternative politique que nous nommons écosocialiste.\n\n","chunk_id":"feb3406f22b1-0005","candidate_id":"poutou","document_title":"Brochure programme Poutou 2022","source_url":"https://web.archive.org/web/20220401130549id_/https://poutou2022.org/sites/default/files/2022-02/brochure_programme_poutou_2022_2.pdf","page_number":7,"page_end":8}
+
+event: delta
+data: {"type":"delta","block":24,"text":"eng"}
+
+event: delta
+data: {"type":"delta","block":24,"text":"ager la sortie du nuc"}
+
+event: delta
+data: {"type":"delta","block":24,"text":"léaire et des énergies"}
+
+event: delta
+data: {"type":"delta","block":24,"text":" fossiles, vers une"}
+
+event: delta
+data: {"type":"delta","block":24,"text":" alternative politique que nous"}
+
+event: delta
+data: {"type":"delta","block":24,"text":" nommons écosoc"}
+
+event: delta
+data: {"type":"delta","block":24,"text":"ialiste."}
+
+event: delta
+data: {"type":"delta","block":25,"text":" Il m"}
+
+event: delta
+data: {"type":"delta","block":25,"text":"entionne not"}
+
+event: delta
+data: {"type":"delta","block":25,"text":"amment "}
+
+event: citation
+data: {"type":"citation","block":26,"verified":true,"cited_text":"immédiate des réacteurs de plus de 40 ans, abandon des projets d’enfouissement des déchets)\n\nDéveloppement des énergies renouvelables (100 % en 2050)\n\nPOUR L’ARRÊT DU NUCLÉAIRE EN 10 ANS ET LA SOCIALISATION DU SECTEUR DE L’ÉNERGIE Contre le réchauffement climatique, la réponse de Macron, comme celle de la plupart des candidat·e·s, est la promotion du nucléaire : la menace d’une dévastation du monde encore plus violente ! ","chunk_id":"feb3406f22b1-0005","candidate_id":"poutou","document_title":"Brochure programme Poutou 2022","source_url":"https://web.archive.org/web/20220401130549id_/https://poutou2022.org/sites/default/files/2022-02/brochure_programme_poutou_2022_2.pdf","page_number":7,"page_end":8}
+
+event: delta
+data: {"type":"delta","block":26,"text":"l'"}
+
+event: delta
+data: {"type":"delta","block":26,"text":"arrêt immédiat"}
+
+event: delta
+data: {"type":"delta","block":26,"text":" des réacteurs de pl"}
+
+event: delta
+data: {"type":"delta","block":26,"text":"us de 40 ans,"}
+
+event: delta
+data: {"type":"delta","block":26,"text":" l"}
+
+event: delta
+data: {"type":"delta","block":26,"text":"'abandon des projets d"}
+
+event: delta
+data: {"type":"delta","block":26,"text":"'enfouissement des dé"}
+
+event: delta
+data: {"type":"delta","block":26,"text":"chets"}
+
+event: delta
+data: {"type":"delta","block":27,"text":".\n\n### {{c9"}
+
+event: delta
+data: {"type":"delta","block":27,"text":"}}\nAucune pro"}
+
+event: delta
+data: {"type":"delta","block":27,"text":"position recensée dans le"}
+
+event: delta
+data: {"type":"delta","block":27,"text":" programme officiel sur "}
+
+event: delta
+data: {"type":"delta","block":27,"text":"ce point.\n\n### {{c"}
+
+event: delta
+data: {"type":"delta","block":27,"text":"10}}\nLe programme"}
+
+event: delta
+data: {"type":"delta","block":27,"text":" prévoit de "}
+
+event: citation
+data: {"type":"citation","block":28,"verified":true,"cited_text":"Poursuivre la construction de 6 premières centrales nucléaires nouvelle génération, la multiplication par 10 de notre puissance solaire et l’implantation de 50 parcs éoliens en mer d’ici 2050, et bâtir une filière française de production des énergies renouvelables.\n\n","chunk_id":"e9a608824a05-0011","candidate_id":"macron","document_title":"Emmanuel Macron avec vous, programme","source_url":"https://web.archive.org/web/20220317215226id_/https://avecvous.fr/wp-content/uploads/2022/03/Emmanuel-Macron-Avec-Vous-24-pages.pdf","page_number":7,"page_end":8}
+
+event: delta
+data: {"type":"delta","block":28,"text":"po"}
+
+event: delta
+data: {"type":"delta","block":28,"text":"ursuivre la construction de"}
+
+event: delta
+data: {"type":"delta","block":28,"text":" 6 premières centrales"}
+
+event: delta
+data: {"type":"delta","block":28,"text":" nucléaires nouv"}
+
+event: delta
+data: {"type":"delta","block":28,"text":"elle génération"}
+
+event: delta
+data: {"type":"delta","block":29,"text":". Il v"}
+
+event: delta
+data: {"type":"delta","block":29,"text":"ise aussi à "}
+
+event: citation
+data: {"type":"citation","block":30,"verified":true,"cited_text":"Nous met-trons les moyens nécessaires pour faire de la France un pays en tête pour le nucléaire, les batteries, l’hydrogène, les énergies renouvelables, l’avion bas carbone, le cyber, le métavers, l’agriculture du XXIe siècle et les industries\n\nPour nos enfants LE PACTE E NTRE LES G É N É R ATI ONS\n\nLes fondamentaux\n\nL’orientation\n\nConnaître plus tôt pour mieux choisir plus tard : tous les enfants découvriront, de la 5e à la 3e, plusieurs métiers, dont les métiers techniques et manuels.\n\n","chunk_id":"e9a608824a05-0004","candidate_id":"macron","document_title":"Emmanuel Macron avec vous, programme","source_url":"https://web.archive.org/web/20220317215226id_/https://avecvous.fr/wp-content/uploads/2022/03/Emmanuel-Macron-Avec-Vous-24-pages.pdf","page_number":3,"page_end":4}
+
+event: delta
+data: {"type":"delta","block":30,"text":"faire de la France un p"}
+
+event: delta
+data: {"type":"delta","block":30,"text":"ays en tête pour le n"}
+
+event: delta
+data: {"type":"delta","block":30,"text":"ucléaire"}
+
+event: delta
+data: {"type":"delta","block":31,"text":".\n\n### {{"}
+
+event: delta
+data: {"type":"delta","block":31,"text":"c11}}\nAuc"}
+
+event: delta
+data: {"type":"delta","block":31,"text":"une proposition recensée d"}
+
+event: delta
+data: {"type":"delta","block":31,"text":"ans le programme officiel s"}
+
+event: delta
+data: {"type":"delta","block":31,"text":"ur ce point.\n\n### {"}
+
+event: delta
+data: {"type":"delta","block":31,"text":"{c12}}\nLe"}
+
+event: delta
+data: {"type":"delta","block":31,"text":" programme indique que "}
+
+event: citation
+data: {"type":"citation","block":32,"verified":true,"cited_text":"Le nucléaire n’est pas une solution d’avenir et un accident aurait des conséquences désastreuses. ","chunk_id":"df249374c324-0011","candidate_id":"melenchon","document_title":"L'Avenir en commun, programme en version abrégée","source_url":"https://web.archive.org/web/20220410183816id_/https://melenchon2022.fr/wp-content/uploads/2022/04/LAvenir-en-commun-le-programme-en-version-abregee.pdf","page_number":14,"page_end":15}
+
+event: delta
+data: {"type":"delta","block":32,"text":"le nucléaire n"}
+
+event: delta
+data: {"type":"delta","block":32,"text":"'est pas une solution d"}
+
+event: delta
+data: {"type":"delta","block":32,"text":"'avenir et un accident"}
+
+event: delta
+data: {"type":"delta","block":32,"text":" aurait des conséquences"}
+
+event: delta
+data: {"type":"delta","block":32,"text":" désastreuses."}
+
+event: delta
+data: {"type":"delta","block":33,"text":" Il prop"}
+
+event: delta
+data: {"type":"delta","block":33,"text":"ose de"}
+
+event: delta
+data: {"type":"delta","block":33,"text":" "}
+
+event: citation
+data: {"type":"citation","block":34,"verified":true,"cited_text":"SORTIR DES ÉNERGIES FOSSILES\n\nET DU NUCLÉAIRE\n\n• Arrêter les subventions aux énergies fossiles, y compris à l’étranger • Planifier la sortie du nucléaire et abandonner les projets de nouvelles centrales • Soutenir la reconversion des travailleurs des secteurs concernés\n\nINVESTIR DANS LE RENOUVELABLE\n\n• Planifier le passage à 100 % d’énergies renouvelables • Créer un pôle public de l’énergie • Investir dans l’efficacité et la sobriété énergétiques\n\n© XDR\n\nPOUR DES TRANSPORTS NON POLLUANTS ET ACCESSIBLES 11\n\nLe désinvestissement de l’État, l’ouverture à la concurrence et l’exigence de rentabilité ont détruit les transports publics. ","chunk_id":"df249374c324-0011","candidate_id":"melenchon","document_title":"L'Avenir en commun, programme en version abrégée","source_url":"https://web.archive.org/web/20220410183816id_/https://melenchon2022.fr/wp-content/uploads/2022/04/LAvenir-en-commun-le-programme-en-version-abregee.pdf","page_number":14,"page_end":15}
+
+event: delta
+data: {"type":"delta","block":34,"text":"planifier la"}
+
+event: delta
+data: {"type":"delta","block":34,"text":" sortie du nucléa"}
+
+event: delta
+data: {"type":"delta","block":34,"text":"ire et abandonner les proj"}
+
+event: delta
+data: {"type":"delta","block":34,"text":"ets de nouvelles cent"}
+
+event: delta
+data: {"type":"delta","block":34,"text":"rales"}
+
+event: delta
+data: {"type":"delta","block":35,"text":"."}
+
+event: done
+data: {"type":"done","stop_reason":"end_turn","unverified_citations":0,"neutrality_flags":[]}
+

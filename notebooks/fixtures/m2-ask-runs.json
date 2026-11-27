@@ -1,0 +1,8 @@
+{
+ "description": "Deux appels réels de POST /api/ask (2026-11-27, corpus 2022 indexé avec bge-m3, 12 candidats, 4 extraits chacun), enregistrés en SSE. Coût, tokens et latence relevés dans le journal de la route (docs/notes-implementation.md, M2c suite). Aucun appel réel n'est refait en CI.",
+ "question": "Que proposent les candidats sur le nucléaire ?",
+ "runs": [
+  {"fichier": "m2-ask-nucleaire-haiku.sse", "mode": "rapide", "modele": "claude-haiku-5-5", "cout_usd": 0.0075, "tokens_entree": 60030, "tokens_sortie": 2975, "latence_s": 12.7},
+  {"fichier": "m2-ask-nucleaire-sonnet.sse", "mode": "approfondi", "modele": "claude-sonnet-5-5", "cout_usd": 0.134, "tokens_entree": 60113, "tokens_sortie": 1408, "latence_s": 8.2}
+ ]
+}
