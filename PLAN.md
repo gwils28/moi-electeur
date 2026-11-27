@@ -302,7 +302,7 @@ Plan initial (annoté « ok ») : 1. affirmations 2022 proposées par Claude, va
 - [x] `statements.json` 2022 validé par le mainteneur, `pipeline validate` vert.
 - [x] `propose-positions` / `propose-measures` testés avec client simulé (aucun appel réel en CI) ; sorties conformes aux schémas ; citations vérifiées.
 - [x] Pilote revu, prompt ajusté, lot complet traité ; coût réel relevé (4,68 $).
-- [ ] 100 % des propositions revues, décisions tracées ; notebook m3-02 (taux de correction).
+- [x] 100 % des propositions revues, décisions tracées ; notebook m3-02 (taux de correction). **Validation en bloc** par le mainteneur (note sur chaque décision) : fiabilité à mesurer en M4.
 - [ ] Boussole 2022 publiée (positions revues seulement), comparateur et radar en ligne ; Playwright + axe ; CI verte ; revue `relecteur` sans problème bloquant.
   - Fait (M3d) : sélecteur d'élection, `/comparateur` et radar, Playwright + axe ; reste : revue humaine 2022 (M3c) pour publier la boussole 2022, notebook m3-02, revue `relecteur` de fin de jalon.
 

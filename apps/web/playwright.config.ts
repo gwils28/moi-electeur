@@ -5,6 +5,9 @@ export default defineConfig({
   use: { baseURL: "http://localhost:3000" },
   webServer: {
     command: "pnpm build && pnpm start",
+    // Scénarios écrits sur la démo fictive : elle reste l'élection par défaut des tests, même
+    // quand une élection réelle est publiée (sinon choisie par défaut, D33).
+    env: { ELECTION_ID: "demo-fictive" },
     url: "http://localhost:3000",
     reuseExistingServer: true,
     timeout: 180_000,
