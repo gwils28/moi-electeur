@@ -359,7 +359,7 @@ Plan initial (annoté « ok ») : audit RGAA manuel en plus d'axe, `docs/methodo
 ### 7.1 Critères d'acceptation M5
 - [x] Audit RGAA documenté, écarts corrigés ou justifiés, déclaration d'accessibilité publiée ; axe sans violation (auto-évaluation ; publication sur le site avec la page méthodologie).
 - [x] Page `/methodologie` publiée, à jour du backtest et de la validation en bloc.
-- [ ] Stack de production prête (compose, Caddy, CSP stricte vérifiée par test), déploiement documenté ; CI verte.
+- [x] Stack de production prête (compose, Caddy, CSP stricte vérifiée par test), déploiement documenté ; CI verte (stack vérifiée en local par `deploy-check.sh`).
 - [ ] Mise en ligne sur le VPS du mainteneur (hors de portée de l'agent sans accès).
 
 ## 8. M6 : Présidentielle 2027

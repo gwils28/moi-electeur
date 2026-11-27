@@ -1,0 +1,44 @@
+# Reverse proxy de production (PLAN D48, D49) : TLS automatique, en-têtes de sécurité, journaux
+# sans adresse IP. La CSP (à nonce, par requête) est posée par l'application (apps/web/src/proxy.ts).
+{
+	email {$ACME_EMAIL}
+}
+
+www.{$DOMAIN} {
+	redir https://{$DOMAIN}{uri} permanent
+}
+
+{$DOMAIN} {
+	encode zstd gzip
+
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "no-referrer"
+		Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+		Cross-Origin-Opener-Policy "same-origin"
+		Cross-Origin-Resource-Policy "same-origin"
+		-Server
+		-X-Powered-By
+	}
+
+	# Le limiteur de débit du chat lit l'adresse dans X-Forwarded-For (ajouté par Caddy), en
+	# mémoire seulement : elle n'est jamais écrite.
+	reverse_proxy web:3000
+
+	# Journal d'accès réduit : ni adresse IP, ni en-têtes, ni chaîne de requête (SPEC § 6.3).
+	log {
+		output stdout
+		format filter {
+			wrap json
+			fields {
+				request>remote_ip delete
+				request>remote_port delete
+				request>client_ip delete
+				request>headers delete
+				request>uri regexp \?.* ""
+				resp_headers delete
+			}
+		}
+	}
+}

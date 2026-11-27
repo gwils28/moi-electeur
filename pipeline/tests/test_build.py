@@ -131,3 +131,25 @@ def test_build_affirmations_seules_publie_la_configuration_seule(
     del demo_docs["measures.json"]
     target = build_election(write_election(demo_docs), tmp_path / "out")
     assert sorted(p.name for p in target.iterdir()) == ["election_config.json"]
+
+
+def test_build_autonome_sans_service_de_recherche(tmp_path: Path) -> None:
+    """Image web (étape « data ») : `python -m moi_electeur_pipeline.build` ne charge ni le
+    service de recherche (torch), ni la CLI, ni le client Claude."""
+    import subprocess
+    import sys
+
+    code = (
+        "import runpy, sys\n"
+        f"sys.argv = ['build', '--out', {str(tmp_path)!r}]\n"
+        "try:\n"
+        "    runpy.run_module('moi_electeur_pipeline.build', run_name='__main__')\n"
+        "except SystemExit as exc:\n"
+        "    assert exc.code == 0, exc.code\n"
+        "heavy = [m for m in ('moi_electeur_rag', 'typer', 'anthropic', 'torch') if m in sys.modules]\n"
+        "print('LOURDS', heavy)\n"
+    )
+    out = subprocess.run([sys.executable, "-c", code], capture_output=True, text=True, check=True)
+    assert "LOURDS []" in out.stdout
+    assert (tmp_path / "demo-fictive" / "positions.json").is_file()
+    assert (tmp_path / "fr-presidentielle-2022" / "election_config.json").is_file()
