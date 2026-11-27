@@ -13,9 +13,12 @@ export interface AllSchemas {
   election_config?: ElectionConfig;
   evidence?: Evidence;
   manifest?: Manifest;
+  measure_extraction?: MeasureExtraction;
   measures?: MeasuresFile;
   pca_model?: PcaModel;
+  position_extraction?: PositionExtraction;
   positions?: PositionsFile;
+  proposal?: Proposal;
   retrieve_request?: RetrieveRequest;
   retrieve_response?: RetrieveResponse;
   review?: Review;
@@ -280,6 +283,34 @@ export interface ManifestFile {
   path: string;
   sha256: string;
 }
+/**
+ * Sortie structurée demandée au modèle pour un couple (candidat, thème), PLAN D26. Compatible avec output_config.format : le nombre de mesures et les montants sont vérifiés par le pipeline.
+ */
+export interface MeasureExtraction {
+  measures: ExtractedMeasure[];
+}
+export interface ExtractedMeasure {
+  title: string;
+  summary: string;
+  costing: ExtractedCosting;
+  quotes: ExtractedQuote[];
+}
+export interface ExtractedCosting {
+  status: "chiffre" | "partiel" | "intention";
+  amount_eur: number | null;
+  period: string | null;
+  quote: string | null;
+}
+export interface ExtractedQuote {
+  /**
+   * Numéro de l'extrait (1 = premier).
+   */
+  extrait: number;
+  /**
+   * Passage recopié mot pour mot.
+   */
+  text: string;
+}
 export interface MeasuresFile {
   election_id: string;
   measures: Measure[];
@@ -355,6 +386,34 @@ export interface PcaModel {
    */
   top_statements: string[][];
 }
+/**
+ * Sortie structurée demandée au modèle pour un couple (candidat, affirmation), PLAN D24-D25. Compatible avec output_config.format : aucune contrainte numérique ni de longueur (vérifiées par le pipeline).
+ */
+export interface PositionExtraction {
+  /**
+   * Accord des extraits avec l'affirmation (-2 à +2) ; null si les extraits ne traitent pas le sujet.
+   */
+  value: (-2 | -1 | 0 | 1 | 2) | null;
+  confidence: "high" | "medium" | "low";
+  /**
+   * Passages exacts qui justifient la valeur ; au moins un si la valeur n'est pas null.
+   */
+  quotes: ExtractedQuote1[];
+  /**
+   * Une ou deux phrases neutres pour la personne qui relit.
+   */
+  rationale: string;
+}
+export interface ExtractedQuote1 {
+  /**
+   * Numéro de l'extrait (1 = premier).
+   */
+  extrait: number;
+  /**
+   * Passage recopié mot pour mot.
+   */
+  text: string;
+}
 export interface PositionsFile {
   election_id: string;
   positions: Position[];
@@ -374,6 +433,68 @@ export interface Position {
    */
   proposed_value?: number | null;
   review: Review;
+}
+/**
+ * Une ligne de proposals/{positions,measures}.jsonl (PLAN D29) : requête, sortie du modèle, vérifications et coût. Aucun texte d'extrait n'y est copié (seulement les identifiants et les citations).
+ */
+export interface Proposal {
+  kind: "position" | "measure";
+  custom_id: string;
+  election_id: string;
+  candidate_id: string;
+  /**
+   * Affirmation (position) ou thème (mesure).
+   */
+  target: string;
+  model: string;
+  prompt_version: number;
+  mode: "direct" | "batch";
+  batch_id: string | null;
+  corpus_version: string | null;
+  /**
+   * Extraits fournis, dans l'ordre (extrait 1 = premier).
+   */
+  chunk_ids: string[];
+  /**
+   * ok : sortie exploitable ; invalid : sortie conforme mais refusée par les vérifications ; error : pas de sortie exploitable (refus, troncature, erreur), redemandée au prochain lancement.
+   */
+  status: "ok" | "invalid" | "error";
+  stop_reason: string | null;
+  /**
+   * Sortie du modèle (PositionExtraction ou MeasureExtraction).
+   */
+  output: {} | null;
+  error: string | null;
+  flags: (
+    | "citation_non_retrouvee"
+    | "extrait_inconnu"
+    | "valeur_sans_citation"
+    | "confiance_faible"
+    | "trop_de_mesures"
+    | "mesure_sans_citation"
+    | "montant_non_retrouve"
+    | "chiffrage_incoherent"
+  )[];
+  /**
+   * Citations de la sortie et résultat de leur vérification. `measure` : index de la mesure (null pour une position) ; `role` : justification ou passage du chiffrage.
+   */
+  quotes: CheckedQuote[];
+  usage: ProposalUsage;
+  cost_usd: number;
+  created_at: string;
+}
+export interface CheckedQuote {
+  measure: number | null;
+  role: "evidence" | "costing";
+  chunk_id: string | null;
+  text: string;
+  verified: boolean;
+}
+export interface ProposalUsage {
+  input_tokens: number;
+  output_tokens: number;
+  cache_creation_input_tokens: number;
+  cache_read_input_tokens: number;
 }
 /**
  * Requête POST /retrieve du service RAG (PLAN § 4.4). Ne jamais journaliser `question` (donnée d'opinion, RGPD art. 9).

@@ -3,8 +3,10 @@
 from __future__ import annotations
 
 import json
+from collections import Counter
+from datetime import UTC, datetime
 from pathlib import Path
-from typing import Annotated
+from typing import Annotated, Any
 
 import typer
 
@@ -15,9 +17,35 @@ from .demo import ELECTION_ID, build_demo, write_demo
 from .engine_fixtures import build_engine_cases
 from .extract import ExtractError, extract_corpus
 from .index import IndexingError, index_corpus
+from .llm import AnthropicClient, LlmClient, load_api_key
 from .paths import elections_dir, repo_root
+from .propose import (
+    PROMPTS,
+    ReviewedMeasuresError,
+    collect_batches,
+    done_ids,
+    estimate_cost,
+    load_prompt,
+    load_records,
+    measure_items,
+    open_retriever,
+    pending_ids,
+    position_items,
+    proposals_path,
+    recheck_records,
+    render_report,
+    run_direct,
+    submit_batch,
+    write_measures,
+    write_positions,
+)
 from .sources import SourceError, add_source, fetch_corpus
 from .validate import validate_election
+
+
+def make_client() -> LlmClient:
+    return AnthropicClient()
+
 
 app = typer.Typer(no_args_is_help=True, help="Pipeline hors ligne de Moi Électeur.")
 
@@ -223,9 +251,221 @@ def _not_implemented(name: str, milestone: str) -> None:
     app.command(name)(command)
 
 
-for _name, _milestone in [
-    ("propose-positions", "M3"),
-    ("propose-measures", "M3"),
-    ("review", "M3"),
-]:
+for _name, _milestone in [("review", "M3")]:
     _not_implemented(_name, _milestone)
+
+
+# Extraction (M3b, PLAN § 5.2 et D32). Aucune requête sans --yes ; plafond de coût ; reprise.
+
+Candidates = Annotated[
+    str | None, typer.Option(help="Candidats séparés par des virgules (défaut : tous).")
+]
+Pilot = Annotated[
+    bool, typer.Option(help="Appels directs (pilote, D28) au lieu de la Batch API (-50 %).")
+]
+DryRun = Annotated[bool, typer.Option(help="Affiche le nombre de requêtes et le coût estimé.")]
+Yes = Annotated[bool, typer.Option("--yes", help="Confirme l'envoi des requêtes payantes.")]
+MaxUsd = Annotated[float, typer.Option(help="Refuse l'envoi si le coût estimé dépasse ce plafond.")]
+Embedding = Annotated[str, typer.Option(help="Modèle d'embedding de la recherche.")]
+Dsn = Annotated[str | None, typer.Option(help="Base PostgreSQL (défaut : DATABASE_URL).")]
+
+
+def _split(value: str | None) -> list[str] | None:
+    return [v.strip() for v in value.split(",") if v.strip()] if value else None
+
+
+def _write_outputs(election: Path) -> None:
+    """Écrit positions.json puis measures.json dès que toutes les propositions sont là."""
+    config = json.loads((election / "election_config.json").read_text(encoding="utf-8"))
+    statements = json.loads((election / "statements.json").read_text(encoding="utf-8"))
+    positions = load_records(proposals_path(election, "position"))
+    if positions:
+        written, missing = write_positions(election, config, statements["statements"], positions)
+        if written:
+            typer.echo("positions.json écrit (statut pending, à revoir).")
+        else:
+            typer.echo(f"positions.json non écrit : {missing} proposition(s) manquent.")
+    measures = load_records(proposals_path(election, "measure"))
+    if measures:
+        try:
+            written, missing = write_measures(election, config, measures)
+        except ReviewedMeasuresError:
+            typer.echo("measures.json non réécrit : il contient des mesures revues (M3c).")
+            return
+        if written:
+            typer.echo("measures.json écrit (statut pending, à revoir).")
+        elif missing:
+            typer.echo(f"measures.json non écrit : {missing} proposition(s) manquent.")
+        else:
+            typer.echo("measures.json non écrit : positions.json d'abord.")
+
+
+def _summary(records: list[dict[str, Any]]) -> str:
+    counts = Counter(r["status"] for r in records)
+    flags = Counter(f for r in records for f in r["flags"])
+    cost = sum(r["cost_usd"] for r in records)
+    parts = [f"{counts[s]} {s}" for s in ("ok", "invalid", "error") if counts[s]]
+    detail = ", ".join(f"{f} {n}" for f, n in sorted(flags.items()))
+    return f"{', '.join(parts)} ; coût réel {cost:.3f} $" + (
+        f" ; signalements : {detail}" if detail else ""
+    )
+
+
+def _propose(
+    kind: str,
+    election: Path,
+    *,
+    candidates: str | None,
+    pilot: bool,
+    dry_run: bool,
+    yes: bool,
+    max_usd: float,
+    embedding: str,
+    dsn: str | None,
+) -> None:
+    config = json.loads((election / "election_config.json").read_text(encoding="utf-8"))
+    prompt = load_prompt(PROMPTS[kind])
+    previous = load_records(proposals_path(election, kind))
+    skip = done_ids(previous, prompt.version) | pending_ids(election)
+    wanted = _split(candidates)
+    with open_retriever(config["id"], embedding, dsn) as search:
+        try:
+            if kind == "position":
+                statements = json.loads((election / "statements.json").read_text(encoding="utf-8"))
+                items = position_items(
+                    config,
+                    statements["statements"],
+                    search,
+                    prompt=prompt,
+                    candidates=wanted,
+                    done=skip,
+                )
+            else:
+                items = measure_items(config, search, prompt=prompt, candidates=wanted, done=skip)
+        except ValueError as exc:
+            typer.echo(f"Erreur : {exc}", err=True)
+            raise typer.Exit(1) from exc
+    if not items:
+        typer.echo("Rien à demander : toutes les propositions sont acquises ou en cours de lot.")
+        _write_outputs(election)
+        return
+    cost = estimate_cost(items, batch=not pilot)
+    how = "appels directs" if pilot else "Batch API, -50 %"
+    typer.echo(
+        f"{len(items)} requêtes, coût estimé {cost:.2f} $ ({how}, prompt v{prompt.version})."
+    )
+    if dry_run:
+        return
+    if cost > max_usd:
+        typer.echo(f"Refusé : coût estimé au-delà du plafond de {max_usd:.2f} $ (--max-usd).")
+        raise typer.Exit(1)
+    if not yes:
+        typer.echo("Aucune requête envoyée : relancer avec --yes pour confirmer.")
+        raise typer.Exit(1)
+    if not load_api_key():
+        typer.echo("ANTHROPIC_API_KEY absente (environnement ou .env à la racine).", err=True)
+        raise typer.Exit(1)
+    client = make_client()
+    now = datetime.now(UTC)
+    if pilot:
+        records = run_direct(
+            client, items, election_dir=election, kind=kind, prompt_version=prompt.version, now=now
+        )
+        typer.echo(_summary(records))
+        _write_outputs(election)
+    else:
+        batch_id = submit_batch(
+            client, items, election_dir=election, kind=kind, prompt_version=prompt.version, now=now
+        )
+        typer.echo(
+            f"Lot {batch_id} envoyé ; suivre avec `uv run pipeline batch-status {election}`."
+        )
+
+
+@app.command("propose-positions")
+def propose_positions_cmd(
+    election: ElectionDir,
+    candidates: Candidates = None,
+    pilot: Pilot = False,
+    dry_run: DryRun = False,
+    yes: Yes = False,
+    max_usd: MaxUsd = 10.0,
+    embedding: Embedding = "bge-m3",
+    dsn: Dsn = None,
+) -> None:
+    """Propose les positions (candidat x affirmation) par Claude, en extraction aveugle."""
+    _propose(
+        "position",
+        election,
+        candidates=candidates,
+        pilot=pilot,
+        dry_run=dry_run,
+        yes=yes,
+        max_usd=max_usd,
+        embedding=embedding,
+        dsn=dsn,
+    )
+
+
+@app.command("propose-measures")
+def propose_measures_cmd(
+    election: ElectionDir,
+    candidates: Candidates = None,
+    pilot: Pilot = False,
+    dry_run: DryRun = False,
+    yes: Yes = False,
+    max_usd: MaxUsd = 10.0,
+    embedding: Embedding = "bge-m3",
+    dsn: Dsn = None,
+) -> None:
+    """Propose les mesures phares (candidat x thème) et leur chiffrage par Claude."""
+    _propose(
+        "measure",
+        election,
+        candidates=candidates,
+        pilot=pilot,
+        dry_run=dry_run,
+        yes=yes,
+        max_usd=max_usd,
+        embedding=embedding,
+        dsn=dsn,
+    )
+
+
+@app.command("batch-status")
+def batch_status_cmd(election: ElectionDir) -> None:
+    """État des lots envoyés ; collecte ceux qui sont terminés, puis écrit les fichiers."""
+    if not pending_ids(election):
+        typer.echo("Aucun lot en cours.")
+        _write_outputs(election)
+        return
+    if not load_api_key():
+        typer.echo("ANTHROPIC_API_KEY absente (environnement ou .env à la racine).", err=True)
+        raise typer.Exit(1)
+    for batch_id, status, n in collect_batches(make_client(), election, now=datetime.now(UTC)):
+        typer.echo(f"{batch_id} : {status}" + (f", {n} propositions collectées" if n else ""))
+    _write_outputs(election)
+
+
+@app.command("proposals-report")
+def proposals_report_cmd(
+    election: ElectionDir,
+    kind: Annotated[str, typer.Option(help="position ou measure.")] = "position",
+    candidates: Candidates = None,
+    out: Annotated[Path | None, typer.Option(help="Fichier Markdown (défaut : sortie).")] = None,
+) -> None:
+    """Rapport de relecture des propositions (Markdown), signalements en clair."""
+    text = render_report(election, kind, candidates=_split(candidates))
+    if out:
+        out.write_text(text, encoding="utf-8")
+        typer.echo(f"Écrit {out}")
+    else:
+        typer.echo(text, nl=False)
+
+
+@app.command("recheck-proposals")
+def recheck_proposals_cmd(election: ElectionDir) -> None:
+    """Refait les vérifications des propositions reçues (sans appel), puis réécrit les fichiers."""
+    for kind in ("position", "measure"):
+        typer.echo(f"{kind} : {recheck_records(election, kind)} proposition(s) mise(s) à jour.")
+    _write_outputs(election)

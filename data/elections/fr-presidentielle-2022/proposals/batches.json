@@ -1,0 +1,4886 @@
+{
+  "batches": [
+    {
+      "batch_id": "msgbatch_01LDGKGJveuP4qevZwr4MYee",
+      "kind": "position",
+      "model": "claude-sonnet-5-5",
+      "prompt_version": 2,
+      "created_at": "2026-11-27T14:52:59.120309+00:00",
+      "collected": true,
+      "items": [
+        {
+          "custom_id": "p-arthaud-s01",
+          "candidate_id": "arthaud",
+          "target": "s01",
+          "chunk_ids": [
+            "5aba0abf8857-0004",
+            "3f15e2622823-0001",
+            "3f15e2622823-0002",
+            "5aba0abf8857-0018",
+            "3f15e2622823-0004",
+            "5aba0abf8857-0003"
+          ]
+        },
+        {
+          "custom_id": "p-arthaud-s02",
+          "candidate_id": "arthaud",
+          "target": "s02",
+          "chunk_ids": [
+            "5aba0abf8857-0006",
+            "5aba0abf8857-0003",
+            "5aba0abf8857-0004",
+            "3f15e2622823-0002",
+            "5aba0abf8857-0016",
+            "5aba0abf8857-0007"
+          ]
+        },
+        {
+          "custom_id": "p-arthaud-s03",
+          "candidate_id": "arthaud",
+          "target": "s03",
+          "chunk_ids": [
+            "5aba0abf8857-0007",
+            "3f15e2622823-0002",
+            "5aba0abf8857-0013",
+            "5aba0abf8857-0014",
+            "5aba0abf8857-0006",
+            "5aba0abf8857-0004"
+          ]
+        },
+        {
+          "custom_id": "p-arthaud-s04",
+          "candidate_id": "arthaud",
+          "target": "s04",
+          "chunk_ids": [
+            "5aba0abf8857-0002",
+            "5aba0abf8857-0016",
+            "5aba0abf8857-0004",
+            "3f15e2622823-0002",
+            "3f15e2622823-0000",
+            "5aba0abf8857-0012"
+          ]
+        },
+        {
+          "custom_id": "p-arthaud-s05",
+          "candidate_id": "arthaud",
+          "target": "s05",
+          "chunk_ids": [
+            "5aba0abf8857-0013",
+            "3f15e2622823-0005",
+            "5aba0abf8857-0016",
+            "3f15e2622823-0002",
+            "5aba0abf8857-0007",
+            "5aba0abf8857-0001"
+          ]
+        },
+        {
+          "custom_id": "p-arthaud-s06",
+          "candidate_id": "arthaud",
+          "target": "s06",
+          "chunk_ids": [
+            "3f15e2622823-0001",
+            "5aba0abf8857-0016",
+            "3f15e2622823-0000",
+            "3f15e2622823-0002",
+            "3f15e2622823-0005",
+            "5aba0abf8857-0004"
+          ]
+        },
+        {
+          "custom_id": "p-arthaud-s07",
+          "candidate_id": "arthaud",
+          "target": "s07",
+          "chunk_ids": [
+            "5aba0abf8857-0006",
+            "5aba0abf8857-0004",
+            "5aba0abf8857-0005",
+            "3f15e2622823-0001",
+            "5aba0abf8857-0002",
+            "5aba0abf8857-0009"
+          ]
+        },
+        {
+          "custom_id": "p-arthaud-s08",
+          "candidate_id": "arthaud",
+          "target": "s08",
+          "chunk_ids": [
+            "5aba0abf8857-0002",
+            "5aba0abf8857-0005",
+            "3f15e2622823-0001",
+            "5aba0abf8857-0004",
+            "5aba0abf8857-0003",
+            "5aba0abf8857-0016"
+          ]
+        },
+        {
+          "custom_id": "p-arthaud-s09",
+          "candidate_id": "arthaud",
+          "target": "s09",
+          "chunk_ids": [
+            "3f15e2622823-0000",
+            "5aba0abf8857-0001",
+            "5aba0abf8857-0006",
+            "5aba0abf8857-0016",
+            "5aba0abf8857-0004",
+            "5aba0abf8857-0005"
+          ]
+        },
+        {
+          "custom_id": "p-arthaud-s10",
+          "candidate_id": "arthaud",
+          "target": "s10",
+          "chunk_ids": [
+            "5aba0abf8857-0016",
+            "5aba0abf8857-0004",
+            "3f15e2622823-0005",
+            "5aba0abf8857-0006",
+            "5aba0abf8857-0009",
+            "5aba0abf8857-0002"
+          ]
+        },
+        {
+          "custom_id": "p-arthaud-s11",
+          "candidate_id": "arthaud",
+          "target": "s11",
+          "chunk_ids": [
+            "3f15e2622823-0004",
+            "5aba0abf8857-0004",
+            "5aba0abf8857-0019",
+            "5aba0abf8857-0016",
+            "3f15e2622823-0005",
+            "5aba0abf8857-0013"
+          ]
+        },
+        {
+          "custom_id": "p-arthaud-s12",
+          "candidate_id": "arthaud",
+          "target": "s12",
+          "chunk_ids": [
+            "3f15e2622823-0001",
+            "5aba0abf8857-0002",
+            "5aba0abf8857-0016",
+            "3f15e2622823-0000",
+            "5aba0abf8857-0003",
+            "5aba0abf8857-0004"
+          ]
+        },
+        {
+          "custom_id": "p-arthaud-s13",
+          "candidate_id": "arthaud",
+          "target": "s13",
+          "chunk_ids": [
+            "3f15e2622823-0000",
+            "3f15e2622823-0002",
+            "5aba0abf8857-0016",
+            "5aba0abf8857-0004",
+            "3f15e2622823-0004",
+            "5aba0abf8857-0018"
+          ]
+        },
+        {
+          "custom_id": "p-arthaud-s14",
+          "candidate_id": "arthaud",
+          "target": "s14",
+          "chunk_ids": [
+            "5aba0abf8857-0014",
+            "5aba0abf8857-0013",
+            "5aba0abf8857-0003",
+            "3f15e2622823-0004",
+            "3f15e2622823-0001",
+            "5aba0abf8857-0000"
+          ]
+        },
+        {
+          "custom_id": "p-arthaud-s15",
+          "candidate_id": "arthaud",
+          "target": "s15",
+          "chunk_ids": [
+            "5aba0abf8857-0006",
+            "5aba0abf8857-0016",
+            "3f15e2622823-0004",
+            "3f15e2622823-0000",
+            "5aba0abf8857-0001",
+            "3f15e2622823-0002"
+          ]
+        },
+        {
+          "custom_id": "p-arthaud-s16",
+          "candidate_id": "arthaud",
+          "target": "s16",
+          "chunk_ids": [
+            "3f15e2622823-0004",
+            "3f15e2622823-0003",
+            "3f15e2622823-0005",
+            "5aba0abf8857-0004",
+            "5aba0abf8857-0016",
+            "5aba0abf8857-0002"
+          ]
+        },
+        {
+          "custom_id": "p-arthaud-s17",
+          "candidate_id": "arthaud",
+          "target": "s17",
+          "chunk_ids": [
+            "5aba0abf8857-0010",
+            "3f15e2622823-0004",
+            "5aba0abf8857-0016",
+            "3f15e2622823-0005",
+            "5aba0abf8857-0006",
+            "3f15e2622823-0003"
+          ]
+        },
+        {
+          "custom_id": "p-arthaud-s18",
+          "candidate_id": "arthaud",
+          "target": "s18",
+          "chunk_ids": [
+            "3f15e2622823-0004",
+            "5aba0abf8857-0016",
+            "3f15e2622823-0005",
+            "5aba0abf8857-0015",
+            "5aba0abf8857-0017",
+            "5aba0abf8857-0013"
+          ]
+        },
+        {
+          "custom_id": "p-arthaud-s19",
+          "candidate_id": "arthaud",
+          "target": "s19",
+          "chunk_ids": [
+            "3f15e2622823-0004",
+            "3f15e2622823-0005",
+            "3f15e2622823-0001",
+            "5aba0abf8857-0016",
+            "5aba0abf8857-0004",
+            "5aba0abf8857-0006"
+          ]
+        },
+        {
+          "custom_id": "p-arthaud-s20",
+          "candidate_id": "arthaud",
+          "target": "s20",
+          "chunk_ids": [
+            "5aba0abf8857-0012",
+            "5aba0abf8857-0016",
+            "5aba0abf8857-0007",
+            "3f15e2622823-0005",
+            "5aba0abf8857-0014",
+            "5aba0abf8857-0001"
+          ]
+        },
+        {
+          "custom_id": "p-arthaud-s21",
+          "candidate_id": "arthaud",
+          "target": "s21",
+          "chunk_ids": [
+            "5aba0abf8857-0006",
+            "5aba0abf8857-0016",
+            "3f15e2622823-0002",
+            "3f15e2622823-0000",
+            "5aba0abf8857-0018",
+            "5aba0abf8857-0001"
+          ]
+        },
+        {
+          "custom_id": "p-arthaud-s22",
+          "candidate_id": "arthaud",
+          "target": "s22",
+          "chunk_ids": [
+            "5aba0abf8857-0002",
+            "5aba0abf8857-0009",
+            "3f15e2622823-0003",
+            "5aba0abf8857-0004",
+            "5aba0abf8857-0008",
+            "3f15e2622823-0000"
+          ]
+        },
+        {
+          "custom_id": "p-arthaud-s23",
+          "candidate_id": "arthaud",
+          "target": "s23",
+          "chunk_ids": [
+            "5aba0abf8857-0006",
+            "5aba0abf8857-0016",
+            "5aba0abf8857-0008",
+            "3f15e2622823-0004",
+            "3f15e2622823-0002",
+            "5aba0abf8857-0018"
+          ]
+        },
+        {
+          "custom_id": "p-arthaud-s24",
+          "candidate_id": "arthaud",
+          "target": "s24",
+          "chunk_ids": [
+            "5aba0abf8857-0001",
+            "5aba0abf8857-0016",
+            "3f15e2622823-0000",
+            "3f15e2622823-0001",
+            "5aba0abf8857-0007",
+            "5aba0abf8857-0006"
+          ]
+        },
+        {
+          "custom_id": "p-arthaud-s25",
+          "candidate_id": "arthaud",
+          "target": "s25",
+          "chunk_ids": [
+            "5aba0abf8857-0006",
+            "5aba0abf8857-0016",
+            "3f15e2622823-0005",
+            "3f15e2622823-0002",
+            "3f15e2622823-0000",
+            "5aba0abf8857-0007"
+          ]
+        },
+        {
+          "custom_id": "p-arthaud-s26",
+          "candidate_id": "arthaud",
+          "target": "s26",
+          "chunk_ids": [
+            "3f15e2622823-0005",
+            "5aba0abf8857-0001",
+            "5aba0abf8857-0000",
+            "5aba0abf8857-0016",
+            "3f15e2622823-0003",
+            "5aba0abf8857-0011"
+          ]
+        },
+        {
+          "custom_id": "p-arthaud-s27",
+          "candidate_id": "arthaud",
+          "target": "s27",
+          "chunk_ids": [
+            "5aba0abf8857-0009",
+            "3f15e2622823-0003",
+            "5aba0abf8857-0016",
+            "5aba0abf8857-0007",
+            "3f15e2622823-0005",
+            "5aba0abf8857-0012"
+          ]
+        },
+        {
+          "custom_id": "p-arthaud-s28",
+          "candidate_id": "arthaud",
+          "target": "s28",
+          "chunk_ids": [
+            "5aba0abf8857-0016",
+            "3f15e2622823-0005",
+            "5aba0abf8857-0007",
+            "5aba0abf8857-0018",
+            "5aba0abf8857-0012",
+            "3f15e2622823-0004"
+          ]
+        },
+        {
+          "custom_id": "p-arthaud-s29",
+          "candidate_id": "arthaud",
+          "target": "s29",
+          "chunk_ids": [
+            "5aba0abf8857-0016",
+            "3f15e2622823-0004",
+            "3f15e2622823-0005",
+            "5aba0abf8857-0012",
+            "5aba0abf8857-0002",
+            "5aba0abf8857-0006"
+          ]
+        },
+        {
+          "custom_id": "p-arthaud-s30",
+          "candidate_id": "arthaud",
+          "target": "s30",
+          "chunk_ids": [
+            "5aba0abf8857-0004",
+            "5aba0abf8857-0016",
+            "3f15e2622823-0004",
+            "3f15e2622823-0001",
+            "5aba0abf8857-0017",
+            "5aba0abf8857-0001"
+          ]
+        },
+        {
+          "custom_id": "p-dupont-aignan-s01",
+          "candidate_id": "dupont-aignan",
+          "target": "s01",
+          "chunk_ids": [
+            "b29932e0541b-0124",
+            "b29932e0541b-0119",
+            "b29932e0541b-0049",
+            "b29932e0541b-0118",
+            "b29932e0541b-0001",
+            "b29932e0541b-0050"
+          ]
+        },
+        {
+          "custom_id": "p-dupont-aignan-s02",
+          "candidate_id": "dupont-aignan",
+          "target": "s02",
+          "chunk_ids": [
+            "b29932e0541b-0046",
+            "b29932e0541b-0042",
+            "b29932e0541b-0047",
+            "b29932e0541b-0043",
+            "b29932e0541b-0048",
+            "b29932e0541b-0044"
+          ]
+        },
+        {
+          "custom_id": "p-dupont-aignan-s03",
+          "candidate_id": "dupont-aignan",
+          "target": "s03",
+          "chunk_ids": [
+            "b29932e0541b-0049",
+            "b29932e0541b-0050",
+            "b29932e0541b-0042",
+            "b29932e0541b-0047",
+            "b29932e0541b-0041",
+            "b29932e0541b-0048"
+          ]
+        },
+        {
+          "custom_id": "p-dupont-aignan-s04",
+          "candidate_id": "dupont-aignan",
+          "target": "s04",
+          "chunk_ids": [
+            "b29932e0541b-0005",
+            "b29932e0541b-0072",
+            "b29932e0541b-0004",
+            "b29932e0541b-0039",
+            "b29932e0541b-0076",
+            "b29932e0541b-0170"
+          ]
+        },
+        {
+          "custom_id": "p-dupont-aignan-s05",
+          "candidate_id": "dupont-aignan",
+          "target": "s05",
+          "chunk_ids": [
+            "b29932e0541b-0052",
+            "b29932e0541b-0051",
+            "b29932e0541b-0049",
+            "b29932e0541b-0039",
+            "b29932e0541b-0150",
+            "b29932e0541b-0203"
+          ]
+        },
+        {
+          "custom_id": "p-dupont-aignan-s06",
+          "candidate_id": "dupont-aignan",
+          "target": "s06",
+          "chunk_ids": [
+            "b29932e0541b-0102",
+            "b29932e0541b-0103",
+            "b29932e0541b-0101",
+            "b29932e0541b-0190",
+            "b29932e0541b-0188",
+            "b29932e0541b-0099"
+          ]
+        },
+        {
+          "custom_id": "p-dupont-aignan-s07",
+          "candidate_id": "dupont-aignan",
+          "target": "s07",
+          "chunk_ids": [
+            "b29932e0541b-0100",
+            "b29932e0541b-0098",
+            "b29932e0541b-0083",
+            "b29932e0541b-0170",
+            "b29932e0541b-0012",
+            "b29932e0541b-0046"
+          ]
+        },
+        {
+          "custom_id": "p-dupont-aignan-s08",
+          "candidate_id": "dupont-aignan",
+          "target": "s08",
+          "chunk_ids": [
+            "b29932e0541b-0103",
+            "b29932e0541b-0087",
+            "b29932e0541b-0044",
+            "b29932e0541b-0035",
+            "b29932e0541b-0085",
+            "b29932e0541b-0091"
+          ]
+        },
+        {
+          "custom_id": "p-dupont-aignan-s09",
+          "candidate_id": "dupont-aignan",
+          "target": "s09",
+          "chunk_ids": [
+            "b29932e0541b-0213",
+            "b29932e0541b-0216",
+            "b29932e0541b-0217",
+            "b29932e0541b-0214",
+            "b29932e0541b-0215",
+            "b29932e0541b-0170"
+          ]
+        },
+        {
+          "custom_id": "p-dupont-aignan-s10",
+          "candidate_id": "dupont-aignan",
+          "target": "s10",
+          "chunk_ids": [
+            "b29932e0541b-0112",
+            "b29932e0541b-0111",
+            "b29932e0541b-0109",
+            "b29932e0541b-0151",
+            "b29932e0541b-0106",
+            "b29932e0541b-0105"
+          ]
+        },
+        {
+          "custom_id": "p-dupont-aignan-s11",
+          "candidate_id": "dupont-aignan",
+          "target": "s11",
+          "chunk_ids": [
+            "b29932e0541b-0200",
+            "b29932e0541b-0061",
+            "b29932e0541b-0196",
+            "b29932e0541b-0201",
+            "b29932e0541b-0063",
+            "b29932e0541b-0062"
+          ]
+        },
+        {
+          "custom_id": "p-dupont-aignan-s12",
+          "candidate_id": "dupont-aignan",
+          "target": "s12",
+          "chunk_ids": [
+            "b29932e0541b-0188",
+            "b29932e0541b-0176",
+            "b29932e0541b-0175",
+            "b29932e0541b-0108",
+            "b29932e0541b-0190",
+            "b29932e0541b-0170"
+          ]
+        },
+        {
+          "custom_id": "p-dupont-aignan-s13",
+          "candidate_id": "dupont-aignan",
+          "target": "s13",
+          "chunk_ids": [
+            "b29932e0541b-0198",
+            "b29932e0541b-0200",
+            "b29932e0541b-0138",
+            "b29932e0541b-0196",
+            "b29932e0541b-0170",
+            "b29932e0541b-0012"
+          ]
+        },
+        {
+          "custom_id": "p-dupont-aignan-s14",
+          "candidate_id": "dupont-aignan",
+          "target": "s14",
+          "chunk_ids": [
+            "b29932e0541b-0194",
+            "b29932e0541b-0140",
+            "b29932e0541b-0195",
+            "b29932e0541b-0205",
+            "b29932e0541b-0244",
+            "b29932e0541b-0054"
+          ]
+        },
+        {
+          "custom_id": "p-dupont-aignan-s15",
+          "candidate_id": "dupont-aignan",
+          "target": "s15",
+          "chunk_ids": [
+            "b29932e0541b-0224",
+            "b29932e0541b-0219",
+            "b29932e0541b-0225",
+            "b29932e0541b-0195",
+            "b29932e0541b-0222",
+            "b29932e0541b-0106"
+          ]
+        },
+        {
+          "custom_id": "p-dupont-aignan-s16",
+          "candidate_id": "dupont-aignan",
+          "target": "s16",
+          "chunk_ids": [
+            "b29932e0541b-0009",
+            "5888d0bd6617-0003",
+            "b29932e0541b-0022",
+            "b29932e0541b-0012",
+            "b29932e0541b-0160",
+            "b29932e0541b-0020"
+          ]
+        },
+        {
+          "custom_id": "p-dupont-aignan-s17",
+          "candidate_id": "dupont-aignan",
+          "target": "s17",
+          "chunk_ids": [
+            "b29932e0541b-0019",
+            "b29932e0541b-0174",
+            "b29932e0541b-0020",
+            "b29932e0541b-0002",
+            "b29932e0541b-0017",
+            "5888d0bd6617-0002"
+          ]
+        },
+        {
+          "custom_id": "p-dupont-aignan-s18",
+          "candidate_id": "dupont-aignan",
+          "target": "s18",
+          "chunk_ids": [
+            "b29932e0541b-0013",
+            "b29932e0541b-0012",
+            "b29932e0541b-0017",
+            "b29932e0541b-0008",
+            "b29932e0541b-0018",
+            "b29932e0541b-0019"
+          ]
+        },
+        {
+          "custom_id": "p-dupont-aignan-s19",
+          "candidate_id": "dupont-aignan",
+          "target": "s19",
+          "chunk_ids": [
+            "b29932e0541b-0018",
+            "b29932e0541b-0223",
+            "5888d0bd6617-0002",
+            "b29932e0541b-0023",
+            "b29932e0541b-0235",
+            "b29932e0541b-0020"
+          ]
+        },
+        {
+          "custom_id": "p-dupont-aignan-s20",
+          "candidate_id": "dupont-aignan",
+          "target": "s20",
+          "chunk_ids": [
+            "b29932e0541b-0019",
+            "b29932e0541b-0016",
+            "b29932e0541b-0008",
+            "b29932e0541b-0017",
+            "b29932e0541b-0174",
+            "b29932e0541b-0018"
+          ]
+        },
+        {
+          "custom_id": "p-dupont-aignan-s21",
+          "candidate_id": "dupont-aignan",
+          "target": "s21",
+          "chunk_ids": [
+            "b29932e0541b-0171",
+            "b29932e0541b-0179",
+            "b29932e0541b-0176",
+            "b29932e0541b-0172",
+            "b29932e0541b-0170",
+            "b29932e0541b-0175"
+          ]
+        },
+        {
+          "custom_id": "p-dupont-aignan-s22",
+          "candidate_id": "dupont-aignan",
+          "target": "s22",
+          "chunk_ids": [
+            "b29932e0541b-0188",
+            "b29932e0541b-0185",
+            "b29932e0541b-0160",
+            "b29932e0541b-0032",
+            "b29932e0541b-0182",
+            "b29932e0541b-0128"
+          ]
+        },
+        {
+          "custom_id": "p-dupont-aignan-s23",
+          "candidate_id": "dupont-aignan",
+          "target": "s23",
+          "chunk_ids": [
+            "b29932e0541b-0190",
+            "b29932e0541b-0160",
+            "b29932e0541b-0174",
+            "b29932e0541b-0187",
+            "b29932e0541b-0017",
+            "b29932e0541b-0188"
+          ]
+        },
+        {
+          "custom_id": "p-dupont-aignan-s24",
+          "candidate_id": "dupont-aignan",
+          "target": "s24",
+          "chunk_ids": [
+            "b29932e0541b-0035",
+            "b29932e0541b-0104",
+            "b29932e0541b-0188",
+            "b29932e0541b-0088",
+            "b29932e0541b-0153",
+            "b29932e0541b-0190"
+          ]
+        },
+        {
+          "custom_id": "p-dupont-aignan-s25",
+          "candidate_id": "dupont-aignan",
+          "target": "s25",
+          "chunk_ids": [
+            "b29932e0541b-0160",
+            "b29932e0541b-0225",
+            "b29932e0541b-0070",
+            "b29932e0541b-0170",
+            "b29932e0541b-0190",
+            "b29932e0541b-0012"
+          ]
+        },
+        {
+          "custom_id": "p-dupont-aignan-s26",
+          "candidate_id": "dupont-aignan",
+          "target": "s26",
+          "chunk_ids": [
+            "b29932e0541b-0019",
+            "b29932e0541b-0174",
+            "b29932e0541b-0104",
+            "b29932e0541b-0190",
+            "b29932e0541b-0018",
+            "b29932e0541b-0167"
+          ]
+        },
+        {
+          "custom_id": "p-dupont-aignan-s27",
+          "candidate_id": "dupont-aignan",
+          "target": "s27",
+          "chunk_ids": [
+            "b29932e0541b-0188",
+            "5888d0bd6617-0002",
+            "b29932e0541b-0189",
+            "b29932e0541b-0160",
+            "b29932e0541b-0174",
+            "b29932e0541b-0035"
+          ]
+        },
+        {
+          "custom_id": "p-dupont-aignan-s28",
+          "candidate_id": "dupont-aignan",
+          "target": "s28",
+          "chunk_ids": [
+            "b29932e0541b-0004",
+            "b29932e0541b-0003",
+            "b29932e0541b-0160",
+            "b29932e0541b-0002",
+            "b29932e0541b-0019",
+            "b29932e0541b-0170"
+          ]
+        },
+        {
+          "custom_id": "p-dupont-aignan-s29",
+          "candidate_id": "dupont-aignan",
+          "target": "s29",
+          "chunk_ids": [
+            "b29932e0541b-0091",
+            "b29932e0541b-0017",
+            "b29932e0541b-0098",
+            "b29932e0541b-0099",
+            "b29932e0541b-0160",
+            "b29932e0541b-0022"
+          ]
+        },
+        {
+          "custom_id": "p-dupont-aignan-s30",
+          "candidate_id": "dupont-aignan",
+          "target": "s30",
+          "chunk_ids": [
+            "b29932e0541b-0004",
+            "5888d0bd6617-0002",
+            "b29932e0541b-0167",
+            "b29932e0541b-0080",
+            "b29932e0541b-0106",
+            "b29932e0541b-0190"
+          ]
+        },
+        {
+          "custom_id": "p-hidalgo-s01",
+          "candidate_id": "hidalgo",
+          "target": "s01",
+          "chunk_ids": [
+            "8a78650816be-0011",
+            "8a78650816be-0046",
+            "8a78650816be-0041",
+            "8a78650816be-0026",
+            "8a78650816be-0044",
+            "8a78650816be-0030"
+          ]
+        },
+        {
+          "custom_id": "p-hidalgo-s02",
+          "candidate_id": "hidalgo",
+          "target": "s02",
+          "chunk_ids": [
+            "8a78650816be-0008",
+            "8a78650816be-0041",
+            "8a78650816be-0037",
+            "8a78650816be-0042",
+            "8a78650816be-0011",
+            "8a78650816be-0012"
+          ]
+        },
+        {
+          "custom_id": "p-hidalgo-s03",
+          "candidate_id": "hidalgo",
+          "target": "s03",
+          "chunk_ids": [
+            "8a78650816be-0037",
+            "8a78650816be-0039",
+            "8a78650816be-0019",
+            "8a78650816be-0041",
+            "8a78650816be-0010",
+            "8a78650816be-0018"
+          ]
+        },
+        {
+          "custom_id": "p-hidalgo-s04",
+          "candidate_id": "hidalgo",
+          "target": "s04",
+          "chunk_ids": [
+            "8a78650816be-0027",
+            "8a78650816be-0028",
+            "8a78650816be-0041",
+            "8a78650816be-0011",
+            "8a78650816be-0030",
+            "8a78650816be-0008"
+          ]
+        },
+        {
+          "custom_id": "p-hidalgo-s05",
+          "candidate_id": "hidalgo",
+          "target": "s05",
+          "chunk_ids": [
+            "8a78650816be-0011",
+            "8a78650816be-0027",
+            "8a78650816be-0041",
+            "8a78650816be-0047",
+            "8a78650816be-0037",
+            "8a78650816be-0028"
+          ]
+        },
+        {
+          "custom_id": "p-hidalgo-s06",
+          "candidate_id": "hidalgo",
+          "target": "s06",
+          "chunk_ids": [
+            "8a78650816be-0026",
+            "8a78650816be-0008",
+            "8a78650816be-0031",
+            "8a78650816be-0029",
+            "8a78650816be-0014",
+            "8a78650816be-0041"
+          ]
+        },
+        {
+          "custom_id": "p-hidalgo-s07",
+          "candidate_id": "hidalgo",
+          "target": "s07",
+          "chunk_ids": [
+            "8a78650816be-0007",
+            "ffeffbfe25e9-0002",
+            "8a78650816be-0041",
+            "8a78650816be-0026",
+            "8a78650816be-0037",
+            "8a78650816be-0030"
+          ]
+        },
+        {
+          "custom_id": "p-hidalgo-s08",
+          "candidate_id": "hidalgo",
+          "target": "s08",
+          "chunk_ids": [
+            "8a78650816be-0007",
+            "8a78650816be-0037",
+            "8a78650816be-0009",
+            "8a78650816be-0029",
+            "8a78650816be-0041",
+            "8a78650816be-0030"
+          ]
+        },
+        {
+          "custom_id": "p-hidalgo-s09",
+          "candidate_id": "hidalgo",
+          "target": "s09",
+          "chunk_ids": [
+            "8a78650816be-0030",
+            "8a78650816be-0009",
+            "ffeffbfe25e9-0004",
+            "ffeffbfe25e9-0003",
+            "8a78650816be-0041",
+            "8a78650816be-0012"
+          ]
+        },
+        {
+          "custom_id": "p-hidalgo-s10",
+          "candidate_id": "hidalgo",
+          "target": "s10",
+          "chunk_ids": [
+            "8a78650816be-0023",
+            "8a78650816be-0022",
+            "8a78650816be-0029",
+            "ffeffbfe25e9-0001",
+            "8a78650816be-0021",
+            "8a78650816be-0025"
+          ]
+        },
+        {
+          "custom_id": "p-hidalgo-s11",
+          "candidate_id": "hidalgo",
+          "target": "s11",
+          "chunk_ids": [
+            "ffeffbfe25e9-0001",
+            "8a78650816be-0010",
+            "8a78650816be-0012",
+            "8a78650816be-0030",
+            "8a78650816be-0041",
+            "8a78650816be-0004"
+          ]
+        },
+        {
+          "custom_id": "p-hidalgo-s12",
+          "candidate_id": "hidalgo",
+          "target": "s12",
+          "chunk_ids": [
+            "8a78650816be-0012",
+            "8a78650816be-0041",
+            "8a78650816be-0038",
+            "8a78650816be-0011",
+            "8a78650816be-0030",
+            "ffeffbfe25e9-0004"
+          ]
+        },
+        {
+          "custom_id": "p-hidalgo-s13",
+          "candidate_id": "hidalgo",
+          "target": "s13",
+          "chunk_ids": [
+            "8a78650816be-0014",
+            "8a78650816be-0041",
+            "ffeffbfe25e9-0001",
+            "8a78650816be-0012",
+            "8a78650816be-0015",
+            "8a78650816be-0020"
+          ]
+        },
+        {
+          "custom_id": "p-hidalgo-s14",
+          "candidate_id": "hidalgo",
+          "target": "s14",
+          "chunk_ids": [
+            "8a78650816be-0041",
+            "8a78650816be-0046",
+            "8a78650816be-0011",
+            "8a78650816be-0047",
+            "8a78650816be-0039",
+            "8a78650816be-0005"
+          ]
+        },
+        {
+          "custom_id": "p-hidalgo-s15",
+          "candidate_id": "hidalgo",
+          "target": "s15",
+          "chunk_ids": [
+            "8a78650816be-0014",
+            "ffeffbfe25e9-0003",
+            "8a78650816be-0041",
+            "8a78650816be-0009",
+            "8a78650816be-0013",
+            "8a78650816be-0037"
+          ]
+        },
+        {
+          "custom_id": "p-hidalgo-s16",
+          "candidate_id": "hidalgo",
+          "target": "s16",
+          "chunk_ids": [
+            "8a78650816be-0041",
+            "8a78650816be-0044",
+            "8a78650816be-0028",
+            "8a78650816be-0045",
+            "8a78650816be-0043",
+            "8a78650816be-0038"
+          ]
+        },
+        {
+          "custom_id": "p-hidalgo-s17",
+          "candidate_id": "hidalgo",
+          "target": "s17",
+          "chunk_ids": [
+            "8a78650816be-0042",
+            "8a78650816be-0041",
+            "8a78650816be-0040",
+            "8a78650816be-0006",
+            "8a78650816be-0004",
+            "8a78650816be-0018"
+          ]
+        },
+        {
+          "custom_id": "p-hidalgo-s18",
+          "candidate_id": "hidalgo",
+          "target": "s18",
+          "chunk_ids": [
+            "8a78650816be-0042",
+            "8a78650816be-0040",
+            "ffeffbfe25e9-0000",
+            "8a78650816be-0041",
+            "8a78650816be-0043",
+            "8a78650816be-0006"
+          ]
+        },
+        {
+          "custom_id": "p-hidalgo-s19",
+          "candidate_id": "hidalgo",
+          "target": "s19",
+          "chunk_ids": [
+            "8a78650816be-0042",
+            "8a78650816be-0041",
+            "8a78650816be-0040",
+            "8a78650816be-0043",
+            "8a78650816be-0006",
+            "8a78650816be-0044"
+          ]
+        },
+        {
+          "custom_id": "p-hidalgo-s20",
+          "candidate_id": "hidalgo",
+          "target": "s20",
+          "chunk_ids": [
+            "8a78650816be-0042",
+            "8a78650816be-0040",
+            "8a78650816be-0041",
+            "8a78650816be-0043",
+            "8a78650816be-0006",
+            "8a78650816be-0046"
+          ]
+        },
+        {
+          "custom_id": "p-hidalgo-s21",
+          "candidate_id": "hidalgo",
+          "target": "s21",
+          "chunk_ids": [
+            "8a78650816be-0009",
+            "8a78650816be-0030",
+            "8a78650816be-0008",
+            "ffeffbfe25e9-0001",
+            "8a78650816be-0004",
+            "8a78650816be-0037"
+          ]
+        },
+        {
+          "custom_id": "p-hidalgo-s22",
+          "candidate_id": "hidalgo",
+          "target": "s22",
+          "chunk_ids": [
+            "8a78650816be-0044",
+            "8a78650816be-0025",
+            "8a78650816be-0024",
+            "8a78650816be-0043",
+            "8a78650816be-0031",
+            "8a78650816be-0014"
+          ]
+        },
+        {
+          "custom_id": "p-hidalgo-s23",
+          "candidate_id": "hidalgo",
+          "target": "s23",
+          "chunk_ids": [
+            "8a78650816be-0009",
+            "8a78650816be-0014",
+            "8a78650816be-0018",
+            "ffeffbfe25e9-0002",
+            "8a78650816be-0010",
+            "8a78650816be-0004"
+          ]
+        },
+        {
+          "custom_id": "p-hidalgo-s24",
+          "candidate_id": "hidalgo",
+          "target": "s24",
+          "chunk_ids": [
+            "8a78650816be-0009",
+            "8a78650816be-0007",
+            "8a78650816be-0030",
+            "8a78650816be-0041",
+            "8a78650816be-0004",
+            "8a78650816be-0029"
+          ]
+        },
+        {
+          "custom_id": "p-hidalgo-s25",
+          "candidate_id": "hidalgo",
+          "target": "s25",
+          "chunk_ids": [
+            "8a78650816be-0030",
+            "8a78650816be-0041",
+            "8a78650816be-0015",
+            "8a78650816be-0004",
+            "8a78650816be-0014",
+            "8a78650816be-0020"
+          ]
+        },
+        {
+          "custom_id": "p-hidalgo-s26",
+          "candidate_id": "hidalgo",
+          "target": "s26",
+          "chunk_ids": [
+            "8a78650816be-0018",
+            "8a78650816be-0042",
+            "8a78650816be-0044",
+            "8a78650816be-0041",
+            "ffeffbfe25e9-0005",
+            "8a78650816be-0017"
+          ]
+        },
+        {
+          "custom_id": "p-hidalgo-s27",
+          "candidate_id": "hidalgo",
+          "target": "s27",
+          "chunk_ids": [
+            "8a78650816be-0044",
+            "ffeffbfe25e9-0001",
+            "8a78650816be-0040",
+            "ffeffbfe25e9-0004",
+            "8a78650816be-0017",
+            "8a78650816be-0018"
+          ]
+        },
+        {
+          "custom_id": "p-hidalgo-s28",
+          "candidate_id": "hidalgo",
+          "target": "s28",
+          "chunk_ids": [
+            "8a78650816be-0017",
+            "ffeffbfe25e9-0005",
+            "ffeffbfe25e9-0004",
+            "8a78650816be-0005",
+            "8a78650816be-0001",
+            "8a78650816be-0018"
+          ]
+        },
+        {
+          "custom_id": "p-hidalgo-s29",
+          "candidate_id": "hidalgo",
+          "target": "s29",
+          "chunk_ids": [
+            "8a78650816be-0029",
+            "8a78650816be-0040",
+            "8a78650816be-0041",
+            "8a78650816be-0018",
+            "8a78650816be-0042",
+            "8a78650816be-0004"
+          ]
+        },
+        {
+          "custom_id": "p-hidalgo-s30",
+          "candidate_id": "hidalgo",
+          "target": "s30",
+          "chunk_ids": [
+            "ffeffbfe25e9-0001",
+            "ffeffbfe25e9-0002",
+            "ffeffbfe25e9-0005",
+            "8a78650816be-0018",
+            "8a78650816be-0030",
+            "8a78650816be-0019"
+          ]
+        },
+        {
+          "custom_id": "p-jadot-s01",
+          "candidate_id": "jadot",
+          "target": "s01",
+          "chunk_ids": [
+            "dd71c05a16f2-0037",
+            "dd71c05a16f2-0038",
+            "dd71c05a16f2-0042",
+            "dd71c05a16f2-0034",
+            "dd71c05a16f2-0108",
+            "dd71c05a16f2-0080"
+          ]
+        },
+        {
+          "custom_id": "p-jadot-s02",
+          "candidate_id": "jadot",
+          "target": "s02",
+          "chunk_ids": [
+            "dd71c05a16f2-0042",
+            "dd71c05a16f2-0038",
+            "dd71c05a16f2-0036",
+            "dd71c05a16f2-0035",
+            "dd71c05a16f2-0037",
+            "dd71c05a16f2-0043"
+          ]
+        },
+        {
+          "custom_id": "p-jadot-s03",
+          "candidate_id": "jadot",
+          "target": "s03",
+          "chunk_ids": [
+            "dd71c05a16f2-0005",
+            "dd71c05a16f2-0041",
+            "dd71c05a16f2-0036",
+            "dd71c05a16f2-0093",
+            "dd71c05a16f2-0054",
+            "dd71c05a16f2-0106"
+          ]
+        },
+        {
+          "custom_id": "p-jadot-s04",
+          "candidate_id": "jadot",
+          "target": "s04",
+          "chunk_ids": [
+            "dd71c05a16f2-0046",
+            "dd71c05a16f2-0039",
+            "dd71c05a16f2-0018",
+            "dd71c05a16f2-0053",
+            "dd71c05a16f2-0022",
+            "dd71c05a16f2-0065"
+          ]
+        },
+        {
+          "custom_id": "p-jadot-s05",
+          "candidate_id": "jadot",
+          "target": "s05",
+          "chunk_ids": [
+            "dd71c05a16f2-0039",
+            "dd71c05a16f2-0041",
+            "dd71c05a16f2-0003",
+            "dd71c05a16f2-0070",
+            "dd71c05a16f2-0033",
+            "dd71c05a16f2-0108"
+          ]
+        },
+        {
+          "custom_id": "p-jadot-s06",
+          "candidate_id": "jadot",
+          "target": "s06",
+          "chunk_ids": [
+            "dd71c05a16f2-0047",
+            "dd71c05a16f2-0049",
+            "dd71c05a16f2-0048",
+            "dd71c05a16f2-0083",
+            "5d01b64c995b-0001",
+            "dd71c05a16f2-0003"
+          ]
+        },
+        {
+          "custom_id": "p-jadot-s07",
+          "candidate_id": "jadot",
+          "target": "s07",
+          "chunk_ids": [
+            "dd71c05a16f2-0043",
+            "dd71c05a16f2-0045",
+            "dd71c05a16f2-0085",
+            "dd71c05a16f2-0039",
+            "dd71c05a16f2-0081",
+            "dd71c05a16f2-0044"
+          ]
+        },
+        {
+          "custom_id": "p-jadot-s08",
+          "candidate_id": "jadot",
+          "target": "s08",
+          "chunk_ids": [
+            "dd71c05a16f2-0036",
+            "dd71c05a16f2-0047",
+            "dd71c05a16f2-0046",
+            "dd71c05a16f2-0084",
+            "dd71c05a16f2-0041",
+            "dd71c05a16f2-0081"
+          ]
+        },
+        {
+          "custom_id": "p-jadot-s09",
+          "candidate_id": "jadot",
+          "target": "s09",
+          "chunk_ids": [
+            "dd71c05a16f2-0009",
+            "dd71c05a16f2-0081",
+            "dd71c05a16f2-0008",
+            "dd71c05a16f2-0080",
+            "5d01b64c995b-0001",
+            "dd71c05a16f2-0010"
+          ]
+        },
+        {
+          "custom_id": "p-jadot-s10",
+          "candidate_id": "jadot",
+          "target": "s10",
+          "chunk_ids": [
+            "dd71c05a16f2-0061",
+            "dd71c05a16f2-0060",
+            "dd71c05a16f2-0078",
+            "dd71c05a16f2-0059",
+            "dd71c05a16f2-0057",
+            "dd71c05a16f2-0004"
+          ]
+        },
+        {
+          "custom_id": "p-jadot-s11",
+          "candidate_id": "jadot",
+          "target": "s11",
+          "chunk_ids": [
+            "dd71c05a16f2-0090",
+            "dd71c05a16f2-0007",
+            "dd71c05a16f2-0098",
+            "dd71c05a16f2-0002",
+            "dd71c05a16f2-0097",
+            "dd71c05a16f2-0013"
+          ]
+        },
+        {
+          "custom_id": "p-jadot-s12",
+          "candidate_id": "jadot",
+          "target": "s12",
+          "chunk_ids": [
+            "dd71c05a16f2-0013",
+            "dd71c05a16f2-0014",
+            "dd71c05a16f2-0010",
+            "dd71c05a16f2-0046",
+            "dd71c05a16f2-0011",
+            "dd71c05a16f2-0040"
+          ]
+        },
+        {
+          "custom_id": "p-jadot-s13",
+          "candidate_id": "jadot",
+          "target": "s13",
+          "chunk_ids": [
+            "dd71c05a16f2-0006",
+            "dd71c05a16f2-0013",
+            "dd71c05a16f2-0005",
+            "dd71c05a16f2-0017",
+            "dd71c05a16f2-0003",
+            "dd71c05a16f2-0007"
+          ]
+        },
+        {
+          "custom_id": "p-jadot-s14",
+          "candidate_id": "jadot",
+          "target": "s14",
+          "chunk_ids": [
+            "dd71c05a16f2-0035",
+            "dd71c05a16f2-0037",
+            "dd71c05a16f2-0108",
+            "dd71c05a16f2-0092",
+            "dd71c05a16f2-0093",
+            "dd71c05a16f2-0034"
+          ]
+        },
+        {
+          "custom_id": "p-jadot-s15",
+          "candidate_id": "jadot",
+          "target": "s15",
+          "chunk_ids": [
+            "dd71c05a16f2-0033",
+            "dd71c05a16f2-0093",
+            "dd71c05a16f2-0031",
+            "dd71c05a16f2-0019",
+            "dd71c05a16f2-0004",
+            "dd71c05a16f2-0023"
+          ]
+        },
+        {
+          "custom_id": "p-jadot-s16",
+          "candidate_id": "jadot",
+          "target": "s16",
+          "chunk_ids": [
+            "dd71c05a16f2-0103",
+            "dd71c05a16f2-0013",
+            "dd71c05a16f2-0024",
+            "dd71c05a16f2-0003",
+            "dd71c05a16f2-0090",
+            "dd71c05a16f2-0101"
+          ]
+        },
+        {
+          "custom_id": "p-jadot-s17",
+          "candidate_id": "jadot",
+          "target": "s17",
+          "chunk_ids": [
+            "dd71c05a16f2-0095",
+            "dd71c05a16f2-0091",
+            "dd71c05a16f2-0106",
+            "dd71c05a16f2-0090",
+            "dd71c05a16f2-0103",
+            "dd71c05a16f2-0065"
+          ]
+        },
+        {
+          "custom_id": "p-jadot-s18",
+          "candidate_id": "jadot",
+          "target": "s18",
+          "chunk_ids": [
+            "dd71c05a16f2-0104",
+            "dd71c05a16f2-0096",
+            "dd71c05a16f2-0094",
+            "dd71c05a16f2-0103",
+            "dd71c05a16f2-0090",
+            "dd71c05a16f2-0092"
+          ]
+        },
+        {
+          "custom_id": "p-jadot-s19",
+          "candidate_id": "jadot",
+          "target": "s19",
+          "chunk_ids": [
+            "dd71c05a16f2-0106",
+            "dd71c05a16f2-0105",
+            "dd71c05a16f2-0090",
+            "dd71c05a16f2-0093",
+            "dd71c05a16f2-0091",
+            "dd71c05a16f2-0095"
+          ]
+        },
+        {
+          "custom_id": "p-jadot-s20",
+          "candidate_id": "jadot",
+          "target": "s20",
+          "chunk_ids": [
+            "dd71c05a16f2-0091",
+            "dd71c05a16f2-0090",
+            "dd71c05a16f2-0092",
+            "dd71c05a16f2-0096",
+            "dd71c05a16f2-0094",
+            "dd71c05a16f2-0106"
+          ]
+        },
+        {
+          "custom_id": "p-jadot-s21",
+          "candidate_id": "jadot",
+          "target": "s21",
+          "chunk_ids": [
+            "dd71c05a16f2-0066",
+            "dd71c05a16f2-0069",
+            "dd71c05a16f2-0012",
+            "dd71c05a16f2-0004",
+            "dd71c05a16f2-0026",
+            "dd71c05a16f2-0075"
+          ]
+        },
+        {
+          "custom_id": "p-jadot-s22",
+          "candidate_id": "jadot",
+          "target": "s22",
+          "chunk_ids": [
+            "dd71c05a16f2-0049",
+            "dd71c05a16f2-0053",
+            "dd71c05a16f2-0029",
+            "dd71c05a16f2-0016",
+            "dd71c05a16f2-0031",
+            "dd71c05a16f2-0073"
+          ]
+        },
+        {
+          "custom_id": "p-jadot-s23",
+          "candidate_id": "jadot",
+          "target": "s23",
+          "chunk_ids": [
+            "dd71c05a16f2-0019",
+            "dd71c05a16f2-0066",
+            "dd71c05a16f2-0094",
+            "dd71c05a16f2-0031",
+            "dd71c05a16f2-0075",
+            "dd71c05a16f2-0003"
+          ]
+        },
+        {
+          "custom_id": "p-jadot-s24",
+          "candidate_id": "jadot",
+          "target": "s24",
+          "chunk_ids": [
+            "dd71c05a16f2-0046",
+            "dd71c05a16f2-0067",
+            "dd71c05a16f2-0081",
+            "dd71c05a16f2-0084",
+            "dd71c05a16f2-0036",
+            "dd71c05a16f2-0088"
+          ]
+        },
+        {
+          "custom_id": "p-jadot-s25",
+          "candidate_id": "jadot",
+          "target": "s25",
+          "chunk_ids": [
+            "dd71c05a16f2-0067",
+            "dd71c05a16f2-0056",
+            "dd71c05a16f2-0031",
+            "dd71c05a16f2-0026",
+            "dd71c05a16f2-0025",
+            "dd71c05a16f2-0088"
+          ]
+        },
+        {
+          "custom_id": "p-jadot-s26",
+          "candidate_id": "jadot",
+          "target": "s26",
+          "chunk_ids": [
+            "dd71c05a16f2-0091",
+            "dd71c05a16f2-0106",
+            "dd71c05a16f2-0090",
+            "dd71c05a16f2-0095",
+            "dd71c05a16f2-0031",
+            "dd71c05a16f2-0096"
+          ]
+        },
+        {
+          "custom_id": "p-jadot-s27",
+          "candidate_id": "jadot",
+          "target": "s27",
+          "chunk_ids": [
+            "dd71c05a16f2-0065",
+            "dd71c05a16f2-0094",
+            "dd71c05a16f2-0106",
+            "dd71c05a16f2-0066",
+            "dd71c05a16f2-0067",
+            "dd71c05a16f2-0070"
+          ]
+        },
+        {
+          "custom_id": "p-jadot-s28",
+          "candidate_id": "jadot",
+          "target": "s28",
+          "chunk_ids": [
+            "dd71c05a16f2-0000",
+            "dd71c05a16f2-0070",
+            "dd71c05a16f2-0019",
+            "dd71c05a16f2-0001",
+            "5d01b64c995b-0000",
+            "dd71c05a16f2-0081"
+          ]
+        },
+        {
+          "custom_id": "p-jadot-s29",
+          "candidate_id": "jadot",
+          "target": "s29",
+          "chunk_ids": [
+            "dd71c05a16f2-0085",
+            "dd71c05a16f2-0094",
+            "dd71c05a16f2-0066",
+            "dd71c05a16f2-0090",
+            "dd71c05a16f2-0091",
+            "dd71c05a16f2-0048"
+          ]
+        },
+        {
+          "custom_id": "p-jadot-s30",
+          "candidate_id": "jadot",
+          "target": "s30",
+          "chunk_ids": [
+            "dd71c05a16f2-0070",
+            "dd71c05a16f2-0000",
+            "dd71c05a16f2-0018",
+            "dd71c05a16f2-0032",
+            "dd71c05a16f2-0006",
+            "dd71c05a16f2-0065"
+          ]
+        },
+        {
+          "custom_id": "p-lassalle-s01",
+          "candidate_id": "lassalle",
+          "target": "s01",
+          "chunk_ids": [
+            "4df5adab7e61-0007",
+            "4df5adab7e61-0008",
+            "47412fb981ef-0001",
+            "4df5adab7e61-0004",
+            "4df5adab7e61-0009",
+            "4df5adab7e61-0003"
+          ]
+        },
+        {
+          "custom_id": "p-lassalle-s02",
+          "candidate_id": "lassalle",
+          "target": "s02",
+          "chunk_ids": [
+            "4df5adab7e61-0007",
+            "47412fb981ef-0002",
+            "4df5adab7e61-0004",
+            "47412fb981ef-0001",
+            "4df5adab7e61-0014",
+            "4df5adab7e61-0006"
+          ]
+        },
+        {
+          "custom_id": "p-lassalle-s03",
+          "candidate_id": "lassalle",
+          "target": "s03",
+          "chunk_ids": [
+            "4df5adab7e61-0007",
+            "4df5adab7e61-0000",
+            "4df5adab7e61-0014",
+            "47412fb981ef-0002",
+            "4df5adab7e61-0003",
+            "4df5adab7e61-0006"
+          ]
+        },
+        {
+          "custom_id": "p-lassalle-s04",
+          "candidate_id": "lassalle",
+          "target": "s04",
+          "chunk_ids": [
+            "47412fb981ef-0002",
+            "4df5adab7e61-0004",
+            "4df5adab7e61-0014",
+            "4df5adab7e61-0005",
+            "4df5adab7e61-0007",
+            "47412fb981ef-0001"
+          ]
+        },
+        {
+          "custom_id": "p-lassalle-s05",
+          "candidate_id": "lassalle",
+          "target": "s05",
+          "chunk_ids": [
+            "4df5adab7e61-0007",
+            "47412fb981ef-0001",
+            "47412fb981ef-0002",
+            "4df5adab7e61-0014",
+            "4df5adab7e61-0003",
+            "4df5adab7e61-0005"
+          ]
+        },
+        {
+          "custom_id": "p-lassalle-s06",
+          "candidate_id": "lassalle",
+          "target": "s06",
+          "chunk_ids": [
+            "4df5adab7e61-0011",
+            "47412fb981ef-0002",
+            "4df5adab7e61-0007",
+            "4df5adab7e61-0014",
+            "4df5adab7e61-0002",
+            "47412fb981ef-0001"
+          ]
+        },
+        {
+          "custom_id": "p-lassalle-s07",
+          "candidate_id": "lassalle",
+          "target": "s07",
+          "chunk_ids": [
+            "47412fb981ef-0002",
+            "4df5adab7e61-0007",
+            "4df5adab7e61-0005",
+            "47412fb981ef-0001",
+            "4df5adab7e61-0011",
+            "47412fb981ef-0003"
+          ]
+        },
+        {
+          "custom_id": "p-lassalle-s08",
+          "candidate_id": "lassalle",
+          "target": "s08",
+          "chunk_ids": [
+            "47412fb981ef-0001",
+            "47412fb981ef-0002",
+            "4df5adab7e61-0010",
+            "4df5adab7e61-0009",
+            "4df5adab7e61-0008",
+            "4df5adab7e61-0004"
+          ]
+        },
+        {
+          "custom_id": "p-lassalle-s09",
+          "candidate_id": "lassalle",
+          "target": "s09",
+          "chunk_ids": [
+            "4df5adab7e61-0012",
+            "47412fb981ef-0001",
+            "47412fb981ef-0002",
+            "4df5adab7e61-0011",
+            "4df5adab7e61-0010",
+            "4df5adab7e61-0009"
+          ]
+        },
+        {
+          "custom_id": "p-lassalle-s10",
+          "candidate_id": "lassalle",
+          "target": "s10",
+          "chunk_ids": [
+            "47412fb981ef-0000",
+            "4df5adab7e61-0006",
+            "4df5adab7e61-0002",
+            "47412fb981ef-0003",
+            "47412fb981ef-0001",
+            "4df5adab7e61-0005"
+          ]
+        },
+        {
+          "custom_id": "p-lassalle-s11",
+          "candidate_id": "lassalle",
+          "target": "s11",
+          "chunk_ids": [
+            "47412fb981ef-0002",
+            "4df5adab7e61-0003",
+            "47412fb981ef-0001",
+            "47412fb981ef-0000",
+            "4df5adab7e61-0015",
+            "4df5adab7e61-0014"
+          ]
+        },
+        {
+          "custom_id": "p-lassalle-s12",
+          "candidate_id": "lassalle",
+          "target": "s12",
+          "chunk_ids": [
+            "47412fb981ef-0002",
+            "4df5adab7e61-0011",
+            "4df5adab7e61-0004",
+            "4df5adab7e61-0014",
+            "47412fb981ef-0001",
+            "4df5adab7e61-0010"
+          ]
+        },
+        {
+          "custom_id": "p-lassalle-s13",
+          "candidate_id": "lassalle",
+          "target": "s13",
+          "chunk_ids": [
+            "47412fb981ef-0002",
+            "4df5adab7e61-0003",
+            "47412fb981ef-0001",
+            "47412fb981ef-0000",
+            "4df5adab7e61-0014",
+            "4df5adab7e61-0007"
+          ]
+        },
+        {
+          "custom_id": "p-lassalle-s14",
+          "candidate_id": "lassalle",
+          "target": "s14",
+          "chunk_ids": [
+            "4df5adab7e61-0003",
+            "4df5adab7e61-0007",
+            "47412fb981ef-0002",
+            "4df5adab7e61-0009",
+            "4df5adab7e61-0004",
+            "47412fb981ef-0001"
+          ]
+        },
+        {
+          "custom_id": "p-lassalle-s15",
+          "candidate_id": "lassalle",
+          "target": "s15",
+          "chunk_ids": [
+            "47412fb981ef-0002",
+            "4df5adab7e61-0009",
+            "4df5adab7e61-0004",
+            "4df5adab7e61-0007",
+            "4df5adab7e61-0015",
+            "4df5adab7e61-0014"
+          ]
+        },
+        {
+          "custom_id": "p-lassalle-s16",
+          "candidate_id": "lassalle",
+          "target": "s16",
+          "chunk_ids": [
+            "47412fb981ef-0000",
+            "4df5adab7e61-0014",
+            "47412fb981ef-0002",
+            "4df5adab7e61-0005",
+            "4df5adab7e61-0008",
+            "47412fb981ef-0001"
+          ]
+        },
+        {
+          "custom_id": "p-lassalle-s17",
+          "candidate_id": "lassalle",
+          "target": "s17",
+          "chunk_ids": [
+            "47412fb981ef-0000",
+            "4df5adab7e61-0014",
+            "4df5adab7e61-0013",
+            "4df5adab7e61-0002",
+            "47412fb981ef-0002",
+            "47412fb981ef-0001"
+          ]
+        },
+        {
+          "custom_id": "p-lassalle-s18",
+          "candidate_id": "lassalle",
+          "target": "s18",
+          "chunk_ids": [
+            "47412fb981ef-0000",
+            "4df5adab7e61-0014",
+            "47412fb981ef-0002",
+            "4df5adab7e61-0009",
+            "47412fb981ef-0001",
+            "4df5adab7e61-0002"
+          ]
+        },
+        {
+          "custom_id": "p-lassalle-s19",
+          "candidate_id": "lassalle",
+          "target": "s19",
+          "chunk_ids": [
+            "47412fb981ef-0000",
+            "4df5adab7e61-0015",
+            "47412fb981ef-0002",
+            "4df5adab7e61-0014",
+            "47412fb981ef-0001",
+            "4df5adab7e61-0013"
+          ]
+        },
+        {
+          "custom_id": "p-lassalle-s20",
+          "candidate_id": "lassalle",
+          "target": "s20",
+          "chunk_ids": [
+            "47412fb981ef-0000",
+            "4df5adab7e61-0001",
+            "4df5adab7e61-0014",
+            "4df5adab7e61-0013",
+            "4df5adab7e61-0005",
+            "4df5adab7e61-0009"
+          ]
+        },
+        {
+          "custom_id": "p-lassalle-s21",
+          "candidate_id": "lassalle",
+          "target": "s21",
+          "chunk_ids": [
+            "47412fb981ef-0002",
+            "4df5adab7e61-0014",
+            "47412fb981ef-0003",
+            "4df5adab7e61-0001",
+            "4df5adab7e61-0011",
+            "47412fb981ef-0001"
+          ]
+        },
+        {
+          "custom_id": "p-lassalle-s22",
+          "candidate_id": "lassalle",
+          "target": "s22",
+          "chunk_ids": [
+            "47412fb981ef-0000",
+            "47412fb981ef-0002",
+            "4df5adab7e61-0012",
+            "4df5adab7e61-0006",
+            "47412fb981ef-0003",
+            "4df5adab7e61-0014"
+          ]
+        },
+        {
+          "custom_id": "p-lassalle-s23",
+          "candidate_id": "lassalle",
+          "target": "s23",
+          "chunk_ids": [
+            "47412fb981ef-0002",
+            "47412fb981ef-0000",
+            "4df5adab7e61-0014",
+            "4df5adab7e61-0002",
+            "47412fb981ef-0001",
+            "4df5adab7e61-0004"
+          ]
+        },
+        {
+          "custom_id": "p-lassalle-s24",
+          "candidate_id": "lassalle",
+          "target": "s24",
+          "chunk_ids": [
+            "47412fb981ef-0002",
+            "4df5adab7e61-0011",
+            "47412fb981ef-0001",
+            "4df5adab7e61-0006",
+            "4df5adab7e61-0015",
+            "4df5adab7e61-0009"
+          ]
+        },
+        {
+          "custom_id": "p-lassalle-s25",
+          "candidate_id": "lassalle",
+          "target": "s25",
+          "chunk_ids": [
+            "47412fb981ef-0002",
+            "4df5adab7e61-0014",
+            "4df5adab7e61-0009",
+            "4df5adab7e61-0008",
+            "47412fb981ef-0000",
+            "4df5adab7e61-0004"
+          ]
+        },
+        {
+          "custom_id": "p-lassalle-s26",
+          "candidate_id": "lassalle",
+          "target": "s26",
+          "chunk_ids": [
+            "47412fb981ef-0000",
+            "4df5adab7e61-0013",
+            "4df5adab7e61-0002",
+            "47412fb981ef-0003",
+            "4df5adab7e61-0001",
+            "4df5adab7e61-0014"
+          ]
+        },
+        {
+          "custom_id": "p-lassalle-s27",
+          "candidate_id": "lassalle",
+          "target": "s27",
+          "chunk_ids": [
+            "47412fb981ef-0003",
+            "47412fb981ef-0000",
+            "4df5adab7e61-0002",
+            "4df5adab7e61-0001",
+            "4df5adab7e61-0014",
+            "47412fb981ef-0001"
+          ]
+        },
+        {
+          "custom_id": "p-lassalle-s28",
+          "candidate_id": "lassalle",
+          "target": "s28",
+          "chunk_ids": [
+            "4df5adab7e61-0002",
+            "47412fb981ef-0002",
+            "47412fb981ef-0001",
+            "4df5adab7e61-0000",
+            "47412fb981ef-0000",
+            "4df5adab7e61-0001"
+          ]
+        },
+        {
+          "custom_id": "p-lassalle-s29",
+          "candidate_id": "lassalle",
+          "target": "s29",
+          "chunk_ids": [
+            "4df5adab7e61-0008",
+            "47412fb981ef-0003",
+            "47412fb981ef-0002",
+            "47412fb981ef-0000",
+            "4df5adab7e61-0014",
+            "47412fb981ef-0001"
+          ]
+        },
+        {
+          "custom_id": "p-lassalle-s30",
+          "candidate_id": "lassalle",
+          "target": "s30",
+          "chunk_ids": [
+            "4df5adab7e61-0001",
+            "47412fb981ef-0003",
+            "4df5adab7e61-0007",
+            "4df5adab7e61-0002",
+            "47412fb981ef-0001",
+            "4df5adab7e61-0014"
+          ]
+        },
+        {
+          "custom_id": "p-le-pen-s01",
+          "candidate_id": "le-pen",
+          "target": "s01",
+          "chunk_ids": [
+            "2228cf277a7b-0023",
+            "2228cf277a7b-0030",
+            "2228cf277a7b-0035",
+            "2228cf277a7b-0034",
+            "68a296ebf9a7-0002",
+            "2228cf277a7b-0022"
+          ]
+        },
+        {
+          "custom_id": "p-le-pen-s02",
+          "candidate_id": "le-pen",
+          "target": "s02",
+          "chunk_ids": [
+            "2228cf277a7b-0022",
+            "2228cf277a7b-0023",
+            "2228cf277a7b-0027",
+            "2228cf277a7b-0021",
+            "2228cf277a7b-0019",
+            "2228cf277a7b-0013"
+          ]
+        },
+        {
+          "custom_id": "p-le-pen-s03",
+          "candidate_id": "le-pen",
+          "target": "s03",
+          "chunk_ids": [
+            "2228cf277a7b-0019",
+            "2228cf277a7b-0021",
+            "2228cf277a7b-0025",
+            "2228cf277a7b-0027",
+            "2228cf277a7b-0020",
+            "2228cf277a7b-0017"
+          ]
+        },
+        {
+          "custom_id": "p-le-pen-s04",
+          "candidate_id": "le-pen",
+          "target": "s04",
+          "chunk_ids": [
+            "2228cf277a7b-0005",
+            "2228cf277a7b-0032",
+            "2228cf277a7b-0021",
+            "2228cf277a7b-0010",
+            "2228cf277a7b-0019",
+            "2228cf277a7b-0013"
+          ]
+        },
+        {
+          "custom_id": "p-le-pen-s05",
+          "candidate_id": "le-pen",
+          "target": "s05",
+          "chunk_ids": [
+            "2228cf277a7b-0021",
+            "2228cf277a7b-0005",
+            "2228cf277a7b-0019",
+            "2228cf277a7b-0030",
+            "2228cf277a7b-0010",
+            "2228cf277a7b-0013"
+          ]
+        },
+        {
+          "custom_id": "p-le-pen-s06",
+          "candidate_id": "le-pen",
+          "target": "s06",
+          "chunk_ids": [
+            "2228cf277a7b-0023",
+            "2228cf277a7b-0005",
+            "2228cf277a7b-0011",
+            "68a296ebf9a7-0002",
+            "2228cf277a7b-0032",
+            "2228cf277a7b-0006"
+          ]
+        },
+        {
+          "custom_id": "p-le-pen-s07",
+          "candidate_id": "le-pen",
+          "target": "s07",
+          "chunk_ids": [
+            "2228cf277a7b-0013",
+            "2228cf277a7b-0034",
+            "2228cf277a7b-0027",
+            "2228cf277a7b-0010",
+            "2228cf277a7b-0019",
+            "2228cf277a7b-0012"
+          ]
+        },
+        {
+          "custom_id": "p-le-pen-s08",
+          "candidate_id": "le-pen",
+          "target": "s08",
+          "chunk_ids": [
+            "2228cf277a7b-0019",
+            "2228cf277a7b-0013",
+            "2228cf277a7b-0034",
+            "2228cf277a7b-0017",
+            "2228cf277a7b-0016",
+            "2228cf277a7b-0008"
+          ]
+        },
+        {
+          "custom_id": "p-le-pen-s09",
+          "candidate_id": "le-pen",
+          "target": "s09",
+          "chunk_ids": [
+            "2228cf277a7b-0010",
+            "2228cf277a7b-0018",
+            "2228cf277a7b-0019",
+            "2228cf277a7b-0008",
+            "2228cf277a7b-0017",
+            "2228cf277a7b-0009"
+          ]
+        },
+        {
+          "custom_id": "p-le-pen-s10",
+          "candidate_id": "le-pen",
+          "target": "s10",
+          "chunk_ids": [
+            "2228cf277a7b-0034",
+            "2228cf277a7b-0010",
+            "2228cf277a7b-0032",
+            "2228cf277a7b-0035",
+            "2228cf277a7b-0017",
+            "2228cf277a7b-0033"
+          ]
+        },
+        {
+          "custom_id": "p-le-pen-s11",
+          "candidate_id": "le-pen",
+          "target": "s11",
+          "chunk_ids": [
+            "2228cf277a7b-0005",
+            "2228cf277a7b-0026",
+            "2228cf277a7b-0025",
+            "2228cf277a7b-0017",
+            "2228cf277a7b-0000",
+            "2228cf277a7b-0004"
+          ]
+        },
+        {
+          "custom_id": "p-le-pen-s12",
+          "candidate_id": "le-pen",
+          "target": "s12",
+          "chunk_ids": [
+            "2228cf277a7b-0023",
+            "2228cf277a7b-0009",
+            "2228cf277a7b-0012",
+            "2228cf277a7b-0027",
+            "2228cf277a7b-0013",
+            "2228cf277a7b-0032"
+          ]
+        },
+        {
+          "custom_id": "p-le-pen-s13",
+          "candidate_id": "le-pen",
+          "target": "s13",
+          "chunk_ids": [
+            "2228cf277a7b-0026",
+            "2228cf277a7b-0005",
+            "2228cf277a7b-0017",
+            "2228cf277a7b-0028",
+            "2228cf277a7b-0010",
+            "2228cf277a7b-0018"
+          ]
+        },
+        {
+          "custom_id": "p-le-pen-s14",
+          "candidate_id": "le-pen",
+          "target": "s14",
+          "chunk_ids": [
+            "2228cf277a7b-0023",
+            "2228cf277a7b-0026",
+            "2228cf277a7b-0020",
+            "2228cf277a7b-0029",
+            "68a296ebf9a7-0001",
+            "2228cf277a7b-0021"
+          ]
+        },
+        {
+          "custom_id": "p-le-pen-s15",
+          "candidate_id": "le-pen",
+          "target": "s15",
+          "chunk_ids": [
+            "2228cf277a7b-0028",
+            "2228cf277a7b-0009",
+            "2228cf277a7b-0027",
+            "2228cf277a7b-0029",
+            "2228cf277a7b-0010",
+            "2228cf277a7b-0018"
+          ]
+        },
+        {
+          "custom_id": "p-le-pen-s16",
+          "candidate_id": "le-pen",
+          "target": "s16",
+          "chunk_ids": [
+            "2228cf277a7b-0004",
+            "2228cf277a7b-0005",
+            "2228cf277a7b-0017",
+            "2228cf277a7b-0006",
+            "2228cf277a7b-0000",
+            "2228cf277a7b-0026"
+          ]
+        },
+        {
+          "custom_id": "p-le-pen-s17",
+          "candidate_id": "le-pen",
+          "target": "s17",
+          "chunk_ids": [
+            "2228cf277a7b-0017",
+            "2228cf277a7b-0013",
+            "2228cf277a7b-0008",
+            "2228cf277a7b-0006",
+            "2228cf277a7b-0027",
+            "2228cf277a7b-0005"
+          ]
+        },
+        {
+          "custom_id": "p-le-pen-s18",
+          "candidate_id": "le-pen",
+          "target": "s18",
+          "chunk_ids": [
+            "2228cf277a7b-0005",
+            "2228cf277a7b-0004",
+            "2228cf277a7b-0017",
+            "2228cf277a7b-0000",
+            "2228cf277a7b-0035",
+            "2228cf277a7b-0027"
+          ]
+        },
+        {
+          "custom_id": "p-le-pen-s19",
+          "candidate_id": "le-pen",
+          "target": "s19",
+          "chunk_ids": [
+            "2228cf277a7b-0017",
+            "2228cf277a7b-0004",
+            "2228cf277a7b-0027",
+            "2228cf277a7b-0035",
+            "2228cf277a7b-0019",
+            "2228cf277a7b-0005"
+          ]
+        },
+        {
+          "custom_id": "p-le-pen-s20",
+          "candidate_id": "le-pen",
+          "target": "s20",
+          "chunk_ids": [
+            "2228cf277a7b-0027",
+            "2228cf277a7b-0017",
+            "2228cf277a7b-0004",
+            "2228cf277a7b-0009",
+            "2228cf277a7b-0011",
+            "2228cf277a7b-0035"
+          ]
+        },
+        {
+          "custom_id": "p-le-pen-s21",
+          "candidate_id": "le-pen",
+          "target": "s21",
+          "chunk_ids": [
+            "2228cf277a7b-0009",
+            "2228cf277a7b-0010",
+            "2228cf277a7b-0013",
+            "2228cf277a7b-0011",
+            "2228cf277a7b-0032",
+            "2228cf277a7b-0006"
+          ]
+        },
+        {
+          "custom_id": "p-le-pen-s22",
+          "candidate_id": "le-pen",
+          "target": "s22",
+          "chunk_ids": [
+            "2228cf277a7b-0006",
+            "2228cf277a7b-0032",
+            "2228cf277a7b-0000",
+            "2228cf277a7b-0010",
+            "2228cf277a7b-0008",
+            "2228cf277a7b-0028"
+          ]
+        },
+        {
+          "custom_id": "p-le-pen-s23",
+          "candidate_id": "le-pen",
+          "target": "s23",
+          "chunk_ids": [
+            "2228cf277a7b-0017",
+            "2228cf277a7b-0008",
+            "2228cf277a7b-0006",
+            "2228cf277a7b-0012",
+            "68a296ebf9a7-0001",
+            "2228cf277a7b-0010"
+          ]
+        },
+        {
+          "custom_id": "p-le-pen-s24",
+          "candidate_id": "le-pen",
+          "target": "s24",
+          "chunk_ids": [
+            "2228cf277a7b-0013",
+            "68a296ebf9a7-0001",
+            "2228cf277a7b-0017",
+            "2228cf277a7b-0010",
+            "2228cf277a7b-0016",
+            "2228cf277a7b-0019"
+          ]
+        },
+        {
+          "custom_id": "p-le-pen-s25",
+          "candidate_id": "le-pen",
+          "target": "s25",
+          "chunk_ids": [
+            "2228cf277a7b-0017",
+            "2228cf277a7b-0027",
+            "2228cf277a7b-0010",
+            "2228cf277a7b-0008",
+            "2228cf277a7b-0028",
+            "2228cf277a7b-0026"
+          ]
+        },
+        {
+          "custom_id": "p-le-pen-s26",
+          "candidate_id": "le-pen",
+          "target": "s26",
+          "chunk_ids": [
+            "2228cf277a7b-0007",
+            "68a296ebf9a7-0001",
+            "2228cf277a7b-0017",
+            "2228cf277a7b-0018",
+            "2228cf277a7b-0019",
+            "2228cf277a7b-0006"
+          ]
+        },
+        {
+          "custom_id": "p-le-pen-s27",
+          "candidate_id": "le-pen",
+          "target": "s27",
+          "chunk_ids": [
+            "2228cf277a7b-0006",
+            "68a296ebf9a7-0001",
+            "2228cf277a7b-0017",
+            "2228cf277a7b-0018",
+            "2228cf277a7b-0008",
+            "2228cf277a7b-0000"
+          ]
+        },
+        {
+          "custom_id": "p-le-pen-s28",
+          "candidate_id": "le-pen",
+          "target": "s28",
+          "chunk_ids": [
+            "2228cf277a7b-0006",
+            "2228cf277a7b-0017",
+            "2228cf277a7b-0036",
+            "2228cf277a7b-0035",
+            "2228cf277a7b-0008",
+            "2228cf277a7b-0013"
+          ]
+        },
+        {
+          "custom_id": "p-le-pen-s29",
+          "candidate_id": "le-pen",
+          "target": "s29",
+          "chunk_ids": [
+            "2228cf277a7b-0017",
+            "2228cf277a7b-0013",
+            "2228cf277a7b-0019",
+            "2228cf277a7b-0018",
+            "2228cf277a7b-0027",
+            "2228cf277a7b-0000"
+          ]
+        },
+        {
+          "custom_id": "p-le-pen-s30",
+          "candidate_id": "le-pen",
+          "target": "s30",
+          "chunk_ids": [
+            "2228cf277a7b-0006",
+            "68a296ebf9a7-0001",
+            "2228cf277a7b-0018",
+            "2228cf277a7b-0026",
+            "2228cf277a7b-0011",
+            "2228cf277a7b-0036"
+          ]
+        },
+        {
+          "custom_id": "p-macron-s01",
+          "candidate_id": "macron",
+          "target": "s01",
+          "chunk_ids": [
+            "67f312ed6f99-0002",
+            "e9a608824a05-0010",
+            "e9a608824a05-0012",
+            "67f312ed6f99-0001",
+            "67f312ed6f99-0003",
+            "e9a608824a05-0013"
+          ]
+        },
+        {
+          "custom_id": "p-macron-s02",
+          "candidate_id": "macron",
+          "target": "s02",
+          "chunk_ids": [
+            "e9a608824a05-0013",
+            "e9a608824a05-0010",
+            "e9a608824a05-0014",
+            "e9a608824a05-0004",
+            "e9a608824a05-0000",
+            "67f312ed6f99-0002"
+          ]
+        },
+        {
+          "custom_id": "p-macron-s03",
+          "candidate_id": "macron",
+          "target": "s03",
+          "chunk_ids": [
+            "e9a608824a05-0013",
+            "e9a608824a05-0018",
+            "e9a608824a05-0017",
+            "e9a608824a05-0004",
+            "e9a608824a05-0014",
+            "e9a608824a05-0011"
+          ]
+        },
+        {
+          "custom_id": "p-macron-s04",
+          "candidate_id": "macron",
+          "target": "s04",
+          "chunk_ids": [
+            "e9a608824a05-0010",
+            "e9a608824a05-0016",
+            "67f312ed6f99-0001",
+            "67f312ed6f99-0002",
+            "e9a608824a05-0017",
+            "67f312ed6f99-0004"
+          ]
+        },
+        {
+          "custom_id": "p-macron-s05",
+          "candidate_id": "macron",
+          "target": "s05",
+          "chunk_ids": [
+            "e9a608824a05-0004",
+            "e9a608824a05-0013",
+            "e9a608824a05-0010",
+            "67f312ed6f99-0004",
+            "e9a608824a05-0002",
+            "e9a608824a05-0012"
+          ]
+        },
+        {
+          "custom_id": "p-macron-s06",
+          "candidate_id": "macron",
+          "target": "s06",
+          "chunk_ids": [
+            "e9a608824a05-0010",
+            "67f312ed6f99-0003",
+            "e9a608824a05-0011",
+            "e9a608824a05-0008",
+            "67f312ed6f99-0000",
+            "e9a608824a05-0003"
+          ]
+        },
+        {
+          "custom_id": "p-macron-s07",
+          "candidate_id": "macron",
+          "target": "s07",
+          "chunk_ids": [
+            "e9a608824a05-0010",
+            "e9a608824a05-0017",
+            "e9a608824a05-0008",
+            "e9a608824a05-0004",
+            "e9a608824a05-0009",
+            "67f312ed6f99-0003"
+          ]
+        },
+        {
+          "custom_id": "p-macron-s08",
+          "candidate_id": "macron",
+          "target": "s08",
+          "chunk_ids": [
+            "e9a608824a05-0010",
+            "e9a608824a05-0011",
+            "e9a608824a05-0009",
+            "67f312ed6f99-0002",
+            "e9a608824a05-0014",
+            "67f312ed6f99-0001"
+          ]
+        },
+        {
+          "custom_id": "p-macron-s09",
+          "candidate_id": "macron",
+          "target": "s09",
+          "chunk_ids": [
+            "e9a608824a05-0008",
+            "67f312ed6f99-0003",
+            "e9a608824a05-0002",
+            "e9a608824a05-0016",
+            "67f312ed6f99-0001",
+            "e9a608824a05-0017"
+          ]
+        },
+        {
+          "custom_id": "p-macron-s10",
+          "candidate_id": "macron",
+          "target": "s10",
+          "chunk_ids": [
+            "e9a608824a05-0005",
+            "e9a608824a05-0003",
+            "e9a608824a05-0002",
+            "e9a608824a05-0016",
+            "e9a608824a05-0009",
+            "67f312ed6f99-0000"
+          ]
+        },
+        {
+          "custom_id": "p-macron-s11",
+          "candidate_id": "macron",
+          "target": "s11",
+          "chunk_ids": [
+            "67f312ed6f99-0004",
+            "e9a608824a05-0013",
+            "e9a608824a05-0003",
+            "e9a608824a05-0017",
+            "e9a608824a05-0002",
+            "e9a608824a05-0004"
+          ]
+        },
+        {
+          "custom_id": "p-macron-s12",
+          "candidate_id": "macron",
+          "target": "s12",
+          "chunk_ids": [
+            "e9a608824a05-0010",
+            "e9a608824a05-0011",
+            "e9a608824a05-0008",
+            "67f312ed6f99-0003",
+            "67f312ed6f99-0002",
+            "e9a608824a05-0004"
+          ]
+        },
+        {
+          "custom_id": "p-macron-s13",
+          "candidate_id": "macron",
+          "target": "s13",
+          "chunk_ids": [
+            "e9a608824a05-0011",
+            "e9a608824a05-0013",
+            "e9a608824a05-0017",
+            "e9a608824a05-0002",
+            "e9a608824a05-0012",
+            "e9a608824a05-0000"
+          ]
+        },
+        {
+          "custom_id": "p-macron-s14",
+          "candidate_id": "macron",
+          "target": "s14",
+          "chunk_ids": [
+            "e9a608824a05-0012",
+            "e9a608824a05-0011",
+            "e9a608824a05-0010",
+            "e9a608824a05-0000",
+            "67f312ed6f99-0002",
+            "e9a608824a05-0014"
+          ]
+        },
+        {
+          "custom_id": "p-macron-s15",
+          "candidate_id": "macron",
+          "target": "s15",
+          "chunk_ids": [
+            "e9a608824a05-0013",
+            "e9a608824a05-0004",
+            "e9a608824a05-0016",
+            "e9a608824a05-0011",
+            "e9a608824a05-0008",
+            "e9a608824a05-0010"
+          ]
+        },
+        {
+          "custom_id": "p-macron-s16",
+          "candidate_id": "macron",
+          "target": "s16",
+          "chunk_ids": [
+            "e9a608824a05-0000",
+            "e9a608824a05-0002",
+            "e9a608824a05-0010",
+            "e9a608824a05-0013",
+            "e9a608824a05-0006",
+            "e9a608824a05-0015"
+          ]
+        },
+        {
+          "custom_id": "p-macron-s17",
+          "candidate_id": "macron",
+          "target": "s17",
+          "chunk_ids": [
+            "e9a608824a05-0002",
+            "e9a608824a05-0000",
+            "e9a608824a05-0001",
+            "e9a608824a05-0013",
+            "e9a608824a05-0015",
+            "e9a608824a05-0014"
+          ]
+        },
+        {
+          "custom_id": "p-macron-s18",
+          "candidate_id": "macron",
+          "target": "s18",
+          "chunk_ids": [
+            "e9a608824a05-0018",
+            "e9a608824a05-0000",
+            "e9a608824a05-0001",
+            "e9a608824a05-0002",
+            "67f312ed6f99-0004",
+            "67f312ed6f99-0001"
+          ]
+        },
+        {
+          "custom_id": "p-macron-s19",
+          "candidate_id": "macron",
+          "target": "s19",
+          "chunk_ids": [
+            "e9a608824a05-0001",
+            "e9a608824a05-0013",
+            "e9a608824a05-0002",
+            "e9a608824a05-0000",
+            "e9a608824a05-0003",
+            "67f312ed6f99-0004"
+          ]
+        },
+        {
+          "custom_id": "p-macron-s20",
+          "candidate_id": "macron",
+          "target": "s20",
+          "chunk_ids": [
+            "e9a608824a05-0002",
+            "e9a608824a05-0018",
+            "67f312ed6f99-0002",
+            "e9a608824a05-0000",
+            "e9a608824a05-0001",
+            "e9a608824a05-0003"
+          ]
+        },
+        {
+          "custom_id": "p-macron-s21",
+          "candidate_id": "macron",
+          "target": "s21",
+          "chunk_ids": [
+            "e9a608824a05-0016",
+            "e9a608824a05-0017",
+            "67f312ed6f99-0003",
+            "67f312ed6f99-0000",
+            "e9a608824a05-0009",
+            "e9a608824a05-0008"
+          ]
+        },
+        {
+          "custom_id": "p-macron-s22",
+          "candidate_id": "macron",
+          "target": "s22",
+          "chunk_ids": [
+            "e9a608824a05-0015",
+            "67f312ed6f99-0002",
+            "e9a608824a05-0014",
+            "e9a608824a05-0017",
+            "e9a608824a05-0000",
+            "67f312ed6f99-0000"
+          ]
+        },
+        {
+          "custom_id": "p-macron-s23",
+          "candidate_id": "macron",
+          "target": "s23",
+          "chunk_ids": [
+            "e9a608824a05-0002",
+            "67f312ed6f99-0002",
+            "e9a608824a05-0016",
+            "e9a608824a05-0010",
+            "e9a608824a05-0001",
+            "e9a608824a05-0015"
+          ]
+        },
+        {
+          "custom_id": "p-macron-s24",
+          "candidate_id": "macron",
+          "target": "s24",
+          "chunk_ids": [
+            "e9a608824a05-0010",
+            "67f312ed6f99-0002",
+            "e9a608824a05-0011",
+            "e9a608824a05-0016",
+            "e9a608824a05-0014",
+            "67f312ed6f99-0001"
+          ]
+        },
+        {
+          "custom_id": "p-macron-s25",
+          "candidate_id": "macron",
+          "target": "s25",
+          "chunk_ids": [
+            "e9a608824a05-0016",
+            "e9a608824a05-0017",
+            "e9a608824a05-0013",
+            "e9a608824a05-0002",
+            "67f312ed6f99-0000",
+            "e9a608824a05-0010"
+          ]
+        },
+        {
+          "custom_id": "p-macron-s26",
+          "candidate_id": "macron",
+          "target": "s26",
+          "chunk_ids": [
+            "67f312ed6f99-0001",
+            "e9a608824a05-0019",
+            "67f312ed6f99-0000",
+            "e9a608824a05-0002",
+            "67f312ed6f99-0004",
+            "67f312ed6f99-0002"
+          ]
+        },
+        {
+          "custom_id": "p-macron-s27",
+          "candidate_id": "macron",
+          "target": "s27",
+          "chunk_ids": [
+            "e9a608824a05-0002",
+            "e9a608824a05-0015",
+            "e9a608824a05-0003",
+            "67f312ed6f99-0000",
+            "e9a608824a05-0010",
+            "e9a608824a05-0000"
+          ]
+        },
+        {
+          "custom_id": "p-macron-s28",
+          "candidate_id": "macron",
+          "target": "s28",
+          "chunk_ids": [
+            "e9a608824a05-0001",
+            "67f312ed6f99-0001",
+            "67f312ed6f99-0000",
+            "e9a608824a05-0002",
+            "67f312ed6f99-0004",
+            "e9a608824a05-0004"
+          ]
+        },
+        {
+          "custom_id": "p-macron-s29",
+          "candidate_id": "macron",
+          "target": "s29",
+          "chunk_ids": [
+            "e9a608824a05-0018",
+            "e9a608824a05-0002",
+            "e9a608824a05-0000",
+            "e9a608824a05-0013",
+            "e9a608824a05-0017",
+            "e9a608824a05-0010"
+          ]
+        },
+        {
+          "custom_id": "p-macron-s30",
+          "candidate_id": "macron",
+          "target": "s30",
+          "chunk_ids": [
+            "e9a608824a05-0009",
+            "e9a608824a05-0002",
+            "e9a608824a05-0012",
+            "e9a608824a05-0017",
+            "e9a608824a05-0008",
+            "e9a608824a05-0016"
+          ]
+        },
+        {
+          "custom_id": "p-poutou-s01",
+          "candidate_id": "poutou",
+          "target": "s01",
+          "chunk_ids": [
+            "feb3406f22b1-0025",
+            "feb3406f22b1-0006",
+            "feb3406f22b1-0011",
+            "feb3406f22b1-0001",
+            "feb3406f22b1-0026",
+            "feb3406f22b1-0024"
+          ]
+        },
+        {
+          "custom_id": "p-poutou-s02",
+          "candidate_id": "poutou",
+          "target": "s02",
+          "chunk_ids": [
+            "feb3406f22b1-0004",
+            "feb3406f22b1-0024",
+            "feb3406f22b1-0012",
+            "feb3406f22b1-0009",
+            "feb3406f22b1-0025",
+            "feb3406f22b1-0014"
+          ]
+        },
+        {
+          "custom_id": "p-poutou-s03",
+          "candidate_id": "poutou",
+          "target": "s03",
+          "chunk_ids": [
+            "feb3406f22b1-0004",
+            "feb3406f22b1-0024",
+            "feb3406f22b1-0012",
+            "feb3406f22b1-0006",
+            "feb3406f22b1-0005",
+            "e8400f091f79-0001"
+          ]
+        },
+        {
+          "custom_id": "p-poutou-s04",
+          "candidate_id": "poutou",
+          "target": "s04",
+          "chunk_ids": [
+            "feb3406f22b1-0012",
+            "feb3406f22b1-0009",
+            "feb3406f22b1-0013",
+            "feb3406f22b1-0007",
+            "feb3406f22b1-0025",
+            "feb3406f22b1-0002"
+          ]
+        },
+        {
+          "custom_id": "p-poutou-s05",
+          "candidate_id": "poutou",
+          "target": "s05",
+          "chunk_ids": [
+            "feb3406f22b1-0024",
+            "feb3406f22b1-0012",
+            "e8400f091f79-0001",
+            "feb3406f22b1-0007",
+            "feb3406f22b1-0004",
+            "feb3406f22b1-0006"
+          ]
+        },
+        {
+          "custom_id": "p-poutou-s06",
+          "candidate_id": "poutou",
+          "target": "s06",
+          "chunk_ids": [
+            "feb3406f22b1-0009",
+            "feb3406f22b1-0011",
+            "feb3406f22b1-0013",
+            "feb3406f22b1-0016",
+            "e8400f091f79-0002",
+            "feb3406f22b1-0025"
+          ]
+        },
+        {
+          "custom_id": "p-poutou-s07",
+          "candidate_id": "poutou",
+          "target": "s07",
+          "chunk_ids": [
+            "feb3406f22b1-0009",
+            "feb3406f22b1-0025",
+            "feb3406f22b1-0010",
+            "feb3406f22b1-0012",
+            "e8400f091f79-0002",
+            "feb3406f22b1-0016"
+          ]
+        },
+        {
+          "custom_id": "p-poutou-s08",
+          "candidate_id": "poutou",
+          "target": "s08",
+          "chunk_ids": [
+            "feb3406f22b1-0016",
+            "feb3406f22b1-0009",
+            "feb3406f22b1-0010",
+            "feb3406f22b1-0011",
+            "feb3406f22b1-0020",
+            "feb3406f22b1-0012"
+          ]
+        },
+        {
+          "custom_id": "p-poutou-s09",
+          "candidate_id": "poutou",
+          "target": "s09",
+          "chunk_ids": [
+            "feb3406f22b1-0012",
+            "feb3406f22b1-0014",
+            "feb3406f22b1-0024",
+            "feb3406f22b1-0010",
+            "feb3406f22b1-0016",
+            "feb3406f22b1-0007"
+          ]
+        },
+        {
+          "custom_id": "p-poutou-s10",
+          "candidate_id": "poutou",
+          "target": "s10",
+          "chunk_ids": [
+            "feb3406f22b1-0013",
+            "feb3406f22b1-0014",
+            "feb3406f22b1-0012",
+            "feb3406f22b1-0000",
+            "feb3406f22b1-0009",
+            "feb3406f22b1-0016"
+          ]
+        },
+        {
+          "custom_id": "p-poutou-s11",
+          "candidate_id": "poutou",
+          "target": "s11",
+          "chunk_ids": [
+            "feb3406f22b1-0005",
+            "feb3406f22b1-0006",
+            "e8400f091f79-0001",
+            "feb3406f22b1-0023",
+            "feb3406f22b1-0027",
+            "feb3406f22b1-0003"
+          ]
+        },
+        {
+          "custom_id": "p-poutou-s12",
+          "candidate_id": "poutou",
+          "target": "s12",
+          "chunk_ids": [
+            "feb3406f22b1-0012",
+            "feb3406f22b1-0009",
+            "feb3406f22b1-0007",
+            "feb3406f22b1-0028",
+            "feb3406f22b1-0014",
+            "feb3406f22b1-0010"
+          ]
+        },
+        {
+          "custom_id": "p-poutou-s13",
+          "candidate_id": "poutou",
+          "target": "s13",
+          "chunk_ids": [
+            "feb3406f22b1-0012",
+            "e8400f091f79-0001",
+            "feb3406f22b1-0005",
+            "feb3406f22b1-0006",
+            "feb3406f22b1-0014",
+            "feb3406f22b1-0001"
+          ]
+        },
+        {
+          "custom_id": "p-poutou-s14",
+          "candidate_id": "poutou",
+          "target": "s14",
+          "chunk_ids": [
+            "feb3406f22b1-0005",
+            "e8400f091f79-0001",
+            "feb3406f22b1-0000",
+            "feb3406f22b1-0001",
+            "feb3406f22b1-0006",
+            "feb3406f22b1-0004"
+          ]
+        },
+        {
+          "custom_id": "p-poutou-s15",
+          "candidate_id": "poutou",
+          "target": "s15",
+          "chunk_ids": [
+            "feb3406f22b1-0014",
+            "feb3406f22b1-0028",
+            "feb3406f22b1-0012",
+            "feb3406f22b1-0001",
+            "feb3406f22b1-0005",
+            "feb3406f22b1-0000"
+          ]
+        },
+        {
+          "custom_id": "p-poutou-s16",
+          "candidate_id": "poutou",
+          "target": "s16",
+          "chunk_ids": [
+            "e8400f091f79-0003",
+            "feb3406f22b1-0023",
+            "feb3406f22b1-0004",
+            "feb3406f22b1-0013",
+            "feb3406f22b1-0012",
+            "feb3406f22b1-0006"
+          ]
+        },
+        {
+          "custom_id": "p-poutou-s17",
+          "candidate_id": "poutou",
+          "target": "s17",
+          "chunk_ids": [
+            "feb3406f22b1-0014",
+            "feb3406f22b1-0003",
+            "e8400f091f79-0000",
+            "feb3406f22b1-0023",
+            "e8400f091f79-0003",
+            "feb3406f22b1-0028"
+          ]
+        },
+        {
+          "custom_id": "p-poutou-s18",
+          "candidate_id": "poutou",
+          "target": "s18",
+          "chunk_ids": [
+            "feb3406f22b1-0023",
+            "e8400f091f79-0003",
+            "feb3406f22b1-0012",
+            "feb3406f22b1-0004",
+            "feb3406f22b1-0022",
+            "feb3406f22b1-0014"
+          ]
+        },
+        {
+          "custom_id": "p-poutou-s19",
+          "candidate_id": "poutou",
+          "target": "s19",
+          "chunk_ids": [
+            "feb3406f22b1-0023",
+            "e8400f091f79-0003",
+            "feb3406f22b1-0014",
+            "feb3406f22b1-0024",
+            "feb3406f22b1-0028",
+            "feb3406f22b1-0022"
+          ]
+        },
+        {
+          "custom_id": "p-poutou-s20",
+          "candidate_id": "poutou",
+          "target": "s20",
+          "chunk_ids": [
+            "e8400f091f79-0001",
+            "e8400f091f79-0004",
+            "feb3406f22b1-0023",
+            "feb3406f22b1-0014",
+            "feb3406f22b1-0024",
+            "feb3406f22b1-0000"
+          ]
+        },
+        {
+          "custom_id": "p-poutou-s21",
+          "candidate_id": "poutou",
+          "target": "s21",
+          "chunk_ids": [
+            "feb3406f22b1-0014",
+            "feb3406f22b1-0003",
+            "feb3406f22b1-0012",
+            "feb3406f22b1-0024",
+            "feb3406f22b1-0009",
+            "feb3406f22b1-0028"
+          ]
+        },
+        {
+          "custom_id": "p-poutou-s22",
+          "candidate_id": "poutou",
+          "target": "s22",
+          "chunk_ids": [
+            "feb3406f22b1-0012",
+            "feb3406f22b1-0014",
+            "feb3406f22b1-0021",
+            "feb3406f22b1-0009",
+            "feb3406f22b1-0013",
+            "e8400f091f79-0002"
+          ]
+        },
+        {
+          "custom_id": "p-poutou-s23",
+          "candidate_id": "poutou",
+          "target": "s23",
+          "chunk_ids": [
+            "feb3406f22b1-0012",
+            "feb3406f22b1-0028",
+            "feb3406f22b1-0014",
+            "feb3406f22b1-0000",
+            "feb3406f22b1-0003",
+            "e8400f091f79-0003"
+          ]
+        },
+        {
+          "custom_id": "p-poutou-s24",
+          "candidate_id": "poutou",
+          "target": "s24",
+          "chunk_ids": [
+            "feb3406f22b1-0012",
+            "feb3406f22b1-0014",
+            "feb3406f22b1-0020",
+            "feb3406f22b1-0028",
+            "feb3406f22b1-0009",
+            "e8400f091f79-0002"
+          ]
+        },
+        {
+          "custom_id": "p-poutou-s25",
+          "candidate_id": "poutou",
+          "target": "s25",
+          "chunk_ids": [
+            "feb3406f22b1-0012",
+            "feb3406f22b1-0014",
+            "feb3406f22b1-0009",
+            "feb3406f22b1-0018",
+            "feb3406f22b1-0003",
+            "feb3406f22b1-0000"
+          ]
+        },
+        {
+          "custom_id": "p-poutou-s26",
+          "candidate_id": "poutou",
+          "target": "s26",
+          "chunk_ids": [
+            "feb3406f22b1-0020",
+            "feb3406f22b1-0029",
+            "e8400f091f79-0005",
+            "e8400f091f79-0003",
+            "feb3406f22b1-0012",
+            "feb3406f22b1-0023"
+          ]
+        },
+        {
+          "custom_id": "p-poutou-s27",
+          "candidate_id": "poutou",
+          "target": "s27",
+          "chunk_ids": [
+            "feb3406f22b1-0014",
+            "feb3406f22b1-0017",
+            "e8400f091f79-0003",
+            "e8400f091f79-0001",
+            "feb3406f22b1-0020",
+            "feb3406f22b1-0023"
+          ]
+        },
+        {
+          "custom_id": "p-poutou-s28",
+          "candidate_id": "poutou",
+          "target": "s28",
+          "chunk_ids": [
+            "feb3406f22b1-0017",
+            "e8400f091f79-0003",
+            "feb3406f22b1-0029",
+            "feb3406f22b1-0000",
+            "feb3406f22b1-0003",
+            "feb3406f22b1-0012"
+          ]
+        },
+        {
+          "custom_id": "p-poutou-s29",
+          "candidate_id": "poutou",
+          "target": "s29",
+          "chunk_ids": [
+            "feb3406f22b1-0022",
+            "feb3406f22b1-0014",
+            "feb3406f22b1-0016",
+            "feb3406f22b1-0020",
+            "e8400f091f79-0002",
+            "feb3406f22b1-0023"
+          ]
+        },
+        {
+          "custom_id": "p-poutou-s30",
+          "candidate_id": "poutou",
+          "target": "s30",
+          "chunk_ids": [
+            "feb3406f22b1-0006",
+            "feb3406f22b1-0005",
+            "feb3406f22b1-0012",
+            "feb3406f22b1-0017",
+            "feb3406f22b1-0028",
+            "e8400f091f79-0004"
+          ]
+        },
+        {
+          "custom_id": "p-roussel-s01",
+          "candidate_id": "roussel",
+          "target": "s01",
+          "chunk_ids": [
+            "d0836d522538-0063",
+            "d0836d522538-0064",
+            "d0836d522538-0082",
+            "d0836d522538-0008",
+            "d0836d522538-0062",
+            "d0836d522538-0065"
+          ]
+        },
+        {
+          "custom_id": "p-roussel-s02",
+          "candidate_id": "roussel",
+          "target": "s02",
+          "chunk_ids": [
+            "d0836d522538-0063",
+            "d0836d522538-0064",
+            "d0836d522538-0058",
+            "d0836d522538-0033",
+            "d0836d522538-0059",
+            "d0836d522538-0057"
+          ]
+        },
+        {
+          "custom_id": "p-roussel-s03",
+          "candidate_id": "roussel",
+          "target": "s03",
+          "chunk_ids": [
+            "d0836d522538-0035",
+            "d0836d522538-0059",
+            "d0836d522538-0061",
+            "d0836d522538-0034",
+            "d0836d522538-0036",
+            "d0836d522538-0033"
+          ]
+        },
+        {
+          "custom_id": "p-roussel-s04",
+          "candidate_id": "roussel",
+          "target": "s04",
+          "chunk_ids": [
+            "d0836d522538-0057",
+            "d0836d522538-0059",
+            "d0836d522538-0025",
+            "d0836d522538-0017",
+            "d0836d522538-0016",
+            "d0836d522538-0026"
+          ]
+        },
+        {
+          "custom_id": "p-roussel-s05",
+          "candidate_id": "roussel",
+          "target": "s05",
+          "chunk_ids": [
+            "d0836d522538-0059",
+            "d0836d522538-0057",
+            "d0836d522538-0029",
+            "d0836d522538-0017",
+            "d0836d522538-0016",
+            "d0836d522538-0001"
+          ]
+        },
+        {
+          "custom_id": "p-roussel-s06",
+          "candidate_id": "roussel",
+          "target": "s06",
+          "chunk_ids": [
+            "d0836d522538-0013",
+            "d0836d522538-0031",
+            "d0836d522538-0029",
+            "d0836d522538-0017",
+            "d0836d522538-0049",
+            "c37cd69cef21-0002"
+          ]
+        },
+        {
+          "custom_id": "p-roussel-s07",
+          "candidate_id": "roussel",
+          "target": "s07",
+          "chunk_ids": [
+            "d0836d522538-0010",
+            "d0836d522538-0059",
+            "d0836d522538-0057",
+            "d0836d522538-0039",
+            "d0836d522538-0058",
+            "d0836d522538-0021"
+          ]
+        },
+        {
+          "custom_id": "p-roussel-s08",
+          "candidate_id": "roussel",
+          "target": "s08",
+          "chunk_ids": [
+            "d0836d522538-0031",
+            "d0836d522538-0006",
+            "d0836d522538-0030",
+            "d0836d522538-0011",
+            "d0836d522538-0058",
+            "d0836d522538-0060"
+          ]
+        },
+        {
+          "custom_id": "p-roussel-s09",
+          "candidate_id": "roussel",
+          "target": "s09",
+          "chunk_ids": [
+            "d0836d522538-0053",
+            "d0836d522538-0052",
+            "d0836d522538-0032",
+            "d0836d522538-0054",
+            "d0836d522538-0080",
+            "d0836d522538-0072"
+          ]
+        },
+        {
+          "custom_id": "p-roussel-s10",
+          "candidate_id": "roussel",
+          "target": "s10",
+          "chunk_ids": [
+            "d0836d522538-0020",
+            "d0836d522538-0029",
+            "d0836d522538-0055",
+            "d0836d522538-0021",
+            "d0836d522538-0031",
+            "d0836d522538-0053"
+          ]
+        },
+        {
+          "custom_id": "p-roussel-s11",
+          "candidate_id": "roussel",
+          "target": "s11",
+          "chunk_ids": [
+            "d0836d522538-0083",
+            "c37cd69cef21-0002",
+            "c37cd69cef21-0001",
+            "d0836d522538-0033",
+            "d0836d522538-0029",
+            "d0836d522538-0005"
+          ]
+        },
+        {
+          "custom_id": "p-roussel-s12",
+          "candidate_id": "roussel",
+          "target": "s12",
+          "chunk_ids": [
+            "d0836d522538-0029",
+            "d0836d522538-0072",
+            "d0836d522538-0028",
+            "d0836d522538-0031",
+            "d0836d522538-0032",
+            "d0836d522538-0021"
+          ]
+        },
+        {
+          "custom_id": "p-roussel-s13",
+          "candidate_id": "roussel",
+          "target": "s13",
+          "chunk_ids": [
+            "d0836d522538-0042",
+            "d0836d522538-0036",
+            "d0836d522538-0029",
+            "d0836d522538-0038",
+            "d0836d522538-0066",
+            "d0836d522538-0041"
+          ]
+        },
+        {
+          "custom_id": "p-roussel-s14",
+          "candidate_id": "roussel",
+          "target": "s14",
+          "chunk_ids": [
+            "d0836d522538-0033",
+            "d0836d522538-0044",
+            "d0836d522538-0040",
+            "d0836d522538-0037",
+            "d0836d522538-0034",
+            "d0836d522538-0063"
+          ]
+        },
+        {
+          "custom_id": "p-roussel-s15",
+          "candidate_id": "roussel",
+          "target": "s15",
+          "chunk_ids": [
+            "d0836d522538-0039",
+            "d0836d522538-0040",
+            "d0836d522538-0038",
+            "d0836d522538-0042",
+            "d0836d522538-0034",
+            "d0836d522538-0016"
+          ]
+        },
+        {
+          "custom_id": "p-roussel-s16",
+          "candidate_id": "roussel",
+          "target": "s16",
+          "chunk_ids": [
+            "d0836d522538-0081",
+            "d0836d522538-0083",
+            "c37cd69cef21-0000",
+            "d0836d522538-0017",
+            "d0836d522538-0029",
+            "d0836d522538-0044"
+          ]
+        },
+        {
+          "custom_id": "p-roussel-s17",
+          "candidate_id": "roussel",
+          "target": "s17",
+          "chunk_ids": [
+            "d0836d522538-0078",
+            "c37cd69cef21-0001",
+            "d0836d522538-0079",
+            "d0836d522538-0081",
+            "d0836d522538-0077",
+            "d0836d522538-0064"
+          ]
+        },
+        {
+          "custom_id": "p-roussel-s18",
+          "candidate_id": "roussel",
+          "target": "s18",
+          "chunk_ids": [
+            "d0836d522538-0077",
+            "d0836d522538-0079",
+            "d0836d522538-0078",
+            "d0836d522538-0083",
+            "d0836d522538-0081",
+            "d0836d522538-0016"
+          ]
+        },
+        {
+          "custom_id": "p-roussel-s19",
+          "candidate_id": "roussel",
+          "target": "s19",
+          "chunk_ids": [
+            "d0836d522538-0040",
+            "d0836d522538-0077",
+            "d0836d522538-0078",
+            "d0836d522538-0081",
+            "d0836d522538-0079",
+            "c37cd69cef21-0001"
+          ]
+        },
+        {
+          "custom_id": "p-roussel-s20",
+          "candidate_id": "roussel",
+          "target": "s20",
+          "chunk_ids": [
+            "d0836d522538-0078",
+            "d0836d522538-0079",
+            "d0836d522538-0077",
+            "d0836d522538-0004",
+            "d0836d522538-0066",
+            "d0836d522538-0005"
+          ]
+        },
+        {
+          "custom_id": "p-roussel-s21",
+          "candidate_id": "roussel",
+          "target": "s21",
+          "chunk_ids": [
+            "d0836d522538-0021",
+            "d0836d522538-0072",
+            "d0836d522538-0047",
+            "d0836d522538-0049",
+            "d0836d522538-0043",
+            "d0836d522538-0018"
+          ]
+        },
+        {
+          "custom_id": "p-roussel-s22",
+          "candidate_id": "roussel",
+          "target": "s22",
+          "chunk_ids": [
+            "d0836d522538-0053",
+            "d0836d522538-0054",
+            "d0836d522538-0029",
+            "d0836d522538-0039",
+            "d0836d522538-0064",
+            "d0836d522538-0080"
+          ]
+        },
+        {
+          "custom_id": "p-roussel-s23",
+          "candidate_id": "roussel",
+          "target": "s23",
+          "chunk_ids": [
+            "d0836d522538-0078",
+            "d0836d522538-0068",
+            "d0836d522538-0052",
+            "d0836d522538-0032",
+            "d0836d522538-0080",
+            "d0836d522538-0081"
+          ]
+        },
+        {
+          "custom_id": "p-roussel-s24",
+          "candidate_id": "roussel",
+          "target": "s24",
+          "chunk_ids": [
+            "d0836d522538-0008",
+            "d0836d522538-0012",
+            "d0836d522538-0007",
+            "d0836d522538-0006",
+            "d0836d522538-0016",
+            "d0836d522538-0058"
+          ]
+        },
+        {
+          "custom_id": "p-roussel-s25",
+          "candidate_id": "roussel",
+          "target": "s25",
+          "chunk_ids": [
+            "d0836d522538-0021",
+            "d0836d522538-0016",
+            "d0836d522538-0029",
+            "d0836d522538-0080",
+            "d0836d522538-0039",
+            "d0836d522538-0037"
+          ]
+        },
+        {
+          "custom_id": "p-roussel-s26",
+          "candidate_id": "roussel",
+          "target": "s26",
+          "chunk_ids": [
+            "c37cd69cef21-0001",
+            "d0836d522538-0068",
+            "c37cd69cef21-0002",
+            "c37cd69cef21-0000",
+            "d0836d522538-0016",
+            "d0836d522538-0079"
+          ]
+        },
+        {
+          "custom_id": "p-roussel-s27",
+          "candidate_id": "roussel",
+          "target": "s27",
+          "chunk_ids": [
+            "d0836d522538-0068",
+            "c37cd69cef21-0000",
+            "c37cd69cef21-0001",
+            "d0836d522538-0004",
+            "d0836d522538-0008",
+            "d0836d522538-0012"
+          ]
+        },
+        {
+          "custom_id": "p-roussel-s28",
+          "candidate_id": "roussel",
+          "target": "s28",
+          "chunk_ids": [
+            "d0836d522538-0068",
+            "d0836d522538-0048",
+            "d0836d522538-0067",
+            "d0836d522538-0080",
+            "d0836d522538-0016",
+            "d0836d522538-0069"
+          ]
+        },
+        {
+          "custom_id": "p-roussel-s29",
+          "candidate_id": "roussel",
+          "target": "s29",
+          "chunk_ids": [
+            "d0836d522538-0016",
+            "d0836d522538-0029",
+            "d0836d522538-0014",
+            "d0836d522538-0075",
+            "d0836d522538-0019",
+            "d0836d522538-0080"
+          ]
+        },
+        {
+          "custom_id": "p-roussel-s30",
+          "candidate_id": "roussel",
+          "target": "s30",
+          "chunk_ids": [
+            "d0836d522538-0068",
+            "d0836d522538-0033",
+            "d0836d522538-0069",
+            "d0836d522538-0063",
+            "d0836d522538-0079",
+            "d0836d522538-0003"
+          ]
+        },
+        {
+          "custom_id": "p-zemmour-s01",
+          "candidate_id": "zemmour",
+          "target": "s01",
+          "chunk_ids": [
+            "08a8c9c9a7b4-0026",
+            "08a8c9c9a7b4-0060",
+            "08a8c9c9a7b4-0023",
+            "08a8c9c9a7b4-0044",
+            "68c2185419da-0004",
+            "08a8c9c9a7b4-0051"
+          ]
+        },
+        {
+          "custom_id": "p-zemmour-s02",
+          "candidate_id": "zemmour",
+          "target": "s02",
+          "chunk_ids": [
+            "08a8c9c9a7b4-0023",
+            "08a8c9c9a7b4-0024",
+            "08a8c9c9a7b4-0026",
+            "08a8c9c9a7b4-0071",
+            "08a8c9c9a7b4-0027",
+            "08a8c9c9a7b4-0025"
+          ]
+        },
+        {
+          "custom_id": "p-zemmour-s03",
+          "candidate_id": "zemmour",
+          "target": "s03",
+          "chunk_ids": [
+            "08a8c9c9a7b4-0024",
+            "08a8c9c9a7b4-0025",
+            "08a8c9c9a7b4-0023",
+            "08a8c9c9a7b4-0031",
+            "08a8c9c9a7b4-0039",
+            "08a8c9c9a7b4-0015"
+          ]
+        },
+        {
+          "custom_id": "p-zemmour-s04",
+          "candidate_id": "zemmour",
+          "target": "s04",
+          "chunk_ids": [
+            "08a8c9c9a7b4-0069",
+            "08a8c9c9a7b4-0039",
+            "08a8c9c9a7b4-0073",
+            "08a8c9c9a7b4-0026",
+            "08a8c9c9a7b4-0070",
+            "08a8c9c9a7b4-0050"
+          ]
+        },
+        {
+          "custom_id": "p-zemmour-s05",
+          "candidate_id": "zemmour",
+          "target": "s05",
+          "chunk_ids": [
+            "08a8c9c9a7b4-0069",
+            "08a8c9c9a7b4-0070",
+            "08a8c9c9a7b4-0073",
+            "08a8c9c9a7b4-0039",
+            "08a8c9c9a7b4-0026",
+            "08a8c9c9a7b4-0075"
+          ]
+        },
+        {
+          "custom_id": "p-zemmour-s06",
+          "candidate_id": "zemmour",
+          "target": "s06",
+          "chunk_ids": [
+            "08a8c9c9a7b4-0075",
+            "08a8c9c9a7b4-0051",
+            "08a8c9c9a7b4-0048",
+            "08a8c9c9a7b4-0045",
+            "08a8c9c9a7b4-0046",
+            "08a8c9c9a7b4-0028"
+          ]
+        },
+        {
+          "custom_id": "p-zemmour-s07",
+          "candidate_id": "zemmour",
+          "target": "s07",
+          "chunk_ids": [
+            "08a8c9c9a7b4-0027",
+            "08a8c9c9a7b4-0048",
+            "08a8c9c9a7b4-0030",
+            "08a8c9c9a7b4-0050",
+            "08a8c9c9a7b4-0017",
+            "08a8c9c9a7b4-0022"
+          ]
+        },
+        {
+          "custom_id": "p-zemmour-s08",
+          "candidate_id": "zemmour",
+          "target": "s08",
+          "chunk_ids": [
+            "08a8c9c9a7b4-0050",
+            "08a8c9c9a7b4-0029",
+            "08a8c9c9a7b4-0006",
+            "08a8c9c9a7b4-0027",
+            "08a8c9c9a7b4-0049",
+            "08a8c9c9a7b4-0048"
+          ]
+        },
+        {
+          "custom_id": "p-zemmour-s09",
+          "candidate_id": "zemmour",
+          "target": "s09",
+          "chunk_ids": [
+            "08a8c9c9a7b4-0042",
+            "08a8c9c9a7b4-0043",
+            "08a8c9c9a7b4-0044",
+            "08a8c9c9a7b4-0045",
+            "08a8c9c9a7b4-0028",
+            "08a8c9c9a7b4-0005"
+          ]
+        },
+        {
+          "custom_id": "p-zemmour-s10",
+          "candidate_id": "zemmour",
+          "target": "s10",
+          "chunk_ids": [
+            "08a8c9c9a7b4-0018",
+            "08a8c9c9a7b4-0020",
+            "08a8c9c9a7b4-0019",
+            "08a8c9c9a7b4-0008",
+            "08a8c9c9a7b4-0056",
+            "68c2185419da-0005"
+          ]
+        },
+        {
+          "custom_id": "p-zemmour-s11",
+          "candidate_id": "zemmour",
+          "target": "s11",
+          "chunk_ids": [
+            "08a8c9c9a7b4-0031",
+            "08a8c9c9a7b4-0032",
+            "08a8c9c9a7b4-0030",
+            "08a8c9c9a7b4-0001",
+            "08a8c9c9a7b4-0014",
+            "08a8c9c9a7b4-0013"
+          ]
+        },
+        {
+          "custom_id": "p-zemmour-s12",
+          "candidate_id": "zemmour",
+          "target": "s12",
+          "chunk_ids": [
+            "08a8c9c9a7b4-0006",
+            "08a8c9c9a7b4-0011",
+            "08a8c9c9a7b4-0056",
+            "68c2185419da-0004",
+            "08a8c9c9a7b4-0044",
+            "08a8c9c9a7b4-0005"
+          ]
+        },
+        {
+          "custom_id": "p-zemmour-s13",
+          "candidate_id": "zemmour",
+          "target": "s13",
+          "chunk_ids": [
+            "08a8c9c9a7b4-0057",
+            "08a8c9c9a7b4-0032",
+            "08a8c9c9a7b4-0005",
+            "08a8c9c9a7b4-0033",
+            "08a8c9c9a7b4-0001",
+            "08a8c9c9a7b4-0063"
+          ]
+        },
+        {
+          "custom_id": "p-zemmour-s14",
+          "candidate_id": "zemmour",
+          "target": "s14",
+          "chunk_ids": [
+            "08a8c9c9a7b4-0057",
+            "08a8c9c9a7b4-0026",
+            "08a8c9c9a7b4-0068",
+            "08a8c9c9a7b4-0058",
+            "68c2185419da-0002",
+            "08a8c9c9a7b4-0024"
+          ]
+        },
+        {
+          "custom_id": "p-zemmour-s15",
+          "candidate_id": "zemmour",
+          "target": "s15",
+          "chunk_ids": [
+            "08a8c9c9a7b4-0033",
+            "08a8c9c9a7b4-0034",
+            "08a8c9c9a7b4-0023",
+            "08a8c9c9a7b4-0024",
+            "08a8c9c9a7b4-0026",
+            "08a8c9c9a7b4-0036"
+          ]
+        },
+        {
+          "custom_id": "p-zemmour-s16",
+          "candidate_id": "zemmour",
+          "target": "s16",
+          "chunk_ids": [
+            "08a8c9c9a7b4-0014",
+            "08a8c9c9a7b4-0064",
+            "08a8c9c9a7b4-0017",
+            "08a8c9c9a7b4-0015",
+            "08a8c9c9a7b4-0037",
+            "08a8c9c9a7b4-0005"
+          ]
+        },
+        {
+          "custom_id": "p-zemmour-s17",
+          "candidate_id": "zemmour",
+          "target": "s17",
+          "chunk_ids": [
+            "08a8c9c9a7b4-0012",
+            "08a8c9c9a7b4-0013",
+            "08a8c9c9a7b4-0014",
+            "08a8c9c9a7b4-0025",
+            "08a8c9c9a7b4-0004",
+            "08a8c9c9a7b4-0059"
+          ]
+        },
+        {
+          "custom_id": "p-zemmour-s18",
+          "candidate_id": "zemmour",
+          "target": "s18",
+          "chunk_ids": [
+            "08a8c9c9a7b4-0012",
+            "08a8c9c9a7b4-0013",
+            "08a8c9c9a7b4-0014",
+            "08a8c9c9a7b4-0017",
+            "08a8c9c9a7b4-0036",
+            "08a8c9c9a7b4-0016"
+          ]
+        },
+        {
+          "custom_id": "p-zemmour-s19",
+          "candidate_id": "zemmour",
+          "target": "s19",
+          "chunk_ids": [
+            "08a8c9c9a7b4-0012",
+            "08a8c9c9a7b4-0033",
+            "08a8c9c9a7b4-0013",
+            "08a8c9c9a7b4-0014",
+            "08a8c9c9a7b4-0034",
+            "08a8c9c9a7b4-0025"
+          ]
+        },
+        {
+          "custom_id": "p-zemmour-s20",
+          "candidate_id": "zemmour",
+          "target": "s20",
+          "chunk_ids": [
+            "08a8c9c9a7b4-0012",
+            "08a8c9c9a7b4-0013",
+            "08a8c9c9a7b4-0014",
+            "08a8c9c9a7b4-0004",
+            "08a8c9c9a7b4-0003",
+            "08a8c9c9a7b4-0069"
+          ]
+        },
+        {
+          "custom_id": "p-zemmour-s21",
+          "candidate_id": "zemmour",
+          "target": "s21",
+          "chunk_ids": [
+            "08a8c9c9a7b4-0011",
+            "08a8c9c9a7b4-0010",
+            "68c2185419da-0004",
+            "08a8c9c9a7b4-0006",
+            "08a8c9c9a7b4-0005",
+            "08a8c9c9a7b4-0062"
+          ]
+        },
+        {
+          "custom_id": "p-zemmour-s22",
+          "candidate_id": "zemmour",
+          "target": "s22",
+          "chunk_ids": [
+            "08a8c9c9a7b4-0005",
+            "08a8c9c9a7b4-0004",
+            "08a8c9c9a7b4-0066",
+            "08a8c9c9a7b4-0049",
+            "08a8c9c9a7b4-0050",
+            "08a8c9c9a7b4-0072"
+          ]
+        },
+        {
+          "custom_id": "p-zemmour-s23",
+          "candidate_id": "zemmour",
+          "target": "s23",
+          "chunk_ids": [
+            "08a8c9c9a7b4-0006",
+            "08a8c9c9a7b4-0005",
+            "08a8c9c9a7b4-0043",
+            "08a8c9c9a7b4-0004",
+            "68c2185419da-0004",
+            "08a8c9c9a7b4-0011"
+          ]
+        },
+        {
+          "custom_id": "p-zemmour-s24",
+          "candidate_id": "zemmour",
+          "target": "s24",
+          "chunk_ids": [
+            "08a8c9c9a7b4-0029",
+            "08a8c9c9a7b4-0006",
+            "68c2185419da-0002",
+            "08a8c9c9a7b4-0001",
+            "08a8c9c9a7b4-0068",
+            "08a8c9c9a7b4-0007"
+          ]
+        },
+        {
+          "custom_id": "p-zemmour-s25",
+          "candidate_id": "zemmour",
+          "target": "s25",
+          "chunk_ids": [
+            "08a8c9c9a7b4-0033",
+            "08a8c9c9a7b4-0037",
+            "08a8c9c9a7b4-0017",
+            "08a8c9c9a7b4-0034",
+            "08a8c9c9a7b4-0005",
+            "08a8c9c9a7b4-0003"
+          ]
+        },
+        {
+          "custom_id": "p-zemmour-s26",
+          "candidate_id": "zemmour",
+          "target": "s26",
+          "chunk_ids": [
+            "08a8c9c9a7b4-0006",
+            "08a8c9c9a7b4-0012",
+            "08a8c9c9a7b4-0004",
+            "08a8c9c9a7b4-0011",
+            "08a8c9c9a7b4-0013",
+            "08a8c9c9a7b4-0040"
+          ]
+        },
+        {
+          "custom_id": "p-zemmour-s27",
+          "candidate_id": "zemmour",
+          "target": "s27",
+          "chunk_ids": [
+            "08a8c9c9a7b4-0004",
+            "08a8c9c9a7b4-0003",
+            "08a8c9c9a7b4-0005",
+            "08a8c9c9a7b4-0006",
+            "08a8c9c9a7b4-0068",
+            "08a8c9c9a7b4-0001"
+          ]
+        },
+        {
+          "custom_id": "p-zemmour-s28",
+          "candidate_id": "zemmour",
+          "target": "s28",
+          "chunk_ids": [
+            "08a8c9c9a7b4-0002",
+            "08a8c9c9a7b4-0004",
+            "08a8c9c9a7b4-0003",
+            "08a8c9c9a7b4-0062",
+            "08a8c9c9a7b4-0015",
+            "08a8c9c9a7b4-0014"
+          ]
+        },
+        {
+          "custom_id": "p-zemmour-s29",
+          "candidate_id": "zemmour",
+          "target": "s29",
+          "chunk_ids": [
+            "08a8c9c9a7b4-0014",
+            "68c2185419da-0003",
+            "08a8c9c9a7b4-0015",
+            "08a8c9c9a7b4-0003",
+            "08a8c9c9a7b4-0064",
+            "08a8c9c9a7b4-0017"
+          ]
+        },
+        {
+          "custom_id": "p-zemmour-s30",
+          "candidate_id": "zemmour",
+          "target": "s30",
+          "chunk_ids": [
+            "08a8c9c9a7b4-0004",
+            "08a8c9c9a7b4-0003",
+            "68c2185419da-0004",
+            "08a8c9c9a7b4-0005",
+            "08a8c9c9a7b4-0040",
+            "08a8c9c9a7b4-0009"
+          ]
+        }
+      ]
+    },
+    {
+      "batch_id": "msgbatch_01Qa2iCT5v6Tc4vmCDBBaPPt",
+      "kind": "measure",
+      "model": "claude-sonnet-5-5",
+      "prompt_version": 2,
+      "created_at": "2026-11-27T14:53:13.965044+00:00",
+      "collected": true,
+      "items": [
+        {
+          "custom_id": "m-arthaud-economie",
+          "candidate_id": "arthaud",
+          "target": "economie",
+          "chunk_ids": [
+            "5aba0abf8857-0004",
+            "3f15e2622823-0001",
+            "5aba0abf8857-0003",
+            "5aba0abf8857-0002",
+            "5aba0abf8857-0006",
+            "5aba0abf8857-0012",
+            "3f15e2622823-0000",
+            "5aba0abf8857-0007",
+            "5aba0abf8857-0005",
+            "5aba0abf8857-0014"
+          ]
+        },
+        {
+          "custom_id": "m-arthaud-social",
+          "candidate_id": "arthaud",
+          "target": "social",
+          "chunk_ids": [
+            "3f15e2622823-0005",
+            "5aba0abf8857-0000",
+            "3f15e2622823-0000",
+            "5aba0abf8857-0002",
+            "5aba0abf8857-0001",
+            "5aba0abf8857-0019",
+            "5aba0abf8857-0008",
+            "5aba0abf8857-0018",
+            "5aba0abf8857-0015"
+          ]
+        },
+        {
+          "custom_id": "m-arthaud-ecologie",
+          "candidate_id": "arthaud",
+          "target": "ecologie",
+          "chunk_ids": [
+            "5aba0abf8857-0013",
+            "5aba0abf8857-0014",
+            "3f15e2622823-0004",
+            "3f15e2622823-0005",
+            "3f15e2622823-0000",
+            "5aba0abf8857-0018",
+            "5aba0abf8857-0003",
+            "3f15e2622823-0001",
+            "5aba0abf8857-0010",
+            "5aba0abf8857-0007"
+          ]
+        },
+        {
+          "custom_id": "m-arthaud-europe_international",
+          "candidate_id": "arthaud",
+          "target": "europe_international",
+          "chunk_ids": [
+            "3f15e2622823-0004",
+            "3f15e2622823-0005",
+            "3f15e2622823-0003",
+            "5aba0abf8857-0014",
+            "5aba0abf8857-0010",
+            "5aba0abf8857-0013",
+            "3f15e2622823-0000",
+            "5aba0abf8857-0016",
+            "5aba0abf8857-0000",
+            "5aba0abf8857-0019"
+          ]
+        },
+        {
+          "custom_id": "m-arthaud-regalien_immigration",
+          "candidate_id": "arthaud",
+          "target": "regalien_immigration",
+          "chunk_ids": [
+            "5aba0abf8857-0009",
+            "3f15e2622823-0003",
+            "3f15e2622823-0005",
+            "3f15e2622823-0004",
+            "5aba0abf8857-0008",
+            "5aba0abf8857-0017",
+            "5aba0abf8857-0005",
+            "5aba0abf8857-0010",
+            "5aba0abf8857-0016",
+            "3f15e2622823-0001"
+          ]
+        },
+        {
+          "custom_id": "m-arthaud-institutions",
+          "candidate_id": "arthaud",
+          "target": "institutions",
+          "chunk_ids": [
+            "5aba0abf8857-0007",
+            "5aba0abf8857-0013",
+            "5aba0abf8857-0016",
+            "5aba0abf8857-0001",
+            "5aba0abf8857-0012",
+            "5aba0abf8857-0000",
+            "5aba0abf8857-0004",
+            "5aba0abf8857-0005",
+            "5aba0abf8857-0009",
+            "3f15e2622823-0002"
+          ]
+        },
+        {
+          "custom_id": "m-dupont-aignan-economie",
+          "candidate_id": "dupont-aignan",
+          "target": "economie",
+          "chunk_ids": [
+            "b29932e0541b-0042",
+            "b29932e0541b-0052",
+            "b29932e0541b-0046",
+            "b29932e0541b-0037",
+            "b29932e0541b-0038",
+            "b29932e0541b-0043",
+            "b29932e0541b-0039",
+            "b29932e0541b-0047",
+            "b29932e0541b-0051",
+            "b29932e0541b-0053"
+          ]
+        },
+        {
+          "custom_id": "m-dupont-aignan-social",
+          "candidate_id": "dupont-aignan",
+          "target": "social",
+          "chunk_ids": [
+            "b29932e0541b-0001",
+            "b29932e0541b-0076",
+            "b29932e0541b-0150",
+            "b29932e0541b-0216",
+            "b29932e0541b-0139",
+            "b29932e0541b-0070",
+            "b29932e0541b-0217",
+            "b29932e0541b-0101",
+            "b29932e0541b-0086",
+            "b29932e0541b-0100"
+          ]
+        },
+        {
+          "custom_id": "m-dupont-aignan-ecologie",
+          "candidate_id": "dupont-aignan",
+          "target": "ecologie",
+          "chunk_ids": [
+            "b29932e0541b-0207",
+            "b29932e0541b-0206",
+            "b29932e0541b-0200",
+            "b29932e0541b-0227",
+            "b29932e0541b-0137",
+            "b29932e0541b-0196",
+            "b29932e0541b-0194",
+            "b29932e0541b-0195",
+            "b29932e0541b-0203",
+            "b29932e0541b-0209"
+          ]
+        },
+        {
+          "custom_id": "m-dupont-aignan-europe_international",
+          "candidate_id": "dupont-aignan",
+          "target": "europe_international",
+          "chunk_ids": [
+            "b29932e0541b-0008",
+            "b29932e0541b-0013",
+            "b29932e0541b-0016",
+            "b29932e0541b-0229"
+          ]
+        },
+        {
+          "custom_id": "m-dupont-aignan-regalien_immigration",
+          "candidate_id": "dupont-aignan",
+          "target": "regalien_immigration",
+          "chunk_ids": [
+            "b29932e0541b-0189",
+            "b29932e0541b-0190",
+            "b29932e0541b-0179",
+            "b29932e0541b-0188",
+            "b29932e0541b-0160",
+            "b29932e0541b-0162",
+            "b29932e0541b-0178",
+            "b29932e0541b-0166",
+            "b29932e0541b-0187",
+            "b29932e0541b-0180"
+          ]
+        },
+        {
+          "custom_id": "m-dupont-aignan-institutions",
+          "candidate_id": "dupont-aignan",
+          "target": "institutions",
+          "chunk_ids": [
+            "b29932e0541b-0131",
+            "b29932e0541b-0004",
+            "b29932e0541b-0019",
+            "b29932e0541b-0130",
+            "b29932e0541b-0003",
+            "b29932e0541b-0136",
+            "b29932e0541b-0129",
+            "b29932e0541b-0238",
+            "b29932e0541b-0000",
+            "b29932e0541b-0002"
+          ]
+        },
+        {
+          "custom_id": "m-hidalgo-economie",
+          "candidate_id": "hidalgo",
+          "target": "economie",
+          "chunk_ids": [
+            "8a78650816be-0005",
+            "8a78650816be-0008",
+            "8a78650816be-0007",
+            "8a78650816be-0042",
+            "8a78650816be-0038",
+            "8a78650816be-0037",
+            "8a78650816be-0041",
+            "8a78650816be-0011",
+            "8a78650816be-0047",
+            "8a78650816be-0006"
+          ]
+        },
+        {
+          "custom_id": "m-hidalgo-social",
+          "candidate_id": "hidalgo",
+          "target": "social",
+          "chunk_ids": [
+            "8a78650816be-0026",
+            "ffeffbfe25e9-0003",
+            "8a78650816be-0027",
+            "8a78650816be-0029",
+            "8a78650816be-0004",
+            "8a78650816be-0031",
+            "8a78650816be-0028",
+            "ffeffbfe25e9-0002",
+            "8a78650816be-0007",
+            "ffeffbfe25e9-0004"
+          ]
+        },
+        {
+          "custom_id": "m-hidalgo-ecologie",
+          "candidate_id": "hidalgo",
+          "target": "ecologie",
+          "chunk_ids": [
+            "8a78650816be-0010",
+            "8a78650816be-0015",
+            "8a78650816be-0011",
+            "8a78650816be-0014",
+            "8a78650816be-0045",
+            "8a78650816be-0016",
+            "8a78650816be-0012",
+            "8a78650816be-0039",
+            "8a78650816be-0013"
+          ]
+        },
+        {
+          "custom_id": "m-hidalgo-europe_international",
+          "candidate_id": "hidalgo",
+          "target": "europe_international",
+          "chunk_ids": [
+            "8a78650816be-0042",
+            "8a78650816be-0040",
+            "8a78650816be-0043",
+            "8a78650816be-0006",
+            "8a78650816be-0045",
+            "8a78650816be-0044",
+            "8a78650816be-0041",
+            "ffeffbfe25e9-0000",
+            "8a78650816be-0005",
+            "ffeffbfe25e9-0003"
+          ]
+        },
+        {
+          "custom_id": "m-hidalgo-regalien_immigration",
+          "candidate_id": "hidalgo",
+          "target": "regalien_immigration",
+          "chunk_ids": [
+            "8a78650816be-0044",
+            "8a78650816be-0033",
+            "8a78650816be-0034",
+            "8a78650816be-0032",
+            "8a78650816be-0043",
+            "8a78650816be-0022",
+            "8a78650816be-0036"
+          ]
+        },
+        {
+          "custom_id": "m-hidalgo-institutions",
+          "candidate_id": "hidalgo",
+          "target": "institutions",
+          "chunk_ids": [
+            "8a78650816be-0017",
+            "8a78650816be-0019",
+            "8a78650816be-0018",
+            "ffeffbfe25e9-0001",
+            "8a78650816be-0020",
+            "8a78650816be-0000"
+          ]
+        },
+        {
+          "custom_id": "m-jadot-economie",
+          "candidate_id": "jadot",
+          "target": "economie",
+          "chunk_ids": [
+            "dd71c05a16f2-0041",
+            "dd71c05a16f2-0034",
+            "dd71c05a16f2-0042",
+            "dd71c05a16f2-0039",
+            "dd71c05a16f2-0043"
+          ]
+        },
+        {
+          "custom_id": "m-jadot-social",
+          "candidate_id": "jadot",
+          "target": "social",
+          "chunk_ids": [
+            "dd71c05a16f2-0050",
+            "dd71c05a16f2-0052",
+            "dd71c05a16f2-0094",
+            "dd71c05a16f2-0047",
+            "dd71c05a16f2-0044",
+            "dd71c05a16f2-0049",
+            "dd71c05a16f2-0053",
+            "dd71c05a16f2-0008",
+            "5d01b64c995b-0001",
+            "dd71c05a16f2-0084"
+          ]
+        },
+        {
+          "custom_id": "m-jadot-ecologie",
+          "candidate_id": "jadot",
+          "target": "ecologie",
+          "chunk_ids": [
+            "dd71c05a16f2-0002",
+            "dd71c05a16f2-0023",
+            "dd71c05a16f2-0015",
+            "5d01b64c995b-0000",
+            "dd71c05a16f2-0028",
+            "dd71c05a16f2-0020",
+            "dd71c05a16f2-0093",
+            "dd71c05a16f2-0010",
+            "dd71c05a16f2-0005",
+            "dd71c05a16f2-0051"
+          ]
+        },
+        {
+          "custom_id": "m-jadot-europe_international",
+          "candidate_id": "jadot",
+          "target": "europe_international",
+          "chunk_ids": [
+            "dd71c05a16f2-0096",
+            "dd71c05a16f2-0103",
+            "dd71c05a16f2-0092",
+            "dd71c05a16f2-0105"
+          ]
+        },
+        {
+          "custom_id": "m-jadot-regalien_immigration",
+          "candidate_id": "jadot",
+          "target": "regalien_immigration",
+          "chunk_ids": [
+            "dd71c05a16f2-0074",
+            "dd71c05a16f2-0066",
+            "dd71c05a16f2-0072",
+            "dd71c05a16f2-0069",
+            "dd71c05a16f2-0073",
+            "dd71c05a16f2-0065",
+            "dd71c05a16f2-0079",
+            "dd71c05a16f2-0067"
+          ]
+        },
+        {
+          "custom_id": "m-jadot-institutions",
+          "candidate_id": "jadot",
+          "target": "institutions",
+          "chunk_ids": [
+            "dd71c05a16f2-0082",
+            "dd71c05a16f2-0060",
+            "dd71c05a16f2-0018",
+            "dd71c05a16f2-0071",
+            "dd71c05a16f2-0025",
+            "dd71c05a16f2-0088"
+          ]
+        },
+        {
+          "custom_id": "m-lassalle-economie",
+          "candidate_id": "lassalle",
+          "target": "economie",
+          "chunk_ids": [
+            "4df5adab7e61-0007",
+            "4df5adab7e61-0005",
+            "4df5adab7e61-0006",
+            "4df5adab7e61-0004",
+            "4df5adab7e61-0011",
+            "4df5adab7e61-0008",
+            "4df5adab7e61-0002",
+            "47412fb981ef-0001",
+            "4df5adab7e61-0014",
+            "4df5adab7e61-0003"
+          ]
+        },
+        {
+          "custom_id": "m-lassalle-social",
+          "candidate_id": "lassalle",
+          "target": "social",
+          "chunk_ids": [
+            "4df5adab7e61-0011",
+            "4df5adab7e61-0005",
+            "4df5adab7e61-0012",
+            "47412fb981ef-0002",
+            "4df5adab7e61-0010",
+            "4df5adab7e61-0004",
+            "47412fb981ef-0003",
+            "47412fb981ef-0001",
+            "4df5adab7e61-0006"
+          ]
+        },
+        {
+          "custom_id": "m-lassalle-ecologie",
+          "candidate_id": "lassalle",
+          "target": "ecologie",
+          "chunk_ids": [
+            "4df5adab7e61-0003",
+            "47412fb981ef-0002",
+            "4df5adab7e61-0010",
+            "4df5adab7e61-0004",
+            "4df5adab7e61-0002",
+            "4df5adab7e61-0016",
+            "4df5adab7e61-0007",
+            "4df5adab7e61-0015",
+            "47412fb981ef-0001",
+            "4df5adab7e61-0014"
+          ]
+        },
+        {
+          "custom_id": "m-lassalle-europe_international",
+          "candidate_id": "lassalle",
+          "target": "europe_international",
+          "chunk_ids": [
+            "4df5adab7e61-0014",
+            "47412fb981ef-0000",
+            "4df5adab7e61-0015",
+            "4df5adab7e61-0003",
+            "4df5adab7e61-0006",
+            "4df5adab7e61-0004",
+            "4df5adab7e61-0009",
+            "4df5adab7e61-0013",
+            "4df5adab7e61-0016",
+            "47412fb981ef-0002"
+          ]
+        },
+        {
+          "custom_id": "m-lassalle-regalien_immigration",
+          "candidate_id": "lassalle",
+          "target": "regalien_immigration",
+          "chunk_ids": [
+            "4df5adab7e61-0014",
+            "4df5adab7e61-0002",
+            "47412fb981ef-0000",
+            "4df5adab7e61-0012",
+            "4df5adab7e61-0016",
+            "4df5adab7e61-0005",
+            "4df5adab7e61-0009",
+            "4df5adab7e61-0013",
+            "47412fb981ef-0001",
+            "4df5adab7e61-0010"
+          ]
+        },
+        {
+          "custom_id": "m-lassalle-institutions",
+          "candidate_id": "lassalle",
+          "target": "institutions",
+          "chunk_ids": [
+            "4df5adab7e61-0002",
+            "4df5adab7e61-0001",
+            "4df5adab7e61-0003",
+            "4df5adab7e61-0015",
+            "4df5adab7e61-0000",
+            "47412fb981ef-0003",
+            "4df5adab7e61-0016",
+            "47412fb981ef-0001",
+            "47412fb981ef-0000",
+            "4df5adab7e61-0007"
+          ]
+        },
+        {
+          "custom_id": "m-le-pen-economie",
+          "candidate_id": "le-pen",
+          "target": "economie",
+          "chunk_ids": [
+            "2228cf277a7b-0019",
+            "2228cf277a7b-0021",
+            "68a296ebf9a7-0001",
+            "2228cf277a7b-0022",
+            "2228cf277a7b-0023",
+            "68a296ebf9a7-0002",
+            "2228cf277a7b-0018",
+            "2228cf277a7b-0020",
+            "2228cf277a7b-0013",
+            "2228cf277a7b-0027"
+          ]
+        },
+        {
+          "custom_id": "m-le-pen-social",
+          "candidate_id": "le-pen",
+          "target": "social",
+          "chunk_ids": [
+            "68a296ebf9a7-0002",
+            "2228cf277a7b-0016",
+            "2228cf277a7b-0014",
+            "2228cf277a7b-0015",
+            "2228cf277a7b-0030",
+            "2228cf277a7b-0001",
+            "2228cf277a7b-0023",
+            "2228cf277a7b-0029",
+            "2228cf277a7b-0031",
+            "2228cf277a7b-0024"
+          ]
+        },
+        {
+          "custom_id": "m-le-pen-ecologie",
+          "candidate_id": "le-pen",
+          "target": "ecologie",
+          "chunk_ids": [
+            "2228cf277a7b-0026",
+            "2228cf277a7b-0025",
+            "2228cf277a7b-0028",
+            "68a296ebf9a7-0002",
+            "2228cf277a7b-0027",
+            "2228cf277a7b-0003",
+            "2228cf277a7b-0001",
+            "2228cf277a7b-0000",
+            "2228cf277a7b-0037",
+            "2228cf277a7b-0034"
+          ]
+        },
+        {
+          "custom_id": "m-le-pen-europe_international",
+          "candidate_id": "le-pen",
+          "target": "europe_international",
+          "chunk_ids": [
+            "2228cf277a7b-0004",
+            "2228cf277a7b-0017",
+            "2228cf277a7b-0005",
+            "68a296ebf9a7-0002",
+            "2228cf277a7b-0019",
+            "2228cf277a7b-0027",
+            "2228cf277a7b-0018",
+            "2228cf277a7b-0000",
+            "68a296ebf9a7-0001",
+            "2228cf277a7b-0006"
+          ]
+        },
+        {
+          "custom_id": "m-le-pen-regalien_immigration",
+          "candidate_id": "le-pen",
+          "target": "regalien_immigration",
+          "chunk_ids": [
+            "2228cf277a7b-0008",
+            "2228cf277a7b-0011",
+            "2228cf277a7b-0007",
+            "2228cf277a7b-0009",
+            "2228cf277a7b-0010"
+          ]
+        },
+        {
+          "custom_id": "m-le-pen-institutions",
+          "candidate_id": "le-pen",
+          "target": "institutions",
+          "chunk_ids": [
+            "2228cf277a7b-0018",
+            "2228cf277a7b-0019",
+            "2228cf277a7b-0006",
+            "68a296ebf9a7-0000",
+            "2228cf277a7b-0013",
+            "68a296ebf9a7-0002",
+            "2228cf277a7b-0011",
+            "2228cf277a7b-0000",
+            "2228cf277a7b-0016",
+            "2228cf277a7b-0009"
+          ]
+        },
+        {
+          "custom_id": "m-macron-economie",
+          "candidate_id": "macron",
+          "target": "economie",
+          "chunk_ids": [
+            "e9a608824a05-0014",
+            "e9a608824a05-0013",
+            "e9a608824a05-0004",
+            "e9a608824a05-0010",
+            "67f312ed6f99-0001",
+            "e9a608824a05-0011",
+            "67f312ed6f99-0002",
+            "67f312ed6f99-0003",
+            "67f312ed6f99-0000",
+            "67f312ed6f99-0004"
+          ]
+        },
+        {
+          "custom_id": "m-macron-social",
+          "candidate_id": "macron",
+          "target": "social",
+          "chunk_ids": [
+            "e9a608824a05-0009",
+            "67f312ed6f99-0003",
+            "e9a608824a05-0008",
+            "e9a608824a05-0006",
+            "67f312ed6f99-0000",
+            "e9a608824a05-0003",
+            "e9a608824a05-0007",
+            "e9a608824a05-0010",
+            "67f312ed6f99-0002",
+            "e9a608824a05-0011"
+          ]
+        },
+        {
+          "custom_id": "m-macron-ecologie",
+          "candidate_id": "macron",
+          "target": "ecologie",
+          "chunk_ids": [
+            "e9a608824a05-0012",
+            "e9a608824a05-0011",
+            "e9a608824a05-0001",
+            "e9a608824a05-0000",
+            "e9a608824a05-0004",
+            "67f312ed6f99-0001",
+            "67f312ed6f99-0004",
+            "67f312ed6f99-0000",
+            "e9a608824a05-0013",
+            "e9a608824a05-0008"
+          ]
+        },
+        {
+          "custom_id": "m-macron-europe_international",
+          "candidate_id": "macron",
+          "target": "europe_international",
+          "chunk_ids": [
+            "e9a608824a05-0000",
+            "e9a608824a05-0018",
+            "e9a608824a05-0001",
+            "67f312ed6f99-0001",
+            "e9a608824a05-0017",
+            "67f312ed6f99-0004",
+            "e9a608824a05-0006",
+            "e9a608824a05-0002",
+            "e9a608824a05-0003",
+            "e9a608824a05-0013"
+          ]
+        },
+        {
+          "custom_id": "m-macron-regalien_immigration",
+          "candidate_id": "macron",
+          "target": "regalien_immigration",
+          "chunk_ids": [
+            "67f312ed6f99-0004",
+            "e9a608824a05-0016",
+            "e9a608824a05-0017",
+            "e9a608824a05-0001",
+            "e9a608824a05-0015",
+            "e9a608824a05-0014",
+            "67f312ed6f99-0001",
+            "e9a608824a05-0000",
+            "67f312ed6f99-0002",
+            "e9a608824a05-0003"
+          ]
+        },
+        {
+          "custom_id": "m-macron-institutions",
+          "candidate_id": "macron",
+          "target": "institutions",
+          "chunk_ids": [
+            "67f312ed6f99-0001",
+            "e9a608824a05-0015",
+            "e9a608824a05-0001",
+            "67f312ed6f99-0004",
+            "e9a608824a05-0002",
+            "67f312ed6f99-0000",
+            "e9a608824a05-0003",
+            "e9a608824a05-0016",
+            "67f312ed6f99-0002",
+            "e9a608824a05-0008"
+          ]
+        },
+        {
+          "custom_id": "m-poutou-economie",
+          "candidate_id": "poutou",
+          "target": "economie",
+          "chunk_ids": [
+            "feb3406f22b1-0010",
+            "feb3406f22b1-0024",
+            "feb3406f22b1-0012",
+            "feb3406f22b1-0004",
+            "feb3406f22b1-0011",
+            "feb3406f22b1-0025",
+            "e8400f091f79-0001",
+            "feb3406f22b1-0009",
+            "feb3406f22b1-0017",
+            "feb3406f22b1-0000"
+          ]
+        },
+        {
+          "custom_id": "m-poutou-social",
+          "candidate_id": "poutou",
+          "target": "social",
+          "chunk_ids": [
+            "feb3406f22b1-0008",
+            "feb3406f22b1-0012",
+            "feb3406f22b1-0007",
+            "feb3406f22b1-0011",
+            "feb3406f22b1-0009",
+            "feb3406f22b1-0013",
+            "feb3406f22b1-0016",
+            "feb3406f22b1-0015"
+          ]
+        },
+        {
+          "custom_id": "m-poutou-ecologie",
+          "candidate_id": "poutou",
+          "target": "ecologie",
+          "chunk_ids": [
+            "feb3406f22b1-0005",
+            "feb3406f22b1-0006",
+            "e8400f091f79-0001",
+            "feb3406f22b1-0000",
+            "feb3406f22b1-0001",
+            "feb3406f22b1-0012",
+            "feb3406f22b1-0007",
+            "feb3406f22b1-0004",
+            "feb3406f22b1-0023",
+            "feb3406f22b1-0024"
+          ]
+        },
+        {
+          "custom_id": "m-poutou-europe_international",
+          "candidate_id": "poutou",
+          "target": "europe_international",
+          "chunk_ids": [
+            "feb3406f22b1-0023",
+            "e8400f091f79-0003",
+            "feb3406f22b1-0022",
+            "feb3406f22b1-0021",
+            "feb3406f22b1-0006",
+            "e8400f091f79-0001",
+            "feb3406f22b1-0024",
+            "feb3406f22b1-0005",
+            "feb3406f22b1-0000",
+            "e8400f091f79-0005"
+          ]
+        },
+        {
+          "custom_id": "m-poutou-regalien_immigration",
+          "candidate_id": "poutou",
+          "target": "regalien_immigration",
+          "chunk_ids": [
+            "feb3406f22b1-0020",
+            "feb3406f22b1-0018",
+            "feb3406f22b1-0017",
+            "e8400f091f79-0003",
+            "feb3406f22b1-0022",
+            "feb3406f22b1-0019",
+            "feb3406f22b1-0021",
+            "e8400f091f79-0002",
+            "feb3406f22b1-0028",
+            "feb3406f22b1-0005"
+          ]
+        },
+        {
+          "custom_id": "m-poutou-institutions",
+          "candidate_id": "poutou",
+          "target": "institutions",
+          "chunk_ids": [
+            "feb3406f22b1-0017",
+            "e8400f091f79-0003",
+            "e8400f091f79-0001",
+            "feb3406f22b1-0000",
+            "feb3406f22b1-0012",
+            "feb3406f22b1-0019",
+            "feb3406f22b1-0027",
+            "e8400f091f79-0005",
+            "feb3406f22b1-0029",
+            "e8400f091f79-0002"
+          ]
+        },
+        {
+          "custom_id": "m-roussel-economie",
+          "candidate_id": "roussel",
+          "target": "economie",
+          "chunk_ids": [
+            "d0836d522538-0059",
+            "d0836d522538-0064",
+            "d0836d522538-0057",
+            "d0836d522538-0063",
+            "d0836d522538-0011",
+            "d0836d522538-0058",
+            "d0836d522538-0061",
+            "d0836d522538-0014",
+            "d0836d522538-0060",
+            "d0836d522538-0062"
+          ]
+        },
+        {
+          "custom_id": "m-roussel-social",
+          "candidate_id": "roussel",
+          "target": "social",
+          "chunk_ids": [
+            "d0836d522538-0015",
+            "d0836d522538-0017",
+            "d0836d522538-0016",
+            "d0836d522538-0053",
+            "d0836d522538-0026",
+            "d0836d522538-0019",
+            "d0836d522538-0054",
+            "d0836d522538-0052",
+            "d0836d522538-0023",
+            "d0836d522538-0051"
+          ]
+        },
+        {
+          "custom_id": "m-roussel-ecologie",
+          "candidate_id": "roussel",
+          "target": "ecologie",
+          "chunk_ids": [
+            "d0836d522538-0033",
+            "d0836d522538-0034",
+            "d0836d522538-0032",
+            "d0836d522538-0042"
+          ]
+        },
+        {
+          "custom_id": "m-roussel-europe_international",
+          "candidate_id": "roussel",
+          "target": "europe_international",
+          "chunk_ids": [
+            "d0836d522538-0083",
+            "d0836d522538-0080",
+            "d0836d522538-0082",
+            "d0836d522538-0081",
+            "d0836d522538-0077",
+            "d0836d522538-0079",
+            "d0836d522538-0040",
+            "d0836d522538-0078",
+            "d0836d522538-0034",
+            "c37cd69cef21-0001"
+          ]
+        },
+        {
+          "custom_id": "m-roussel-regalien_immigration",
+          "candidate_id": "roussel",
+          "target": "regalien_immigration",
+          "chunk_ids": [
+            "d0836d522538-0083",
+            "d0836d522538-0071",
+            "d0836d522538-0047",
+            "c37cd69cef21-0001",
+            "d0836d522538-0051",
+            "d0836d522538-0073",
+            "d0836d522538-0081",
+            "d0836d522538-0072",
+            "d0836d522538-0080",
+            "d0836d522538-0015"
+          ]
+        },
+        {
+          "custom_id": "m-roussel-institutions",
+          "candidate_id": "roussel",
+          "target": "institutions",
+          "chunk_ids": [
+            "d0836d522538-0068",
+            "d0836d522538-0075",
+            "d0836d522538-0070",
+            "d0836d522538-0069",
+            "d0836d522538-0073",
+            "d0836d522538-0067",
+            "d0836d522538-0066",
+            "d0836d522538-0076",
+            "c37cd69cef21-0003",
+            "d0836d522538-0005"
+          ]
+        },
+        {
+          "custom_id": "m-zemmour-economie",
+          "candidate_id": "zemmour",
+          "target": "economie",
+          "chunk_ids": [
+            "08a8c9c9a7b4-0026",
+            "08a8c9c9a7b4-0023",
+            "08a8c9c9a7b4-0024",
+            "08a8c9c9a7b4-0069",
+            "08a8c9c9a7b4-0038",
+            "08a8c9c9a7b4-0070",
+            "08a8c9c9a7b4-0071"
+          ]
+        },
+        {
+          "custom_id": "m-zemmour-social",
+          "candidate_id": "zemmour",
+          "target": "social",
+          "chunk_ids": [
+            "08a8c9c9a7b4-0043",
+            "08a8c9c9a7b4-0051",
+            "08a8c9c9a7b4-0048",
+            "08a8c9c9a7b4-0074",
+            "08a8c9c9a7b4-0049",
+            "08a8c9c9a7b4-0050",
+            "08a8c9c9a7b4-0053",
+            "08a8c9c9a7b4-0027",
+            "08a8c9c9a7b4-0042",
+            "08a8c9c9a7b4-0045"
+          ]
+        },
+        {
+          "custom_id": "m-zemmour-ecologie",
+          "candidate_id": "zemmour",
+          "target": "ecologie",
+          "chunk_ids": [
+            "08a8c9c9a7b4-0031",
+            "08a8c9c9a7b4-0057",
+            "08a8c9c9a7b4-0032",
+            "08a8c9c9a7b4-0058",
+            "08a8c9c9a7b4-0033"
+          ]
+        },
+        {
+          "custom_id": "m-zemmour-europe_international",
+          "candidate_id": "zemmour",
+          "target": "europe_international",
+          "chunk_ids": [
+            "08a8c9c9a7b4-0014",
+            "08a8c9c9a7b4-0012",
+            "08a8c9c9a7b4-0013",
+            "08a8c9c9a7b4-0036",
+            "08a8c9c9a7b4-0015",
+            "08a8c9c9a7b4-0016",
+            "08a8c9c9a7b4-0017",
+            "08a8c9c9a7b4-0002",
+            "08a8c9c9a7b4-0065",
+            "08a8c9c9a7b4-0032"
+          ]
+        },
+        {
+          "custom_id": "m-zemmour-regalien_immigration",
+          "candidate_id": "zemmour",
+          "target": "regalien_immigration",
+          "chunk_ids": [
+            "08a8c9c9a7b4-0011",
+            "08a8c9c9a7b4-0010",
+            "08a8c9c9a7b4-0004",
+            "08a8c9c9a7b4-0005",
+            "08a8c9c9a7b4-0006",
+            "08a8c9c9a7b4-0009",
+            "68c2185419da-0002",
+            "08a8c9c9a7b4-0015",
+            "08a8c9c9a7b4-0008",
+            "08a8c9c9a7b4-0063"
+          ]
+        },
+        {
+          "custom_id": "m-zemmour-institutions",
+          "candidate_id": "zemmour",
+          "target": "institutions",
+          "chunk_ids": [
+            "08a8c9c9a7b4-0040",
+            "08a8c9c9a7b4-0039",
+            "08a8c9c9a7b4-0064",
+            "08a8c9c9a7b4-0003",
+            "08a8c9c9a7b4-0062",
+            "08a8c9c9a7b4-0037"
+          ]
+        }
+      ]
+    }
+  ]
+}

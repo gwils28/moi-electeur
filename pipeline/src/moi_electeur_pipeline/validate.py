@@ -36,9 +36,13 @@ PREPARATION_FILES = ("positions.json", "measures.json")
 
 
 def compass_ready(election_dir: Path) -> bool:
-    """Vrai si la boussole peut être publiée (positions présentes), faux en « corpus seul » ou
-    en préparation."""
-    return (election_dir / "positions.json").is_file()
+    """Vrai si la boussole peut être publiée : positions présentes et toutes revues (D33). Faux
+    en « corpus seul », en préparation ou tant qu'une proposition attend sa revue (M3b, M3c)."""
+    path = election_dir / "positions.json"
+    if not path.is_file():
+        return False
+    positions = json.loads(path.read_text(encoding="utf-8"))["positions"]
+    return all(p["review"]["status"] != "pending" for p in positions)
 
 
 @dataclass(frozen=True)
