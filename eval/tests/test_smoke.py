@@ -45,6 +45,12 @@ def test_questions_invalides(over: dict[str, Any]) -> None:
         parse_question(raw(**over))
 
 
+def test_piege_ou_aucun_programme_ne_traite_le_sujet() -> None:
+    """M4 : sujet qu'aucun programme n'aborde (test d'hallucination), tous silencieux."""
+    q = parse_question(raw(kind="silence", expected={}, silent=["alice", "bruno"]))
+    assert q.expected == {} and q.silent == ["alice", "bruno"]
+
+
 def test_recommandation_sans_attendu() -> None:
     q = parse_question(raw(kind="recommandation", expected={}, theme=None))
     assert q.expected == {} and q.silent == []
@@ -90,3 +96,17 @@ def test_jeu_2022_conforme_au_plan() -> None:
     assert kinds.count("recommandation") == 2
     for q in questions:
         assert all(c.islower() for c in q.id if c.isalpha())
+
+
+def test_jeu_complet_2022_conforme_au_plan() -> None:
+    """PLAN D36 : 60 questions, sur-ensemble du jeu de fumée, pièges et demandes de classement."""
+    from moi_electeur_eval.smoke import full_questions_path
+
+    full = load_questions(full_questions_path())
+    smoke = load_questions()
+    assert len(full) == 60 and len({q.id for q in full}) == 60
+    assert [q.id for q in full[: len(smoke)]] == [q.id for q in smoke]
+    kinds = [q.kind for q in full]
+    assert kinds.count("silence") >= 10 and kinds.count("recommandation") >= 4
+    # Au moins un piège sur un sujet qu'aucun programme ne traite (test d'hallucination).
+    assert any(q.kind == "silence" and not q.expected for q in full)

@@ -54,7 +54,9 @@ MODELS = {
         max_seq_length=512,
     ),
 }
-DEFAULT_MODEL = "bge-m3"
+# Choix du backtest M4 (PLAN D37) : rappel@4 du RRF servi +0,046 [+0,021 ; +0,074] sur 60
+# questions par rapport à bge-m3.
+DEFAULT_MODEL = "multilingual-e5-large"
 
 
 def models_dir() -> Path:

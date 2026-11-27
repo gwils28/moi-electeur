@@ -312,11 +312,32 @@ Plan initial (annoté « ok ») : 1. affirmations 2022 proposées par Claude, va
 
 ## 6. M4 : Backtest 2022
 
-Jeu d'environ 60 questions annotées (dont pièges sur silences), codage manuel de référence d'un échantillon de positions (par toi), comparaison CHES (lrecon / galtan), neutralité par permutation, profils synthétiques. Comparaisons : 2 modèles d'embedding, Haiku vs Sonnet. Rapport `eval/reports/<date>.md` reproductible.
+Objectif (SPEC § 9) : mesurer la qualité de la recherche, du chat et du positionnement sur 2022, puis trancher le modèle d'embedding et le modèle du chat par défaut. Rapport reproductible `eval/reports/<date>.md`.
 
-Coût estimé : **≈ 10-30 $ par run complet** ; je prévois 2 à 3 runs.
+Plan initial (annoté « ok ») : jeu d'environ 60 questions annotées (dont pièges sur silences), codage manuel de référence d'un échantillon de positions (par toi), comparaison CHES (lrecon / galtan), neutralité par permutation, profils synthétiques ; comparaisons : 2 modèles d'embedding, Haiku contre Sonnet. Coût estimé : 10 à 30 $ par run complet.
 
-> 📝 Annotation : ok
+### 6.0 Décisions (M4, détaillées par l'agent en autonomie déléguée le 2026-11-27)
+
+| # | Sujet | Décision |
+|---|---|---|
+| D36 | Jeu d'évaluation | `eval/smoke/questions-2022.jsonl` étendu à **60 questions** : les 15 du jeu de fumée plus 45 nouvelles (thèmes, pièges sur silences dont des sujets qu'aucun programme ne traite, demandes de classement ou de recommandation). Même format et même méthode d'annotation (lecture du corpus par mots-clés et synonymes, biais connu en faveur du plein texte) ; annotation par des agents en parallèle, contrôlée par `check-smoke` |
+| D37 | Embedding | rappel@4 et succès@4 du RRF servi sur les 60 questions, bge-m3 contre multilingual-e5-large, intervalle bootstrap de l'écart (graine 7) ; e5 devient le modèle par défaut si la borne basse de l'écart est positive, sinon bge-m3 reste (aucun réindexage inutile) |
+| D38 | Banc d'essai du chat | script TS `apps/web/scripts/eval-ask.ts` qui appelle `ask()` (même code que `/api/ask`) sans limiteur ni cache, plafond de dépense propre (`--max-usd`), sur les 60 questions en mode rapide (Haiku 5.5) et approfondi (Sonnet 5.5) ; événements SSE enregistrés dans `eval/runs/<date>/` (versionnés) |
+| D39 | Métriques sans LLM | citations vérifiées et attribuées au bon candidat ; silences corrects (candidat `silent` : phrase de silence) et faux silences (candidat `expected` : phrase de silence) ; refus d'orienter le vote ; drapeau de neutralité ; longueur et nombre de citations par section |
+| D40 | Juge LLM | Sonnet 5.5 en Batch API juge, section par section, si chaque affirmation est appuyée par les extraits cités (sortie structurée) ; taux d'affirmations non appuyées par modèle ; 20 sections tirées au sort à vérifier à la main |
+| D41 | Neutralité par permutation | 12 questions, 3 tirages d'ordre des candidats chacun (mode rapide) ; écart de longueur et de nombre de citations par candidat entre tirages, et entre candidats |
+| D42 | Positionnement | (a) **codage de référence** : 60 positions tirées au sort, stratifiées par candidat, feuille `eval/reference/codage-2022.csv` sans la valeur proposée, à remplir par le mainteneur ; accord exact, à ±1 et kappa pondéré calculés quand elle est remplie ; (b) **CHES** : comparaison de Spearman par axe dès que le fichier CHES 2019 (téléchargement soumis à l'accord du mainteneur) est déposé dans `eval/reference/` |
+| D43 | Profils synthétiques | 200 répondants par candidat (positions du candidat, bruit : 30 % de réponses décalées d'un cran, 20 % « sans avis »), graine fixe ; part des profils dont le candidat d'origine est 1er et dans les 3 premiers |
+| D44 | Plafond | 25 $ pour l'ensemble des runs M4 (chat, juge, permutations), vérifié par les scripts |
+| D45 | Sous-lots | M4a jeu de questions et embedding ; M4b chat, juge et neutralité ; M4c positionnement, profils synthétiques et rapport |
+
+> 📝 Annotation : autonomie déléguée par le mainteneur (2026-11-27) ; plan suivi par l'agent, écarts consignés dans `docs/notes-implementation.md`.
+
+### 6.1 Critères d'acceptation M4
+- [x] 60 questions annotées, `check-smoke` vert, rappel@4 des deux modèles d'embedding avec intervalle ; modèle d'embedding tranché (e5, D37).
+- [ ] Chat évalué en mode rapide et approfondi (citations, silences, refus, juge LLM, permutations) ; modèle par défaut tranché ; coût relevé, sous 25 $.
+- [ ] Feuille de codage de référence prête ; profils synthétiques mesurés ; CHES prêt à brancher.
+- [ ] Rapport `eval/reports/<date>.md` reproductible par une commande ; CI verte.
 
 ## 7. M5 : Accessibilité, méthodologie, déploiement
 

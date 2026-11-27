@@ -25,7 +25,7 @@ Boussole électorale + explorateur RAG des programmes officiels. Spécification 
 - Tests Python : `uv run --project pipeline pytest -q pipeline` (idem `services/rag`, `eval`, `notebooks`)
 - Lint Python : `uv run --project pipeline ruff check . && uv run --project pipeline ruff format --check . && uv run --project pipeline mypy pipeline/src services/rag/src eval/src`
 - Corpus (E = `data/elections/<id>`) : `uv run pipeline add-source E <candidat> <url> --title …` puis `fetch E`, `extract E`, `chunk E` (fichiers dans `E/sources/`, ignoré par git)
-- Index RAG (base de `DATABASE_URL`, défaut : Postgres du compose) : `uv run pipeline db-migrate` puis `uv run pipeline index E --model bge-m3|multilingual-e5-large` (poids dans `models/`, ignoré par git) ; tests `db` : `docker compose up -d db` avant pytest
+- Index RAG (base de `DATABASE_URL`, défaut : Postgres du compose) : `uv run pipeline db-migrate` puis `uv run pipeline index E --model multilingual-e5-large|bge-m3` (défaut e5, PLAN D37) (poids dans `models/`, ignoré par git) ; tests `db` : `docker compose up -d db` avant pytest
 - Données : `uv run pipeline validate` ; démo : `uv run pipeline make-demo [--check]` ; JSON du front : `uv run pipeline build` (lancé par `pnpm dev`/`pnpm build` du web)
 - Fixture croisée Python/TS du moteur : `uv run pipeline engine-fixtures [--check]`
 - Types depuis `schemas/` : `pnpm gen:types` (TS) et `uv run pipeline gen-models [--check]` (Pydantic)
