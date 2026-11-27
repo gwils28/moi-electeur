@@ -1,0 +1,14 @@
+{
+  "description": "Parti de rattachement de chaque candidat 2022 dans la Chapel Hill Expert Survey (abréviations CHES pour la France). Candidats sans parti couvert par la CHES : absents (comparaison sur les autres). À vérifier contre le fichier CHES téléchargé.",
+  "mapping": {
+    "melenchon": "LFI",
+    "roussel": "PCF",
+    "hidalgo": "PS",
+    "jadot": "EELV",
+    "macron": "LREM",
+    "pecresse": "LR",
+    "dupont-aignan": "DLF",
+    "le-pen": "RN",
+    "zemmour": "REC"
+  }
+}

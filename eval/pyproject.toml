@@ -4,7 +4,7 @@ version = "0.0.0"
 description = "Backtests et évaluations (RAG, positionnement, neutralité, profils synthétiques)."
 license = "AGPL-3.0-only"
 requires-python = ">=3.12,<3.13"
-dependencies = ["moi-electeur-rag", "numpy>=2.5"]
+dependencies = ["moi-electeur-pipeline", "moi-electeur-rag", "numpy>=2.5"]
 
 [project.scripts]
 moi-electeur-eval = "moi_electeur_eval.cli:main"
@@ -17,6 +17,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.uv.sources]
+moi-electeur-pipeline = { workspace = true }
 moi-electeur-rag = { workspace = true }
 
 [tool.pytest.ini_options]

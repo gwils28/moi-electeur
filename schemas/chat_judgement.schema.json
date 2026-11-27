@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://moi-electeur.fr/schemas/chat_judgement.schema.json",
+  "title": "ChatJudgement",
+  "description": "Sortie structurée du juge LLM (PLAN D40) : pour chaque section d'une réponse du chat, affirmations et affirmations non appuyées par les passages cités. Compatible avec output_config.format.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["sections"],
+  "properties": {
+    "sections": {
+      "type": "array",
+      "items": {
+        "title": "SectionJudgement",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["token", "claims", "unsupported", "examples"],
+        "properties": {
+          "token": { "type": "string", "description": "Jeton de la section (c1, c2…)." },
+          "claims": { "type": "integer", "description": "Affirmations factuelles de la section." },
+          "unsupported": {
+            "type": "integer",
+            "description": "Affirmations qu'aucun passage cité de la section n'établit, ou que les passages contredisent."
+          },
+          "examples": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Affirmations non appuyées, recopiées (trois au plus)."
+          }
+        }
+      }
+    }
+  }
+}

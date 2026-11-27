@@ -123,6 +123,107 @@ def cmd_corpus_stats(args: argparse.Namespace) -> int:
     return 0
 
 
+def _read_jsonl(path: Path) -> list[dict[str, Any]]:
+    return [json.loads(x) for x in path.read_text(encoding="utf-8").splitlines() if x.strip()]
+
+
+def cmd_judge_submit(args: argparse.Namespace) -> int:
+    """Envoie le lot du juge (Batch API) après estimation ; état conservé pour la collecte."""
+    from moi_electeur_pipeline.llm import AnthropicClient, cost_usd, load_api_key
+
+    from .judge import judge_requests
+
+    if args.state.exists():
+        print(f"Lot déjà envoyé ({args.state}) : lancer judge-collect.")
+        return 1
+    requests = judge_requests(_read_jsonl(args.run))
+    chars = sum(
+        len(r["params"]["system"][0]["text"]) + len(r["params"]["messages"][0]["content"])
+        for r in requests
+    )
+    usage = {"input_tokens": int(chars / 3), "output_tokens": 2500 * len(requests)}
+    estimate = cost_usd(requests[0]["params"]["model"], usage, batch=True) if requests else 0.0
+    print(f"{len(requests)} requêtes, coût estimé {estimate:.2f} $ (Batch API).")
+    if args.dry_run:
+        return 0
+    if estimate > args.max_usd:
+        print(f"Refusé : au-delà du plafond de {args.max_usd:.2f} $.")
+        return 1
+    if not args.yes:
+        print("Aucune requête envoyée : relancer avec --yes.")
+        return 1
+    if not load_api_key():
+        print("ANTHROPIC_API_KEY absente.")
+        return 1
+    batch_id = AnthropicClient().submit_batch(requests)
+    _write_json(args.state, {"batch_id": batch_id, "run": str(args.run), "requests": len(requests)})
+    print(f"Lot {batch_id} envoyé.")
+    return 0
+
+
+def cmd_judge_collect(args: argparse.Namespace) -> int:
+    from moi_electeur_pipeline.llm import AnthropicClient, cost_usd, load_api_key
+
+    from .judge import JUDGE_MODEL, parse_judgement
+
+    state = json.loads(args.state.read_text(encoding="utf-8"))
+    if not load_api_key():
+        print("ANTHROPIC_API_KEY absente.")
+        return 1
+    client = AnthropicClient()
+    status = client.batch_status(state["batch_id"])["status"]
+    if status != "ended":
+        print(f"Lot {state['batch_id']} : {status}.")
+        return 2
+    lines, total = [], 0.0
+    for r in client.batch_results(state["batch_id"]):
+        message = r["message"]
+        usage = (message or {}).get("usage") or {}
+        cost = cost_usd(
+            JUDGE_MODEL,
+            {k: int(v or 0) for k, v in usage.items() if isinstance(v, int)},
+            batch=True,
+        )
+        total += cost
+        lines.append(
+            json.dumps(
+                {
+                    "custom_id": r["custom_id"],
+                    "verdict": parse_judgement(message),
+                    "cost_usd": cost,
+                },
+                ensure_ascii=False,
+            )
+        )
+    args.out.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print(f"{len(lines)} verdicts écrits dans {args.out}, coût réel {total:.3f} $.")
+    return 0
+
+
+def cmd_backtest_report(args: argparse.Namespace) -> int:
+    from .backtest import build_report
+    from .smoke import full_questions_path
+
+    election = _election_dir(args.election)
+    config = json.loads((election / "election_config.json").read_text(encoding="utf-8"))
+    names = {c["id"]: c["name"] for c in config["candidates"]}
+    date = args.run_dir.name
+    text = build_report(
+        date=date,
+        questions=load_questions(full_questions_path()),
+        names=names,
+        retrieval_fixture=FIXTURES / "m4-retrieval-60.json",
+        run_dir=args.run_dir,
+        election=election,
+        sheet=ROOT / "eval" / "reference" / "codage-2022.csv",
+    )
+    out = args.out or ROOT / "eval" / "reports" / f"{date}.md"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(text + "\n", encoding="utf-8")
+    print(f"Rapport écrit : {out}")
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="moi-electeur-eval", description=__doc__.split("\n")[0])
     sub = parser.add_subparsers(dest="command", required=True)
@@ -157,6 +258,24 @@ def build_parser() -> argparse.ArgumentParser:
     common(p)
     p.add_argument("--out", type=Path, default=CORPUS_FIXTURE)
     p.set_defaults(func=cmd_corpus_stats)
+    p = sub.add_parser("judge-submit", help="juge LLM des réponses du chat (Batch API, M4b)")
+    p.add_argument("--run", type=Path, required=True, help="JSONL du banc d'essai")
+    p.add_argument("--state", type=Path, required=True, help="fichier d'état du lot")
+    p.add_argument("--max-usd", type=float, default=5.0)
+    p.add_argument("--dry-run", action="store_true")
+    p.add_argument("--yes", action="store_true")
+    p.set_defaults(func=cmd_judge_submit)
+
+    p = sub.add_parser("backtest-report", help="rapport du backtest M4 (fichiers versionnés)")
+    p.add_argument("--run-dir", type=Path, required=True)
+    p.add_argument("--election", default=ELECTION)
+    p.add_argument("--out", type=Path, default=None)
+    p.set_defaults(func=cmd_backtest_report)
+
+    p = sub.add_parser("judge-collect", help="collecte les verdicts du juge")
+    p.add_argument("--state", type=Path, required=True)
+    p.add_argument("--out", type=Path, required=True)
+    p.set_defaults(func=cmd_judge_collect)
     return parser
 
 

@@ -9,6 +9,7 @@ export type AskEvent =
 export interface AllSchemas {
   ask_event?: AskEvent;
   ask_request?: AskRequest;
+  chat_judgement?: ChatJudgement;
   chunk?: Chunk;
   election_config?: ElectionConfig;
   evidence?: Evidence;
@@ -147,6 +148,30 @@ export interface AskTurn {
    * @maxItems 30
    */
   candidates: string[];
+}
+/**
+ * Sortie structurée du juge LLM (PLAN D40) : pour chaque section d'une réponse du chat, affirmations et affirmations non appuyées par les passages cités. Compatible avec output_config.format.
+ */
+export interface ChatJudgement {
+  sections: SectionJudgement[];
+}
+export interface SectionJudgement {
+  /**
+   * Jeton de la section (c1, c2…).
+   */
+  token: string;
+  /**
+   * Affirmations factuelles de la section.
+   */
+  claims: number;
+  /**
+   * Affirmations qu'aucun passage cité de la section n'établit, ou que les passages contredisent.
+   */
+  unsupported: number;
+  /**
+   * Affirmations non appuyées, recopiées (trois au plus).
+   */
+  examples: string[];
 }
 /**
  * Extrait d'un document officiel du corpus, unité d'indexation et de citation du chat RAG (SPEC § 4.5). Produit par `pipeline chunk`, une ligne JSON par extrait.
