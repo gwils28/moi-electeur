@@ -1,6 +1,14 @@
 /* Fichier généré par packages/schemas-ts/scripts/gen.mjs depuis schemas/. Ne pas éditer. */
 
+/**
+ * Événement du flux SSE de POST /api/ask (PLAN § 4.5). Chaque événement SSE porte `event: <type>` et `data: <JSON conforme à ce schéma>`. Ordre : un `meta`, puis des `delta` et `citation`, puis un `done` ou un `error`.
+ */
+export type AskEvent =
+  AskMetaEvent | AskDeltaEvent | AskCitationEvent | AskDoneEvent | AskErrorEvent;
+
 export interface AllSchemas {
+  ask_event?: AskEvent;
+  ask_request?: AskRequest;
   chunk?: Chunk;
   election_config?: ElectionConfig;
   evidence?: Evidence;
@@ -12,6 +20,122 @@ export interface AllSchemas {
   retrieve_response?: RetrieveResponse;
   review?: Review;
   statements?: StatementsFile;
+}
+export interface AskMetaEvent {
+  type: "meta";
+  election_id: string;
+  corpus_version: string;
+  prompt_version: string;
+  /**
+   * Modèle Claude qui a produit la réponse.
+   */
+  model: string;
+  /**
+   * Réponse re-streamée depuis le cache mémoire (SPEC § 6.2 bis).
+   */
+  cached: boolean;
+  /**
+   * Ordre de présentation tiré au sort côté serveur ; le jeton {{cN}} désigne candidates[N-1].
+   */
+  candidates: AskCandidate[];
+}
+export interface AskCandidate {
+  token: string;
+  candidate_id: string;
+  /**
+   * Faux si aucun extrait n'a été trouvé pour ce candidat (filtre de thème).
+   */
+  has_excerpts: boolean;
+}
+export interface AskDeltaEvent {
+  type: "delta";
+  /**
+   * Index du bloc de texte de la réponse.
+   */
+  block: number;
+  text: string;
+}
+export interface AskCitationEvent {
+  type: "citation";
+  /**
+   * Bloc de texte (événements `delta`) appuyé par cette citation.
+   */
+  block: number;
+  /**
+   * Vrai si `cited_text` est une sous-chaîne (espaces normalisés) de l'extrait renvoyé par /retrieve ; sinon la citation est « non vérifiée ».
+   */
+  verified: boolean;
+  cited_text: string;
+  chunk_id: string | null;
+  candidate_id: string | null;
+  document_title: string | null;
+  source_url: string | null;
+  page_number: number | null;
+  page_end: number | null;
+}
+export interface AskDoneEvent {
+  type: "done";
+  /**
+   * `end_turn` attendu ; `max_tokens` : réponse tronquée ; `refusal` : refus du modèle.
+   */
+  stop_reason: string | null;
+  unverified_citations: number;
+  /**
+   * Formulations de classement repérées dans la réponse complète (liste prompts/forbidden_words.json) : signalées, jamais réécrites.
+   */
+  neutrality_flags: string[];
+}
+export interface AskErrorEvent {
+  type: "error";
+  /**
+   * Erreur survenue après le début du flux.
+   */
+  code: "llm_unavailable" | "llm_error" | "internal";
+  message: string;
+}
+/**
+ * Corps de POST /api/ask (PLAN § 4.5). Ne jamais journaliser `question` ni `history` (donnée d'opinion, RGPD art. 9).
+ */
+export interface AskRequest {
+  election_id: string;
+  /**
+   * Sans caractère de contrôle ; tabulation et retours à la ligne admis.
+   */
+  question: string;
+  /**
+   * Restreint la réponse à ces candidats ; absent ou null : tous les candidats indexés.
+   *
+   * @minItems 1
+   * @maxItems 30
+   */
+  candidate_ids?: string[] | null;
+  /**
+   * Restreint aux extraits classés dans ce thème.
+   */
+  theme?: string | null;
+  /**
+   * Tours précédents de la conversation, conservés côté client uniquement (SPEC § 6.2). Le cache ne s'applique qu'à une requête sans historique.
+   *
+   * @maxItems 3
+   */
+  history?: AskTurn[];
+}
+export interface AskTurn {
+  /**
+   * Sans caractère de contrôle ; tabulation et retours à la ligne admis.
+   */
+  question: string;
+  /**
+   * Réponse telle que reçue, avec les jetons {{cN}} (jamais les noms affichés).
+   */
+  answer: string;
+  /**
+   * Identifiants des candidats dans l'ordre des jetons de cette réponse : candidates[0] correspond à {{c1}} (événement `meta` reçu).
+   *
+   * @minItems 1
+   * @maxItems 30
+   */
+  candidates: string[];
 }
 /**
  * Extrait d'un document officiel du corpus, unité d'indexation et de citation du chat RAG (SPEC § 4.5). Produit par `pipeline chunk`, une ligne JSON par extrait.

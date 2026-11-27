@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://moi-electeur.fr/schemas/ask_request.schema.json",
+  "title": "AskRequest",
+  "description": "Corps de POST /api/ask (PLAN § 4.5). Ne jamais journaliser `question` ni `history` (donnée d'opinion, RGPD art. 9).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["election_id", "question"],
+  "properties": {
+    "election_id": { "$ref": "#/$defs/slug" },
+    "question": { "$ref": "#/$defs/question" },
+    "candidate_ids": {
+      "type": ["array", "null"],
+      "minItems": 1,
+      "maxItems": 30,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/slug" },
+      "description": "Restreint la réponse à ces candidats ; absent ou null : tous les candidats indexés."
+    },
+    "theme": {
+      "anyOf": [{ "$ref": "#/$defs/slug" }, { "type": "null" }],
+      "description": "Restreint aux extraits classés dans ce thème."
+    },
+    "history": {
+      "type": "array",
+      "maxItems": 3,
+      "description": "Tours précédents de la conversation, conservés côté client uniquement (SPEC § 6.2). Le cache ne s'applique qu'à une requête sans historique.",
+      "items": {
+        "title": "AskTurn",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["question", "answer", "candidates"],
+        "properties": {
+          "question": { "$ref": "#/$defs/question" },
+          "answer": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 20000,
+            "pattern": "^[^\\u0000-\\u0008\\u000b\\u000c\\u000e-\\u001f\\u007f]*$",
+            "description": "Réponse telle que reçue, avec les jetons {{cN}} (jamais les noms affichés)."
+          },
+          "candidates": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 30,
+            "items": { "$ref": "#/$defs/slug" },
+            "description": "Identifiants des candidats dans l'ordre des jetons de cette réponse : candidates[0] correspond à {{c1}} (événement `meta` reçu)."
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "slug": { "type": "string", "pattern": "^[a-z0-9][a-z0-9_-]*$" },
+    "question": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500,
+      "pattern": "^[^\\u0000-\\u0008\\u000b\\u000c\\u000e-\\u001f\\u007f]*$",
+      "description": "Sans caractère de contrôle ; tabulation et retours à la ligne admis."
+    }
+  }
+}
