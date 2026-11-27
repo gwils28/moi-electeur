@@ -35,13 +35,6 @@ def test_modeles_pydantic_a_jour() -> None:
     assert result.exit_code == 0, result.output
 
 
-@pytest.mark.parametrize("command", ["review"])
-def test_commandes_non_implementees_echouent(command: str) -> None:
-    result = runner.invoke(app, [command])
-    assert result.exit_code == 2
-    assert "non implémenté" in result.output
-
-
 def test_modeles_generes_chargent_la_demo() -> None:
     from moi_electeur_pipeline.generated.positions_schema import PositionsFile
     from moi_electeur_pipeline.generated.statements_schema import StatementsFile
