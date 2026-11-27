@@ -39,6 +39,7 @@ from .propose import (
     write_measures,
     write_positions,
 )
+from .review import progress
 from .sources import SourceError, add_source, fetch_corpus
 from .validate import validate_election
 
@@ -242,17 +243,18 @@ def engine_fixtures(
     typer.echo(f"Écrit {path}")
 
 
-def _not_implemented(name: str, milestone: str) -> None:
-    def command() -> None:
-        typer.echo(f"`{name}` : non implémenté (jalon {milestone}).", err=True)
-        raise typer.Exit(2)
-
-    command.__doc__ = f"Non implémenté (jalon {milestone})."
-    app.command(name)(command)
-
-
-for _name, _milestone in [("review", "M3")]:
-    _not_implemented(_name, _milestone)
+@app.command()
+def review(election: ElectionDir) -> None:
+    """Avancement de la revue humaine (M3c) et commandes des applications de revue."""
+    state = progress(election)
+    for kind, label in (("positions", "positions"), ("measures", "mesures")):
+        counts = state[kind]
+        total = sum(counts.values())
+        done = total - counts.get("pending", 0)
+        detail = ", ".join(f"{n} {s}" for s, n in sorted(counts.items()) if s != "pending")
+        typer.echo(f"{label} : {done}/{total} revues" + (f" ({detail})" if detail else ""))
+    typer.echo("Revue : uv run --project notebooks marimo run review/review_positions.py")
+    typer.echo("        uv run --project notebooks marimo run review/review_measures.py")
 
 
 # Extraction (M3b, PLAN § 5.2 et D32). Aucune requête sans --yes ; plafond de coût ; reprise.
