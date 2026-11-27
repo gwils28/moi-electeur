@@ -91,10 +91,10 @@ def build(
         except BuildError as exc:
             typer.echo(f"ÉCHEC {d.name} :\n{exc}", err=True)
             raise typer.Exit(1) from exc
-        if written is None:
-            typer.echo(f"IGNORÉ {d.name} (corpus seul : pas de boussole publiée)")
-        else:
+        if (d / "statements.json").is_file():
             typer.echo(f"Écrit {written}")
+        else:
+            typer.echo(f"Écrit {written} (corpus seul : configuration seule, pas de boussole)")
 
 
 ElectionDir = Annotated[Path, typer.Argument(help="Dossier d'élection (data/elections/<id>).")]

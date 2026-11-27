@@ -32,14 +32,19 @@ def _dump(doc: Any) -> str:
     return json.dumps(doc, ensure_ascii=False, separators=(",", ":"))
 
 
-def build_election(election_dir: Path, out_root: Path) -> Path | None:
-    """Écrit les JSON du front ; None pour une élection « corpus seul » (PLAN D13)."""
+def build_election(election_dir: Path, out_root: Path) -> Path:
+    """Écrit les JSON du front. Élection « corpus seul » (PLAN D13) : pas de boussole, seule la
+    configuration (candidats, thèmes, sources) est publiée, pour l'explorateur (M2d)."""
     issues = validate_election(election_dir)
     if issues:
         raise BuildError(issues)
-    if not (election_dir / "statements.json").is_file():
-        return None
     election_id = election_dir.name
+    if not (election_dir / "statements.json").is_file():
+        target = out_root / election_id
+        target.mkdir(parents=True, exist_ok=True)
+        config_doc = _read(election_dir / "election_config.json")
+        (target / "election_config.json").write_text(_dump(config_doc), encoding="utf-8")
+        return target
     docs = {f: _read(election_dir / f) for f in SOURCE_FILES if (election_dir / f).is_file()}
     config = docs["election_config.json"]
     statements = docs["statements.json"]["statements"]

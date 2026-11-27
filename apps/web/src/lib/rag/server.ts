@@ -32,9 +32,9 @@ function boostMode(): ModeConfig | null {
   if (!model) return null;
   return {
     model,
-    maxTokens: 8192,
+    maxTokens: MAX_TOKENS,
     effort: "medium",
-    thinking: true,
+    thinking: "adaptive",
     budget: new DailyBudget({
       limitUsd: Math.min(
         usdFromEnv("DAILY_BUDGET_BOOST_USD", DAILY_BUDGET_USD / 2),
@@ -70,7 +70,7 @@ export const askHandler = createAskHandler({
       model: process.env.CHAT_MODEL || DEFAULT_CHAT_MODEL,
       maxTokens: MAX_TOKENS,
       effort: "low",
-      thinking: false,
+      thinking: "disabled",
       budget: null,
       limiter: null,
     },

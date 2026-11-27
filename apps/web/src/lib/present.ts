@@ -1,5 +1,6 @@
 import { shuffleCandidates } from "@moi-electeur/engine";
-import type { Candidate } from "@moi-electeur/schemas-ts";
+import type { AskCitationEvent, Candidate } from "@moi-electeur/schemas-ts";
+import { fr } from "../i18n/fr";
 
 /**
  * Seul point d'accès à l'identité d'un candidat pour l'affichage (mode aveugle, SPEC § 5.5).
@@ -70,4 +71,91 @@ export function displayCandidates(
   return shuffleCandidates(candidates, seed).map((c, rank) =>
     displayCandidate(c, rank, blind, aliases[rank]),
   );
+}
+
+/** Citation telle qu'affichée (SPEC § 6.2) : source, page, lien et extrait selon le mode. */
+export interface CitationView {
+  readonly source: string;
+  readonly page: string | null;
+  readonly href: string | null;
+  /** Extrait cité ; null en mode aveugle (il pourrait contenir un nom ou un slogan). */
+  readonly quote: string | null;
+  readonly verified: boolean;
+}
+
+function safeHref(url: string | null, page: number | null): string | null {
+  if (!url) return null;
+  try {
+    const u = new URL(url);
+    if (u.protocol !== "https:" && u.protocol !== "http:") return null;
+    if (page !== null && u.hash === "") u.hash = `page=${page}`;
+    return u.toString();
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Mode aveugle : ni titre du document, ni lien (le nom de domaine révèle souvent le candidat),
+ * ni extrait ; seule la page reste.
+ */
+export function citationView(
+  c: AskCitationEvent,
+  display: CandidateDisplay | undefined,
+  blind: boolean,
+): CitationView {
+  const page =
+    c.page_number === null
+      ? null
+      : c.page_end !== null && c.page_end !== c.page_number
+        ? `p. ${c.page_number}-${c.page_end}`
+        : `p. ${c.page_number}`;
+  if (blind || !display || display.hideQuotes) {
+    // Candidat inconnu hors mode aveugle : extrait affiché, mais ni titre ni lien non attribués.
+    const hidden = blind || display?.hideQuotes === true;
+    return {
+      source: display?.documentLabel ?? fr.explorer.unknownSource,
+      page,
+      href: null,
+      quote: hidden ? null : c.cited_text,
+      verified: c.verified,
+    };
+  }
+  return {
+    source: c.document_title ?? display.documentLabel,
+    page,
+    href: safeHref(c.source_url, c.page_number),
+    quote: c.cited_text,
+    verified: c.verified,
+  };
+}
+
+const LETTER = "[\\p{L}\\p{N}_]";
+
+/**
+ * Mode aveugle : remplace dans un texte généré le nom complet et le nom de famille de chaque
+ * candidat par son libellé affiché (le modèle ne reçoit que des jetons, mais un extrait peut
+ * contenir un nom qu'il reprend). Insensible à la casse, mots entiers seulement.
+ */
+export function nameMasker(
+  candidates: readonly Candidate[],
+  labelOf: (candidateId: string) => string,
+): (text: string) => string {
+  const escape = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const variants: { re: RegExp; id: string; len: number }[] = [];
+  for (const c of candidates) {
+    const words = c.name.trim().split(/\s+/);
+    const forms = new Set([c.name.trim(), words.slice(1).join(" ")].filter((f) => f.length >= 3));
+    for (const f of forms) {
+      const pattern = escape(f.normalize("NFC")).replace(/\s+/g, "\\s+");
+      variants.push({
+        re: new RegExp(`(?<!${LETTER})${pattern}(?!${LETTER})`, "giu"),
+        id: c.id,
+        len: f.length,
+      });
+    }
+  }
+  // Formes longues d'abord : « Anne Le Gall » avant « Le Gall ».
+  variants.sort((a, b) => b.len - a.len);
+  return (text) => variants.reduce((t, v) => t.replace(v.re, labelOf(v.id)), text.normalize("NFC"));
 }

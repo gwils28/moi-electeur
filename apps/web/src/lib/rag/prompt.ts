@@ -64,9 +64,9 @@ export function buildRequest(opts: {
   prompt: SystemPrompt;
   model: string;
   maxTokens: number;
-  /** Effort de génération ; réflexion adaptative si `thinking`, sinon réglage par défaut. */
+  /** Effort de génération et réflexion (omise : réglage par défaut du modèle). */
   effort?: "low" | "medium" | "high";
-  thinking?: boolean;
+  thinking?: "adaptive" | "disabled";
   question: string;
   history: readonly AskTurn[];
   retrieved: RetrieveResponse;
@@ -122,7 +122,7 @@ export function buildRequest(opts: {
       max_tokens: opts.maxTokens,
       system: opts.prompt.text,
       output_config: { effort: opts.effort ?? "low" },
-      ...(opts.thinking ? { thinking: { type: "adaptive" as const } } : {}),
+      ...(opts.thinking ? { thinking: { type: opts.thinking } } : {}),
       messages,
     },
     documents,
