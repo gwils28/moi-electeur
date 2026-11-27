@@ -43,14 +43,24 @@ async def contain_errors(
         return JSONResponse({"detail": "erreur interne"}, status_code=500)
 
 
-def get_embedder() -> Embedder:
+def validated_request(request: RetrieveRequest) -> RetrieveRequest:
+    """Seul porteur du corps : la base et le modèle n'en dépendent que pour ne pas être sollicités
+    par une requête invalide (FastAPI résout les dépendances avant de lever l'erreur de
+    validation, mais saute une dépendance dont une sous-dépendance est en erreur : 422 garanti
+    même base arrêtée, et aucune connexion ouverte pour rien)."""
+    return request
+
+
+def get_embedder(_: RetrieveRequest = Depends(validated_request)) -> Embedder:  # noqa: B008
     name = os.environ.get("EMBEDDING_MODEL", DEFAULT_MODEL)
     if name == "fake":  # réservé aux tests (injecté par dependency_overrides)
         raise RuntimeError("EMBEDDING_MODEL=fake interdit dans le service")
     return _load_embedder(name)
 
 
-def get_conn() -> Iterator[psycopg.Connection[Any]]:
+def get_conn(
+    _: RetrieveRequest = Depends(validated_request),  # noqa: B008
+) -> Iterator[psycopg.Connection[Any]]:
     with connect() as conn:
         yield conn
 
@@ -80,7 +90,7 @@ def health(probe: Callable[[], bool] = Depends(get_db_probe)) -> JSONResponse:  
 
 @app.post("/retrieve", response_model=RetrieveResponse)
 def retrieve_endpoint(
-    request: RetrieveRequest,
+    request: RetrieveRequest = Depends(validated_request),  # noqa: B008
     conn: psycopg.Connection[Any] = Depends(get_conn),  # noqa: B008
     embedder: Embedder = Depends(get_embedder),  # noqa: B008
 ) -> dict[str, Any]:

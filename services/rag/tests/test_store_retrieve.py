@@ -158,8 +158,11 @@ def test_index_refuse_un_caractere_nul_avant_tout_calcul(conn: psycopg.Connectio
         )
 
 
-def test_migrations_sur_base_neuve_et_concurrentes() -> None:
-    """Chaque migration dans sa transaction ; deux `migrate` simultanés ne se gênent pas."""
+@pytest.mark.db
+def test_migrations_sur_base_neuve_et_concurrentes(db_dsn: str) -> None:
+    """Chaque migration dans sa transaction ; deux `migrate` simultanés ne se gênent pas.
+
+    `db_dsn` n'est demandé que pour ignorer le test sans base en local (échec en CI)."""
     import threading
 
     from moi_electeur_rag.testing import temporary_database
