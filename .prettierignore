@@ -12,3 +12,4 @@ data/
 .venv/
 schemas/fixtures/engine_cases.json
 notebooks/fixtures/
+eval/results/

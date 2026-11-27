@@ -335,9 +335,9 @@ Plan initial (annoté « ok ») : jeu d'environ 60 questions annotées (dont pi�
 
 ### 6.1 Critères d'acceptation M4
 - [x] 60 questions annotées, `check-smoke` vert, rappel@4 des deux modèles d'embedding avec intervalle ; modèle d'embedding tranché (e5, D37).
-- [ ] Chat évalué en mode rapide et approfondi (citations, silences, refus, juge LLM, permutations) ; modèle par défaut tranché ; coût relevé, sous 25 $.
-- [ ] Feuille de codage de référence prête ; profils synthétiques mesurés ; CHES prêt à brancher.
-- [ ] Rapport `eval/reports/<date>.md` reproductible par une commande ; CI verte.
+- [x] Chat évalué en mode rapide et approfondi (citations, silences, refus, juge LLM, permutations) ; modèle par défaut tranché (Haiku 5.5) ; coût relevé, sous 25 $ (9,24 $).
+- [x] Feuille de codage de référence prête ; profils synthétiques mesurés ; CHES prêt à brancher (codage et fichier CHES attendus du mainteneur).
+- [x] Rapport `eval/reports/<date>.md` reproductible par une commande ; CI verte.
 
 ## 7. M5 : Accessibilité, méthodologie, déploiement
 

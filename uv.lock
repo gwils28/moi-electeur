@@ -936,6 +936,7 @@ name = "moi-electeur-eval"
 version = "0.0.0"
 source = { editable = "eval" }
 dependencies = [
+    { name = "moi-electeur-pipeline" },
     { name = "moi-electeur-rag" },
     { name = "numpy" },
 ]
@@ -949,6 +950,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
+    { name = "moi-electeur-pipeline", editable = "pipeline" },
     { name = "moi-electeur-rag", editable = "services/rag" },
     { name = "numpy", specifier = ">=2.5" },
 ]

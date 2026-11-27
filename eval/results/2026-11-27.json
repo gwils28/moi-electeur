@@ -1,0 +1,788 @@
+{
+ "date": "2026-11-27",
+ "run_dir": "eval/runs/2026-11-27",
+ "retrieval": {
+  "table": [
+   {
+    "model": "bge-m3",
+    "method": "semantique",
+    "recall": 0.5651487821942367,
+    "hit_rate": 0.7883369330453563,
+    "full_coverage": true
+   },
+   {
+    "model": "bge-m3",
+    "method": "plein_texte",
+    "recall": 0.5980837596746688,
+    "hit_rate": 0.8012958963282938,
+    "full_coverage": true
+   },
+   {
+    "model": "bge-m3",
+    "method": "rrf",
+    "recall": 0.6725114784205694,
+    "hit_rate": 0.8725701943844493,
+    "full_coverage": true
+   },
+   {
+    "model": "multilingual-e5-large",
+    "method": "semantique",
+    "recall": 0.6360708819799729,
+    "hit_rate": 0.8596112311015118,
+    "full_coverage": true
+   },
+   {
+    "model": "multilingual-e5-large",
+    "method": "plein_texte",
+    "recall": 0.5980837596746688,
+    "hit_rate": 0.8012958963282938,
+    "full_coverage": true
+   },
+   {
+    "model": "multilingual-e5-large",
+    "method": "rrf",
+    "recall": 0.7185492369583278,
+    "hit_rate": 0.8920086393088553,
+    "full_coverage": true
+   }
+  ],
+  "gaps": {
+   "rrf": {
+    "mean": 0.04603775853775853,
+    "lo": 0.02093280477939568,
+    "hi": 0.07352061333027239,
+    "n": 55
+   },
+   "semantique": {
+    "mean": 0.07092209978573615,
+    "lo": 0.032642713662600034,
+    "hi": 0.10962105087673266,
+    "n": 55
+   }
+  }
+ },
+ "chat": {
+  "rapide": {
+   "answers": 60,
+   "errors": 0,
+   "truncated": 0,
+   "citations": 1237,
+   "verified_rate": 0.9935327405012127,
+   "wrong_candidate_rate": 0.0064672594987873885,
+   "false_silence_rate": 0.0734341252699784,
+   "correct_silence_rate": 0.967741935483871,
+   "expected_total": 463,
+   "silent_total": 124,
+   "missing_sections": 0,
+   "unknown_tokens": 6,
+   "name_leaks": 1,
+   "neutrality_flags": 7,
+   "refusal_rate": 1.0,
+   "cost_usd": 0.4339,
+   "latency_ms_mean": 13587,
+   "tokens_out_mean": 3358
+  },
+  "approfondi": {
+   "answers": 60,
+   "errors": 0,
+   "truncated": 0,
+   "citations": 1368,
+   "verified_rate": 0.9963450292397661,
+   "wrong_candidate_rate": 0.003654970760233918,
+   "false_silence_rate": 0.08855291576673865,
+   "correct_silence_rate": 0.9596774193548387,
+   "expected_total": 463,
+   "silent_total": 124,
+   "missing_sections": 0,
+   "unknown_tokens": 0,
+   "name_leaks": 3,
+   "neutrality_flags": 5,
+   "refusal_rate": 1.0,
+   "cost_usd": 7.7242,
+   "latency_ms_mean": 9779,
+   "tokens_out_mean": 1752
+  }
+ },
+ "judge": {
+  "rapide": {
+   "judged": 60,
+   "failed": 0,
+   "claims": 1451,
+   "unsupported": 34,
+   "unsupported_rate": 0.02343211578221916,
+   "sections_with_unsupported": 31,
+   "examples": [
+    [
+     "q10-ecole",
+     "hidalgo",
+     "Un autre document du même candidat précise que la rémunération des enseignants sera portée progressivement au niveau de celui des cadres, en commençant par les débuts de carrière."
+    ],
+    [
+     "q12-agriculture",
+     "arthaud",
+     "Le document de campagne ne contient pas de proposition détaillée sur l'agriculture."
+    ],
+    [
+     "q15-quel-candidat",
+     "zemmour",
+     "Le document indique que mon projet sera fondé sur le principe suivant : « Taxer moins pour gagner plus »."
+    ],
+    [
+     "q15-quel-candidat",
+     "hidalgo",
+     "Il ne contient pas, dans les extraits fournis, de baisse générale d'impôts sur les ménages."
+    ],
+    [
+     "q17-impots-production",
+     "lassalle",
+     "Il ne mentionne pas explicitement de baisse générale des impôts de production."
+    ],
+    [
+     "q18-tva",
+     "lassalle",
+     "Il ne mentionne pas de baisse de TVA sur les produits de première nécessité."
+    ],
+    [
+     "q18-tva",
+     "roussel",
+     "dans le cadre de la remise à plat des tarifs de l'énergie"
+    ],
+    [
+     "q19-succession",
+     "pecresse",
+     "d'accélérer les donations (jusqu'à 100 000 € sans impôt par enfant et par petit-enfant tous les 6 ans)"
+    ],
+    [
+     "q21-fonctionnaires",
+     "jadot",
+     "sans préciser leur statut"
+    ],
+    [
+     "q21-fonctionnaires",
+     "arthaud",
+     "dans les hôpitaux, les Ehpad, l'éducation et les transports publics"
+    ],
+    [
+     "q21-fonctionnaires",
+     "lassalle",
+     "sans indiquer de statut"
+    ],
+    [
+     "q21-fonctionnaires",
+     "dupont-aignan",
+     "Il ne donne pas de chiffre global pour la fonction publique."
+    ],
+    [
+     "q21-fonctionnaires",
+     "poutou",
+     "Il propose également un plan emploi-formation de 200 000 postes pour accompagner le service public du 4e âge."
+    ],
+    [
+     "q22-energie-prix",
+     "pecresse",
+     "d'arrêter de fixer le prix de l'électricité française en fonction des prix du marché européen"
+    ],
+    [
+     "q23-chomage",
+     "zemmour",
+     "Le programme ne traite pas d'autres aspects de l'assurance chômage dans les extraits fournis."
+    ],
+    [
+     "q23-chomage",
+     "arthaud",
+     "Le document évoque une augmentation des salaires et des pensions, ainsi que des pensions et des allocations des chômeurs et des handicapés."
+    ],
+    [
+     "q28-handicap",
+     "pecresse",
+     "Il indique aussi davantage de crédit d'impôt pour les services à la personne et accompagnants d'élèves en situation de handicap (AESH) pour scolariser les enfants handicapés en milieu ordinaire chaque fois que possible."
+    ],
+    [
+     "q33-voiture",
+     "hidalgo",
+     "Le document ne mentionne pas de date de fin de vente des véhicules thermiques."
+    ],
+    [
+     "q33-voiture",
+     "macron",
+     "Le document ne précise pas de date de fin de vente des véhicules thermiques."
+    ],
+    [
+     "q33-voiture",
+     "zemmour",
+     "Le document ne mentionne pas de date de fin de vente des véhicules thermiques."
+    ],
+    [
+     "q33-voiture",
+     "dupont-aignan",
+     "Le document ne mentionne pas de date de fin de vente des véhicules thermiques."
+    ],
+    [
+     "q34-animaux",
+     "macron",
+     "Le programme comporte une rubrique « Pour la nature et les animaux »."
+    ],
+    [
+     "q37-droit-europeen",
+     "pecresse",
+     "Le document ne précise pas de proposition sur la primauté du droit européen."
+    ],
+    [
+     "q38-libre-echange",
+     "dupont-aignan",
+     "Il propose aussi de remplacer l'Union européenne par une communauté dans laquelle la préférence communautaire vis à vis de l'extérieur serait appliquée."
+    ],
+    [
+     "q39-russie",
+     "dupont-aignan",
+     "Les extraits fournis ne contiennent pas d'autre proposition concernant l'Ukraine."
+    ],
+    [
+     "q39-russie",
+     "hidalgo",
+     "Le programme évoque la nécessité de garantir le respect de l'intégrité territoriale des États membres face à la « brutalisation » des relations internationales \u2014 notamment avec la Russie \u2014."
+    ],
+    [
+     "q42-peines",
+     "poutou",
+     "dans une logique de rupture avec la politique carcérale"
+    ],
+    [
+     "q48-constituante",
+     "roussel",
+     "Les extraits ne mentionnent ni une VIe République ni une assemblée constituante."
+    ],
+    [
+     "q49-vote-etrangers",
+     "arthaud",
+     "« ils » désignant les travailleurs immigrés"
+    ],
+    [
+     "q52-referendum",
+     "hidalgo",
+     "Le programme indique que le Parlement serait renforcé"
+    ],
+    [
+     "q59-plus-a-gauche",
+     "melenchon",
+     "Il ne se réclame pas d'un positionnement gauche-droite dans les extraits fournis."
+    ]
+   ]
+  },
+  "approfondi": {
+   "judged": 60,
+   "failed": 0,
+   "claims": 1777,
+   "unsupported": 37,
+   "unsupported_rate": 0.020821609454136185,
+   "sections_with_unsupported": 34,
+   "examples": [
+    [
+     "q01-nucleaire",
+     "macron",
+     "Le programme indique que la France doit être en tête pour le nucléaire parmi d'autres secteurs."
+    ],
+    [
+     "q02-retraites",
+     "arthaud",
+     "Le programme qualifie d'aberration l'obligation faite aux plus de 60 ans de s'user à la tâche, alors que tant de jeunes sont au chômage."
+    ],
+    [
+     "q05-ric",
+     "roussel",
+     "Le livre-programme ne mentionne pas de RIC sous ce nom."
+    ],
+    [
+     "q07-smic",
+     "lassalle",
+     "Pour les accompagnants d'élèves en situation de handicap, il prévoit de généraliser les temps pleins à 24 heures avec un salaire net à 1700 euros."
+    ],
+    [
+     "q07-smic",
+     "dupont-aignan",
+     "sans peser sur le coût du travail pour les entreprises, par une réduction des charges salariales"
+    ],
+    [
+     "q08-immigration",
+     "poutou",
+     "le droit de vote des étrangers résidant en France à toutes les élections"
+    ],
+    [
+     "q15-quel-candidat",
+     "poutou",
+     "Il prévoit de supprimer tous les dispositifs destinés à alléger les impôts des riches."
+    ],
+    [
+     "q15-quel-candidat",
+     "le-pen",
+     "Il propose de baisser les impôts sur la transmission, avec un abattement sur les donations de 100 000 € tous les 10 ans."
+    ],
+    [
+     "q22-energie-prix",
+     "le-pen",
+     "dans une perspective d'indépendance énergétique"
+    ],
+    [
+     "q23-chomage",
+     "arthaud",
+     "Les extraits ne détaillent pas de mesure sur l'assurance chômage proprement dite."
+    ],
+    [
+     "q23-chomage",
+     "roussel",
+     "Il prévoit aussi un projet de sécurité de l'emploi et de la formation, avec une garantie de revenu pour une vie en emploi ou en formation."
+    ],
+    [
+     "q24-rsa",
+     "zemmour",
+     "Selon le document, cette mesure financerait la baisse de la CSG sur les salaires du SMIC à 2 000 euros."
+    ],
+    [
+     "q25-logement",
+     "macron",
+     "Il prévoit la rénovation de 700 000 logements par an."
+    ],
+    [
+     "q25-logement",
+     "arthaud",
+     "Il relève 300 000 sans-domicile-fixe et plusieurs millions de mal-logés."
+    ],
+    [
+     "q26-famille",
+     "poutou",
+     "Ils prévoient un présalaire d'autonomie pour les jeunes de 18 à 25 ans, équivalent à 75 % du SMIC revalorisé à 1800 euros."
+    ],
+    [
+     "q27-dependance",
+     "hidalgo",
+     "La profession de foi prévoit d'augmenter de 50 % l'aide au maintien à domicile (APA)"
+    ],
+    [
+     "q28-handicap",
+     "arthaud",
+     "Le document prévoit un minimum de 2 000 euros net, qui vaut pour les salaires, les pensions et les allocations des chômeurs et des handicapés."
+    ],
+    [
+     "q29-temps-travail",
+     "macron",
+     "Le document ne mentionne pas de modification des 35 heures ou des 32 heures dans les extraits fournis."
+    ],
+    [
+     "q33-voiture",
+     "dupont-aignan",
+     "Il prévoit de remplacer les 10 millions de véhicules les plus énergivores en 10 ans par le biais d'un nouveau bonus-malus favorable aux véhicules électriques et peu polluants."
+    ],
+    [
+     "q36-defense-europe",
+     "macron",
+     "Il rappelle que l'Europe a mis en place un budget militaire commun."
+    ],
+    [
+     "q37-droit-europeen",
+     "lassalle",
+     "Il prévoit aussi d'interrompre la négociation de tels accords (CETA…)."
+    ],
+    [
+     "q37-droit-europeen",
+     "zemmour",
+     "de déroger immédiatement aux règles européennes dans l'intervalle"
+    ],
+    [
+     "q39-russie",
+     "dupont-aignan",
+     "Le programme prévoit de renouer avec le Royaume-Uni ou la Russie dans le cadre d'une communauté des nations libres remplaçant l'Union européenne."
+    ],
+    [
+     "q39-russie",
+     "le-pen",
+     "Le programme cite la guerre en Ukraine comme preuve d'un mépris croissant du droit international et de la politique du fait accompli."
+    ],
+    [
+     "q39-russie",
+     "zemmour",
+     "Il prévoit aussi de sortir du commandement militaire intégré de l'OTAN, avec la formule « ni soumission aux États-Unis, ni asservissement à la Russie »."
+    ],
+    [
+     "q43-droit-du-sol",
+     "pecresse",
+     "avec une demande de nationalité française à 18 ans"
+    ],
+    [
+     "q45-laicite",
+     "jadot",
+     "Aucune mesure sur le voile n'apparaît dans les extraits."
+    ],
+    [
+     "q45-laicite",
+     "hidalgo",
+     "Aucune mesure sur le voile n'apparaît dans les extraits."
+    ],
+    [
+     "q45-laicite",
+     "macron",
+     "Aucune mesure sur le voile n'apparaît dans les extraits."
+    ],
+    [
+     "q45-laicite",
+     "le-pen",
+     "Aucune mesure sur le voile n'apparaît dans les extraits."
+    ],
+    [
+     "q45-laicite",
+     "melenchon",
+     "Aucune mesure sur le voile n'apparaît dans les extraits."
+    ],
+    [
+     "q45-laicite",
+     "roussel",
+     "Aucune mesure sur le voile n'apparaît dans les extraits."
+    ],
+    [
+     "q46-terrorisme",
+     "zemmour",
+     "rétablir une peine de perpétuité réelle non-compressible pour les criminels les plus dangereux et les terroristes"
+    ],
+    [
+     "q49-vote-etrangers",
+     "arthaud",
+     "Le document indique, à propos des travailleurs immigrés : « Ils doivent avoir le droit de vote. »"
+    ]
+   ]
+  }
+ },
+ "permutations": {
+  "answers": 36,
+  "questions": 12,
+  "by_rank": {
+   "1": {
+    "length": 359.65714285714284,
+    "citations": 2.6857142857142855,
+    "n": 35
+   },
+   "2": {
+    "length": 398.21875,
+    "citations": 2.9375,
+    "n": 32
+   },
+   "3": {
+    "length": 392.3235294117647,
+    "citations": 2.676470588235294,
+    "n": 34
+   },
+   "4": {
+    "length": 334.29411764705884,
+    "citations": 2.676470588235294,
+    "n": 34
+   },
+   "5": {
+    "length": 377.5806451612903,
+    "citations": 2.7096774193548385,
+    "n": 31
+   },
+   "6": {
+    "length": 323.92857142857144,
+    "citations": 2.642857142857143,
+    "n": 28
+   },
+   "7": {
+    "length": 359.38709677419354,
+    "citations": 3.032258064516129,
+    "n": 31
+   },
+   "8": {
+    "length": 325.0,
+    "citations": 2.5757575757575757,
+    "n": 33
+   },
+   "9": {
+    "length": 360.5483870967742,
+    "citations": 2.7096774193548385,
+    "n": 31
+   },
+   "10": {
+    "length": 313.6875,
+    "citations": 2.4375,
+    "n": 32
+   },
+   "11": {
+    "length": 314.8,
+    "citations": 2.533333333333333,
+    "n": 30
+   },
+   "12": {
+    "length": 350.3666666666667,
+    "citations": 2.7666666666666666,
+    "n": 30
+   }
+  },
+  "spearman_rank_length": -0.11963911347765088,
+  "per_candidate_cv": {
+   "arthaud": 0.13947049702598677,
+   "dupont-aignan": 0.13662006123450388,
+   "hidalgo": 0.1172263148398032,
+   "jadot": 0.09477686996194146,
+   "lassalle": 0.18656650850156498,
+   "le-pen": 0.16133839887951987,
+   "macron": 0.07624161735669485,
+   "melenchon": 0.1524746415963663,
+   "pecresse": 0.11385189009816768,
+   "poutou": 0.0717589985842509,
+   "roussel": 0.10705318111821756,
+   "zemmour": 0.12518934263913337
+  }
+ },
+ "profiles": {
+  "statements": 30,
+  "known": {
+   "arthaud": 7,
+   "dupont-aignan": 20,
+   "hidalgo": 16,
+   "jadot": 17,
+   "lassalle": 10,
+   "le-pen": 15,
+   "macron": 7,
+   "melenchon": 17,
+   "pecresse": 15,
+   "poutou": 21,
+   "roussel": 19,
+   "zemmour": 17
+  },
+  "base": {
+   "n": 200,
+   "seed": 7,
+   "noise": {
+    "shift": 0.3,
+    "abstain": 0.2,
+    "silent_answer": 0.5
+   },
+   "per_candidate": {
+    "arthaud": {
+     "n": 200,
+     "top1": 0.975,
+     "top3": 1.0,
+     "mean_rank": 1.02
+    },
+    "dupont-aignan": {
+     "n": 200,
+     "top1": 0.925,
+     "top3": 1.0,
+     "mean_rank": 1.08
+    },
+    "hidalgo": {
+     "n": 200,
+     "top1": 0.98,
+     "top3": 1.0,
+     "mean_rank": 1.02
+    },
+    "jadot": {
+     "n": 200,
+     "top1": 1.0,
+     "top3": 1.0,
+     "mean_rank": 1.0
+    },
+    "lassalle": {
+     "n": 200,
+     "top1": 0.96,
+     "top3": 0.995,
+     "mean_rank": 1.05
+    },
+    "le-pen": {
+     "n": 200,
+     "top1": 0.965,
+     "top3": 1.0,
+     "mean_rank": 1.03
+    },
+    "macron": {
+     "n": 200,
+     "top1": 0.99,
+     "top3": 1.0,
+     "mean_rank": 1.01
+    },
+    "melenchon": {
+     "n": 200,
+     "top1": 0.965,
+     "top3": 1.0,
+     "mean_rank": 1.03
+    },
+    "pecresse": {
+     "n": 200,
+     "top1": 0.925,
+     "top3": 1.0,
+     "mean_rank": 1.07
+    },
+    "poutou": {
+     "n": 200,
+     "top1": 0.945,
+     "top3": 1.0,
+     "mean_rank": 1.06
+    },
+    "roussel": {
+     "n": 200,
+     "top1": 0.98,
+     "top3": 1.0,
+     "mean_rank": 1.02
+    },
+    "zemmour": {
+     "n": 200,
+     "top1": 0.975,
+     "top3": 1.0,
+     "mean_rank": 1.02
+    }
+   },
+   "overall": {
+    "n": 2400,
+    "top1": 0.9654166666666667,
+    "top3": 0.9995833333333334,
+    "mean_rank": 1.04
+   }
+  },
+  "hard": {
+   "n": 200,
+   "seed": 7,
+   "noise": {
+    "shift": 0.5,
+    "abstain": 0.4,
+    "silent_answer": 0.8
+   },
+   "per_candidate": {
+    "arthaud": {
+     "n": 200,
+     "top1": 0.995,
+     "top3": 1.0,
+     "mean_rank": 1.0
+    },
+    "dupont-aignan": {
+     "n": 200,
+     "top1": 0.9,
+     "top3": 1.0,
+     "mean_rank": 1.11
+    },
+    "hidalgo": {
+     "n": 200,
+     "top1": 0.94,
+     "top3": 1.0,
+     "mean_rank": 1.06
+    },
+    "jadot": {
+     "n": 200,
+     "top1": 0.94,
+     "top3": 1.0,
+     "mean_rank": 1.06
+    },
+    "lassalle": {
+     "n": 200,
+     "top1": 0.94,
+     "top3": 1.0,
+     "mean_rank": 1.06
+    },
+    "le-pen": {
+     "n": 200,
+     "top1": 0.945,
+     "top3": 1.0,
+     "mean_rank": 1.06
+    },
+    "macron": {
+     "n": 200,
+     "top1": 0.985,
+     "top3": 1.0,
+     "mean_rank": 1.02
+    },
+    "melenchon": {
+     "n": 200,
+     "top1": 0.885,
+     "top3": 0.995,
+     "mean_rank": 1.14
+    },
+    "pecresse": {
+     "n": 200,
+     "top1": 0.9,
+     "top3": 1.0,
+     "mean_rank": 1.1
+    },
+    "poutou": {
+     "n": 200,
+     "top1": 0.79,
+     "top3": 1.0,
+     "mean_rank": 1.25
+    },
+    "roussel": {
+     "n": 200,
+     "top1": 0.855,
+     "top3": 1.0,
+     "mean_rank": 1.16
+    },
+    "zemmour": {
+     "n": 200,
+     "top1": 0.945,
+     "top3": 1.0,
+     "mean_rank": 1.05
+    }
+   },
+   "overall": {
+    "n": 2400,
+    "top1": 0.9183333333333333,
+    "top3": 0.9995833333333334,
+    "mean_rank": 1.09
+   }
+  },
+  "coords": {
+   "arthaud": {
+    "x": -5.0,
+    "y": -7.5
+   },
+   "dupont-aignan": {
+    "x": 8.75,
+    "y": 8.10344827586207
+   },
+   "hidalgo": {
+    "x": -3.888888888888889,
+    "y": -4.545454545454546
+   },
+   "jadot": {
+    "x": -8.5,
+    "y": -6.923076923076923
+   },
+   "lassalle": {
+    "x": -10.0,
+    "y": 4.583333333333333
+   },
+   "le-pen": {
+    "x": -3.0,
+    "y": 8.88888888888889
+   },
+   "macron": {
+    "x": 6.25,
+    "y": -3.0
+   },
+   "melenchon": {
+    "x": -7.777777777777778,
+    "y": 1.5384615384615385
+   },
+   "pecresse": {
+    "x": 8.333333333333334,
+    "y": 4.0625
+   },
+   "poutou": {
+    "x": -8.0,
+    "y": -2.1052631578947367
+   },
+   "roussel": {
+    "x": -8.0,
+    "y": 1.25
+   },
+   "zemmour": {
+    "x": 8.0,
+    "y": 9.130434782608695
+   }
+  }
+ },
+ "reference": {
+  "agreement": null,
+  "ches_file": false
+ },
+ "costs": {
+  "chat": 8.1580693,
+  "permutations": 0.2709361,
+  "juge": 0.8104124
+ }
+}
