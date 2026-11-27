@@ -14,6 +14,7 @@ from __future__ import annotations
 import json
 import re
 import unicodedata
+from collections import Counter
 from collections.abc import Callable, Iterable, Iterator, Sequence
 from contextlib import contextmanager
 from dataclasses import dataclass, field
@@ -32,9 +33,9 @@ MIN_THEMED = 4  # en deçà, la recherche des mesures se fait sans filtre de th�
 MIN_QUOTE_CHARS = 10
 MAX_CONSECUTIVE_ERRORS = 3
 # Estimation avant envoi (D32) : environ 3 caractères par token en français, sortie forfaitaire
-# (réflexion comprise). Le coût réel est relevé dans `usage`.
+# (réflexion comprise ; pilote 2022 : 172 et 1 141 en moyenne). Coût réel relevé dans `usage`.
 CHARS_PER_TOKEN = 3.0
-ESTIMATED_OUTPUT = {"position": 1500, "measure": 3000}
+ESTIMATED_OUTPUT = {"position": 500, "measure": 2000}
 
 
 @dataclass(frozen=True)
@@ -288,9 +289,30 @@ def _check_quotes(
                 "verified": verified,
             }
         )
+    checked = _merge_adjacent(checked, item)
     if any(not c["verified"] for c in checked):
         flags.append("citation_non_retrouvee")
     return checked, flags
+
+
+def _merge_adjacent(quotes: list[dict[str, Any]], item: Item) -> list[dict[str, Any]]:
+    """Recolle deux citations vérifiées consécutives du même extrait si elles se suivent dans
+    le texte (passage coupé par un retour à la ligne du PDF)."""
+    texts = {c["id"]: c["text"] for c in item.chunks}
+    out: list[dict[str, Any]] = []
+    for q in quotes:
+        prev = out[-1] if out else None
+        if (
+            prev is not None
+            and prev["verified"]
+            and q["verified"]
+            and prev["chunk_id"] == q["chunk_id"]
+            and _found(f"{prev['text']} {q['text']}", texts[q["chunk_id"]])
+        ):
+            out[-1] = {**prev, "text": f"{prev['text']} {q['text']}"}
+        else:
+            out.append(q)
+    return out
 
 
 def _check_position(item: Item, out: dict[str, Any]) -> tuple[str, list[Any], list[str]]:
@@ -450,9 +472,15 @@ def append_record(path: Path, record: dict[str, Any]) -> None:
         f.write(json.dumps(record, ensure_ascii=False) + "\n")
 
 
-def done_ids(records: dict[str, dict[str, Any]]) -> set[str]:
-    """Propositions acquises ; celles en erreur sont redemandées."""
-    return {cid for cid, r in records.items() if r["status"] != "error"}
+def done_ids(records: dict[str, dict[str, Any]], prompt_version: int | None = None) -> set[str]:
+    """Propositions acquises ; celles en erreur, ou faites avec une autre version du prompt que
+    `prompt_version` (si elle est donnée), sont redemandées (même prompt pour tous)."""
+    return {
+        cid
+        for cid, r in records.items()
+        if r["status"] != "error"
+        and (prompt_version is None or r["prompt_version"] == prompt_version)
+    }
 
 
 def _election_id(election_dir: Path) -> str:
@@ -777,3 +805,105 @@ def open_retriever(election_id: str, model: str, dsn: str | None) -> Iterator[Re
             return chunks
 
         yield search
+
+
+# Rapport de relecture (pilote D28, puis revue M3c).
+
+
+def _value_label(value: int | None) -> str:
+    return "silence" if value is None else f"{value:+d}"
+
+
+def _amount_label(costing: dict[str, Any]) -> str:
+    amount = costing["amount_eur"]
+    label = str(costing["status"])
+    if amount is not None:
+        label += f" : {amount:,.0f} €".replace(",", " ")
+    if costing["period"]:
+        label += f" {costing['period']}"
+    return label
+
+
+def _quote_lines(
+    quotes: Iterable[dict[str, Any]], lookup: dict[str, dict[str, Any]], indent: str
+) -> list[str]:
+    lines = []
+    for q in quotes:
+        mark = "✅" if q["verified"] else "❌ non retrouvée"
+        chunk = lookup.get(q["chunk_id"] or "")
+        where = f" (p. {chunk['page_number']})" if chunk else ""
+        role = "chiffrage : " if q["role"] == "costing" else ""
+        lines.append(f"{indent}- {mark} {role}« {q['text']} »{where}")
+    return lines
+
+
+def render_report(election_dir: Path, kind: str, *, candidates: Iterable[str] | None = None) -> str:
+    """Propositions en Markdown, groupées par affirmation (positions) ou par candidat et thème
+    (mesures), signalements en clair. Pour relire un pilote ; aucun classement des candidats."""
+    config = json.loads((election_dir / "election_config.json").read_text(encoding="utf-8"))
+    cands = _candidates(config, candidates)
+    names = {c["id"]: c["name"] for c in config["candidates"]}
+    themes = {t["id"]: t["label"] for t in config["themes"]}
+    records = load_records(proposals_path(election_dir, kind))
+    try:
+        lookup = load_chunk_lookup(election_dir)
+    except FileNotFoundError:
+        lookup = {}
+    mine = [r for r in records.values() if r["candidate_id"] in cands]
+    status = Counter(r["status"] for r in mine)
+    flags = Counter(f for r in mine for f in r["flags"])
+    title = "positions" if kind == "position" else "mesures"
+    out: list[str] = [
+        f"# Propositions : {title} ({config['id']})",
+        "",
+        f"Candidats : {', '.join(names[c] for c in cands)}. "
+        f"{len(mine)} propositions ({', '.join(f'{n} {s}' for s, n in sorted(status.items()))}), "
+        f"coût {sum(r['cost_usd'] for r in mine):.3f} $.",
+    ]
+    if flags:
+        out.append("Signalements : " + ", ".join(f"{f} {n}" for f, n in sorted(flags.items())))
+    if kind == "position":
+        statements = json.loads((election_dir / "statements.json").read_text(encoding="utf-8"))
+        current = None
+        for s in statements["statements"]:
+            if s["theme"] != current:
+                current = s["theme"]
+                out += ["", f"## {themes.get(current, current)}"]
+            sens = "+1" if s["direction"] > 0 else "-1"
+            out += ["", f"### {s['id']} · {s['text']}", "", f"Axe {s['axis']}, sens {sens}.", ""]
+            for cand in cands:
+                rec = records.get(position_custom_id(cand, s["id"]))
+                if rec is None:
+                    out.append(f"- **{names[cand]}** : pas de proposition")
+                    continue
+                note = f" ⚠️ {', '.join(rec['flags'])}" if rec["flags"] else ""
+                if rec["status"] == "error":
+                    out.append(f"- **{names[cand]}** : erreur ({rec['error']})")
+                    continue
+                o = rec["output"]
+                head = f"**{_value_label(o['value'])}** (confiance {o['confidence']})"
+                if rec["status"] == "invalid":
+                    head = f"**refusée** (proposé {_value_label(o['value'])})"
+                out.append(f"- **{names[cand]}** : {head}{note}")
+                out += _quote_lines(rec["quotes"], lookup, "  ")
+                out.append(f"  - _{o['rationale']}_")
+    else:
+        for cand in cands:
+            for theme_id, label in themes.items():
+                rec = records.get(measure_custom_id(cand, theme_id))
+                if rec is None:
+                    continue
+                note = f" ⚠️ {', '.join(rec['flags'])}" if rec["flags"] else ""
+                out += ["", f"## {names[cand]} · {label}{note}", ""]
+                if rec["status"] == "error":
+                    out.append(f"Erreur : {rec['error']}")
+                    continue
+                if not rec["output"]["measures"]:
+                    out.append("Aucune mesure relevée.")
+                for i, m in enumerate(rec["output"]["measures"]):
+                    out.append(f"{i + 1}. **{m['title']}** ({_amount_label(m['costing'])})")
+                    out.append(f"   {m['summary']}")
+                    out += _quote_lines(
+                        (q for q in rec["quotes"] if q["measure"] == i), lookup, "   "
+                    )
+    return "\n".join(out) + "\n"

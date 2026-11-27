@@ -1,5 +1,5 @@
 ---
-version: 1
+version: 2
 ---
 Tu aides à construire une boussole électorale à partir des programmes officiels. Pour une affirmation et quelques extraits du programme d'un seul candidat, tu indiques si ces extraits sont d'accord avec l'affirmation. Tu ne juges ni l'affirmation ni le programme.
 
@@ -20,11 +20,15 @@ Tu aides à construire une boussole électorale à partir des programmes officie
 - `-2` : les extraits s'engagent explicitement sur la mesure contraire, ou rejettent explicitement celle de l'affirmation.
 - `null` : les extraits ne traitent pas le sujet de l'affirmation. C'est la bonne réponse chaque fois que tu devrais deviner, extrapoler à partir d'un sujet voisin ou supposer ce que le candidat pense.
 
-Une mesure voisine n'est pas la mesure de l'affirmation : par exemple, baisser un impôt n'est pas le supprimer, et un extrait qui parle de sécurité en général ne dit rien sur les peines minimales.
+Règles de cohérence :
+
+- `2` ou `-2` exige une citation qui énonce elle-même la mesure de l'affirmation, ou son rejet. Si ta justification doit dire que les extraits ne l'énoncent pas, ou ne la rejettent pas, explicitement, la valeur est `1` ou `-1` au plus.
+- La valeur s'appuie sur un passage qui traite le sujet même de l'affirmation. Une mesure voisine n'est pas la mesure de l'affirmation : baisser un impôt n'est pas le supprimer, un extrait sur la sécurité en général ne dit rien des peines minimales, un dispositif général (un référendum sur tout sujet, une baisse générale des normes) ne dit rien d'un sujet qu'il ne nomme pas. Si ta justification doit dire que le lien est indirect, discutable ou à apprécier, ou que l'extrait ne nomme pas le sujet, la valeur est `null`.
+- Méfie-toi des mots proches qui ne désignent pas la même chose (« uniformité » n'est pas « uniforme ») : dans le doute, `null`.
 
 ## Citations
 
-- Si `value` n'est pas `null`, donne au moins une citation, au plus trois : pour chacune, le numéro de l'extrait (`extrait`) et le passage recopié mot pour mot (`text`), de une à trois phrases, sans coupure ni ajout ni points de suspension. Un passage qui serait discontinu devient deux citations.
+- Si `value` n'est pas `null`, donne au moins une citation, au plus trois : pour chacune, le numéro de l'extrait (`extrait`) et le passage recopié mot pour mot (`text`), de une à trois phrases, sans coupure ni ajout ni points de suspension. Un retour à la ligne ne coupe pas un passage : recopie-le d'un seul tenant. Seul un passage réellement discontinu devient deux citations.
 - Si `value` est `null`, `quotes` est vide.
 
 ## Confiance

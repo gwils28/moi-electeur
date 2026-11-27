@@ -31,6 +31,7 @@ from .propose import (
     pending_ids,
     position_items,
     proposals_path,
+    render_report,
     run_direct,
     submit_batch,
     write_measures,
@@ -318,7 +319,8 @@ def _propose(
 ) -> None:
     config = json.loads((election / "election_config.json").read_text(encoding="utf-8"))
     prompt = load_prompt(PROMPTS[kind])
-    skip = done_ids(load_records(proposals_path(election, kind))) | pending_ids(election)
+    previous = load_records(proposals_path(election, kind))
+    skip = done_ids(previous, prompt.version) | pending_ids(election)
     wanted = _split(candidates)
     with open_retriever(config["id"], embedding, dsn) as search:
         try:
@@ -437,3 +439,19 @@ def batch_status_cmd(election: ElectionDir) -> None:
     for batch_id, status, n in collect_batches(make_client(), election, now=datetime.now(UTC)):
         typer.echo(f"{batch_id} : {status}" + (f", {n} propositions collectées" if n else ""))
     _write_outputs(election)
+
+
+@app.command("proposals-report")
+def proposals_report_cmd(
+    election: ElectionDir,
+    kind: Annotated[str, typer.Option(help="position ou measure.")] = "position",
+    candidates: Candidates = None,
+    out: Annotated[Path | None, typer.Option(help="Fichier Markdown (défaut : sortie).")] = None,
+) -> None:
+    """Rapport de relecture des propositions (Markdown), signalements en clair."""
+    text = render_report(election, kind, candidates=_split(candidates))
+    if out:
+        out.write_text(text, encoding="utf-8")
+        typer.echo(f"Écrit {out}")
+    else:
+        typer.echo(text, nl=False)
