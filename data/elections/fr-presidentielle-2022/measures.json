@@ -327,7 +327,7 @@
       },
       "evidence": [
         {
-          "quote": "TRAVAILLEURS FRANÇAIS ET IMMIGRÉS : UN MÊME CAMP Liberté de circulation\n\net d’installation !",
+          "quote": "TRAVAILLEURS FRANÇAIS ET IMMIGRÉS : UN MÊME CAMP\n\nLiberté de circulation\n\net d’installation !",
           "document_title": "Profession de foi, 1er tour",
           "page": 3,
           "chunk_id": "3f15e2622823-0003"
@@ -376,6 +376,12 @@
       "evidence": [
         {
           "quote": "1. Augmenter les salaires de 8% (équivalent d'un 13ème mois) pour tous les salariés jusqu’à 3 SMIC sans peser sur le coût du travail pour les entreprises. Nous réduirons les charges salariales qui font la différence entre le salaire net reçu par le salarié et le salaire brut payé par l’entreprise. Cette réduction des charges salariales coûtera 20 Mds d’€ à l’Etat et sera financée par la suppression des millions de fausses cartes vitales.",
+          "document_title": "Programme général",
+          "page": 39,
+          "chunk_id": "b29932e0541b-0043"
+        },
+        {
+          "quote": "Cette réduction des charges salariales coûtera 20 Mds d’€ à l’Etat et sera financée par la suppression des millions de fausses cartes vitales.",
           "document_title": "Programme général",
           "page": 39,
           "chunk_id": "b29932e0541b-0043"
@@ -645,7 +651,13 @@
       },
       "evidence": [
         {
-          "quote": "Mettre fin à l’augmentation de la Contribution au service public de l’électricité (CSPE) et redéployer les 4 milliards gâchés dans le solaire et l’éolien sur des filières d’avenir : • 3 milliards à destination dans grand programme d’isolation des foyers (Doublement de l’effort d’isolation thermique par rapport à 2022) • 1 milliard à distribuer sur les projets nucléaires et déchets",
+          "quote": "Mettre fin à l’augmentation de la Contribution au service public de l’électricité (CSPE) et redéployer les 4 milliards gâchés dans le solaire et l’éolien sur des filières d’avenir :\n\n• 3 milliards à destination dans grand programme d’isolation des foyers (Doublement de l’effort d’isolation thermique par rapport à 2022)\n\n• 1 milliard à distribuer sur les projets nucléaires et déchets",
+          "document_title": "Programme général",
+          "page": 169,
+          "chunk_id": "b29932e0541b-0200"
+        },
+        {
+          "quote": "Mettre fin à l’augmentation de la Contribution au service public de l’électricité (CSPE) et redéployer les 4 milliards gâchés dans le solaire et l’éolien sur des filières d’avenir :",
           "document_title": "Programme général",
           "page": 169,
           "chunk_id": "b29932e0541b-0200"
@@ -871,6 +883,12 @@
           "document_title": "Programme général",
           "page": 139,
           "chunk_id": "b29932e0541b-0162"
+        },
+        {
+          "quote": "Chiffrage des mesures phares Recruter 30 000 forces de l’ordre et 10 000 personnels administratifs\n\n⇨ 50 000 € par recrutement\n\n⇨ 2 milliards par an sur la durée du quinquennat, soit 10 milliards sur la totalité du quinquennat",
+          "document_title": "Programme général",
+          "page": 153,
+          "chunk_id": "b29932e0541b-0180"
         }
       ],
       "review": {
@@ -898,6 +916,12 @@
         },
         {
           "quote": "Construction de 40 000 nouvelles places de prison en 5 ans",
+          "document_title": "Programme général",
+          "page": 153,
+          "chunk_id": "b29932e0541b-0180"
+        },
+        {
+          "quote": "I. Financement des 40 000 places de prison Construction de 40 000 nouvelles places de prison en 5 ans\n\n⇨ 1 milliard d’€ par an la première année, augmentation au fur et à mesure des constructions de\n\nplaces pour atteindre 2 milliards en 2022 et 1,2 milliard après.\n\n⇨ Soit 9,8 milliards d’€ au total sur la durée du quinquennat, 1,5 milliard par an et 1,2 à la fin des\n\nconstructions.",
           "document_title": "Programme général",
           "page": 153,
           "chunk_id": "b29932e0541b-0180"
@@ -1195,6 +1219,12 @@
           "document_title": "Programme officiel, 70 propositions pour la France",
           "page": 33,
           "chunk_id": "8a78650816be-0037"
+        },
+        {
+          "quote": "nous crée-rons un fonds pour la réindustrialisation et l’emploi local doté de 3 Mds € (apportés par l’État, la Banque des territoires, les régions et des investisseurs privés) qui investira dans leur capital.",
+          "document_title": "Programme officiel, 70 propositions pour la France",
+          "page": 33,
+          "chunk_id": "8a78650816be-0037"
         }
       ],
       "review": {
@@ -1249,6 +1279,12 @@
           "document_title": "Programme officiel, 70 propositions pour la France",
           "page": 24,
           "chunk_id": "8a78650816be-0026"
+        },
+        {
+          "quote": "L’augmentation généra-lisée des salaires, le maintien dans l’emploi des 55-62 ans, la lutte implacable contre la fraude et l’optimisation fiscale, qui privent les régimes sociaux de ressources précieuses, apporteront les res-sources nécessaires pour financer ces mesures de justice sociale.",
+          "document_title": "Programme officiel, 70 propositions pour la France",
+          "page": 24,
+          "chunk_id": "8a78650816be-0026"
         }
       ],
       "review": {
@@ -1270,6 +1306,12 @@
       "evidence": [
         {
           "quote": "Je m’attellerai à revaloriser les petites retraites, en portant les montants nets du minimum vieillesse à 1 000 euros et du minimum contributif à 1 200 euros, et en permet-tant que chaque heure travaillée ouvre à cotisation pour la retraite.",
+          "document_title": "Programme officiel, 70 propositions pour la France",
+          "page": 24,
+          "chunk_id": "8a78650816be-0026"
+        },
+        {
+          "quote": "L’augmentation généra-lisée des salaires, le maintien dans l’emploi des 55-62 ans, la lutte implacable contre la fraude et l’optimisation fiscale, qui privent les régimes sociaux de ressources précieuses, apporteront les res-sources nécessaires pour financer ces mesures de justice sociale.",
           "document_title": "Programme officiel, 70 propositions pour la France",
           "page": 24,
           "chunk_id": "8a78650816be-0026"
@@ -1324,6 +1366,12 @@
         },
         {
           "quote": "Ceci permettra de faire venir, dès le second se-mestre 2022 puis chaque année ensuite, 4 à 8 000 médecins dans ces territoires.",
+          "document_title": "Programme officiel, 70 propositions pour la France",
+          "page": 24,
+          "chunk_id": "8a78650816be-0027"
+        },
+        {
+          "quote": "Les modalités pratiques de l’accueil de ces étudiants, à savoir leur logement et les moyens de leur mobi-lité, seront gérées par les départements avec un accompagnement financier de l’État.",
           "document_title": "Programme officiel, 70 propositions pour la France",
           "page": 24,
           "chunk_id": "8a78650816be-0027"
@@ -1666,6 +1714,12 @@
         },
         {
           "quote": "j’adopterai les mesures telles qu’elles sont pratiquées en Espagne, qui dispose de la légis-lation reconnue comme la plus efficace en Europe : formation des policiers, des gendarmes, des magistrats, présence d’assistantes sociales dans les commissariats et les gendarmeries, sanctions pé-nales aggravées, éloignement des conjoints violents, accompagne-ment social et psychologique des femmes et des enfants témoins de violences, priorisation dans le parc social des victimes de vio-lences conjugales.",
+          "document_title": "Programme officiel, 70 propositions pour la France",
+          "page": 29,
+          "chunk_id": "8a78650816be-0033"
+        },
+        {
+          "quote": "Je dédie-rai plus d'un milliard d’euros à la lutte contre les violences faites aux femmes.",
           "document_title": "Programme officiel, 70 propositions pour la France",
           "page": 29,
           "chunk_id": "8a78650816be-0033"
@@ -2109,7 +2163,13 @@
       },
       "evidence": [
         {
-          "quote": "Nous élargirons le droit à la protection de l’enfance aux jeunes majeur.e.s de 18 à 21 ans en danger. Nous augmenterons les moyens -500 millions d’euros par an- pour l’ensemble des services publics d’État indispensables à la protection de l’enfance : parquets des mineurs et tribunaux pour enfants, brigades de protection de la famille, création de structures adaptées pour les enfants les plus fragiles, incluant soutien médical et soins de santé mentale.",
+          "quote": "Nous élargirons le droit à la protection de l’enfance aux jeunes majeur.e.s de 18 à 21 ans en danger.\n\nNous augmenterons les moyens -500 millions d’euros par an- pour l’ensemble des services publics d’État indispensables à la protection de l’enfance : parquets des mineurs et tribunaux pour enfants, brigades de protection de la famille, création de structures adaptées pour les enfants les plus fragiles, incluant soutien médical et soins de santé mentale.",
+          "document_title": "Programme des écologistes",
+          "page": 58,
+          "chunk_id": "dd71c05a16f2-0049"
+        },
+        {
+          "quote": "Nous augmenterons les moyens -500 millions d’euros par an- pour l’ensemble des services publics d’État indispensables à la protection de l’enfance : parquets des mineurs et tribunaux pour enfants, brigades de protection de la famille, création de structures adaptées pour les enfants les plus fragiles, incluant soutien médical et soins de santé mentale.",
           "document_title": "Programme des écologistes",
           "page": 58,
           "chunk_id": "dd71c05a16f2-0049"
@@ -2163,7 +2223,7 @@
       },
       "evidence": [
         {
-          "quote": "Le “Ticket Liberté Climat” ouvert aux 16-25 ans donnera un accès en illimité à l’ensemble des trains, transports en commun et vélos et voitures en libre-service du territoire français. Le coût sera de 100 € / mois (tarif plein) ou 50 € / mois (taux réduit).",
+          "quote": "Le “Ticket Liberté Climat” ouvert aux 16-25 ans donnera un accès en illimité à l’ensemble des trains, transports en commun et vélos et voitures en libre-service du territoire français.\n\nLe coût sera de 100 € / mois (tarif plein) ou 50 € / mois (taux réduit).",
           "document_title": "Programme des écologistes",
           "page": 14,
           "chunk_id": "dd71c05a16f2-0010"
@@ -2188,6 +2248,12 @@
       "evidence": [
         {
           "quote": "Nous remplacerons l’élevage industriel par un élevage agroécologique en 10 ans. Nous mobiliserons les aides publiques agricoles pour financer la transition agroécologique des éleveurs et éleveuses.",
+          "document_title": "Programme des écologistes",
+          "page": 35,
+          "chunk_id": "dd71c05a16f2-0028"
+        },
+        {
+          "quote": "Nous mobiliserons les aides publiques agricoles pour financer la transition agroécologique des éleveurs et éleveuses.",
           "document_title": "Programme des écologistes",
           "page": 35,
           "chunk_id": "dd71c05a16f2-0028"
@@ -2259,7 +2325,7 @@
       },
       "evidence": [
         {
-          "quote": "Notre première mesure sera l’octroi d’une personnalité juridique à l’animal et la reconnaissance de ses droits fondamentaux. Nous renforcerons les sanctions pénales en cas d’abandons et d’actes de cruauté envers les animaux. Nous renforcerons la protection des animaux au sein des institutions et des politiques publiques, par la création d’un ministère de la condition animale et en intégrant des critères relatifs à la protection des animaux dans la commande et dans l’octroi d’aides publiques.",
+          "quote": "Notre première mesure sera l’octroi d’une personnalité juridique à l’animal et la reconnaissance de ses droits fondamentaux. Nous renforcerons les sanctions pénales en cas d’abandons et d’actes de cruauté envers les animaux.\n\nNous renforcerons la protection des animaux au sein des institutions et des politiques publiques, par la création d’un ministère de la condition animale et en intégrant des critères relatifs à la protection des animaux dans la commande et dans l’octroi d’aides publiques.",
           "document_title": "Programme des écologistes",
           "page": 26,
           "chunk_id": "dd71c05a16f2-0020"
@@ -2337,7 +2403,7 @@
       },
       "evidence": [
         {
-          "quote": "Nous créerons une délégation parlementaire bicamérale dédiée pour contrôler les exportations d’armes vers les pays extra-européens. Un débat annuel en séance plénière aura lieu au Parlement, à partir d’un rapport transparent sur les exportations d’armements de la France.",
+          "quote": "Nous créerons une délégation parlementaire bicamérale dédiée pour contrôler les exportations d’armes vers les pays extra-européens.\n\nUn débat annuel en séance plénière aura lieu au Parlement, à partir d’un rapport transparent sur les exportations d’armements de la France.",
           "document_title": "Programme des écologistes",
           "page": 118,
           "chunk_id": "dd71c05a16f2-0103"
@@ -2402,10 +2468,10 @@
       "title": "Augmenter le budget de la justice et recruter magistrats et agents",
       "summary": "Le budget annuel de la justice augmenterait d'au moins un milliard en cinq ans, ce qui permettrait de recruter 3000 magistrats et 8000 agents des tribunaux.",
       "costing": {
-        "status": "chiffre",
-        "amount_eur": 1000000000,
-        "period": "en cinq ans",
-        "quote": "Nous augmenterons le budget annuel de la justice d’au moins un milliard en cinq ans pour arriver au niveau de nos voisins européens."
+        "status": "intention",
+        "amount_eur": null,
+        "period": null,
+        "quote": null
       },
       "evidence": [
         {
@@ -2493,7 +2559,7 @@
       },
       "evidence": [
         {
-          "quote": "Nous procéderons à une révision générale des peines, en réexaminant notamment les peines de prison de courte durée au regard des dispositifs de travaux d’intérêt général et des peines alternatives. Nous donnerons aux juridictions d’application des peines et aux services pénitentiaires d’insertion et de probation les moyens pour une politique d’accompagnement social et psychologique, la meilleure façon de réduire la criminalité et la récidive, et pour garantir l’effectivité du principe constitutionnel d’individualisation des peines.",
+          "quote": "Nous procéderons à une révision générale des peines, en réexaminant notamment les peines de prison de courte durée au regard des dispositifs de travaux d’intérêt général et des peines alternatives.\n\nNous donnerons aux juridictions d’application des peines et aux services pénitentiaires d’insertion et de probation les moyens pour une politique d’accompagnement social et psychologique, la meilleure façon de réduire la criminalité et la récidive, et pour garantir l’effectivité du principe constitutionnel d’individualisation des peines.",
           "document_title": "Programme des écologistes",
           "page": 77,
           "chunk_id": "dd71c05a16f2-0066"
@@ -2637,7 +2703,7 @@
       },
       "evidence": [
         {
-          "quote": "Nous protégerons les citoyens et citoyennes contre le risque d’un manque d’eau ou d’une hausse du coût de l’eau en transférant la gestion de l’eau à la compétence exclusive de la collectivité, par une gestion municipale ou intercommunale en régie. Arrivée à échéance de chaque contrat de délégation de service public la gestion de l’eau passera en régie et nous accompagnerons les collectivités dans le passage vers une gestion exclusive de l’eau.",
+          "quote": "Nous protégerons les citoyens et citoyennes contre le risque d’un manque d’eau ou d’une hausse du coût de l’eau en transférant la gestion de l’eau à la compétence exclusive de la collectivité, par une gestion municipale ou intercommunale en régie.\n\nArrivée à échéance de chaque contrat de délégation de service public la gestion de l’eau passera en régie et nous accompagnerons les collectivités dans le passage vers une gestion exclusive de l’eau.",
           "document_title": "Programme des écologistes",
           "page": 24,
           "chunk_id": "dd71c05a16f2-0018"
@@ -3566,10 +3632,10 @@
       "title": "Accélérer le plan d'investissement pour les EHPAD",
       "summary": "Le plan d'investissement pour les EPHAD engagé en 2020 serait mis en œuvre de façon accélérée et doté d'un milliard d'euros supplémentaires. Les contrôles des établissements seraient renforcés.",
       "costing": {
-        "status": "chiffre",
-        "amount_eur": 1000000000,
+        "status": "intention",
+        "amount_eur": null,
         "period": null,
-        "quote": "C’est pourquoi je souhaite que le plan d’investissement pour les EPHAD engagé en 2020 soit mis en œuvre de façon accélérée et doté d’un milliard d’euros supplémentaires mais aussi que les contrôles des établissements soient renforcés et leur tutelle exclusivement confiée aux préfets."
+        "quote": null
       },
       "evidence": [
         {
@@ -4155,7 +4221,7 @@
       },
       "evidence": [
         {
-          "quote": "Le relèvement progressif de l’âge légal de départ à la retraite à 65 ans. La juste prise en compte des cas d’incapacité, des carrières longues ou pénibles.",
+          "quote": "Le relèvement progressif de l’âge légal de départ à la retraite à 65 ans.\n\nLa juste prise en compte des cas d’incapacité, des carrières longues ou pénibles.",
           "document_title": "Emmanuel Macron avec vous, programme",
           "page": 7,
           "chunk_id": "e9a608824a05-0010"
@@ -4335,7 +4401,7 @@
       },
       "evidence": [
         {
-          "quote": "Le relèvement progressif de l’âge légal de départ à la retraite à 65 ans. La juste prise en compte des cas d’incapacité, des carrières longues ou pénibles.",
+          "quote": "Le relèvement progressif de l’âge légal de départ à la retraite à 65 ans.\n\nLa juste prise en compte des cas d’incapacité, des carrières longues ou pénibles.",
           "document_title": "Emmanuel Macron avec vous, programme",
           "page": 7,
           "chunk_id": "e9a608824a05-0010"
@@ -5209,6 +5275,12 @@
           "document_title": "L'Avenir en commun, programme en version abrégée",
           "page": 13,
           "chunk_id": "df249374c324-0010"
+        },
+        {
+          "quote": "• Investir 200 milliards d’euros sur le mandat dans la bifurcation écologique",
+          "document_title": "L'Avenir en commun, programme en version abrégée",
+          "page": 13,
+          "chunk_id": "df249374c324-0010"
         }
       ],
       "review": {
@@ -5733,7 +5805,7 @@
       },
       "evidence": [
         {
-          "quote": "Suppression de 200 000 postes de fonctionnaires dans les services suradministrés ; 50 000 recrutements dans la santé, la justice et l’éducation",
+          "quote": "Suppression de 200 000 postes\n\nde fonctionnaires dans les services suradministrés ; 50 000 recrutements dans la santé, la justice et l’éducation",
           "document_title": "Le courage de faire, programme",
           "page": 6,
           "chunk_id": "370f8774f585-0006"
@@ -5757,7 +5829,7 @@
       },
       "evidence": [
         {
-          "quote": "de très haut niveau qui leur permettra de se consacrer entièrement à leur pratique de nos finances publiques sur 5 ans, avec une réduction de 42 milliards du déficit public en 2027. Chaque année, les budgets votés au Parlement devront impérativement la respecter. Cette règle d’or sera inscrite dans la Constitution.",
+          "quote": "de très haut niveau qui leur permettra de se consacrer entièrement à leur pratique\n\nde nos finances publiques sur 5 ans, avec une réduction de 42 milliards du déficit public en 2027. Chaque année, les budgets votés au Parlement devront impérativement la respecter. Cette règle d’or sera inscrite dans la Constitution.",
           "document_title": "Le courage de faire, programme",
           "page": 9,
           "chunk_id": "370f8774f585-0010"
@@ -5990,14 +6062,14 @@
       "title": "Créer un fonds national forestier de 150 millions d'euros par an",
       "summary": "Le programme prévoit une filière bois avec un fonds national forestier de 150 millions d'euros par an.",
       "costing": {
-        "status": "chiffre",
-        "amount_eur": 150000000,
-        "period": "par an",
-        "quote": "Une vraie filière bois avec un fonds national"
+        "status": "intention",
+        "amount_eur": null,
+        "period": null,
+        "quote": null
       },
       "evidence": [
         {
-          "quote": "Une vraie filière bois avec un fonds national forestier de 150 millions d’euros par an",
+          "quote": "Une vraie filière bois avec un fonds national\n\nforestier de 150 millions d’euros par an",
           "document_title": "Le courage de faire, programme",
           "page": 13,
           "chunk_id": "370f8774f585-0016"
@@ -6014,14 +6086,14 @@
       "title": "Créer un fonds renaturation de 200 millions d'euros",
       "summary": "Un fonds renaturation de 200 millions d'euros est créé pour la désimperméabilisation des sols en ville, la dépollution des friches industrielles et la renaturation.",
       "costing": {
-        "status": "chiffre",
-        "amount_eur": 200000000,
+        "status": "intention",
+        "amount_eur": null,
         "period": null,
-        "quote": "Création d’un « fonds renaturation »"
+        "quote": null
       },
       "evidence": [
         {
-          "quote": "Création d’un « fonds renaturation » de 200 millions d’euros pour la désimperméabilisation des sols en ville, la dépollution des friches industrielles et la renaturation",
+          "quote": "Création d’un « fonds renaturation »\n\nde 200 millions d’euros pour la désimperméabilisation des sols en ville, la dépollution des friches industrielles et la renaturation",
           "document_title": "Le courage de faire, programme",
           "page": 14,
           "chunk_id": "370f8774f585-0017"
@@ -6457,6 +6529,12 @@
           "document_title": "Brochure programme Poutou 2022",
           "page": 12,
           "chunk_id": "feb3406f22b1-0010"
+        },
+        {
+          "quote": "Augmenter les salaires de 400 euros mensuels pour les 25,2 millions de salarié·e·s de ce pays coûterait 120 milliards d’euros.",
+          "document_title": "Brochure programme Poutou 2022",
+          "page": 27,
+          "chunk_id": "feb3406f22b1-0025"
         }
       ],
       "review": {
@@ -6613,6 +6691,12 @@
           "document_title": "Brochure programme Poutou 2022",
           "page": 18,
           "chunk_id": "feb3406f22b1-0016"
+        },
+        {
+          "quote": "Sur le principe du chômage ou des retraites, en créant une nouvelle branche de la sécurité sociale, donc en augmentant la part socialisée du salaire. Cela coûterait 110 milliards d’euros par an.",
+          "document_title": "Brochure programme Poutou 2022",
+          "page": 18,
+          "chunk_id": "feb3406f22b1-0016"
         }
       ],
       "review": {
@@ -6657,7 +6741,7 @@
       },
       "evidence": [
         {
-          "quote": "Arrêt des expulsions et réquisition des logements vides Construction de 200 000 logements sociaux par an",
+          "quote": "Arrêt des expulsions et réquisition des logements vides\n\nConstruction de 200 000 logements sociaux par an",
           "document_title": "Brochure programme Poutou 2022",
           "page": 15,
           "chunk_id": "feb3406f22b1-0012"
@@ -6681,7 +6765,7 @@
       },
       "evidence": [
         {
-          "quote": "Interdiction des dépassements d’honoraires, suppression des franchises et des forfaits hospitaliers Remboursement à 100 % de tous les soins et médicaments prescrits et généralisation du tiers payant",
+          "quote": "Interdiction des dépassements d’honoraires, suppression des franchises et des forfaits hospitaliers\n\nRemboursement à 100 % de tous les soins et médicaments prescrits et généralisation du tiers payant",
           "document_title": "Brochure programme Poutou 2022",
           "page": 11,
           "chunk_id": "feb3406f22b1-0009"
@@ -6897,7 +6981,7 @@
       },
       "evidence": [
         {
-          "quote": "Désarmement unilatéral et général, qui implique la destruction des armes nucléaires françaises Arrêt de toutes les interventions militaires françaises et démantèlement des bases permanentes",
+          "quote": "Désarmement unilatéral et général, qui implique la destruction des armes nucléaires françaises\n\nArrêt de toutes les interventions militaires françaises et démantèlement des bases permanentes",
           "document_title": "Brochure programme Poutou 2022",
           "page": 26,
           "chunk_id": "feb3406f22b1-0023"
@@ -6993,7 +7077,7 @@
       },
       "evidence": [
         {
-          "quote": "Désarmement de la Police en contact avec la population Interdiction des armes offensives (Flash-Ball, LBD, Taser, grenades de désencerclement...)",
+          "quote": "Désarmement de la Police en contact avec la population\n\nInterdiction des armes offensives (Flash-Ball, LBD, Taser, grenades de désencerclement...)",
           "document_title": "Brochure programme Poutou 2022",
           "page": 21,
           "chunk_id": "feb3406f22b1-0018"
@@ -7215,7 +7299,7 @@
       },
       "evidence": [
         {
-          "quote": "Interdiction du cumul des mandats ; limitation du nombre de mandats consécutifs ; indemnités d’élu·e au salaire médian Révocabilité des élu·e·s",
+          "quote": "Interdiction du cumul des mandats ; limitation du nombre de mandats consécutifs ; indemnités d’élu·e au salaire médian\n\nRévocabilité des élu·e·s",
           "document_title": "Brochure programme Poutou 2022",
           "page": 19,
           "chunk_id": "feb3406f22b1-0017"
@@ -7263,7 +7347,13 @@
       },
       "evidence": [
         {
-          "quote": "116 Un pôle financier public sera constitué, grâce à la nationalisation des grandes banques et compagnies d’assurances privées (BNP-Paribas, Société générale, Axa) Il aidera à réduire le coût du capital pour les PME-TPE qui créent des emplois, forment leurs salarié·e·s, augmentent les salaires, et il permettra de créer efficacement de la valeur ajoutée dans les territoires.",
+          "quote": "116 Un pôle financier public sera constitué, grâce à la nationalisation des grandes banques et compagnies d’assurances privées (BNP-Paribas, Société générale, Axa)\n\nIl aidera à réduire le coût du capital pour les PME-TPE qui créent des emplois, forment leurs salarié·e·s, augmentent les salaires, et il permettra de créer efficacement de la valeur ajoutée dans les territoires.",
+          "document_title": "La France des Jours heureux, livre-programme",
+          "page": 50,
+          "chunk_id": "d0836d522538-0061"
+        },
+        {
+          "quote": "Avec 20 milliards d’euros de fonds publics pour baisser les taux d’intérêt, ce sont ainsi plusieurs centaines de milliards d’avances gratuites et partiellement remboursables qui pourront être mis par les banques à la disposition des 1,6 million de TPE-PME remplissant ces conditions.",
           "document_title": "La France des Jours heureux, livre-programme",
           "page": 50,
           "chunk_id": "d0836d522538-0061"
@@ -7317,7 +7407,7 @@
       },
       "evidence": [
         {
-          "quote": "121 Un nouvel impôt sur les sociétés sera mis en place Il sera progressif, en fonction du chiffre d’affaires et des résultats des entreprises. Il sera modulé en le rendant plus élevé pour les groupes qui délocalisent, suppriment des emplois, se livrent à des opérations financières, occasionnent des pollutions.",
+          "quote": "121 Un nouvel impôt sur les sociétés sera mis en place\n\nIl sera progressif, en fonction du chiffre d’affaires et des résultats des entreprises. Il sera modulé en le rendant plus élevé pour les groupes qui délocalisent, suppriment des emplois, se livrent à des opérations financières, occasionnent des pollutions.",
           "document_title": "La France des Jours heureux, livre-programme",
           "page": 51,
           "chunk_id": "d0836d522538-0063"
@@ -7394,10 +7484,10 @@
       "title": "Construire 200 000 logements sociaux par an et rénover 700 000 logements",
       "summary": "Les extraits prévoient la construction de 200 000 logements sociaux chaque année, pour aller vers 30 % de logements sociaux minimum en zone urbaine. Dix milliards seraient consacrés chaque année à la rénovation de 700 000 logements.",
       "costing": {
-        "status": "chiffre",
-        "amount_eur": 10000000000,
-        "period": "chaque année",
-        "quote": "Dix milliards seront consacrés, chaque année, à la rénovation de 700 000 logements."
+        "status": "intention",
+        "amount_eur": null,
+        "period": null,
+        "quote": null
       },
       "evidence": [
         {
@@ -7485,7 +7575,7 @@
       },
       "evidence": [
         {
-          "quote": "13 Des mesures urgentes seront prises pour rendre les soins accessibles à toutes et à tous • Les franchises médicales et les participations forfaitaires seront supprimées.",
+          "quote": "13 Des mesures urgentes seront prises pour rendre les soins accessibles à toutes et à tous\n\n• Les franchises médicales et les participations forfaitaires seront supprimées.",
           "document_title": "La France des Jours heureux, livre-programme",
           "page": 14,
           "chunk_id": "d0836d522538-0016"
@@ -7508,10 +7598,10 @@
       "title": "Généraliser le repas à un euro dans les établissements scolaires",
       "summary": "Chaque enfant bénéficierait d'un repas équilibré quotidien ne dépassant pas un euro, à partir de produits bio et locaux. Un fonds alimentaire national de dix milliards d'euros serait créé pour le permettre.",
       "costing": {
-        "status": "chiffre",
-        "amount_eur": 10000000000,
+        "status": "intention",
+        "amount_eur": null,
         "period": null,
-        "quote": "Un fonds alimentaire national de dix milliards d’euros sera créé pour permettre ce repas, ne dépassant pas un euro et réalisé à partir de produits bio et locaux."
+        "quote": null
       },
       "evidence": [
         {
@@ -7545,7 +7635,13 @@
       },
       "evidence": [
         {
-          "quote": "La France se dotera d’une grande politique conforme aux recommandations du Giec, dotée de 140 milliards d’euros par an Au service de ce pacte pour le climat et pour l’emploi, un fonds écologique et social sera créé et abondé par l’État, les entreprises et la création monétaire.",
+          "quote": "La France se dotera d’une grande politique conforme aux recommandations du Giec, dotée de 140 milliards d’euros par an\n\nAu service de ce pacte pour le climat et pour l’emploi, un fonds écologique et social sera créé et abondé par l’État, les entreprises et la création monétaire.",
+          "document_title": "La France des Jours heureux, livre-programme",
+          "page": 27,
+          "chunk_id": "d0836d522538-0033"
+        },
+        {
+          "quote": "La France se dotera d’une grande politique conforme aux recommandations du Giec, dotée de 140 milliards d’euros par an",
           "document_title": "La France des Jours heureux, livre-programme",
           "page": 27,
           "chunk_id": "d0836d522538-0033"
@@ -7569,7 +7665,13 @@
       },
       "evidence": [
         {
-          "quote": "50 Les transports collectifs urbains seront élevés au rang de priorité de l’action publique Leur gratuité sera instaurée et financée par une extension et une augmentation du versement transport payé par les grandes entreprises.",
+          "quote": "50 Les transports collectifs urbains seront élevés au rang de priorité de l’action publique\n\nLeur gratuité sera instaurée et financée par une extension et une augmentation du versement transport payé par les grandes entreprises.",
+          "document_title": "La France des Jours heureux, livre-programme",
+          "page": 28,
+          "chunk_id": "d0836d522538-0034"
+        },
+        {
+          "quote": "Leur gratuité sera instaurée et financée par une extension et une augmentation du versement transport payé par les grandes entreprises.",
           "document_title": "La France des Jours heureux, livre-programme",
           "page": 28,
           "chunk_id": "d0836d522538-0034"
@@ -8095,6 +8197,12 @@
           "document_title": "Pour que la France reste la France, mon programme",
           "page": 25,
           "chunk_id": "08a8c9c9a7b4-0023"
+        },
+        {
+          "quote": "Les entreprises bénéficieront de 36 milliards d’euros de baisses d’impôts dont 30 milliards d’euros d’allègement des impôts de production.",
+          "document_title": "Pour que la France reste la France, mon programme",
+          "page": 70,
+          "chunk_id": "08a8c9c9a7b4-0071"
         }
       ],
       "review": {
@@ -8164,6 +8272,12 @@
       "evidence": [
         {
           "quote": "Les baisses d’impôts représenteront un gain annuel de pouvoir d’achat pour les Français de 28 milliards d’euros. Il s’agira notamment de baisser la CSG pour favoriser les travailleurs et retraités modestes, de défiscaliser le versement de la prime de participation, de supprimer les droits de mutation à titre onéreux pour les primo-accédants, les droits de succession pour 95 % des Français et la redevance audiovisuelle.",
+          "document_title": "Pour que la France reste la France, mon programme",
+          "page": 70,
+          "chunk_id": "08a8c9c9a7b4-0071"
+        },
+        {
+          "quote": "Cela entraînera un surcroît de consommation et donc des recettes additionnelles de TVA pour environ 5 milliards d’euros. Au total, le coût net de ces mesures pour l’État sera donc de 23 milliards d’euros.",
           "document_title": "Pour que la France reste la France, mon programme",
           "page": 70,
           "chunk_id": "08a8c9c9a7b4-0071"
@@ -8245,6 +8359,12 @@
           "document_title": "Pour que la France reste la France, mon programme",
           "page": 48,
           "chunk_id": "08a8c9c9a7b4-0048"
+        },
+        {
+          "quote": "Cette mesure sera également financée par la suppression des aides sociales non contributives pour les étrangers extra-européens (allocations familiales, RSA, aides au logement, minimum vieillesse…)",
+          "document_title": "Pour que la France reste la France, mon programme",
+          "page": 28,
+          "chunk_id": "08a8c9c9a7b4-0027"
         }
       ],
       "review": {
@@ -8293,6 +8413,12 @@
           "document_title": "Pour que la France reste la France, mon programme",
           "page": 50,
           "chunk_id": "08a8c9c9a7b4-0050"
+        },
+        {
+          "quote": "1. Suppression des aides sociales pour les étrangers extra-européens 20 milliards d’euros",
+          "document_title": "Pour que la France reste la France, mon programme",
+          "page": 72,
+          "chunk_id": "08a8c9c9a7b4-0074"
         }
       ],
       "review": {
@@ -8320,6 +8446,12 @@
         },
         {
           "quote": "Permettre à tous les élèves scolarisés en milieu ordinaire de réussir en recrutant et formant 50 000 accompagnants d’élèves en situation de handicap (AESH) supplémentaires et en étendant cet accompagnement à l’enseignement supérieur",
+          "document_title": "Pour que la France reste la France, mon programme",
+          "page": 49,
+          "chunk_id": "08a8c9c9a7b4-0049"
+        },
+        {
+          "quote": "Ce projet est ambitieux et a un coût, mais je l’assume parfaitement, car la solidarité nationale doit s’appliquer précisément lorsque cela est nécessaire pour protéger tous les Français, quelle que soit leur situation.",
           "document_title": "Pour que la France reste la France, mon programme",
           "page": 49,
           "chunk_id": "08a8c9c9a7b4-0049"
@@ -8595,7 +8727,7 @@
       },
       "evidence": [
         {
-          "quote": "Obliger les pays d’origine à reprendre leurs ressortissants en conditionnant : • Le versement de l’aide publique au développement • L’obtention des visas pour venir en France • Le gel des avoirs de leurs dirigeants • Le blocage des transferts de fonds des immigrés vers ces pays",
+          "quote": "Obliger les pays d’origine à reprendre leurs ressortissants en conditionnant :\n\n• Le versement de l’aide publique au développement • L’obtention des visas pour venir en France • Le gel des avoirs de leurs dirigeants • Le blocage des transferts de fonds des immigrés vers ces pays",
           "document_title": "Pour que la France reste la France, mon programme",
           "page": 16,
           "chunk_id": "08a8c9c9a7b4-0015"

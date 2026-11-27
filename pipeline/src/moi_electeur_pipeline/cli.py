@@ -21,6 +21,7 @@ from .llm import AnthropicClient, LlmClient, load_api_key
 from .paths import elections_dir, repo_root
 from .propose import (
     PROMPTS,
+    ReviewedMeasuresError,
     collect_batches,
     done_ids,
     estimate_cost,
@@ -286,7 +287,11 @@ def _write_outputs(election: Path) -> None:
             typer.echo(f"positions.json non écrit : {missing} proposition(s) manquent.")
     measures = load_records(proposals_path(election, "measure"))
     if measures:
-        written, missing = write_measures(election, config, measures)
+        try:
+            written, missing = write_measures(election, config, measures)
+        except ReviewedMeasuresError:
+            typer.echo("measures.json non réécrit : il contient des mesures revues (M3c).")
+            return
         if written:
             typer.echo("measures.json écrit (statut pending, à revoir).")
         elif missing:

@@ -247,21 +247,60 @@ def normalize(text: str) -> str:
     return SPACES.sub(" ", unicodedata.normalize("NFC", text).translate(QUOTE_CHARS)).strip()
 
 
-# Césure du PDF (« der-nier », « sociaux-démo- crates ») : le trait d'union entre deux lettres
-# est ignoré des deux côtés, pour la comparaison seulement.
-HYPHEN = re.compile(r"(?<=\w)- ?(?=\w)")
+def _matchable(text: str) -> tuple[str, str, list[int]]:
+    """Forme de comparaison d'un texte et, pour chacun de ses caractères, sa position dans le
+    texte NFC d'origine : apostrophes et guillemets droits, espaces repliées, césure du PDF
+    ignorée (« der-nier », « sociaux-démo- crates » : trait d'union entre deux lettres, suivi
+    ou non d'une espace, des deux côtés de la comparaison)."""
+    nfc = unicodedata.normalize("NFC", text)
+    chars: list[str] = []
+    index: list[int] = []
+    for i, ch in enumerate(nfc):
+        code = QUOTE_CHARS.get(ord(ch), ord(ch))
+        if code is None:
+            continue
+        c = chr(code)
+        if c.isspace():
+            if not chars or chars[-1] == " ":
+                continue
+            c = " "
+        chars.append(c)
+        index.append(i)
+    out: list[str] = []
+    out_index: list[int] = []
+    k = 0
+    while k < len(chars):
+        if chars[k] == "-" and out and out[-1].isalnum():
+            j = k + 1 + (k + 1 < len(chars) and chars[k + 1] == " ")
+            if j < len(chars) and chars[j].isalnum():
+                k = j
+                continue
+        out.append(chars[k])
+        out_index.append(index[k])
+        k += 1
+    while out and out[-1] == " ":
+        out.pop()
+        out_index.pop()
+    return nfc, "".join(out), out_index
 
 
-def _match_form(text: str) -> str:
-    return HYPHEN.sub("", normalize(text))
+def exact_span(quote: str, text: str) -> str | None:
+    """Passage du texte (sous-chaîne exacte, forme NFC) qui correspond à la citation, ou None."""
+    _, q, _ = _matchable(quote)
+    if len(q) < MIN_QUOTE_CHARS:
+        return None
+    nfc, form, index = _matchable(text)
+    pos = form.find(q)
+    if pos < 0:
+        return None
+    return nfc[index[pos] : index[pos + len(q) - 1] + 1]
 
 
 def _found(quote: str, text: str) -> bool:
-    q = _match_form(quote)
-    return len(q) >= MIN_QUOTE_CHARS and q in _match_form(text)
+    return exact_span(quote, text) is not None
 
 
-NUMBER = re.compile(r"(\d{1,3}(?:[ .]\d{3})+|\d+)(?:,(\d+))?")
+NUMBER = re.compile(r"(\d{1,3}(?:[ .]\d{3})+|\d+)(?:[,.](\d{1,2})(?!\d))?")
 
 
 def parse_amounts(text: str) -> list[float]:
@@ -273,7 +312,7 @@ def parse_amounts(text: str) -> list[float]:
         rest = t[m.end() :].lstrip().lower()
         if rest.startswith(("milliard", "md")):
             value *= 1e9
-        elif rest.startswith(("million", "m€", "m d'euros")):
+        elif rest.startswith(("million", "m€", "m d'euros", "m euros")):
             value *= 1e6
         elif rest.startswith("k€"):
             value *= 1e3
@@ -298,14 +337,14 @@ def _check_quotes(
         chunk = item.chunks[n - 1] if 1 <= n <= len(item.chunks) else None
         if chunk is None:
             flags.append("extrait_inconnu")
-        verified = chunk is not None and _found(q["text"], chunk["text"])
+        span = exact_span(q["text"], chunk["text"]) if chunk is not None else None
         checked.append(
             {
                 "measure": measure,
                 "role": "evidence",
                 "chunk_id": chunk["id"] if chunk else None,
-                "text": q["text"],
-                "verified": verified,
+                "text": span or q["text"],  # vérifiée : passage exact du document
+                "verified": span is not None,
             }
         )
     checked = _merge_adjacent(checked, item)
@@ -326,9 +365,9 @@ def _merge_adjacent(quotes: list[dict[str, Any]], item: Item) -> list[dict[str, 
             and prev["verified"]
             and q["verified"]
             and prev["chunk_id"] == q["chunk_id"]
-            and _found(f"{prev['text']} {q['text']}", texts[q["chunk_id"]])
+            and (merged := exact_span(f"{prev['text']} {q['text']}", texts[q["chunk_id"]]))
         ):
-            out[-1] = {**prev, "text": f"{prev['text']} {q['text']}"}
+            out[-1] = {**prev, "text": merged}
         else:
             out.append(q)
     return out
@@ -366,22 +405,24 @@ def _check_measures(item: Item, out: dict[str, Any]) -> tuple[str, list[Any], li
         ):
             flags.append("chiffrage_incoherent")
         if quote:
-            chunk = next((ch for ch in item.chunks if _found(quote, ch["text"])), None)
+            found = next(
+                ((ch, sp) for ch in item.chunks if (sp := exact_span(quote, ch["text"]))), None
+            )
             quotes.append(
                 {
                     "measure": i,
                     "role": "costing",
-                    "chunk_id": chunk["id"] if chunk else None,
-                    "text": quote,
-                    "verified": chunk is not None,
+                    "chunk_id": found[0]["id"] if found else None,
+                    "text": found[1] if found else quote,
+                    "verified": found is not None,
                 }
             )
-            if chunk is None:
+            if found is None:
                 flags.append("citation_non_retrouvee")
             elif (
                 c["status"] == "chiffre"
                 and amount is not None
-                and not _amount_quoted(amount, quote)
+                and not _amount_quoted(amount, found[1])
             ):
                 flags.append("montant_non_retrouve")
     return "ok", quotes, flags
@@ -439,6 +480,8 @@ def make_record(
                     check = _check_position if item.kind == "position" else _check_measures
                     status, quotes, flags = check(item, parsed)
                     error = None
+    if error is not None:
+        error = error[:500]
     return {
         "kind": item.kind,
         "custom_id": item.custom_id,
@@ -777,6 +820,31 @@ def write_positions(
     return True, 0
 
 
+class ReviewedMeasuresError(Exception):
+    """`measures.json` contient des mesures revues : la réécriture (identifiants recalculés)
+    est refusée ; la revue M3c gère les mesures une à une."""
+
+
+INTENTION = {"status": "intention", "amount_eur": None, "period": None, "quote": None}
+
+
+def _checked_costing(
+    costing: dict[str, Any], quotes: Sequence[dict[str, Any]], measure: int
+) -> dict[str, Any]:
+    """Chiffrage écrit dans `measures.json` : celui du modèle s'il passe les vérifications
+    (citation retrouvée, montant présent dans la citation, statut cohérent), sinon ramené à
+    `intention`, sans montant. La proposition d'origine reste dans `proposals/` pour la revue."""
+    status, amount = costing["status"], costing["amount_eur"]
+    quote = next((q for q in quotes if q["measure"] == measure and q["role"] == "costing"), None)
+    if status == "intention" or quote is None or not quote["verified"]:
+        return dict(INTENTION)
+    if status == "chiffre":
+        ok = amount is not None and _amount_quoted(amount, quote["text"])
+    else:
+        ok = amount is None
+    return {**costing, "quote": quote["text"]} if ok else dict(INTENTION)
+
+
 def write_measures(
     election_dir: Path, config: dict[str, Any], records: dict[str, dict[str, Any]]
 ) -> tuple[bool, int]:
@@ -789,7 +857,7 @@ def write_measures(
     if path.is_file():
         current = json.loads(path.read_text(encoding="utf-8"))["measures"]
         if any(m["review"]["status"] != "pending" for m in current):
-            raise ValueError("measures.json contient des mesures revues : réécriture refusée")
+            raise ReviewedMeasuresError("measures.json contient des mesures revues")
     lookup = load_chunk_lookup(election_dir)
     measures, missing = [], 0
     for cand in _candidates(config, None):
@@ -804,6 +872,15 @@ def write_measures(
                 if not evidence or kept == MAX_MEASURES:
                     continue
                 kept += 1
+                costing = _checked_costing(m["costing"], rec["quotes"], i)
+                cost_quote = next(
+                    (q for q in rec["quotes"] if q["measure"] == i and q["role"] == "costing"),
+                    None,
+                )
+                if costing["quote"] and cost_quote is not None:
+                    seen = {e["quote"] for e in evidence}
+                    if costing["quote"] not in seen:
+                        evidence += _evidence([{**cost_quote, "role": "evidence"}], lookup, i)
                 measures.append(
                     {
                         "id": "",
@@ -811,7 +888,7 @@ def write_measures(
                         "theme": theme["id"],
                         "title": m["title"],
                         "summary": m["summary"],
-                        "costing": dict(m["costing"]),
+                        "costing": costing,
                         "evidence": evidence,
                         "review": {"status": "pending"},
                     }

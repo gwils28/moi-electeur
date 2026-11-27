@@ -134,10 +134,14 @@ Signalements : montant_non_retrouve 1
    - ✅ « 8. 8. Augmentation du pouvoir d’achat grâce à la hausse de 10 % des salaires nets, la défiscalisation des heures supplémentaires et la conversion des RTT en salaire. » (p. 4)
 3. **Supprimer 200 000 postes de fonctionnaires dans les services suradministrés** (intention)
    Suppression de 200 000 postes de fonctionnaires dans les services suradministrés, avec 50 000 recrutements dans la santé, la justice et l'éducation.
-   - ✅ « Suppression de 200 000 postes de fonctionnaires dans les services suradministrés ; 50 000 recrutements dans la santé, la justice et l’éducation » (p. 6)
+   - ✅ « Suppression de 200 000 postes
+
+de fonctionnaires dans les services suradministrés ; 50 000 recrutements dans la santé, la justice et l’éducation » (p. 6)
 4. **Inscrire une règle d'or budgétaire dans la Constitution** (intention)
    Une trajectoire de finances publiques sur 5 ans avec une réduction de 42 milliards du déficit public en 2027, respectée chaque année par les budgets votés et inscrite dans la Constitution.
-   - ✅ « de très haut niveau qui leur permettra de se consacrer entièrement à leur pratique de nos finances publiques sur 5 ans, avec une réduction de 42 milliards du déficit public en 2027. Chaque année, les budgets votés au Parlement devront impérativement la respecter. Cette règle d’or sera inscrite dans la Constitution. » (p. 9)
+   - ✅ « de très haut niveau qui leur permettra de se consacrer entièrement à leur pratique
+
+de nos finances publiques sur 5 ans, avec une réduction de 42 milliards du déficit public en 2027. Chaque année, les budgets votés au Parlement devront impérativement la respecter. Cette règle d’or sera inscrite dans la Constitution. » (p. 9)
 5. **Supprimer les droits de succession pour 95 % des Français** (intention)
    Suppression des droits de succession pour 95 % des Français et accélération des donations, jusqu'à 100 000 € sans impôt par enfant et par petit-enfant tous les 6 ans.
    - ✅ « Je propose de supprimer les droits de succession pour 95 % des Français et d’accélérer les donations (jusqu’à 100 000 € sans impôt par enfant et par petit-enfant tous les 6 ans). » (p. 9)
@@ -175,11 +179,15 @@ Signalements : montant_non_retrouve 1
    - ✅ chiffrage : « 120 milliards d’euros pour la transition écologique grâce au livret vert qui fusionnera le livret A et le Livret développement durable (LDD) » (p. 14)
 3. **Créer un fonds national forestier de 150 millions d'euros par an** (chiffre : 150 000 000 € par an)
    Le programme prévoit une filière bois avec un fonds national forestier de 150 millions d'euros par an.
-   - ✅ « Une vraie filière bois avec un fonds national forestier de 150 millions d’euros par an » (p. 13)
+   - ✅ « Une vraie filière bois avec un fonds national
+
+forestier de 150 millions d’euros par an » (p. 13)
    - ✅ chiffrage : « Une vraie filière bois avec un fonds national » (p. 13)
 4. **Créer un fonds renaturation de 200 millions d'euros** (chiffre : 200 000 000 €)
    Un fonds renaturation de 200 millions d'euros est créé pour la désimperméabilisation des sols en ville, la dépollution des friches industrielles et la renaturation.
-   - ✅ « Création d’un « fonds renaturation » de 200 millions d’euros pour la désimperméabilisation des sols en ville, la dépollution des friches industrielles et la renaturation » (p. 14)
+   - ✅ « Création d’un « fonds renaturation »
+
+de 200 millions d’euros pour la désimperméabilisation des sols en ville, la dépollution des friches industrielles et la renaturation » (p. 14)
    - ✅ chiffrage : « Création d’un « fonds renaturation » » (p. 14)
 5. **Taxe carbone aux frontières de l'Union européenne** (intention)
    Le programme propose une taxe carbone aux frontières de l'Europe, pour protéger l'agriculture et l'industrie de la concurrence déloyale.

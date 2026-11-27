@@ -190,3 +190,20 @@ Suites de la relecture M0 :
 - **Vérification : césure du PDF.** Trois citations d'hidalgo n'étaient pas retrouvées : une à cause d'une coupure de mot dans le texte extrait (« der-nier »), deux à cause de colonnes entremêlées par l'extraction (le modèle a recopié l'ordre de lecture réel). Le trait d'union entre deux lettres (suivi ou non d'une espace) est désormais ignoré des deux côtés de la comparaison ; les colonnes entremêlées restent signalées pour la revue (hidalgo s18 refusée, s30 signalée). Nouvelle commande `recheck-proposals` : refait les vérifications des propositions reçues sans appel à l'API et réécrit `positions.json` / `measures.json` (positions revues conservées). Résultat : 307 citations de positions retrouvées sur 309, 494 de mesures sur 495 ; signalements restants : confiance faible 15, citation non retrouvée 2 (positions) ; montant non retrouvé 4, trop de mesures 1, citation non retrouvée 1 (mesures).
 - La boussole 2022 n'est pas publiée (`compass_ready()` : positions en attente) ; `build` publie toujours la configuration seule pour l'explorateur.
 - **Tiret cadratin dans les citations** : des programmes en contiennent (hidalgo s15), or le caractère est interdit dans les fichiers du dépôt. Plutôt qu'une exemption du contrôle, les JSON écrits par l'extraction l'échappent (séquence JSON standard de son code U+2014, donnée lue identique) et les rapports Markdown l'écrivent en entité HTML (`&#8212;`). Test ajouté.
+
+### Suites de la relecture M3b (agent `relecteur`, aucun bloquant)
+
+- **Corrigés** (tests ajoutés) :
+  - chiffrage signalé (citation non retrouvée, montant absent de la citation, statut incohérent) ramené à `intention` sans montant dans `measures.json`, la citation du chiffrage vérifiée étant ajoutée aux `evidence` (page visible) : 28 mesures chiffrées sur 34 et 11 partielles restent après vérification ;
+  - citations stockées comme **empan exact de l'extrait** (forme NFC, césures et apostrophes d'origine) et non comme le texte du modèle, conformément à `evidence.schema.json` ; recollage des citations adjacentes sur le même principe ;
+  - `measures.json` contenant des mesures revues : réécriture sautée avec un message au lieu d'une exception non rattrapée (la revue M3c gère les mesures une à une) ;
+  - création d'un lot sans nouvel essai automatique du SDK (`BATCH_MAX_RETRIES = 0`) : un nouvel essai après un délai dépassé aurait pu créer et facturer un second lot inconnu de `batches.json` ;
+  - erreurs tronquées à 500 caractères ; montants à point décimal (« 2.5 milliards ») et « M euros » lus ;
+  - tests ajoutés pour `compass_ready()` et `load_api_key()` (clé jamais affichée).
+- **Reportés, connus** :
+  - collecte d'un lot interrompue par une seule ligne invalide (aucun cas rencontré : relancer `batch-status` après correction) ;
+  - vérification faite contre `sources/chunks.jsonl` local et non contre le texte envoyé (un nouveau découpage entre envoi et collecte fausserait la vérification ; ne pas relancer `chunk` pendant un lot) ;
+  - un changement de version de prompt redemande aussi les couples déjà revus (les positions revues restent conservées, la dépense est refaite) ; le modèle n'entre pas dans la clé de reprise ;
+  - mesures sans citation et au-delà de 5 écartées sans trace dans `measures.json` (elles restent dans `proposals/` et dans le rapport) ; une même mesure peut apparaître sous deux thèmes via le repli sans filtre ;
+  - une citation de 10 caractères suffit à justifier une valeur : la pertinence relève de la revue humaine ;
+  - `--max-usd` porte sur l'estimation (sortie forfaitaire), pas sur le pire cas de `max_tokens`.

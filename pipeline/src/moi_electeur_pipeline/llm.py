@@ -31,6 +31,9 @@ PRICES: dict[str, Price] = {
     "claude-haiku-5-5": Price(input=0.1, output=0.5, cache_read=0.01, cache_write=0.125),
 }
 BATCH_DISCOUNT = 0.5
+# Créer un lot n'est pas idempotent : un nouvel essai après un délai dépassé pourrait créer, et
+# facturer, un second lot que `batches.json` ne connaîtrait pas.
+BATCH_MAX_RETRIES = 0
 
 
 class UnknownModelError(Exception):
@@ -87,7 +90,8 @@ class AnthropicClient:
         return dumped
 
     def submit_batch(self, requests: list[dict[str, Any]]) -> str:
-        batch = self._client.messages.batches.create(requests=requests)  # type: ignore[arg-type]
+        client = self._client.with_options(max_retries=BATCH_MAX_RETRIES)
+        batch = client.messages.batches.create(requests=requests)  # type: ignore[arg-type]
         return batch.id
 
     def batch_status(self, batch_id: str) -> dict[str, Any]:
