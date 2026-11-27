@@ -193,6 +193,12 @@ describe("requête envoyée à Claude", () => {
       k: 4,
     });
   });
+
+  it("nombre d'extraits par candidat réglable (banc d'essai M4)", async () => {
+    const h = harness({ k: 6 });
+    await readEvents(await h.handler(ask(body())));
+    expect(h.retrieveCalls[0]).toMatchObject({ k: 6 });
+  });
 });
 
 describe("validation de l'entrée", () => {

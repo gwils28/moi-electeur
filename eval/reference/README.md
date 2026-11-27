@@ -18,11 +18,12 @@ Colonne `note` : facultative (passage, page, hésitation). Une ligne laissée vi
 Mesure : accord silence / non-silence, accord exact et à un cran près, kappa pondéré quadratique
 (`moi_electeur_eval.reference.agreement`), dans le rapport du backtest.
 
-## Chapel Hill Expert Survey : `ches-mapping-2022.json`
+## Chapel Hill Expert Survey : `ches-france.json`
 
-Corrélation de rangs (Spearman) entre les coordonnées du mode A et les scores des partis :
-`lrecon` (gauche-droite économique) pour l'axe x, `galtan` (libertaire-autoritaire) pour l'axe y.
-Le fichier de la CHES n'est pas versionné ici (téléchargement soumis à l'accord du mainteneur) :
-le déposer sous `eval/reference/ches/`, puis vérifier les abréviations de
-`ches-mapping-2022.json` (arthaud, lassalle et poutou n'ont pas de parti couvert ; Reconquête
-n'existe que dans les vagues postérieures à 2021).
+Scores des partis français (vagues 2019 et 2024 : `lrecon`, gauche-droite économique ; `galtan`,
+libertaire-autoritaire), extraits du fichier de tendance 1999-2024 de la CHES (source, date et
+citation dans le fichier), avec le parti de rattachement de chaque candidat pour chaque vague.
+Le fichier complet téléchargé (`ches/`) n'est pas versionné. Corrélation de rangs (Spearman)
+avec les coordonnées du mode A : `moi_electeur_eval.reference.ches_correlation`, dans le rapport.
+arthaud, lassalle et poutou n'ont de parti couvert dans aucune vague ; Reconquête (zemmour)
+n'apparaît qu'en 2024, DLF (dupont-aignan) qu'en 2019.

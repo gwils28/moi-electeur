@@ -68,6 +68,8 @@ export interface AskDeps {
   /** Tirage de l'ordre des candidats, réel de [0, 1). */
   rng: () => number;
   now: () => number;
+  /** Extraits par candidat demandés à /retrieve (défaut : K ; banc d'essai M4). */
+  k?: number;
 }
 
 type ErrorCode =
@@ -179,7 +181,7 @@ export function createAskHandler(deps: AskDeps): (req: Request) => Promise<Respo
         question: body.question,
         candidate_ids: candidateIds,
         theme,
-        k: K,
+        k: deps.k ?? K,
       });
     } catch (e) {
       if (e instanceof RetrieveError && e.status === 404) return fail(404, "not_indexed");

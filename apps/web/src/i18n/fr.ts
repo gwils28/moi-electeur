@@ -26,6 +26,9 @@ export const fr = {
     "Les candidats sont affichés dans un ordre aléatoire, tiré à chaque visite. Le score indique une proximité de réponses, pas une préférence.",
   proximity: "Proximité",
   coverage: (pct: number) => `couverture ${pct} %`,
+  coverageDetail: (n: number, answered: number) => `calculée sur ${n} de vos ${answered} réponses`,
+  coverageNote:
+    "La proximité ne porte que sur les affirmations où le programme se prononce : calculée sur peu d'affirmations communes, elle est moins fiable. Vérifiez la couverture de chaque candidat.",
   lowCoverage: "Le programme ne se prononce pas sur plus de la moitié de vos réponses.",
   noCommon: "Aucune affirmation commune : proximité non calculable.",
   mode: "Mode de projection",

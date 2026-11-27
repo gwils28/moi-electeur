@@ -203,6 +203,21 @@ describe("layoutAnswer", () => {
     expect(JSON.stringify(l)).not.toContain("{{c");
   });
 
+  it("titre au jeton non numéroté ({{cN}}, défaut du modèle) retiré, jamais affiché", () => {
+    const glitch: AskEvent[] = [
+      ...STREAM.slice(0, 5),
+      { type: "delta", block: 2, text: "\n\n### {{cN}}\n\n" },
+      ...STREAM.slice(5),
+    ];
+    const l = layoutAnswer(fold(glitch), {
+      order: ["bruno", "alice", "david"],
+      labelOf,
+      streaming: false,
+    });
+    expect(flat(l, 0)).toBe("Le programme prévoit un départ à 65 ans.[1]");
+    expect(JSON.stringify(l)).not.toContain("{{");
+  });
+
   it("citations numérotées dans l'ordre d'affichage, attachées au texte de leur bloc", () => {
     const l = layoutAnswer(fold(STREAM), {
       order: ["alice", "bruno", "david"],
