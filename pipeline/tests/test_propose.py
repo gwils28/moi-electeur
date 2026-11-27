@@ -811,3 +811,63 @@ def test_citations_adjacentes_recollees(election: Path) -> None:
         item.chunks[0]["text"],
     ]
     assert all(q["verified"] for q in rec["quotes"])
+
+
+def test_cesure_du_pdf_ignoree(election: Path) -> None:
+    item = _position_items(election, candidates=["c1"])[0]
+    chunk = {
+        **item.chunks[0],
+        "text": "Le Parlement aura le der-nier mot, avec les sociaux-démo- crates.",
+    }
+    hyphenated = Item(item.kind, item.custom_id, item.candidate_id, item.target, (chunk,))
+    quotes = [
+        {"extrait": 1, "text": "Le Parlement aura le dernier mot, avec les sociaux-démocrates."}
+    ]
+    rec = _record(hyphenated, _position(2, quotes))
+    assert rec["status"] == "ok" and rec["quotes"][0]["verified"]
+
+
+def test_reverification_sans_appel(election: Path) -> None:
+    from moi_electeur_pipeline.propose import recheck_records
+
+    _all_positions(election)
+    path = proposals_path(election, "position")
+    lines = path.read_text(encoding="utf-8").splitlines()
+    first = json.loads(lines[0])
+    first["quotes"][0]["verified"] = False
+    first["flags"] = ["citation_non_retrouvee"]
+    lines[0] = json.dumps(first, ensure_ascii=False)
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    assert recheck_records(election, "position") == 1
+    rec = load_records(path)[first["custom_id"]]
+    assert rec["quotes"][0]["verified"] and rec["flags"] == []
+    assert rec["cost_usd"] == first["cost_usd"] and rec["created_at"] == first["created_at"]
+    assert len(path.read_text(encoding="utf-8").splitlines()) == len(lines)
+    assert recheck_records(election, "position") == 0
+
+
+def test_tiret_cadratin_des_programmes_echappe(election: Path) -> None:
+    """Une citation exacte peut contenir U+2014 (interdit dans les fichiers du dépôt) : il est
+    écrit échappé dans les JSON (même donnée une fois lue) et en entité HTML dans les rapports."""
+    em = chr(0x2014)
+    item = _position_items(election, candidates=["c1"])[0]
+    chunk = {**item.chunks[0], "text": f"Nous interdirons les néonicotinoïdes {em} insecticides."}
+    lookup_path = election / "sources" / "chunks.jsonl"
+    lines = lookup_path.read_text(encoding="utf-8").splitlines()
+    lines[0] = json.dumps(chunk, ensure_ascii=False)
+    lookup_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    records = _all_positions(election)
+    quote = {"extrait": 1, "text": chunk["text"]}
+    from moi_electeur_pipeline.propose import append_record, render_report
+
+    rec = _record(Item(item.kind, item.custom_id, "c1", "s01", (chunk,)), _position(1, [quote]))
+    append_record(proposals_path(election, "position"), rec)
+    records[rec["custom_id"]] = rec
+    _write_positions(election, records)
+    for path in (proposals_path(election, "position"), election / "positions.json"):
+        assert em not in path.read_text(encoding="utf-8")
+    assert (
+        _read(election, "positions.json")["positions"][0]["evidence"][0]["quote"] == chunk["text"]
+    )
+    report = render_report(election, "position", candidates=["c1"])
+    assert em not in report and "&#8212;" in report
