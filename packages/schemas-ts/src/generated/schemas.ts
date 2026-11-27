@@ -31,6 +31,10 @@ export interface AskMetaEvent {
    */
   model: string;
   /**
+   * Mode demandé (AskRequest.mode), qui a déterminé le modèle.
+   */
+  mode: "rapide" | "approfondi";
+  /**
    * Réponse re-streamée depuis le cache mémoire (SPEC § 6.2 bis).
    */
   cached: boolean;
@@ -109,6 +113,10 @@ export interface AskRequest {
    * @maxItems 30
    */
   candidate_ids?: string[] | null;
+  /**
+   * Modèle choisi par l'utilisateur : « rapide » (modèle économique, défaut) ou « approfondi » (modèle avec réflexion, plus lent et plus coûteux, plafonné à part). Les deux répondent sur les mêmes extraits.
+   */
+  mode?: "rapide" | "approfondi";
   /**
    * Restreint aux extraits classés dans ce thème.
    */

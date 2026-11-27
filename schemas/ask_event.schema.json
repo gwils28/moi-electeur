@@ -21,6 +21,7 @@
         "corpus_version",
         "prompt_version",
         "model",
+        "mode",
         "cached",
         "candidates"
       ],
@@ -30,6 +31,10 @@
         "corpus_version": { "type": "string" },
         "prompt_version": { "type": "string" },
         "model": { "type": "string", "description": "Modèle Claude qui a produit la réponse." },
+        "mode": {
+          "enum": ["rapide", "approfondi"],
+          "description": "Mode demandé (AskRequest.mode), qui a déterminé le modèle."
+        },
         "cached": {
           "type": "boolean",
           "description": "Réponse re-streamée depuis le cache mémoire (SPEC § 6.2 bis)."

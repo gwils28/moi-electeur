@@ -17,6 +17,11 @@
       "items": { "$ref": "#/$defs/slug" },
       "description": "Restreint la réponse à ces candidats ; absent ou null : tous les candidats indexés."
     },
+    "mode": {
+      "enum": ["rapide", "approfondi"],
+      "default": "rapide",
+      "description": "Modèle choisi par l'utilisateur : « rapide » (modèle économique, défaut) ou « approfondi » (modèle avec réflexion, plus lent et plus coûteux, plafonné à part). Les deux répondent sur les mêmes extraits."
+    },
     "theme": {
       "anyOf": [{ "$ref": "#/$defs/slug" }, { "type": "null" }],
       "description": "Restreint aux extraits classés dans ce thème."

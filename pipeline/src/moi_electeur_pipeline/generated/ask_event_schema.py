@@ -2,9 +2,14 @@
 #   filename:  ask_event.schema.json
 
 from __future__ import annotations
+from enum import Enum
 from pydantic import BaseModel, ConfigDict, Field, RootModel, conint, constr
 from typing import Literal
-from enum import Enum
+
+
+class Mode(Enum):
+    rapide = "rapide"
+    approfondi = "approfondi"
 
 
 class AskCandidate(BaseModel):
@@ -28,6 +33,9 @@ class AskMetaEvent(BaseModel):
     corpus_version: str
     prompt_version: str
     model: str = Field(..., description="Modèle Claude qui a produit la réponse.")
+    mode: Mode = Field(
+        ..., description="Mode demandé (AskRequest.mode), qui a déterminé le modèle."
+    )
     cached: bool = Field(
         ..., description="Réponse re-streamée depuis le cache mémoire (SPEC § 6.2 bis)."
     )

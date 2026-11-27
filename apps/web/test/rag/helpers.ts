@@ -53,6 +53,8 @@ export function retrieveResponse(overrides: Partial<RetrieveResponse> = {}): Ret
 
 export interface ScriptedBlock {
   text: string;
+  /** Bloc de réflexion (thinking) au lieu d'un bloc de texte : `text` est alors la réflexion. */
+  thinking?: boolean;
   citations?: Array<{ document_index: number; cited_text: string }>;
 }
 
@@ -78,11 +80,17 @@ export class FakeClaude implements ChatClient {
       this.signals.push(options?.signal);
       const script = this.script;
       const usage = script.usage ?? { input_tokens: 10_000, output_tokens: 1_000 };
-      const content = script.blocks.map((b) => ({
-        type: "text" as const,
-        text: b.text,
-        citations: (b.citations ?? []).map((c) => charLocation(c.document_index, c.cited_text)),
-      }));
+      const content = script.blocks.map((b) =>
+        b.thinking
+          ? { type: "thinking" as const, thinking: b.text, signature: "sig" }
+          : {
+              type: "text" as const,
+              text: b.text,
+              citations: (b.citations ?? []).map((c) =>
+                charLocation(c.document_index, c.cited_text),
+              ),
+            },
+      );
       const message = {
         id: "msg_test",
         type: "message",
@@ -99,6 +107,25 @@ export class FakeClaude implements ChatClient {
         yield { type: "message_start", message: { ...message, content: [] } } as never;
         for (const [index, block] of script.blocks.entries()) {
           if (index === 1 && script.failAfterFirstBlock) throw script.failAfterFirstBlock;
+          if (block.thinking) {
+            yield {
+              type: "content_block_start",
+              index,
+              content_block: { type: "thinking", thinking: "", signature: "" },
+            } as never;
+            yield {
+              type: "content_block_delta",
+              index,
+              delta: { type: "thinking_delta", thinking: block.text },
+            } as never;
+            yield {
+              type: "content_block_delta",
+              index,
+              delta: { type: "signature_delta", signature: "sig" },
+            } as never;
+            yield { type: "content_block_stop", index } as never;
+            continue;
+          }
           yield {
             type: "content_block_start",
             index,
@@ -200,7 +227,12 @@ export interface Harness {
   budget: DailyBudget;
   cache: LruCache<CachedAnswer>;
   limiter: RateLimiter;
+  /** Plafond et limite propres au mode approfondi (null s'il n'est pas configuré). */
+  boostBudget: DailyBudget | null;
+  boostLimiter: RateLimiter | null;
 }
+
+export const BOOST_MODEL = "claude-sonnet-5-5";
 
 export function harness(
   opts: {
@@ -210,6 +242,8 @@ export function harness(
     noClient?: boolean;
     model?: string;
     rng?: () => number;
+    /** Mode approfondi : false = non configuré ; défaut : Sonnet, 0,5 $ par jour, 3 par 10 min. */
+    boost?: false | { model?: string; budgetUsd?: number; limit?: number };
   } = {},
 ): Harness {
   const clock = { t: Date.UTC(2026, 10, 27, 12, 0, 0) };
@@ -220,6 +254,13 @@ export function harness(
   const budget = new DailyBudget({ limitUsd: opts.budgetUsd ?? 1, now });
   const cache = new LruCache<CachedAnswer>({ max: 500, ttlMs: 24 * 3600_000, now });
   const limiter = new RateLimiter({ limit: 10, windowMs: 10 * 60_000, now });
+  const boostOpts = opts.boost === false ? null : (opts.boost ?? {});
+  const boostBudget = boostOpts
+    ? new DailyBudget({ limitUsd: boostOpts.budgetUsd ?? 0.5, now })
+    : null;
+  const boostLimiter = boostOpts
+    ? new RateLimiter({ limit: boostOpts.limit ?? 3, windowMs: 10 * 60_000, now })
+    : null;
   let seed = 0.123;
   const deps: AskDeps = {
     client: () => (opts.noClient ? null : claude),
@@ -231,7 +272,26 @@ export function harness(
     budget,
     cache,
     prompt: { version: "1", text: "Consignes de test." },
-    model: opts.model ?? "claude-haiku-5-5",
+    modes: {
+      rapide: {
+        model: opts.model ?? "claude-haiku-5-5",
+        maxTokens: 4096,
+        effort: "low",
+        thinking: false,
+        budget: null,
+        limiter: null,
+      },
+      approfondi: boostOpts
+        ? {
+            model: boostOpts.model ?? BOOST_MODEL,
+            maxTokens: 8192,
+            effort: "medium",
+            thinking: true,
+            budget: boostBudget,
+            limiter: boostLimiter,
+          }
+        : null,
+    },
     log: (r) => logs.push(r),
     rng:
       opts.rng ??
@@ -250,6 +310,8 @@ export function harness(
     budget,
     cache,
     limiter,
+    boostBudget,
+    boostLimiter,
   };
 }
 

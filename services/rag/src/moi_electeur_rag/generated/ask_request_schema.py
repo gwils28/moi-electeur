@@ -2,7 +2,13 @@
 #   filename:  ask_request.schema.json
 
 from __future__ import annotations
+from enum import Enum
 from pydantic import BaseModel, ConfigDict, Field, RootModel, constr
+
+
+class Mode(Enum):
+    rapide = "rapide"
+    approfondi = "approfondi"
 
 
 class Slug(RootModel[constr(pattern=r"^[a-z0-9][a-z0-9_-]*$")]):
@@ -60,6 +66,10 @@ class AskRequest(BaseModel):
         description="Restreint la réponse à ces candidats ; absent ou null : tous les candidats indexés.",
         max_length=30,
         min_length=1,
+    )
+    mode: Mode | None = Field(
+        "rapide",
+        description="Modèle choisi par l'utilisateur : « rapide » (modèle économique, défaut) ou « approfondi » (modèle avec réflexion, plus lent et plus coûteux, plafonné à part). Les deux répondent sur les mêmes extraits.",
     )
     theme: Slug | None = Field(
         None, description="Restreint aux extraits classés dans ce thème."
