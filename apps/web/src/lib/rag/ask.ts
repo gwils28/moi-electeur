@@ -21,8 +21,8 @@ import { parseAskRequest } from "./validate";
 /** Extraits gardés par candidat (SPEC § 6.1). */
 export const K = 4;
 /**
- * Plafond de sortie : 1 300 à 3 000 tokens mesurés pour 12 candidats (M2c, M2d). 4 096 tronquait
- * une réponse d'Haiku dont la réflexion, active par défaut, consommait environ 2 800 tokens.
+ * Plafond de sortie, réflexion comprise : 1 400 à 4 800 tokens mesurés pour 12 candidats (M2c,
+ * M2d). 4 096 tronquait une réponse d'Haiku dont la réflexion consommait environ 2 800 tokens.
  */
 export const MAX_TOKENS = 8192;
 /** Taille maximale du corps : 500 caractères de question, 3 tours d'historique, filtres. */
@@ -45,7 +45,7 @@ export interface ModeConfig {
   model: string;
   maxTokens: number;
   effort: "low" | "medium" | "high";
-  /** Réflexion du modèle : adaptative (mode approfondi) ou désactivée (mode rapide). */
+  /** Réflexion du modèle ; adaptative dans les deux modes (désactivée : moins fidèle, M2d). */
   thinking: "adaptive" | "disabled";
   /** Plafond quotidien propre au mode, imputé en plus du plafond commun. */
   budget: DailyBudget | null;

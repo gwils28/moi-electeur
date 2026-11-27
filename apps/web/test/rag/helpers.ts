@@ -277,7 +277,7 @@ export function harness(
         model: opts.model ?? "claude-haiku-5-5",
         maxTokens: 8192,
         effort: "low",
-        thinking: "disabled",
+        thinking: "adaptive",
         budget: null,
         limiter: null,
       },

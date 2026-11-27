@@ -70,7 +70,7 @@ export const askHandler = createAskHandler({
       model: process.env.CHAT_MODEL || DEFAULT_CHAT_MODEL,
       maxTokens: MAX_TOKENS,
       effort: "low",
-      thinking: "disabled",
+      thinking: "adaptive",
       budget: null,
       limiter: null,
     },
