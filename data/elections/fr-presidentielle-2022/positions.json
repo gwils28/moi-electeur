@@ -1,0 +1,5988 @@
+{
+  "election_id": "fr-presidentielle-2022",
+  "positions": [
+    {
+      "candidate_id": "arthaud",
+      "statement_id": "s01",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "arthaud",
+      "statement_id": "s02",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "arthaud",
+      "statement_id": "s03",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Si les grands actionnaires s’y opposent, il faut les exproprier et placer les grandes entreprises sous le contrôle de la collectivité.",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 3,
+          "chunk_id": "3f15e2622823-0002"
+        },
+        {
+          "quote": "il est urgent d’enlever aux groupes privés la direction de l’industrie, des transports, et d’organiser l’économie de façon rationnelle, planifiée, pour répondre aux besoins du plus grand nombre, tout en préservant l’environnement.",
+          "document_title": "Brochure de campagne « Nathalie Arthaud candidate à l'élection présidentielle »",
+          "page": 25,
+          "chunk_id": "5aba0abf8857-0014"
+        },
+        {
+          "quote": "En imposant leur contrôle sur les banques, les travailleurs pourraient permettre aux artisans et aux petits com-merçants d’échapper aux griffes des usuriers de la finance.",
+          "document_title": "Brochure de campagne « Nathalie Arthaud candidate à l'élection présidentielle »",
+          "page": 24,
+          "chunk_id": "5aba0abf8857-0013"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "arthaud",
+      "statement_id": "s04",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Il faut rompre avec cette politique et imposer l’embauche de personnel dans tous les services publics indispensables à la population, à commencer par les hôpitaux et les Ehpad.",
+          "document_title": "Brochure de campagne « Nathalie Arthaud candidate à l'élection présidentielle »",
+          "page": 6,
+          "chunk_id": "5aba0abf8857-0002"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "arthaud",
+      "statement_id": "s05",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "arthaud",
+      "statement_id": "s06",
+      "value": 1,
+      "confidence": "low",
+      "evidence": [
+        {
+          "quote": "Comme l’est l’obligation faite aux plus de 60 ans de s’user à la tâche, alors que tant de jeunes sont au chômage.",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 2,
+          "chunk_id": "3f15e2622823-0001"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "arthaud",
+      "statement_id": "s07",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Alors il faut une augmentation générale des salaires de base. Il faut remonter le smic qui, actuellement, condamne plusieurs mil-lions de salariés à la pauvreté.",
+          "document_title": "Brochure de campagne « Nathalie Arthaud candidate à l'élection présidentielle »",
+          "page": 8,
+          "chunk_id": "5aba0abf8857-0004"
+        },
+        {
+          "quote": "Aucun salaire, aucune allocation, aucune pension ne doit être inférieur à 2 000 euros net par mois !",
+          "document_title": "Brochure de campagne « Nathalie Arthaud candidate à l'élection présidentielle »",
+          "page": 8,
+          "chunk_id": "5aba0abf8857-0004"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "arthaud",
+      "statement_id": "s08",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "arthaud",
+      "statement_id": "s09",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "arthaud",
+      "statement_id": "s10",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "arthaud",
+      "statement_id": "s11",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "arthaud",
+      "statement_id": "s12",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "arthaud",
+      "statement_id": "s13",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "arthaud",
+      "statement_id": "s14",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Les politiques écologiques des gouvernements se réduisent en définitive à créer des taxes qui pèsent sur le budget des plus pauvres et à distribuer des subventions et des aides aux entreprises au nom de la tran-sition énergétique",
+          "document_title": "Brochure de campagne « Nathalie Arthaud candidate à l'élection présidentielle »",
+          "page": 25,
+          "chunk_id": "5aba0abf8857-0014"
+        },
+        {
+          "quote": "Les États refusent d’imposer des mesures contraignantes aux capitalistes, qui sont les seuls responsables de la pollution. Les gouvernements taxent les plus pauvres, tandis que les riches achètent le droit de polluer.",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 3,
+          "chunk_id": "3f15e2622823-0004"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "arthaud",
+      "statement_id": "s15",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "arthaud",
+      "statement_id": "s16",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "arthaud",
+      "statement_id": "s17",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "arthaud",
+      "statement_id": "s18",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "arthaud",
+      "statement_id": "s19",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "arthaud",
+      "statement_id": "s20",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "arthaud",
+      "statement_id": "s21",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "arthaud",
+      "statement_id": "s22",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Liberté de circulation\n\net d’installation !",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 3,
+          "chunk_id": "3f15e2622823-0003"
+        },
+        {
+          "quote": "Ils voudraient faire de la France une forteresse qui, tout en accueillant les milliardaires, rejette les pauvres.",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 3,
+          "chunk_id": "3f15e2622823-0003"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "arthaud",
+      "statement_id": "s23",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "arthaud",
+      "statement_id": "s24",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "arthaud",
+      "statement_id": "s25",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "arthaud",
+      "statement_id": "s26",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Ils doivent avoir le droit de vote.",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 3,
+          "chunk_id": "3f15e2622823-0003"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "arthaud",
+      "statement_id": "s27",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "arthaud",
+      "statement_id": "s28",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "arthaud",
+      "statement_id": "s29",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "arthaud",
+      "statement_id": "s30",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "dupont-aignan",
+      "statement_id": "s01",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "dupont-aignan",
+      "statement_id": "s02",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "poursuivre la\n\nbaisse des impôts de production (qui demeurent les 2èmes plus élevés d’Europe et qui découragent nos entrepreneurs)",
+          "document_title": "Programme général",
+          "page": 41,
+          "chunk_id": "b29932e0541b-0046"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "dupont-aignan",
+      "statement_id": "s03",
+      "value": null,
+      "confidence": "medium",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "dupont-aignan",
+      "statement_id": "s04",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "dupont-aignan",
+      "statement_id": "s05",
+      "value": null,
+      "confidence": "medium",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "dupont-aignan",
+      "statement_id": "s06",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Nous maintiendrons l’âge minimum de départ à la retraite et la durée de cotisations actuelle (issue de la réforme de 2010).",
+          "document_title": "Programme général",
+          "page": 84,
+          "chunk_id": "b29932e0541b-0103"
+        },
+        {
+          "quote": "Maintenir l'âge minimum de départ à la retraite et la durée de cotisations aux niveaux actuels.",
+          "document_title": "Programme général",
+          "page": 83,
+          "chunk_id": "b29932e0541b-0102"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "dupont-aignan",
+      "statement_id": "s07",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "dupont-aignan",
+      "statement_id": "s08",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "5. Imposer pour toute personne au RSA en état de travailler une journée de mission d’intérêt général par semaine pour la collectivité (région, municipalité…)",
+          "document_title": "Programme général",
+          "page": 40,
+          "chunk_id": "b29932e0541b-0044"
+        },
+        {
+          "quote": "Tout travail mérite un salaire décent et toute allocation exige un travail en contrepartie.",
+          "document_title": "Programme général",
+          "page": 31,
+          "chunk_id": "b29932e0541b-0035"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "dupont-aignan",
+      "statement_id": "s09",
+      "value": null,
+      "confidence": "medium",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "dupont-aignan",
+      "statement_id": "s10",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "33. Donner la possibilité à un établissement, en accord avec l’institution scolaire, de décider du port de l’uniforme dans le primaire et au collège.",
+          "document_title": "Programme général",
+          "page": 92,
+          "chunk_id": "b29932e0541b-0112"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "dupont-aignan",
+      "statement_id": "s11",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Conforter le développement des réacteurs GENERATION IV relancer le nucléaire et rester dans la course face aux concurrents étrangers.",
+          "document_title": "Programme général",
+          "page": 169,
+          "chunk_id": "b29932e0541b-0200"
+        },
+        {
+          "quote": "a) Construire le premier prototype de réacteur nucléaire à thorium d’ici 2035.",
+          "document_title": "Programme général",
+          "page": 53,
+          "chunk_id": "b29932e0541b-0062"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "dupont-aignan",
+      "statement_id": "s12",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "dupont-aignan",
+      "statement_id": "s13",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "0 nouvelle éolienne pendant le quinquennat et bloquer les programmes d’éolien en mer qui coûtent une fortune",
+          "document_title": "Programme général",
+          "page": 169,
+          "chunk_id": "b29932e0541b-0200"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "dupont-aignan",
+      "statement_id": "s14",
+      "value": null,
+      "confidence": "medium",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "dupont-aignan",
+      "statement_id": "s15",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Mettre fin à l’accumulation des normes et des réglementations écologiques toujours plus absurdes !",
+          "document_title": "Programme général",
+          "page": 190,
+          "chunk_id": "b29932e0541b-0224"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "dupont-aignan",
+      "statement_id": "s16",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Sortir du commandement intégré de l’OTAN (fidèles à la pensée du général de Gaulle).",
+          "document_title": "Programme général",
+          "page": 10,
+          "chunk_id": "b29932e0541b-0009"
+        },
+        {
+          "quote": "Sortie du commandement militaire intégré de l’OTAN.",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 2,
+          "chunk_id": "5888d0bd6617-0003"
+        },
+        {
+          "quote": "Sortir de nouveau du commandement intégré de l’OTAN (voir le volet Défense du projet).",
+          "document_title": "Programme général",
+          "page": 21,
+          "chunk_id": "b29932e0541b-0022"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "dupont-aignan",
+      "statement_id": "s17",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Supériorité du droit français sur le droit communautaire.",
+          "document_title": "Programme général",
+          "page": 18,
+          "chunk_id": "b29932e0541b-0019"
+        },
+        {
+          "quote": "Faire primer la loi sur toute convention, directive, règlement ou jurisprudence antérieurs.",
+          "document_title": "Programme général",
+          "page": 148,
+          "chunk_id": "b29932e0541b-0174"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "dupont-aignan",
+      "statement_id": "s18",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "En revanche, nous conduirons des coopérations européennes à la carte en matière d'armement lorsque celles-ci correspondront à un véritable besoin commun entre les Etats participants et que cela sera conforme aux intérêts de notre industrie",
+          "document_title": "Programme général",
+          "page": 13,
+          "chunk_id": "b29932e0541b-0013"
+        },
+        {
+          "quote": "qui doit nous rappeler que la coopération européenne a des limites dans la mesure où aucun autre Etat européen ne partage réellement la volonté française d'indépendance par rapport aux Etats-Unis.",
+          "document_title": "Programme général",
+          "page": 10,
+          "chunk_id": "b29932e0541b-0008"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "dupont-aignan",
+      "statement_id": "s19",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Instaurer une exception agricole à l’OMC et dans tous les accords commerciaux sur le modèle de l’exception culturelle et rejeter l’accord UE / Mercosur et le CETA.",
+          "document_title": "Programme général",
+          "page": 189,
+          "chunk_id": "b29932e0541b-0223"
+        },
+        {
+          "quote": "Renégociation des traités de libre-échange déloyaux pour protéger notre agriculture et notre industrie.",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 2,
+          "chunk_id": "5888d0bd6617-0002"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "dupont-aignan",
+      "statement_id": "s20",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "par le biais de l'extension de la majorité qualifiée - qui permet à une majorité de pays d'imposer des mesures que refusent les autres -",
+          "document_title": "Programme général",
+          "page": 16,
+          "chunk_id": "b29932e0541b-0016"
+        },
+        {
+          "quote": "Vote à l’unanimité ou exceptionnellement vote à la majorité qualifiée,",
+          "document_title": "Programme général",
+          "page": 18,
+          "chunk_id": "b29932e0541b-0019"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "dupont-aignan",
+      "statement_id": "s21",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Réinstaurer les peines planchers",
+          "document_title": "Programme général",
+          "page": 145,
+          "chunk_id": "b29932e0541b-0170"
+        },
+        {
+          "quote": "Introduire des peines planchers en cas de récidive, supprimées par la loi du 15 août 2014.",
+          "document_title": "Programme général",
+          "page": 145,
+          "chunk_id": "b29932e0541b-0170"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "dupont-aignan",
+      "statement_id": "s22",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "4. Réduire les flux actuels d’immigration et voter chaque année au Parlement un plafond d’immigration correspondant aux capacités d'accueil du pays, sur le marché du travail et sur le logement.",
+          "document_title": "Programme général",
+          "page": 160,
+          "chunk_id": "b29932e0541b-0188"
+        },
+        {
+          "quote": "L'immigration doit être limitée à un niveau conforme aux capacités d'accueil de la France.",
+          "document_title": "Programme général",
+          "page": 157,
+          "chunk_id": "b29932e0541b-0185"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "dupont-aignan",
+      "statement_id": "s23",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "17. Supprimer le droit du sol à la suite d’un referendum (ce qui n’empêche pas de devenir Français par naturalisation)",
+          "document_title": "Programme général",
+          "page": 161,
+          "chunk_id": "b29932e0541b-0190"
+        },
+        {
+          "quote": "Les mesures présentées seront précédées d’un referendum organisé dans les 100 premiers jours du mandat sur la suspension du regroupement familial et de la suppression du droit du sol.",
+          "document_title": "Programme général",
+          "page": 159,
+          "chunk_id": "b29932e0541b-0187"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "dupont-aignan",
+      "statement_id": "s24",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Supprimer la régularisation au titre de la vie privée et familiale : un clandestin ne doit plus être régularisé (ni a fortiori naturalisé).",
+          "document_title": "Programme général",
+          "page": 160,
+          "chunk_id": "b29932e0541b-0188"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "dupont-aignan",
+      "statement_id": "s25",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "dupont-aignan",
+      "statement_id": "s26",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "N’accorder le droit de vote qu’aux seules personnes disposant de la nationalité française : nationalité et droit de vote sont indissociables, ils forment un bloc.",
+          "document_title": "Programme général",
+          "page": 161,
+          "chunk_id": "b29932e0541b-0190"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "dupont-aignan",
+      "statement_id": "s27",
+      "value": 1,
+      "confidence": "low",
+      "evidence": [
+        {
+          "quote": "C’est une question démocratique : le peuple français doit pouvoir tout décider à tout instant et ne doit pas être privé cette liberté par une poignée de juges européens non élus qui prennent trop librement leurs décisions.",
+          "document_title": "Programme général",
+          "page": 148,
+          "chunk_id": "b29932e0541b-0174"
+        },
+        {
+          "quote": "Création d’un référendum d’initiative citoyenne",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 2,
+          "chunk_id": "5888d0bd6617-0002"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "dupont-aignan",
+      "statement_id": "s28",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Selon nous, c’est à l’esprit d'origine de la Ve République qu'il faut revenir.",
+          "document_title": "Programme général",
+          "page": 4,
+          "chunk_id": "b29932e0541b-0003"
+        },
+        {
+          "quote": "refonder notre démocratie autour de l'esprit originel de la Vème République, dévoyé au fil du temps",
+          "document_title": "Programme général",
+          "page": 4,
+          "chunk_id": "b29932e0541b-0002"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "dupont-aignan",
+      "statement_id": "s29",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "dupont-aignan",
+      "statement_id": "s30",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Créer un référendum d’initiative citoyenne dès lors qu’un projet est soutenu par 500 000 inscrits sur les listes électorales.",
+          "document_title": "Programme général",
+          "page": 6,
+          "chunk_id": "b29932e0541b-0004"
+        },
+        {
+          "quote": "Création d’un référendum d’initiative citoyenne",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 2,
+          "chunk_id": "5888d0bd6617-0002"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "hidalgo",
+      "statement_id": "s01",
+      "value": 1,
+      "confidence": "low",
+      "evidence": [
+        {
+          "quote": "Nous créerons un Impôt de Solidarité sur la Fortune Climat et Bio-diversité afin de mettre à contribution les plus fortunés pour fi-nancer la transition énergétique. Les placements liés aux énergies fossiles seront surtaxés.",
+          "document_title": "Programme officiel, 70 propositions pour la France",
+          "page": 11,
+          "chunk_id": "8a78650816be-0011"
+        },
+        {
+          "quote": "le produit de l'ISF Climat et Biodiversité (5 Mds € par an) permettra d’une part de contri-buer aux investissements nécessaires à la transition écologique",
+          "document_title": "Programme officiel, 70 propositions pour la France",
+          "page": 40,
+          "chunk_id": "8a78650816be-0046"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "hidalgo",
+      "statement_id": "s02",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "hidalgo",
+      "statement_id": "s03",
+      "value": null,
+      "confidence": "medium",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "hidalgo",
+      "statement_id": "s04",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "hidalgo",
+      "statement_id": "s05",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Les règles budgétaires européennes ne doivent plus conduire à l’austérité et être une entrave à la transition écologique et aux in-vestissements d’avenir.",
+          "document_title": "Programme officiel, 70 propositions pour la France",
+          "page": 37,
+          "chunk_id": "8a78650816be-0041"
+        },
+        {
+          "quote": "Les ressources pour financer ces dépenses additionnelles seront as-surées par l’établissement d’une fiscalité plus juste (ISF Climat et Biodiversité, impôt sur les successions des plus aisés)",
+          "document_title": "Programme officiel, 70 propositions pour la France",
+          "page": 41,
+          "chunk_id": "8a78650816be-0047"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "hidalgo",
+      "statement_id": "s06",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "L’âge légal de départ ne sera pas augmenté, il sera plafonné aux 62 ans actuels.",
+          "document_title": "Programme officiel, 70 propositions pour la France",
+          "page": 24,
+          "chunk_id": "8a78650816be-0026"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "hidalgo",
+      "statement_id": "s07",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Dès mon arrivée au pouvoir, j’augmenterai le SMIC de 15 % (ce qui correspond à 200 euros net de plus par mois) et je convoquerai une conférence sur les salaires avec les organisations patronales et syndicales.",
+          "document_title": "Programme officiel, 70 propositions pour la France",
+          "page": 9,
+          "chunk_id": "8a78650816be-0007"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "hidalgo",
+      "statement_id": "s08",
+      "value": -1,
+      "confidence": "low",
+      "evidence": [
+        {
+          "quote": "J’abrogerai la réforme injuste de l’assurance-chômage décidée par le gouvernement sortant.",
+          "document_title": "Programme officiel, 70 propositions pour la France",
+          "page": 9,
+          "chunk_id": "8a78650816be-0007"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "hidalgo",
+      "statement_id": "s09",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "généralisation de l’encadrement des loyers dans toutes les zones tendues",
+          "document_title": "Programme officiel, 70 propositions pour la France",
+          "page": 26,
+          "chunk_id": "8a78650816be-0030"
+        },
+        {
+          "quote": "Encadrer et plafonner les loyers",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 3,
+          "chunk_id": "ffeffbfe25e9-0004"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "hidalgo",
+      "statement_id": "s10",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "hidalgo",
+      "statement_id": "s11",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Il n’y aura pas de construction de nouveaux EPR ou de petits réacteurs modulaires.",
+          "document_title": "Programme officiel, 70 propositions pour la France",
+          "page": 11,
+          "chunk_id": "8a78650816be-0010"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "hidalgo",
+      "statement_id": "s12",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Les dé-placements en train bénéficieront d’un taux de TVA réduit, tandis qu’une taxe empreinte carbone sur le billet d’avion sera créée lors-qu’une alternative ferroviaire comparable existe.",
+          "document_title": "Programme officiel, 70 propositions pour la France",
+          "page": 11,
+          "chunk_id": "8a78650816be-0011"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "hidalgo",
+      "statement_id": "s13",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "hidalgo",
+      "statement_id": "s14",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Les placements liés aux énergies fossiles seront surtaxés.",
+          "document_title": "Programme officiel, 70 propositions pour la France",
+          "page": 11,
+          "chunk_id": "8a78650816be-0011"
+        },
+        {
+          "quote": "une taxe empreinte carbone sur le billet d’avion sera créée lors-qu’une alternative ferroviaire comparable existe.",
+          "document_title": "Programme officiel, 70 propositions pour la France",
+          "page": 11,
+          "chunk_id": "8a78650816be-0011"
+        },
+        {
+          "quote": "La loi imposera aux banques et aux assurances une pénalité sur l’investissement dans les énergies fossiles et les secteurs les plus polluants",
+          "document_title": "Programme officiel, 70 propositions pour la France",
+          "page": 34,
+          "chunk_id": "8a78650816be-0039"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "hidalgo",
+      "statement_id": "s15",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "nous interdirons d’usage les néonicotinoïdes \u2014 insecticides tueurs d'abeille \u2014dans les 100 premiers jours du quinquennat.",
+          "document_title": "Programme officiel, 70 propositions pour la France",
+          "page": 13,
+          "chunk_id": "8a78650816be-0013"
+        },
+        {
+          "quote": "nous porterons l’objectif d’atteindre 30 % de la surface agricole utile en agriculture biologique en 2030, comme en Alle-magne, et les deux tiers restants de la surface agricole seront enga-gés dans des processus agroécologiques.",
+          "document_title": "Programme officiel, 70 propositions pour la France",
+          "page": 13,
+          "chunk_id": "8a78650816be-0013"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "hidalgo",
+      "statement_id": "s16",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "hidalgo",
+      "statement_id": "s17",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "hidalgo",
+      "statement_id": "s18",
+      "value": null,
+      "confidence": "low",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "hidalgo",
+      "statement_id": "s19",
+      "value": null,
+      "confidence": "medium",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "hidalgo",
+      "statement_id": "s20",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "je propose également que le Parlement européen ait le dernier mot dans l’adoption d’une directive ou d’un règlement à condition d’obtenir une majorité qualifiée des deux tiers, et la fin du vote à l’unanimité si pénalisant dans des domaines cruciaux comme la fiscalité.",
+          "document_title": "Programme officiel, 70 propositions pour la France",
+          "page": 38,
+          "chunk_id": "8a78650816be-0042"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "hidalgo",
+      "statement_id": "s21",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "hidalgo",
+      "statement_id": "s22",
+      "value": -1,
+      "confidence": "low",
+      "evidence": [
+        {
+          "quote": "Depuis toujours, les immigrés ont concouru à la construction et à l’histoire de notre pays et il en ira toujours ainsi dans les dé-cennies à venir. L’immigration mérite une politique réfléchie et apaisée plutôt que les excès et les fantasmes dont elle fait trop souvent l’objet.",
+          "document_title": "Programme officiel, 70 propositions pour la France",
+          "page": 38,
+          "chunk_id": "8a78650816be-0044"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "hidalgo",
+      "statement_id": "s23",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "hidalgo",
+      "statement_id": "s24",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "hidalgo",
+      "statement_id": "s25",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "La politique actuelle en matière de cannabis est un échec : les Fran-çais n’ont jamais autant consommé depuis trente ans, les jeunes n’ont jamais été aussi dépendants.",
+          "document_title": "Programme officiel, 70 propositions pour la France",
+          "page": 26,
+          "chunk_id": "8a78650816be-0030"
+        },
+        {
+          "quote": "nous examinerons sans tabou la question d’une légalisation menée sous le contrôle et l’encadrement strict de l’État pour les clients et consommateurs de plus de 18 ans. Si elle aboutissait, comme en Allemagne, l’État reprendrait le contrôle de la production et de la qualité de ce produit, ainsi que le contrôle de sa mise sur le marché.",
+          "document_title": "Programme officiel, 70 propositions pour la France",
+          "page": 26,
+          "chunk_id": "8a78650816be-0030"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "hidalgo",
+      "statement_id": "s26",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Nous voulons que tous les citoyens et citoyennes le soient à parts égales : parité réelle, droit de vote à 16 ans, droit de vote des étran-gers aux élections locales, parcours de formation à la citoyenneté.",
+          "document_title": "Programme officiel, 70 propositions pour la France",
+          "page": 16,
+          "chunk_id": "8a78650816be-0018"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "hidalgo",
+      "statement_id": "s27",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "hidalgo",
+      "statement_id": "s28",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Il faut revenir à la conception originelle de la Ve République, d’un président garant de l’essentiel et qui ne se mêle pas de tout.",
+          "document_title": "Programme officiel, 70 propositions pour la France",
+          "page": 16,
+          "chunk_id": "8a78650816be-0017"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "hidalgo",
+      "statement_id": "s29",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "hidalgo",
+      "statement_id": "s30",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Créer un référendum d’initiative citoyenne (RIC)",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 2,
+          "chunk_id": "ffeffbfe25e9-0002"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "jadot",
+      "statement_id": "s01",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Nous créerons un impôt climatique sur la fortune, qui taxera les patrimoines supérieurs à 2 M€ et comportera un bonus-malus selon l’impact des actifs financiers et immobiliers sur le climat, qui rapportera au moins 15 Mds€.",
+          "document_title": "Programme des écologistes",
+          "page": 45,
+          "chunk_id": "dd71c05a16f2-0037"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "jadot",
+      "statement_id": "s02",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Nous reviendrons sur la baisse des impôts de production décidée en loi de finances pour 2021.",
+          "document_title": "Programme des écologistes",
+          "page": 46,
+          "chunk_id": "dd71c05a16f2-0038"
+        },
+        {
+          "quote": "Le produit du rétablissement de ces taxes servira notamment à abonder des fonds régionaux dédiés aux investissements des entreprises pour la transition énergétique et à l’économie sociale et solidaire.",
+          "document_title": "Programme des écologistes",
+          "page": 46,
+          "chunk_id": "dd71c05a16f2-0038"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "jadot",
+      "statement_id": "s03",
+      "value": 2,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Nous nationaliserons EDF. L’énergie est un bien commun. EDF sera un outil puissant mis au service de la transition énergétique.",
+          "document_title": "Programme des écologistes",
+          "page": 9,
+          "chunk_id": "dd71c05a16f2-0005"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "jadot",
+      "statement_id": "s04",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "jadot",
+      "statement_id": "s05",
+      "value": null,
+      "confidence": "medium",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "jadot",
+      "statement_id": "s06",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Nous ne reporterons pas l’âge légal de départ à la retraite. Nous permettrons au contraire à toutes celles et ceux qui ont exercé des métiers pénibles de partir plus tôt à la retraite, par le rétablissement et le renforcement du compte pénibilité",
+          "document_title": "Programme des écologistes",
+          "page": 56,
+          "chunk_id": "dd71c05a16f2-0047"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "jadot",
+      "statement_id": "s07",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Nous augmenterons immédiatement le SMIC de 10 % pour atteindre au moins 1 500 euros net pendant la mandature.",
+          "document_title": "Programme des écologistes",
+          "page": 51,
+          "chunk_id": "dd71c05a16f2-0043"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "jadot",
+      "statement_id": "s08",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Sans contrepartie, ce revenu sera versé à partir de 18 ans à toutes les personnes détachées fiscalement de leurs parents de façon automatique, pour lutter contre le non recours",
+          "document_title": "Programme des écologistes",
+          "page": 56,
+          "chunk_id": "dd71c05a16f2-0047"
+        },
+        {
+          "quote": "Nous abrogerons la réforme de l’assurance chômage mise en place par le gouvernement, injuste et culpabilisante pour les chômeurs",
+          "document_title": "Programme des écologistes",
+          "page": 55,
+          "chunk_id": "dd71c05a16f2-0046"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "jadot",
+      "statement_id": "s09",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Nous soutiendrons les dispositifs d’encadrement des loyers, nous élargirons le nombre de communes classées en zones tendues où le montant du loyer ne pourra pas excéder de plus de 20 % le montant des loyers médians et où des dispositifs de régulation particuliers seront mis à disposition des communes (régulation des locations de meublés touristiques de courte durée notamment).",
+          "document_title": "Programme des écologistes",
+          "page": 13,
+          "chunk_id": "dd71c05a16f2-0009"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "jadot",
+      "statement_id": "s10",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "jadot",
+      "statement_id": "s11",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Nous ne construirons pas de nouvelles centrales, et nous fermerons progressivement les réacteurs actuellement en fonctionnement, au fur et à mesure de leur obsolescence et de notre capacité à les remplacer par des économies d’énergie et de l’électricité renouvelable.",
+          "document_title": "Programme des écologistes",
+          "page": 11,
+          "chunk_id": "dd71c05a16f2-0007"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "jadot",
+      "statement_id": "s12",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Nous supprimerons les vols intérieurs quand il existe une alternative en train de moins de 4h, et de moins de 6h pour les lignes européennes.",
+          "document_title": "Programme des écologistes",
+          "page": 18,
+          "chunk_id": "dd71c05a16f2-0013"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "jadot",
+      "statement_id": "s13",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Nous installerons 3 000 mâts d’éoliennes supplémentaires d’ici à la fin du quinquennat, en tenant compte des paysages et de la biodiversité et en veillant à une répartition équitable évitant l’effet de saturation dans certains territoires.",
+          "document_title": "Programme des écologistes",
+          "page": 9,
+          "chunk_id": "dd71c05a16f2-0005"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "jadot",
+      "statement_id": "s14",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "À l’inverse, nous proposerons un taux unique de 20 % pour tous les transports polluants : la TVA sur les services de transport de passagers générant des émissions passera de 10% à 20%.",
+          "document_title": "Programme des écologistes",
+          "page": 45,
+          "chunk_id": "dd71c05a16f2-0037"
+        },
+        {
+          "quote": "Nous mettrons progressivement fin à ce système afin de donner un prix au carbone dans tous les secteurs de l’économie.",
+          "document_title": "Programme des écologistes",
+          "page": 108,
+          "chunk_id": "dd71c05a16f2-0093"
+        },
+        {
+          "quote": "Nous créerons un impôt climatique sur la fortune, qui taxera les patrimoines supérieurs à 2 M€ et comportera un bonus-malus selon l’impact des actifs financiers et immobiliers sur le climat, qui rapportera au moins 15 Mds€.",
+          "document_title": "Programme des écologistes",
+          "page": 45,
+          "chunk_id": "dd71c05a16f2-0037"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "jadot",
+      "statement_id": "s15",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Nous y inscrirons aussi le principe de non-régression : la protection de l’environnement ne pourra faire l’objet que d’une amélioration constante.",
+          "document_title": "Programme des écologistes",
+          "page": 25,
+          "chunk_id": "dd71c05a16f2-0019"
+        },
+        {
+          "quote": "Les zones de captage et en bord de cours d’eau (20 m minimum) devront être strictement dédiées à une agriculture biologique et protégées de toutes les pollutions.",
+          "document_title": "Programme des écologistes",
+          "page": 25,
+          "chunk_id": "dd71c05a16f2-0019"
+        },
+        {
+          "quote": "en proposant à tous les agriculteurs concernés par des transitions rapides de leurs modes de production des reprises partielles ou complètes de leur dette par la CDC",
+          "document_title": "Programme des écologistes",
+          "page": 40,
+          "chunk_id": "dd71c05a16f2-0033"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "jadot",
+      "statement_id": "s16",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "jadot",
+      "statement_id": "s17",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "jadot",
+      "statement_id": "s18",
+      "value": 2,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "La France soutiendra la constitution d’une force européenne commune de déploiement de 5000 hommes.",
+          "document_title": "Programme des écologistes",
+          "page": 119,
+          "chunk_id": "dd71c05a16f2-0104"
+        },
+        {
+          "quote": "Ces avancées doivent nous rapprocher de l’objectif d’une défense européenne.",
+          "document_title": "Programme des écologistes",
+          "page": 119,
+          "chunk_id": "dd71c05a16f2-0104"
+        },
+        {
+          "quote": "grâce au renforcement de la défense européenne et à un partenariat transatlantique plus équilibré",
+          "document_title": "Programme des écologistes",
+          "page": 118,
+          "chunk_id": "dd71c05a16f2-0103"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "jadot",
+      "statement_id": "s19",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "La France mettra en place un moratoire sur la signature de tous les accords de commerce en cours de négociation ou de ratification, notamment le CETA et l’accord avec le Mercosur.",
+          "document_title": "Programme des écologistes",
+          "page": 120,
+          "chunk_id": "dd71c05a16f2-0105"
+        },
+        {
+          "quote": "Nous ne ratifierons pas les accords de libre-échange tant qu’une remise à plat complète de la politique commerciale n’aura pas lieu.",
+          "document_title": "Programme des écologistes",
+          "page": 108,
+          "chunk_id": "dd71c05a16f2-0093"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "jadot",
+      "statement_id": "s20",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Faire passer certaines décisions de l’unanimité à la majorité qualifiée",
+          "document_title": "Programme des écologistes",
+          "page": 105,
+          "chunk_id": "dd71c05a16f2-0090"
+        },
+        {
+          "quote": "Nous demanderons l’activation des clauses présentes dans les traités européens qui permettent de faire passer certains domaines de la règle de l’unanimité à celle de la majorité qualifiée.",
+          "document_title": "Programme des écologistes",
+          "page": 106,
+          "chunk_id": "dd71c05a16f2-0091"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "jadot",
+      "statement_id": "s21",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "jadot",
+      "statement_id": "s22",
+      "value": -2,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Nous simplifierons et ouvrirons l’accès au séjour en France : facilitation des démarches à partir des pays d’origine pour les rendre lisibles et accessibles et remodelage d’une offre de cartes de séjour transparente et simplifiée",
+          "document_title": "Programme des écologistes",
+          "page": 85,
+          "chunk_id": "dd71c05a16f2-0073"
+        },
+        {
+          "quote": "Conscients de l’opportunité que représente l’intégration réussie de nouveaux actifs dans notre société",
+          "document_title": "Programme des écologistes",
+          "page": 85,
+          "chunk_id": "dd71c05a16f2-0073"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "jadot",
+      "statement_id": "s23",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "jadot",
+      "statement_id": "s24",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "jadot",
+      "statement_id": "s25",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Nous légaliserons le cannabis",
+          "document_title": "Programme des écologistes",
+          "page": 78,
+          "chunk_id": "dd71c05a16f2-0067"
+        },
+        {
+          "quote": "Comme dans de nombreux pays précurseurs, l’État encadrera la production et la vente du cannabis en s’appuyant sur des producteurs et des distributeurs strictement encadrés.",
+          "document_title": "Programme des écologistes",
+          "page": 66,
+          "chunk_id": "dd71c05a16f2-0056"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "jadot",
+      "statement_id": "s26",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "jadot",
+      "statement_id": "s27",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "jadot",
+      "statement_id": "s28",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "jadot",
+      "statement_id": "s29",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "jadot",
+      "statement_id": "s30",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "lassalle",
+      "statement_id": "s01",
+      "value": 2,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Rétablir l’ISF (Impôt sur la fortune) et supprimer l’IFI (Impôt sur la fortune immobilière).",
+          "document_title": "La France authentique, programme",
+          "page": 6,
+          "chunk_id": "4df5adab7e61-0007"
+        },
+        {
+          "quote": "Lutter contre l’évasion fiscale et rétablir l’ISF (Impôt sur la fortune).",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 1,
+          "chunk_id": "47412fb981ef-0001"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "lassalle",
+      "statement_id": "s02",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "lassalle",
+      "statement_id": "s03",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Un certain nombre de «re-nationalisations» s’imposent, par exemple : EDF, les autoroutes de France et les entreprises liées à la Défense nationale.",
+          "document_title": "La France authentique, programme",
+          "page": 6,
+          "chunk_id": "4df5adab7e61-0007"
+        },
+        {
+          "quote": "Cela passera par un achat des entreprises sensibles et stratégiques par la BPI (Banque Publique d’Investissement).",
+          "document_title": "La France authentique, programme",
+          "page": 6,
+          "chunk_id": "4df5adab7e61-0007"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "lassalle",
+      "statement_id": "s04",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "lassalle",
+      "statement_id": "s05",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "lassalle",
+      "statement_id": "s06",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "lassalle",
+      "statement_id": "s07",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Revaloriser le SMIC à 1 400 euros net. Cette augmentation de 8 % doperait notamment une consommation tournée vers des secteurs à bas revenus (hôtellerie, restauration).",
+          "document_title": "La France authentique, programme",
+          "page": 6,
+          "chunk_id": "4df5adab7e61-0007"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "lassalle",
+      "statement_id": "s08",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "lassalle",
+      "statement_id": "s09",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "lassalle",
+      "statement_id": "s10",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "lassalle",
+      "statement_id": "s11",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Rénover et prolonger de 25 ans les centrales nucléaires en fin de vie. Développer les centrales nucléaires de 4ᵉ génération (plus sûres que les précédentes).",
+          "document_title": "La France authentique, programme",
+          "page": 3,
+          "chunk_id": "4df5adab7e61-0003"
+        },
+        {
+          "quote": "Préparer la transition énergétique du nucléaire vers des centrales de 4ᵉ génération, plus sûres et moins chères.",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 1,
+          "chunk_id": "47412fb981ef-0001"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "lassalle",
+      "statement_id": "s12",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "lassalle",
+      "statement_id": "s13",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Stopper l’éolien. Il convient dès à présent d’interdire les projets éoliens non validés par les maires, après consultation des habitants.",
+          "document_title": "La France authentique, programme",
+          "page": 3,
+          "chunk_id": "4df5adab7e61-0003"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "lassalle",
+      "statement_id": "s14",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "lassalle",
+      "statement_id": "s15",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "lassalle",
+      "statement_id": "s16",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Préparer notre désengagement de l’OTAN.",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 1,
+          "chunk_id": "47412fb981ef-0000"
+        },
+        {
+          "quote": "Préparer notre désengagement de l’OTAN.",
+          "document_title": "La France authentique, programme",
+          "page": 11,
+          "chunk_id": "4df5adab7e61-0014"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "lassalle",
+      "statement_id": "s17",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "lassalle",
+      "statement_id": "s18",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Je défends une Europe des Nations plus respectueuse de la souveraineté de ses membres.",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 1,
+          "chunk_id": "47412fb981ef-0000"
+        },
+        {
+          "quote": "Préparer notre désengagement de l’OTAN.",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 1,
+          "chunk_id": "47412fb981ef-0000"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "lassalle",
+      "statement_id": "s19",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Retirer à la Commission européenne la mission de représenter la France dans les traités de protections des investissements internationaux. Et interrompre la négociation de tels accords (CETA…)",
+          "document_title": "La France authentique, programme",
+          "page": 11,
+          "chunk_id": "4df5adab7e61-0014"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "lassalle",
+      "statement_id": "s20",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "lassalle",
+      "statement_id": "s21",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "lassalle",
+      "statement_id": "s22",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "lassalle",
+      "statement_id": "s23",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "lassalle",
+      "statement_id": "s24",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "lassalle",
+      "statement_id": "s25",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Légaliser le cannabis, en encadrant strictement sa vente et en dédiant une grande part des recettes à la lutte contre l’addiction.",
+          "document_title": "La France authentique, programme",
+          "page": 11,
+          "chunk_id": "4df5adab7e61-0014"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "lassalle",
+      "statement_id": "s26",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "lassalle",
+      "statement_id": "s27",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "lassalle",
+      "statement_id": "s28",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "lassalle",
+      "statement_id": "s29",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "lassalle",
+      "statement_id": "s30",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Instaurer le RIC (référendum d’initiative citoyenne).",
+          "document_title": "La France authentique, programme",
+          "page": 2,
+          "chunk_id": "4df5adab7e61-0001"
+        },
+        {
+          "quote": "C’est pourquoi ma proposition de loi constitutionnelle de novembre 2021 sur le RIC permettrait de lancer une telle initiative une fois recueilli le soutien de 700 000 citoyens.",
+          "document_title": "La France authentique, programme",
+          "page": 2,
+          "chunk_id": "4df5adab7e61-0001"
+        },
+        {
+          "quote": "Instauration du RIC, Référendum d’Initiative Citoyenne.",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 2,
+          "chunk_id": "47412fb981ef-0003"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "le-pen",
+      "statement_id": "s01",
+      "value": 2,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "C’est pourquoi je souhaite que soit supprimé l’impôt sur la fortune immobilière, IFI, qui entrave la conservation et la transmission des patrimoines et épargne de tout effort contributif les fortunes exclusivement mobilières, et que soit mis en place un impôt sur la fortune financière, IFF. Cet impôt visant la spéculation inclura les produits financiers et œuvres d’art détenues depuis moins de 10 ans ; pour protéger l’enracinement la résidence principale ou unique et les biens professionnels sortiront de l’assiette.",
+          "document_title": "Manifeste « M la France », programme présidentiel",
+          "page": 23,
+          "chunk_id": "2228cf277a7b-0023"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "le-pen",
+      "statement_id": "s02",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Ainsi, ce sont elles qui seront principalement concernées par la baisse des impôts de production que je souhaite initier dès les premiers mois de mon quinquennat. Il s’agira de supprimer la Cotisation Foncière des Entreprises, CFE. La suppression de la Contribution Sociale de Solidarité des Sociétés, C3S, sera quant à elle réservée aux zones de relocalisation.",
+          "document_title": "Manifeste « M la France », programme présidentiel",
+          "page": 23,
+          "chunk_id": "2228cf277a7b-0022"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "le-pen",
+      "statement_id": "s03",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "fonds souverain consistera à replacer les sociétés d’autoroutes dans les mains de la puissance publique, de manière que le fruit des investissements consentis soit rétrocédé aux Français.",
+          "document_title": "Manifeste « M la France », programme présidentiel",
+          "page": 21,
+          "chunk_id": "2228cf277a7b-0020"
+        },
+        {
+          "quote": "L’intégralité des activités hydroélectriques sera maintenue dans le giron public et contrôlée par EDF.",
+          "document_title": "Manifeste « M la France », programme présidentiel",
+          "page": 25,
+          "chunk_id": "2228cf277a7b-0025"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "le-pen",
+      "statement_id": "s04",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "le-pen",
+      "statement_id": "s05",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "le-pen",
+      "statement_id": "s06",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Toutes les personnes qui auront commencé à travailler avant vingt ans pourront partir à la retraite à partir de 60 ans s’ils ont 40 annuités de cotisation. Pour les autres, qui dans l’immense majorité auront un travail moins pénible physiquement, leur âge de départ et leur durée de cotisation dépendront de l’âge auquel ils auront commencé à travailler.",
+          "document_title": "Manifeste « M la France », programme présidentiel",
+          "page": 23,
+          "chunk_id": "2228cf277a7b-0023"
+        },
+        {
+          "quote": "Je garantirai à chacun une retraite juste et digne à partir de 60 ans avec un système progressif de 40 à 42 annuités.",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 2,
+          "chunk_id": "68a296ebf9a7-0002"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "le-pen",
+      "statement_id": "s07",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "le-pen",
+      "statement_id": "s08",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "le-pen",
+      "statement_id": "s09",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "le-pen",
+      "statement_id": "s10",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "le-pen",
+      "statement_id": "s11",
+      "value": 2,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "En deuxième lieu, il me paraît impératif que le savoir-faire français en matière nucléaire, (également indispensable à l’efficacité de notre nucléaire militaire) soit mis à contribution pour engager sans tarder le renouvellement de notre parc nucléaire et reprendre les études sur les réacteurs à neutrons rapides, scan",
+          "document_title": "Manifeste « M la France », programme présidentiel",
+          "page": 25,
+          "chunk_id": "2228cf277a7b-0026"
+        },
+        {
+          "quote": "Pour ce faire le parc nucléaire français sera intégralement préservé et sa durée de vie prolongée, sous le contrôle de l’Autorité de sûreté nucléaire.",
+          "document_title": "Manifeste « M la France », programme présidentiel",
+          "page": 25,
+          "chunk_id": "2228cf277a7b-0025"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "le-pen",
+      "statement_id": "s12",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "le-pen",
+      "statement_id": "s13",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "C’est pourquoi un moratoire sur la construction de toute nouvelle éolienne, sur terre ou mer, sera instauré dès le printemps 2022 et leur démantèlement engagé progressivement.",
+          "document_title": "Manifeste « M la France », programme présidentiel",
+          "page": 25,
+          "chunk_id": "2228cf277a7b-0026"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "le-pen",
+      "statement_id": "s14",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "dès mon élection je baisserai massivement les taxes sur le gazole, l’essence, le gaz, le fioul, l’électricité.",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 2,
+          "chunk_id": "68a296ebf9a7-0001"
+        },
+        {
+          "quote": "Un effort très significatif portera sur tous les produits énergétiques – essence, fioul, gaz et électricité – qui seront considérés comme de première nécessité, dont la TVA passera de 20 % à 5,5 %.",
+          "document_title": "Manifeste « M la France », programme présidentiel",
+          "page": 22,
+          "chunk_id": "2228cf277a7b-0021"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "le-pen",
+      "statement_id": "s15",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "le-pen",
+      "statement_id": "s16",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "que la France se retire du commandement intégré de l’OTAN, mette un terme aux coopérations industrielles engagées avec l’Allemagne en matière d’armement",
+          "document_title": "Manifeste « M la France », programme présidentiel",
+          "page": 6,
+          "chunk_id": "2228cf277a7b-0004"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "le-pen",
+      "statement_id": "s17",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Pour rendre le premier principe concret, le référendum modifiera un certain nombre d’articles de notre Constitution afin d’intégrer la question migratoire à notre texte suprême mais aussi afin d’empêcher les juridictions supranationales de forcer la France à suivre des politiques contraires à la volonté du peuple Français.",
+          "document_title": "Manifeste « M la France », programme présidentiel",
+          "page": 7,
+          "chunk_id": "2228cf277a7b-0006"
+        },
+        {
+          "quote": "n’en déplaise à la Cour de Justice de l’Union européenne dont l’arrêt sur l’application de la directive travail aux militaires doit être tenu pour ce qu’il est : contraire aux intérêts de la Nation.",
+          "document_title": "Manifeste « M la France », programme présidentiel",
+          "page": 7,
+          "chunk_id": "2228cf277a7b-0005"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "le-pen",
+      "statement_id": "s18",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Le second est bien sûr la création d’une Alliance Européenne des Nations qui a vocation à se substituer progressivement à l’Union Européenne.",
+          "document_title": "Manifeste « M la France », programme présidentiel",
+          "page": 17,
+          "chunk_id": "2228cf277a7b-0017"
+        },
+        {
+          "quote": "Les armées de tous les pays membres de l’Union européenne sont aujourd’hui déclassées : seule la France, dotée d’une capacité de projection et d’intervention rapide, fait exception à cette règle.",
+          "document_title": "Manifeste « M la France », programme présidentiel",
+          "page": 6,
+          "chunk_id": "2228cf277a7b-0004"
+        },
+        {
+          "quote": "En troisième lieu, notre politique de défense doit continuer de reposer sur une doctrine claire, crédible, permanente et intégralement nationale de la dissuasion nucléaire",
+          "document_title": "Manifeste « M la France », programme présidentiel",
+          "page": 7,
+          "chunk_id": "2228cf277a7b-0005"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "le-pen",
+      "statement_id": "s19",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "le-pen",
+      "statement_id": "s20",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "le-pen",
+      "statement_id": "s21",
+      "value": null,
+      "confidence": "medium",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "le-pen",
+      "statement_id": "s22",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "notre pays doit retrouver la pleine maîtrise de l’immigration.",
+          "document_title": "Manifeste « M la France », programme présidentiel",
+          "page": 7,
+          "chunk_id": "2228cf277a7b-0006"
+        },
+        {
+          "quote": "interdire toute forme de peuplement qui vise à altérer l’identité de la France (notamment par le regroupement familial qui deviendra une rare exception).",
+          "document_title": "Manifeste « M la France », programme présidentiel",
+          "page": 7,
+          "chunk_id": "2228cf277a7b-0006"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "le-pen",
+      "statement_id": "s23",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Je rétablirai les contrôles aux frontières, expulserai les clandestins et supprimerai le droit du sol.",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 2,
+          "chunk_id": "68a296ebf9a7-0001"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "le-pen",
+      "statement_id": "s24",
+      "value": -2,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Je rétablirai les contrôles aux frontières, expulserai les clandestins et supprimerai le droit du sol.",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 2,
+          "chunk_id": "68a296ebf9a7-0001"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "le-pen",
+      "statement_id": "s25",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "le-pen",
+      "statement_id": "s26",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "le-pen",
+      "statement_id": "s27",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Dans les six mois de l’élection présidentielle, je demanderai au peuple français d’adopter par référendum un certain nombre de dispositions indispensables, faute de quoi, l’avenir même de la France en tant que Nation serait compromis.",
+          "document_title": "Manifeste « M la France », programme présidentiel",
+          "page": 7,
+          "chunk_id": "2228cf277a7b-0006"
+        },
+        {
+          "quote": "Bien évidemment les dispositions du référendum sur l’immigration s’appliqueront outre-mer.",
+          "document_title": "Manifeste « M la France », programme présidentiel",
+          "page": 20,
+          "chunk_id": "2228cf277a7b-0018"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "le-pen",
+      "statement_id": "s28",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "le-pen",
+      "statement_id": "s29",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "le-pen",
+      "statement_id": "s30",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Pour rendre le pouvoir au peuple, je rendrai aux Français leurs libertés individuelles, j’instaurerai le référendum d’initiative citoyenne (RIC) et la proportionnelle aux élections.",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 2,
+          "chunk_id": "68a296ebf9a7-0001"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "macron",
+      "statement_id": "s01",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "macron",
+      "statement_id": "s02",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Réduire les impôts de production qui pèsent sur l’industrie et l’agricul-ture, notamment en supprimant la CVAE pour toutes les entreprises.",
+          "document_title": "Emmanuel Macron avec vous, programme",
+          "page": 9,
+          "chunk_id": "e9a608824a05-0013"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "macron",
+      "statement_id": "s03",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "macron",
+      "statement_id": "s04",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "macron",
+      "statement_id": "s05",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "macron",
+      "statement_id": "s06",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Le relèvement progressif de l’âge légal de départ à la retraite à 65 ans.",
+          "document_title": "Emmanuel Macron avec vous, programme",
+          "page": 7,
+          "chunk_id": "e9a608824a05-0010"
+        },
+        {
+          "quote": "Report de l'âge légal de départ à la retraite à 65 ans.",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 3,
+          "chunk_id": "67f312ed6f99-0003"
+        },
+        {
+          "quote": "Le fnancement de nos retraites par répartition sera pérennisé grâce au recul progressif à 65 ans de l’âge légal de départ à la retraite",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 1,
+          "chunk_id": "67f312ed6f99-0000"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "macron",
+      "statement_id": "s07",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "macron",
+      "statement_id": "s08",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Le RSA conditionné à une activité effective qui permet l’insertion.",
+          "document_title": "Emmanuel Macron avec vous, programme",
+          "page": 7,
+          "chunk_id": "e9a608824a05-0010"
+        },
+        {
+          "quote": "L’assurance chômage plus stricte quand trop d’emplois sont non pourvus, plus généreuse quand le chômage est élevé.",
+          "document_title": "Emmanuel Macron avec vous, programme",
+          "page": 7,
+          "chunk_id": "e9a608824a05-0010"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "macron",
+      "statement_id": "s09",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "macron",
+      "statement_id": "s10",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "macron",
+      "statement_id": "s11",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Continuer à soutenir des projets majeurs pour l’avenir : mini-lanceurs spatiaux, biomédicaments, réacteurs nucléaires de troisième et quatrième générations…",
+          "document_title": "Emmanuel Macron avec vous, programme",
+          "page": 9,
+          "chunk_id": "e9a608824a05-0013"
+        },
+        {
+          "quote": "Nous met-trons les moyens nécessaires pour faire de la France un pays en tête pour le nucléaire, les batteries, l’hydrogène, les énergies renouvelables, l’avion bas carbone, le cyber, le métavers, l’agriculture du XXIe siècle et les industries",
+          "document_title": "Emmanuel Macron avec vous, programme",
+          "page": 3,
+          "chunk_id": "e9a608824a05-0004"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "macron",
+      "statement_id": "s12",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "macron",
+      "statement_id": "s13",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Poursuivre la construction de 6 premières centrales nucléaires nouvelle génération, la multiplication par 10 de notre puissance solaire et l’implantation de 50 parcs éoliens en mer d’ici 2050, et bâtir une filière française de production des énergies renouvelables.",
+          "document_title": "Emmanuel Macron avec vous, programme",
+          "page": 7,
+          "chunk_id": "e9a608824a05-0011"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "macron",
+      "statement_id": "s14",
+      "value": 1,
+      "confidence": "low",
+      "evidence": [
+        {
+          "quote": "Mise en œuvre d'une taxe carbone aux frontières de l’Europe pour éviter la concurrence déloyale.",
+          "document_title": "Emmanuel Macron avec vous, programme",
+          "page": 8,
+          "chunk_id": "e9a608824a05-0012"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "macron",
+      "statement_id": "s15",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "macron",
+      "statement_id": "s16",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "macron",
+      "statement_id": "s17",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "macron",
+      "statement_id": "s18",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Assurer son autonomie stratégique, par la définition d’une doctrine commune, un renforcement considérable des capacités des armées européennes et de leur coor-dination.",
+          "document_title": "Emmanuel Macron avec vous, programme",
+          "page": 12,
+          "chunk_id": "e9a608824a05-0018"
+        },
+        {
+          "quote": "Nous poursuivrons notre action pour bâtir une Europe-puissance, capable, par son indépendance, de se défendre et de peser sur le cours du monde.",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 2,
+          "chunk_id": "67f312ed6f99-0001"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "macron",
+      "statement_id": "s19",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "macron",
+      "statement_id": "s20",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "macron",
+      "statement_id": "s21",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "macron",
+      "statement_id": "s22",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "macron",
+      "statement_id": "s23",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "macron",
+      "statement_id": "s24",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "macron",
+      "statement_id": "s25",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "macron",
+      "statement_id": "s26",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "macron",
+      "statement_id": "s27",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "macron",
+      "statement_id": "s28",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "macron",
+      "statement_id": "s29",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "macron",
+      "statement_id": "s30",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "melenchon",
+      "statement_id": "s01",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Rétablir et renforcer l’ISF (Impôt de solidarité sur la fortune)",
+          "document_title": "L'Avenir en commun, programme en version abrégée",
+          "page": 8,
+          "chunk_id": "df249374c324-0006"
+        },
+        {
+          "quote": "Assez de cadeaux aux grandes fortunes ! Rétablissons l’impôt sur la fortune.",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 2,
+          "chunk_id": "2dc0d46164c4-0001"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "melenchon",
+      "statement_id": "s02",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "melenchon",
+      "statement_id": "s03",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Renationaliser les autoroutes et revenir sur les hausses de prix",
+          "document_title": "L'Avenir en commun, programme en version abrégée",
+          "page": 15,
+          "chunk_id": "df249374c324-0012"
+        },
+        {
+          "quote": "Créer un pôle public de l’énergie",
+          "document_title": "L'Avenir en commun, programme en version abrégée",
+          "page": 14,
+          "chunk_id": "df249374c324-0011"
+        },
+        {
+          "quote": "droit de créer des monopoles publics dans des secteurs stratégiques",
+          "document_title": "L'Avenir en commun, programme en version abrégée",
+          "page": 23,
+          "chunk_id": "df249374c324-0018"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "melenchon",
+      "statement_id": "s04",
+      "value": -2,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Recruter des fonctionnaires (magistrats, greffiers…) pour désengorger les tribunaux et raccourcir les délais",
+          "document_title": "L'Avenir en commun, programme en version abrégée",
+          "page": 19,
+          "chunk_id": "df249374c324-0015"
+        },
+        {
+          "quote": "Recruter des soignants, revaloriser leurs revenus et réouvrir des lits dans les hôpitaux",
+          "document_title": "L'Avenir en commun, programme en version abrégée",
+          "page": 11,
+          "chunk_id": "df249374c324-0009"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "melenchon",
+      "statement_id": "s05",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "250 MILLIARDS 267 MILLIARDS DE DÉPENSES DE RECETTES EN PLUS PAR AN",
+          "document_title": "L'Avenir en commun, programme en version abrégée",
+          "page": 27,
+          "chunk_id": "df249374c324-0021"
+        },
+        {
+          "quote": "Investir dans la bifurcation écologique et les services publics : 50 milliards d’euros en plus par an",
+          "document_title": "L'Avenir en commun, programme en version abrégée",
+          "page": 27,
+          "chunk_id": "df249374c324-0021"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "melenchon",
+      "statement_id": "s06",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Rétablir la retraite à 60 ans à taux plein avec 40 annuités de cotisation",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 4,
+          "chunk_id": "2dc0d46164c4-0004"
+        },
+        {
+          "quote": "Le droit à la retraite à 60 ans avec 40 années de cotisation sera rétabli ainsi que les 35 heures.",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 2,
+          "chunk_id": "2dc0d46164c4-0001"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "melenchon",
+      "statement_id": "s07",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Dès mon élection, le SMIC sera porté à 1 400 euros net, les salaires des fonctionnaires, les petites retraites et les minima sociaux seront augmentés.",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 2,
+          "chunk_id": "2dc0d46164c4-0001"
+        },
+        {
+          "quote": "Porter immédiatement le SMIC à 1400 euros net par mois",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 3,
+          "chunk_id": "2dc0d46164c4-0003"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "melenchon",
+      "statement_id": "s08",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "melenchon",
+      "statement_id": "s09",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Encadrer les loyers et mettre en place une garantie universelle des loyers",
+          "document_title": "L'Avenir en commun, programme en version abrégée",
+          "page": 10,
+          "chunk_id": "df249374c324-0008"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "melenchon",
+      "statement_id": "s10",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "melenchon",
+      "statement_id": "s11",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Planifier la sortie du nucléaire et abandonner les projets de nouvelles centrales",
+          "document_title": "L'Avenir en commun, programme en version abrégée",
+          "page": 14,
+          "chunk_id": "df249374c324-0011"
+        },
+        {
+          "quote": "Faisons le choix du 100 % d’énergies renouvelables dès 2050, sortons du nucléaire et de ses dangers irréversibles.",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 3,
+          "chunk_id": "2dc0d46164c4-0002"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "melenchon",
+      "statement_id": "s12",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "melenchon",
+      "statement_id": "s13",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "melenchon",
+      "statement_id": "s14",
+      "value": 1,
+      "confidence": "low",
+      "evidence": [
+        {
+          "quote": "Instaurer une taxe sur le nombre de kilomètres parcourus par les marchandises importées, pour favoriser les produits locaux",
+          "document_title": "L'Avenir en commun, programme en version abrégée",
+          "page": 15,
+          "chunk_id": "df249374c324-0012"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "melenchon",
+      "statement_id": "s15",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Interdire les pesticides dangereux (glyphosate et néonicotinoïdes) et planifier la réduction des doses d’engrais et de pesticides",
+          "document_title": "L'Avenir en commun, programme en version abrégée",
+          "page": 15,
+          "chunk_id": "df249374c324-0012"
+        },
+        {
+          "quote": "Interdire l’importation de produits qui ne respectent pas les normes françaises",
+          "document_title": "L'Avenir en commun, programme en version abrégée",
+          "page": 15,
+          "chunk_id": "df249374c324-0012"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "melenchon",
+      "statement_id": "s16",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Se retirer du commandement intégré de l’OTAN, puis progressivement de l’organisation",
+          "document_title": "L'Avenir en commun, programme en version abrégée",
+          "page": 23,
+          "chunk_id": "df249374c324-0018"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "melenchon",
+      "statement_id": "s17",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Refuser d’appliquer toute norme européenne moins ambitieuse qu’une norme nationale",
+          "document_title": "L'Avenir en commun, programme en version abrégée",
+          "page": 23,
+          "chunk_id": "df249374c324-0018"
+        },
+        {
+          "quote": "Enfin, nous appliquerons notre programme même quand il oblige à désobéir aux traités européens.",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 3,
+          "chunk_id": "2dc0d46164c4-0002"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "melenchon",
+      "statement_id": "s18",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Notre défense doit être autonome car c’est le moyen d’avoir une voix indépendante et altermondialiste dans l’intérêt du peuple humain.",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 3,
+          "chunk_id": "2dc0d46164c4-0002"
+        },
+        {
+          "quote": "Se retirer du commandement intégré de l’OTAN, puis progressivement de l’organisation",
+          "document_title": "L'Avenir en commun, programme en version abrégée",
+          "page": 23,
+          "chunk_id": "df249374c324-0018"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "melenchon",
+      "statement_id": "s19",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Soyons indépendants. Un protectionnisme négocié nous aidera à relocaliser les productions industrielles et agricoles.",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 3,
+          "chunk_id": "2dc0d46164c4-0002"
+        },
+        {
+          "quote": "Mise en place d’un protectionnisme écologique et droit de créer des monopoles publics dans des secteurs stratégiques",
+          "document_title": "L'Avenir en commun, programme en version abrégée",
+          "page": 23,
+          "chunk_id": "df249374c324-0018"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "melenchon",
+      "statement_id": "s20",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "melenchon",
+      "statement_id": "s21",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "melenchon",
+      "statement_id": "s22",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "melenchon",
+      "statement_id": "s23",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "melenchon",
+      "statement_id": "s24",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "melenchon",
+      "statement_id": "s25",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Légaliser le cannabis et organiser le contrôle de la production et de la vente par l’État",
+          "document_title": "L'Avenir en commun, programme en version abrégée",
+          "page": 18,
+          "chunk_id": "df249374c324-0014"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "melenchon",
+      "statement_id": "s26",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "melenchon",
+      "statement_id": "s27",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "melenchon",
+      "statement_id": "s28",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Convoquer une Assemblée constituante par un référendum (article 11 de la Constitution)",
+          "document_title": "L'Avenir en commun, programme en version abrégée",
+          "page": 5,
+          "chunk_id": "df249374c324-0003"
+        },
+        {
+          "quote": "Faire rédiger la nouvelle Constitution par les citoyens membres de cette Assemblée élus ou tirés au sort",
+          "document_title": "L'Avenir en commun, programme en version abrégée",
+          "page": 5,
+          "chunk_id": "df249374c324-0003"
+        },
+        {
+          "quote": "Il est temps de convoquer une Assemblée Constituante et de lui confier le pouvoir de fixer de nouvelles règles démocratiques",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 2,
+          "chunk_id": "2dc0d46164c4-0001"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "melenchon",
+      "statement_id": "s29",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "melenchon",
+      "statement_id": "s30",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Créer un Référendum d’initiative citoyenne (RIC) pour proposer ou supprimer une loi, modifier la Constitution ou révoquer les élus",
+          "document_title": "L'Avenir en commun, programme en version abrégée",
+          "page": 1,
+          "chunk_id": "df249374c324-0000"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "pecresse",
+      "statement_id": "s01",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "pecresse",
+      "statement_id": "s02",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "10 milliards de baisse des impôts de",
+          "document_title": "Le courage de faire, programme",
+          "page": 6,
+          "chunk_id": "370f8774f585-0006"
+        },
+        {
+          "quote": "Je diminuerai les impôts des Français en supprimant la redevance audiovisuelle, en baissant les charges sociales sur le travail et les impôts de production pour les entreprises.",
+          "document_title": "Le courage de faire, programme",
+          "page": 7,
+          "chunk_id": "370f8774f585-0007"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "pecresse",
+      "statement_id": "s03",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "pecresse",
+      "statement_id": "s04",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Suppression de 200 000 postes\n\nde fonctionnaires dans les services suradministrés ; 50 000 recrutements dans la santé, la justice et l’éducation",
+          "document_title": "Le courage de faire, programme",
+          "page": 6,
+          "chunk_id": "370f8774f585-0006"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "pecresse",
+      "statement_id": "s05",
+      "value": 2,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "« Je m’engage à faire deux fois plus d’économies que de dépenses à l’horizon 2027. C’est la seule façon de casser la spirale de la dette, dans l’intérêt de nos enfants. »",
+          "document_title": "Le courage de faire, programme",
+          "page": 9,
+          "chunk_id": "370f8774f585-0010"
+        },
+        {
+          "quote": "J’imposerai une trajectoire vertueuse",
+          "document_title": "Le courage de faire, programme",
+          "page": 9,
+          "chunk_id": "370f8774f585-0010"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "pecresse",
+      "statement_id": "s06",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Relèvement progressif de l’âge légal de\n\ndépart à la retraite à 65 ans à horizon 2030, avec la prise en compte de la pénibilité et des carrières longues",
+          "document_title": "Le courage de faire, programme",
+          "page": 6,
+          "chunk_id": "370f8774f585-0006"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "pecresse",
+      "statement_id": "s07",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "pecresse",
+      "statement_id": "s08",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Les indemnités chômage seront réduites de 30 % en cas de refus d’une formation dans un secteur en tension. J’instaurerai une obligation de 15 heures d’activité par semaine pour tout bénéficiaire du RSA.",
+          "document_title": "Le courage de faire, programme",
+          "page": 5,
+          "chunk_id": "370f8774f585-0005"
+        },
+        {
+          "quote": "15 heures d’activité par semaine obligatoires pour tout bénéficiaire du RSA.",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 4,
+          "chunk_id": "ea0a3bc08ffd-0003"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "pecresse",
+      "statement_id": "s09",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "pecresse",
+      "statement_id": "s10",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "pecresse",
+      "statement_id": "s11",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "d’au moins 6 nouveaux réacteurs EPR, redémarrage du projet de réacteur de nouvelle génération et sans déchets, investissements massifs dans les réacteurs existants pour en prolonger la durée de vie",
+          "document_title": "Le courage de faire, programme",
+          "page": 12,
+          "chunk_id": "370f8774f585-0014"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "pecresse",
+      "statement_id": "s12",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "pecresse",
+      "statement_id": "s13",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "pecresse",
+      "statement_id": "s14",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Face à l’urgence climatique et à la nécessité de protéger la biodiversité, je veux une écologie de progrès et de solutions, pas une écologie punitive et antisociale. Chaque année, nous nous fixerons des objectifs pour atteindre la neutralité carbone en 2050, sans hausse d’impôt !",
+          "document_title": "Le courage de faire, programme",
+          "page": 13,
+          "chunk_id": "370f8774f585-0016"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "pecresse",
+      "statement_id": "s15",
+      "value": null,
+      "confidence": "medium",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "pecresse",
+      "statement_id": "s16",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Une Europe puissante, solidaire dans l’OTAN,",
+          "document_title": "Le courage de faire, programme",
+          "page": 13,
+          "chunk_id": "370f8774f585-0015"
+        },
+        {
+          "quote": "Rebâtir un dialogue constructif avec",
+          "document_title": "Le courage de faire, programme",
+          "page": 12,
+          "chunk_id": "370f8774f585-0014"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "pecresse",
+      "statement_id": "s17",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "pecresse",
+      "statement_id": "s18",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Une Europe puissante, solidaire dans l’OTAN,",
+          "document_title": "Le courage de faire, programme",
+          "page": 13,
+          "chunk_id": "370f8774f585-0015"
+        },
+        {
+          "quote": "et qui se dote d’une capacité autonome de défense",
+          "document_title": "Le courage de faire, programme",
+          "page": 13,
+          "chunk_id": "370f8774f585-0015"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "pecresse",
+      "statement_id": "s19",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "pecresse",
+      "statement_id": "s20",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "pecresse",
+      "statement_id": "s21",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Rétablissement des peines planchers pour les multirécidivistes violents et peines minimum d’un an de prison pour les agresseurs de forces de sécurité, d’élus et d’enseignants.",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 4,
+          "chunk_id": "ea0a3bc08ffd-0003"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "pecresse",
+      "statement_id": "s22",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Nous reprendrons le contrôle de l’immigration en la limitant strictement à ceux que nous voulons accueillir et en renvoyant les clandestins.",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 1,
+          "chunk_id": "ea0a3bc08ffd-0000"
+        },
+        {
+          "quote": "Des quotas d’accueil d’étrangers par pays",
+          "document_title": "Le courage de faire, programme",
+          "page": 4,
+          "chunk_id": "370f8774f585-0004"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "pecresse",
+      "statement_id": "s23",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Fin du droit du sol automatique :",
+          "document_title": "Le courage de faire, programme",
+          "page": 4,
+          "chunk_id": "370f8774f585-0004"
+        },
+        {
+          "quote": "Des quotas d’immigration par métier et par pays pour que la France décide qui peut rentrer sur son territoire, et la ﬁ n du droit du sol automatique.",
+          "document_title": "Le courage de faire, programme",
+          "page": 15,
+          "chunk_id": "370f8774f585-0018"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "pecresse",
+      "statement_id": "s24",
+      "value": -1,
+      "confidence": "low",
+      "evidence": [
+        {
+          "quote": "Aucune régularisation pour les étrangers",
+          "document_title": "Le courage de faire, programme",
+          "page": 5,
+          "chunk_id": "370f8774f585-0005"
+        },
+        {
+          "quote": "entrés de manière irrégulière",
+          "document_title": "Le courage de faire, programme",
+          "page": 5,
+          "chunk_id": "370f8774f585-0005"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "pecresse",
+      "statement_id": "s25",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "pecresse",
+      "statement_id": "s26",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "pecresse",
+      "statement_id": "s27",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Dès l’automne 2022, je les solliciterai par référendum sur l’immigration, la sécurité et la laïcité.",
+          "document_title": "Le courage de faire, programme",
+          "page": 2,
+          "chunk_id": "370f8774f585-0001"
+        },
+        {
+          "quote": "Dès l’automne 2022, je les solliciterai par référendum sur l’immigration, la sécurité et la laïcité.",
+          "document_title": "Le courage de faire, programme",
+          "page": 1,
+          "chunk_id": "370f8774f585-0000"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "pecresse",
+      "statement_id": "s28",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "pecresse",
+      "statement_id": "s29",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "pecresse",
+      "statement_id": "s30",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Des référendums d’initiative populaire pourront être initiés par les Français.",
+          "document_title": "Le courage de faire, programme",
+          "page": 2,
+          "chunk_id": "370f8774f585-0001"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "poutou",
+      "statement_id": "s01",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Nous voulons rétablir un impôt sur la fortune élargie à la totalité du patrimoine et taxer les revenus avec une tranche de prélèvement à 100 % à partir de cinq fois le SMIC (108 000 euros annuel net).",
+          "document_title": "Brochure programme Poutou 2022",
+          "page": 27,
+          "chunk_id": "feb3406f22b1-0025"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "poutou",
+      "statement_id": "s02",
+      "value": -1,
+      "confidence": "low",
+      "evidence": [
+        {
+          "quote": "à la réduction de ses recettes à force de consentir des cadeaux fiscaux aux plus riches et aux entreprises, puis des cadeaux aux banques.",
+          "document_title": "Brochure programme Poutou 2022",
+          "page": 27,
+          "chunk_id": "feb3406f22b1-0025"
+        },
+        {
+          "quote": "ARRÊTER LES EXONÉRATIONS DE COTISATIONS SOCIALES ET METTRE SOUS CONTRÔLE LES AIDES AUX ENTREPRISES",
+          "document_title": "Brochure programme Poutou 2022",
+          "page": 27,
+          "chunk_id": "feb3406f22b1-0024"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "poutou",
+      "statement_id": "s03",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Les grandes entreprises de l’énergie, pharmaceutiques, du transport, de la communication et les secteurs clés de l’industrie seront réquisitionnés.",
+          "document_title": "Brochure programme Poutou 2022",
+          "page": 6,
+          "chunk_id": "feb3406f22b1-0004"
+        },
+        {
+          "quote": "Nous voulons la réquisition des banques et leur regroupement dans un monopole contrôlant le crédit et les investissements sous contrôle des salarié·e·s et de la population.",
+          "document_title": "Brochure programme Poutou 2022",
+          "page": 27,
+          "chunk_id": "feb3406f22b1-0024"
+        },
+        {
+          "quote": "Expropriation et socialisation du secteur de l’énergie",
+          "document_title": "Brochure programme Poutou 2022",
+          "page": 8,
+          "chunk_id": "feb3406f22b1-0006"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "poutou",
+      "statement_id": "s04",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "CRÉER UN MILLION D’EMPLOIS\n\nPUBLICS EN 5 ANS",
+          "document_title": "Brochure programme Poutou 2022",
+          "page": 15,
+          "chunk_id": "feb3406f22b1-0012"
+        },
+        {
+          "quote": "L’avenir est aux services publics renforcés et étendus dans tous les domaines.",
+          "document_title": "Brochure programme Poutou 2022",
+          "page": 15,
+          "chunk_id": "feb3406f22b1-0012"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "poutou",
+      "statement_id": "s05",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Nous voulons l’arrêt immédiat du paiement de la dette et de ses intérêts, qui représentent près de 40 milliards d’euros en 2021.",
+          "document_title": "Brochure programme Poutou 2022",
+          "page": 27,
+          "chunk_id": "feb3406f22b1-0024"
+        },
+        {
+          "quote": "CRÉER UN MILLION D’EMPLOIS",
+          "document_title": "Brochure programme Poutou 2022",
+          "page": 15,
+          "chunk_id": "feb3406f22b1-0012"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "poutou",
+      "statement_id": "s06",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Retraite à 60 ans, 55 ans pour les travaux pénibles. Cela représente environ 60 milliards d’euros.",
+          "document_title": "Brochure programme Poutou 2022",
+          "page": 14,
+          "chunk_id": "feb3406f22b1-0011"
+        },
+        {
+          "quote": "Retraite à 60 ans, 55 ans pour les travaux pénibles",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 3,
+          "chunk_id": "e8400f091f79-0002"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "poutou",
+      "statement_id": "s07",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "SMIC à 1 800 euros net. Indexation des revenus sur les prix.",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 3,
+          "chunk_id": "e8400f091f79-0002"
+        },
+        {
+          "quote": "ce présalaire doit correspondre à 75 % du SMIC revalorisé à 1800 euros.",
+          "document_title": "Brochure programme Poutou 2022",
+          "page": 18,
+          "chunk_id": "feb3406f22b1-0016"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "poutou",
+      "statement_id": "s08",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "le gouvernement a créé le contrat d’engagement jeune (CEJ) : 500 euros par mois à condition d’accepter n’importe quel emploi. L’autonomie selon Macron, elle se pratique sous conditions et en-dessous du seuil de pauvreté !",
+          "document_title": "Brochure programme Poutou 2022",
+          "page": 18,
+          "chunk_id": "feb3406f22b1-0016"
+        },
+        {
+          "quote": "Nous ne croyons pas qu’en ayant un revenu garanti, on arrêterait de travail-ler.",
+          "document_title": "Brochure programme Poutou 2022",
+          "page": 14,
+          "chunk_id": "feb3406f22b1-0011"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "poutou",
+      "statement_id": "s09",
+      "value": 1,
+      "confidence": "low",
+      "evidence": [
+        {
+          "quote": "Renationalisation des sociétés HLM Blocage des loyers Interdiction des plateformes du type AirBnB au-delà du logement personnel",
+          "document_title": "Brochure programme Poutou 2022",
+          "page": 15,
+          "chunk_id": "feb3406f22b1-0012"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "poutou",
+      "statement_id": "s10",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "poutou",
+      "statement_id": "s11",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Arrêt du nucléaire et des énergies fossiles en 10 ans.",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 2,
+          "chunk_id": "e8400f091f79-0001"
+        },
+        {
+          "quote": "POUR L’ARRÊT DU NUCLÉAIRE EN 10 ANS ET LA SOCIALISATION DU SECTEUR DE L’ÉNERGIE Contre le réchauffement climatique, la réponse de Macron, comme celle de la plupart des candidat·e·s, est la promotion du nucléaire : la menace d’une dévastation du monde encore plus violente ! Il faut au contraire sortir du nucléaire.",
+          "document_title": "Brochure programme Poutou 2022",
+          "page": 7,
+          "chunk_id": "feb3406f22b1-0005"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "poutou",
+      "statement_id": "s12",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Réduction drastique du transport aérien, qui doit être interdit sur les circuits courts",
+          "document_title": "Brochure programme Poutou 2022",
+          "page": 9,
+          "chunk_id": "feb3406f22b1-0007"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "poutou",
+      "statement_id": "s13",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "poutou",
+      "statement_id": "s14",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "poutou",
+      "statement_id": "s15",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "poutou",
+      "statement_id": "s16",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Refus de toute « armée européenne ». Sortie de l’OTAN. Fin de la Françafrique",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 3,
+          "chunk_id": "e8400f091f79-0003"
+        },
+        {
+          "quote": "Refus de toute « armée européenne », sortie de l’OTAN, fin de la Françafrique",
+          "document_title": "Brochure programme Poutou 2022",
+          "page": 26,
+          "chunk_id": "feb3406f22b1-0023"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "poutou",
+      "statement_id": "s17",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "poutou",
+      "statement_id": "s18",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Refus de toute « armée européenne », sortie de l’OTAN, fin de la Françafrique",
+          "document_title": "Brochure programme Poutou 2022",
+          "page": 26,
+          "chunk_id": "feb3406f22b1-0023"
+        },
+        {
+          "quote": "Refus de toute « armée européenne ». Sortie de l’OTAN. Fin de la Françafrique",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 3,
+          "chunk_id": "e8400f091f79-0003"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "poutou",
+      "statement_id": "s19",
+      "value": -1,
+      "confidence": "low",
+      "evidence": [
+        {
+          "quote": "Rupture avec les traités européens antidémocratiques et favorisant la concurrence libre et non faussée",
+          "document_title": "Brochure programme Poutou 2022",
+          "page": 26,
+          "chunk_id": "feb3406f22b1-0023"
+        },
+        {
+          "quote": "Fin des traités qui organisent le pillage des richesses à l’échelle",
+          "document_title": "Brochure programme Poutou 2022",
+          "page": 25,
+          "chunk_id": "feb3406f22b1-0022"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "poutou",
+      "statement_id": "s20",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "poutou",
+      "statement_id": "s21",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "poutou",
+      "statement_id": "s22",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Accueil digne pour tou·te·s les migrant·e·s, sans distinction entre les migrant·e·s dits « économiques » et les réfugié·e·s",
+          "document_title": "Brochure programme Poutou 2022",
+          "page": 24,
+          "chunk_id": "feb3406f22b1-0021"
+        },
+        {
+          "quote": "Ouvrir les frontières, c’est per-mettre aux gens de migrer dans des conditions dignes et sûres.",
+          "document_title": "Brochure programme Poutou 2022",
+          "page": 24,
+          "chunk_id": "feb3406f22b1-0021"
+        },
+        {
+          "quote": "Nous voulons une société solidaire et sans frontière, qui accueille tou·te·s les migrant·e·s",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 3,
+          "chunk_id": "e8400f091f79-0002"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "poutou",
+      "statement_id": "s23",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "poutou",
+      "statement_id": "s24",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Régularisation de tou·te·s les sans-papiers",
+          "document_title": "Brochure programme Poutou 2022",
+          "page": 23,
+          "chunk_id": "feb3406f22b1-0020"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "poutou",
+      "statement_id": "s25",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Légalisation du cannabis et dépénalisation de la consommation des drogues",
+          "document_title": "Brochure programme Poutou 2022",
+          "page": 21,
+          "chunk_id": "feb3406f22b1-0018"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "poutou",
+      "statement_id": "s26",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Droit de vote des étrangers. ères résidant en France à toutes les élections",
+          "document_title": "Brochure programme Poutou 2022",
+          "page": 23,
+          "chunk_id": "feb3406f22b1-0020"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "poutou",
+      "statement_id": "s27",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "poutou",
+      "statement_id": "s28",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Nous voulons abroger la Constitution de la 5e République. Mais passer à une 6e République avec un régime parle-mentaire est insuffisant.",
+          "document_title": "Brochure programme Poutou 2022",
+          "page": 19,
+          "chunk_id": "feb3406f22b1-0017"
+        },
+        {
+          "quote": "Il faut les renverser et en fonder de nou-velles, au service et sous le contrôle des travailleurs·euses et de la population.",
+          "document_title": "Brochure programme Poutou 2022",
+          "page": 19,
+          "chunk_id": "feb3406f22b1-0017"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "poutou",
+      "statement_id": "s29",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Nous refusons la politique française de maintien des colonies et de gestion coloniale des populations en Kanaky, aux Antilles, à la Réunion, en Corse. Nous défendons le droit des peuples à l’auto-détermination et sommes solidaires des luttes pour la défense de la culture et des langues locales.",
+          "document_title": "Brochure programme Poutou 2022",
+          "page": 25,
+          "chunk_id": "feb3406f22b1-0022"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "poutou",
+      "statement_id": "s30",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Mise en place de mesures de démocratie directe type référendum d’initiative citoyenne (RIC)",
+          "document_title": "Brochure programme Poutou 2022",
+          "page": 19,
+          "chunk_id": "feb3406f22b1-0017"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "roussel",
+      "statement_id": "s01",
+      "value": 1,
+      "confidence": "low",
+      "evidence": [
+        {
+          "quote": "127 L’impôt sur la fortune sera rétabli, son taux et sa progressivité seront accentués, les niches fiscales qui minent son rendement seront supprimées",
+          "document_title": "La France des Jours heureux, livre-programme",
+          "page": 52,
+          "chunk_id": "d0836d522538-0064"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "roussel",
+      "statement_id": "s02",
+      "value": -1,
+      "confidence": "low",
+      "evidence": [
+        {
+          "quote": "Le lien entre territoires et entreprises étant devenu structurant, cet impôt, sorte de nouvelle taxe professionnelle, sera calculé, selon un barème progressif, sur la valeur des actifs immobiliers et matériels des entreprises.",
+          "document_title": "La France des Jours heureux, livre-programme",
+          "page": 51,
+          "chunk_id": "d0836d522538-0063"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "roussel",
+      "statement_id": "s03",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Les autoroutes, largement remboursées par les fonds publics, seront nationalisées.",
+          "document_title": "La France des Jours heureux, livre-programme",
+          "page": 28,
+          "chunk_id": "d0836d522538-0034"
+        },
+        {
+          "quote": "Il regroupera l’ensemble des grandes entreprises publiques et privées, dont Total Energies, des centres de recherche dont le CEA et un puissant service public de l’énergie, organisé autour d’EDF et Engie, qui seront renationalisées.",
+          "document_title": "La France des Jours heureux, livre-programme",
+          "page": 29,
+          "chunk_id": "d0836d522538-0036"
+        },
+        {
+          "quote": "116 Un pôle financier public sera constitué, grâce à la nationalisation des grandes banques et compagnies d’assurances privées (BNP-Paribas, Société générale, Axa)",
+          "document_title": "La France des Jours heureux, livre-programme",
+          "page": 50,
+          "chunk_id": "d0836d522538-0061"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "roussel",
+      "statement_id": "s04",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "29 Il sera créé 500 000 emplois dans la fonction publique et les services publics",
+          "document_title": "La France des Jours heureux, livre-programme",
+          "page": 20,
+          "chunk_id": "d0836d522538-0026"
+        },
+        {
+          "quote": "il convient de mettre fin aux dynamiques de concurrence, de privatisation, de réduction des effectifs et de coupes budgétaires auxquelles l’austérité assujettit toute l’Europe.",
+          "document_title": "La France des Jours heureux, livre-programme",
+          "page": 14,
+          "chunk_id": "d0836d522538-0016"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "roussel",
+      "statement_id": "s05",
+      "value": -2,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Au total, la réalisation des objectifs énumérés dans les pages précédentes exigera donc des dépenses de l’ordre de 300 milliards, chaque année, pour les finances publiques, et à peu près autant de la part des entreprises publiques et privées.",
+          "document_title": "La France des Jours heureux, livre-programme",
+          "page": 45,
+          "chunk_id": "d0836d522538-0057"
+        },
+        {
+          "quote": "La nouvelle majorité politique qui sortira de l’élection présidentielle et des élections législatives, appuyée par la mobilisation des citoyennes et des citoyens, devra donc engager immédiatement une bataille afin que la création monétaire des banques et de la BCE procure tout de suite aux agents économiques – et en particulier à l’État – les avances de fonds nécessaires aux dépenses indispensables pour rendre possibles les embauches, la formation des travailleurs, les investissements matériels et immatériels.",
+          "document_title": "La France des Jours heureux, livre-programme",
+          "page": 49,
+          "chunk_id": "d0836d522538-0059"
+        },
+        {
+          "quote": "Déjà le président de la République, qui ne cache pas sa détermination à assurer à tout prix sa réélection, nous prévient qu’il faudra rembourser le déficit des finances publiques.",
+          "document_title": "La France des Jours heureux, livre-programme",
+          "page": 4,
+          "chunk_id": "d0836d522538-0001"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "roussel",
+      "statement_id": "s06",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Le départ à 60 ans avec une pension à taux plein sera garanti pour une carrière complète, allant de 18 à 60 ans, avec prise en charge des cotisations pour les périodes de non-travail (chômage, formation, études, congé parental, maladie, invalidité).",
+          "document_title": "La France des Jours heureux, livre-programme",
+          "page": 11,
+          "chunk_id": "d0836d522538-0013"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "roussel",
+      "statement_id": "s07",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Le smic horaire sera augmenté pour atteindre rapidement 1 500 euros net par mois (soit 1 923 euros brut).",
+          "document_title": "La France des Jours heureux, livre-programme",
+          "page": 10,
+          "chunk_id": "d0836d522538-0010"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "roussel",
+      "statement_id": "s08",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "roussel",
+      "statement_id": "s09",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Les loyers seront encadrés et la quittance ne devra pas dépasser 20 % des revenus du foyer.",
+          "document_title": "La France des Jours heureux, livre-programme",
+          "page": 43,
+          "chunk_id": "d0836d522538-0053"
+        },
+        {
+          "quote": "Des sanctions plus lourdes seront prévues dans la loi à l’encontre des bailleurs ne respectant pas l’encadrement des loyers.",
+          "document_title": "La France des Jours heureux, livre-programme",
+          "page": 25,
+          "chunk_id": "d0836d522538-0032"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "roussel",
+      "statement_id": "s10",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "roussel",
+      "statement_id": "s11",
+      "value": null,
+      "confidence": "medium",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "roussel",
+      "statement_id": "s12",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "roussel",
+      "statement_id": "s13",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Ce projet visera à une forte croissance de la production électrique, en investissant dans les énergies renouvelables (solaire, éolien et surtout dans l’hydraulique,",
+          "document_title": "La France des Jours heureux, livre-programme",
+          "page": 29,
+          "chunk_id": "d0836d522538-0036"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "roussel",
+      "statement_id": "s14",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Il sera modulé en le rendant plus élevé pour les groupes qui délocalisent, suppriment des emplois, se livrent à des opérations financières, occasionnent des pollutions.",
+          "document_title": "La France des Jours heureux, livre-programme",
+          "page": 51,
+          "chunk_id": "d0836d522538-0063"
+        },
+        {
+          "quote": "Il sera notamment financé par les bénéfices des grandes entreprises et les modes de transport les plus polluants",
+          "document_title": "La France des Jours heureux, livre-programme",
+          "page": 28,
+          "chunk_id": "d0836d522538-0034"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "roussel",
+      "statement_id": "s15",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "D’emblée, les importations de produits alimentaires provenant de pays qui ne respectent pas les mêmes normes sanitaires et environnementales que celles exigées à nos producteurs seront lourdement taxées.",
+          "document_title": "La France des Jours heureux, livre-programme",
+          "page": 32,
+          "chunk_id": "d0836d522538-0040"
+        },
+        {
+          "quote": "Les fonds de la dotation d’installation de jeunes agricultrices et agriculteurs seront rapidement doublés et attribués selon des critères d’emploi, d’éco-conditionnalité et de durabilité.",
+          "document_title": "La France des Jours heureux, livre-programme",
+          "page": 31,
+          "chunk_id": "d0836d522538-0038"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "roussel",
+      "statement_id": "s16",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "167 La France quittera l’Organisation du Traité de l’Atlantique-Nord (Otan) et demandera sa dissolution",
+          "document_title": "La France des Jours heureux, livre-programme",
+          "page": 63,
+          "chunk_id": "d0836d522538-0081"
+        },
+        {
+          "quote": "Sortie de l’OTAN, et immédiatement de son commandement intégré, elle mettra un terme aux opérations militaires extérieures et fermera ses bases hors du pays.",
+          "document_title": "La France des Jours heureux, livre-programme",
+          "page": 65,
+          "chunk_id": "d0836d522538-0083"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "roussel",
+      "statement_id": "s17",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "roussel",
+      "statement_id": "s18",
+      "value": -2,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Bâtir une défense nationale indépendante",
+          "document_title": "La France des Jours heureux, livre-programme",
+          "page": 65,
+          "chunk_id": "d0836d522538-0083"
+        },
+        {
+          "quote": "176 Une défense nationale et populaire devra répondre aux menaces dont l’ordre actuel du monde est porteur",
+          "document_title": "La France des Jours heureux, livre-programme",
+          "page": 65,
+          "chunk_id": "d0836d522538-0083"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "roussel",
+      "statement_id": "s19",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "La nouvelle majorité remettra en cause les accords de libre-échange et agira pour sortir l’agriculture des négociations de l’Organisation mondiale du commerce",
+          "document_title": "La France des Jours heureux, livre-programme",
+          "page": 32,
+          "chunk_id": "d0836d522538-0040"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "roussel",
+      "statement_id": "s20",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "roussel",
+      "statement_id": "s21",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "roussel",
+      "statement_id": "s22",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "roussel",
+      "statement_id": "s23",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "roussel",
+      "statement_id": "s24",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "roussel",
+      "statement_id": "s25",
+      "value": 0,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Quant aux questions de légalisation ou de dépénalisation de l’usage du cannabis, les enjeux qu’elles soulèvent comme la diversité des opinions en présence, nécessiteront un débat démocratique, rigoureux et éclairé par le travail des professionnel·le·s en première ligne de la lutte contre les addictions, qui devra être conduit en concertation avec les communes.",
+          "document_title": "La France des Jours heureux, livre-programme",
+          "page": 17,
+          "chunk_id": "d0836d522538-0021"
+        },
+        {
+          "quote": "Une politique répressive ne saurait être une réponse adaptée.",
+          "document_title": "La France des Jours heureux, livre-programme",
+          "page": 17,
+          "chunk_id": "d0836d522538-0021"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "roussel",
+      "statement_id": "s26",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Le droit de vote des résident·e·s étranger·e·s aux élections locales et européennes sera instauré.",
+          "document_title": "La France des Jours heureux, livre-programme",
+          "page": 55,
+          "chunk_id": "d0836d522538-0068"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "roussel",
+      "statement_id": "s27",
+      "value": -1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "son déclenchement reviendra à un million de citoyen·ne·s, réparti·e·s sur l’ensemble du territoire, qui pourront obtenir une consultation du peuple sur des questions relevant de l’organisation des pouvoirs publics, des changements constitutionnels, ou des traités internationaux.",
+          "document_title": "La France des Jours heureux, livre-programme",
+          "page": 55,
+          "chunk_id": "d0836d522538-0068"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "roussel",
+      "statement_id": "s28",
+      "value": 1,
+      "confidence": "low",
+      "evidence": [
+        {
+          "quote": "C’est bien la perspective d’une nouvelle République qui est ici défendue.",
+          "document_title": "La France des Jours heureux, livre-programme",
+          "page": 55,
+          "chunk_id": "d0836d522538-0068"
+        },
+        {
+          "quote": "Le président de la République n’aura plus qu’un rôle de représentation de la nation et, pour en finir avec sa prééminence, son élection au suffrage universel sera supprimée.",
+          "document_title": "La France des Jours heureux, livre-programme",
+          "page": 55,
+          "chunk_id": "d0836d522538-0067"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "roussel",
+      "statement_id": "s29",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "roussel",
+      "statement_id": "s30",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "mais son déclenchement reviendra à un million de citoyen·ne·s, réparti·e·s sur l’ensemble du territoire, qui pourront obtenir une consultation du peuple sur des questions relevant de l’organisation des pouvoirs publics, des changements constitutionnels, ou des traités internationaux.",
+          "document_title": "La France des Jours heureux, livre-programme",
+          "page": 55,
+          "chunk_id": "d0836d522538-0068"
+        },
+        {
+          "quote": "Un droit de pétition permettra à 500 000 citoyennes et citoyens de pouvoir faire inscrire une proposition de loi à l’ordre du jour des Assemblées.",
+          "document_title": "La France des Jours heureux, livre-programme",
+          "page": 55,
+          "chunk_id": "d0836d522538-0068"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "zemmour",
+      "statement_id": "s01",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "zemmour",
+      "statement_id": "s02",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Baisser massivement les impôts de production à hauteur de 30 milliards d’euros supplémentaires par an, en supprimant en priorité la Contribution Sociale de Solidarité des Sociétés (C3S), la Cotisation sur la Valeur Ajoutée des Entreprises (CVAE) et la Cotisation Foncière des Entreprises (CFE)",
+          "document_title": "Pour que la France reste la France, mon programme",
+          "page": 25,
+          "chunk_id": "08a8c9c9a7b4-0023"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "zemmour",
+      "statement_id": "s03",
+      "value": null,
+      "confidence": "medium",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "zemmour",
+      "statement_id": "s04",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "zemmour",
+      "statement_id": "s05",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Dans ce contexte, retrouver la maîtrise de nos finances publiques est une priorité.",
+          "document_title": "Pour que la France reste la France, mon programme",
+          "page": 69,
+          "chunk_id": "08a8c9c9a7b4-0070"
+        },
+        {
+          "quote": "Il est intégralement financé grâce à un plan d’économies de 65 milliards d’euros en année pleine.",
+          "document_title": "Pour que la France reste la France, mon programme",
+          "page": 69,
+          "chunk_id": "08a8c9c9a7b4-0070"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "zemmour",
+      "statement_id": "s06",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Porter à 64 ans l’âge légal de départ à la retraite à horizon 2030, à raison d’une augmentation d’un trimestre par an à compter de 2023, avec des aménagements pour les carrières longues ou pénibles",
+          "document_title": "Pour que la France reste la France, mon programme",
+          "page": 51,
+          "chunk_id": "08a8c9c9a7b4-0051"
+        },
+        {
+          "quote": "Nous sécuriserons notre régime de retraite en repoussant l’âge légal de départ à la retraite à 64 ans d’ici 2030",
+          "document_title": "Pour que la France reste la France, mon programme",
+          "page": 73,
+          "chunk_id": "08a8c9c9a7b4-0075"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "zemmour",
+      "statement_id": "s07",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "zemmour",
+      "statement_id": "s08",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "zemmour",
+      "statement_id": "s09",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "zemmour",
+      "statement_id": "s10",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Lutter contre le harcèlement scolaire, le communautarisme et les inégalités sociales en rendant le port de la blouse obligatoire à l’école primaire",
+          "document_title": "Pour que la France reste la France, mon programme",
+          "page": 22,
+          "chunk_id": "08a8c9c9a7b4-0020"
+        },
+        {
+          "quote": "Rétablir la blouse à l’école primaire pour gommer les différences vestimentaires qui favorisent le communautarisme, le harcèlement scolaire et les inégalités sociales",
+          "document_title": "Pour que la France reste la France, mon programme",
+          "page": 9,
+          "chunk_id": "08a8c9c9a7b4-0008"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "zemmour",
+      "statement_id": "s11",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Assurer le renouvellement de notre parc nucléaire et accompagner la hausse de la demande d’électricité en lançant un programme de construction d’au moins 14 nouveaux réacteurs nucléaires EPR2 à horizon 2050",
+          "document_title": "Pour que la France reste la France, mon programme",
+          "page": 31,
+          "chunk_id": "08a8c9c9a7b4-0031"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "zemmour",
+      "statement_id": "s12",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "zemmour",
+      "statement_id": "s13",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Mettre fin à tous les projets d’éoliennes actuels et futurs, sur terre comme sur mer",
+          "document_title": "Pour que la France reste la France, mon programme",
+          "page": 56,
+          "chunk_id": "08a8c9c9a7b4-0057"
+        },
+        {
+          "quote": "Mettre fin à tous les projets d’éoliennes actuels et futurs, sur terre comme sur mer",
+          "document_title": "Pour que la France reste la France, mon programme",
+          "page": 32,
+          "chunk_id": "08a8c9c9a7b4-0032"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "zemmour",
+      "statement_id": "s14",
+      "value": -1,
+      "confidence": "low",
+      "evidence": [
+        {
+          "quote": "Jusqu’à présent, l’écologie a été prise en otage par l’idéologie : elle fut d’abord punitive avec l’extrême-gauche, lorsque celle-ci méprisait tous les Français ayant besoin de leur voiture pour se déplacer",
+          "document_title": "Pour que la France reste la France, mon programme",
+          "page": 56,
+          "chunk_id": "08a8c9c9a7b4-0057"
+        },
+        {
+          "quote": "Mon projet sera fondé sur le principe suivant : « Taxer moins pour gagner plus ».",
+          "document_title": "Pour que la France reste la France, mon programme",
+          "page": 27,
+          "chunk_id": "08a8c9c9a7b4-0026"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "zemmour",
+      "statement_id": "s15",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Je mettrai également fin à l’excès de normes et de contraintes, pour que les agriculteurs puissent produire mieux sans être pénalisés par la concurrence déloyale étrangère.",
+          "document_title": "Pour que la France reste la France, mon programme",
+          "page": 32,
+          "chunk_id": "08a8c9c9a7b4-0033"
+        },
+        {
+          "quote": "Ne plus accabler de contraintes les paysans français en interdisant la surtransposition dans notre droit des normes européennes",
+          "document_title": "Pour que la France reste la France, mon programme",
+          "page": 33,
+          "chunk_id": "08a8c9c9a7b4-0034"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "zemmour",
+      "statement_id": "s16",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Sortir du commandement militaire intégré de l’OTAN pour retrouver une voix indépendante, tout en demeurant au sein de l’Alliance atlantique",
+          "document_title": "Pour que la France reste la France, mon programme",
+          "page": 15,
+          "chunk_id": "08a8c9c9a7b4-0014"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "zemmour",
+      "statement_id": "s17",
+      "value": 1,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Instaurer la supériorité des nouvelles lois nationales sur tout texte international antérieur et sur tout acte dérivé qui en résulte en modifiant l’article 55 de la Constitution",
+          "document_title": "Pour que la France reste la France, mon programme",
+          "page": 14,
+          "chunk_id": "08a8c9c9a7b4-0013"
+        },
+        {
+          "quote": "Dans l’intervalle, déroger immédiatement aux règles européennes qui nous empêchent de maîtriser nos flux migratoires",
+          "document_title": "Pour que la France reste la France, mon programme",
+          "page": 13,
+          "chunk_id": "08a8c9c9a7b4-0012"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "zemmour",
+      "statement_id": "s18",
+      "value": -2,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Réorienter la construction européenne vers une Europe des Nations qui respecte les souverainetés nationales plutôt qu’une Europe fédérale qui les nie",
+          "document_title": "Pour que la France reste la France, mon programme",
+          "page": 14,
+          "chunk_id": "08a8c9c9a7b4-0013"
+        },
+        {
+          "quote": "Bloquer tout nouveau transfert de compétence réclamé par la Commission européenne et faire appliquer rigoureusement le principe de subsidiarité",
+          "document_title": "Pour que la France reste la France, mon programme",
+          "page": 14,
+          "chunk_id": "08a8c9c9a7b4-0013"
+        },
+        {
+          "quote": "Préserver l’autonomie de notre politique étrangère en cessant de chercher systématiquement la convergence de position au sein de l’Union européenne",
+          "document_title": "Pour que la France reste la France, mon programme",
+          "page": 15,
+          "chunk_id": "08a8c9c9a7b4-0014"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "zemmour",
+      "statement_id": "s19",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Opposer le veto de la France à toute négociation actuelle et future de traité de libre-échange pour défendre nos entreprises et nos agriculteurs",
+          "document_title": "Pour que la France reste la France, mon programme",
+          "page": 13,
+          "chunk_id": "08a8c9c9a7b4-0012"
+        },
+        {
+          "quote": "Instaurer un moratoire sur la participation de la France aux négociations actuelles et futures des traités de libre-échange, qui pénalisent trop souvent nos agriculteurs",
+          "document_title": "Pour que la France reste la France, mon programme",
+          "page": 33,
+          "chunk_id": "08a8c9c9a7b4-0034"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "zemmour",
+      "statement_id": "s20",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "zemmour",
+      "statement_id": "s21",
+      "value": 2,
+      "confidence": "medium",
+      "evidence": [
+        {
+          "quote": "Obliger les juges à sanctionner tous les délinquants et criminels en introduisant des peines planchers pour tous les crimes et délits",
+          "document_title": "Pour que la France reste la France, mon programme",
+          "page": 11,
+          "chunk_id": "08a8c9c9a7b4-0010"
+        },
+        {
+          "quote": "Instaurer des peines planchers pour chaque crime et délit et rétablir les peines de prison à vie pour les crimes les plus graves",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 4,
+          "chunk_id": "68c2185419da-0004"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "zemmour",
+      "statement_id": "s22",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Je stopperai les flux migratoires",
+          "document_title": "Pour que la France reste la France, mon programme",
+          "page": 7,
+          "chunk_id": "08a8c9c9a7b4-0005"
+        },
+        {
+          "quote": "Revenir à l’esprit originel du droit d’asile en le limitant à une centaine d’individus chaque année (contre près de 140 000 aujourd’hui)",
+          "document_title": "Pour que la France reste la France, mon programme",
+          "page": 7,
+          "chunk_id": "08a8c9c9a7b4-0005"
+        },
+        {
+          "quote": "Supprimer le droit au regroupement familial et tous les droits automatiques liés à l’immigration familiale",
+          "document_title": "Pour que la France reste la France, mon programme",
+          "page": 7,
+          "chunk_id": "08a8c9c9a7b4-0005"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "zemmour",
+      "statement_id": "s23",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Supprimer le droit du sol, ainsi un enfant dont les deux parents sont étrangers ne pourra devenir français qu’après naturalisation, sans aucune automaticité",
+          "document_title": "Pour que la France reste la France, mon programme",
+          "page": 8,
+          "chunk_id": "08a8c9c9a7b4-0006"
+        },
+        {
+          "quote": "Supprimer le droit du sol et limiter les naturalisations",
+          "document_title": "Profession de foi, 1er tour",
+          "page": 4,
+          "chunk_id": "68c2185419da-0004"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "zemmour",
+      "statement_id": "s24",
+      "value": -2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Interdire définitivement la régularisation de tout étranger entré illégalement sur le territoire français",
+          "document_title": "Pour que la France reste la France, mon programme",
+          "page": 8,
+          "chunk_id": "08a8c9c9a7b4-0006"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "zemmour",
+      "statement_id": "s25",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "zemmour",
+      "statement_id": "s26",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "zemmour",
+      "statement_id": "s27",
+      "value": 2,
+      "confidence": "high",
+      "evidence": [
+        {
+          "quote": "Organiser, en même temps que les élections législatives suivant l’élection présidentielle, un grand référendum sur l’immigration, la sécurité et la justice pour soumettre à l’approbation des Français mes mesures prioritaires dans ces domaines",
+          "document_title": "Pour que la France reste la France, mon programme",
+          "page": 6,
+          "chunk_id": "08a8c9c9a7b4-0004"
+        },
+        {
+          "quote": "Nous mettrons fin à ce désordre en instituant de nouvelles règles plus fermes et plus justes dès juin 2022 avec un grand référendum sur l’immigration",
+          "document_title": "Pour que la France reste la France, mon programme",
+          "page": 6,
+          "chunk_id": "08a8c9c9a7b4-0004"
+        }
+      ],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "zemmour",
+      "statement_id": "s28",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "zemmour",
+      "statement_id": "s29",
+      "value": null,
+      "confidence": "high",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "candidate_id": "zemmour",
+      "statement_id": "s30",
+      "value": null,
+      "confidence": "medium",
+      "evidence": [],
+      "proposed_by": "claude-sonnet-5-5 positions v2",
+      "review": {
+        "status": "pending"
+      }
+    }
+  ]
+}
