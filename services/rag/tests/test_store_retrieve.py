@@ -183,3 +183,48 @@ def test_index_signale_la_version_remplacee(conn: psycopg.Connection[Any]) -> No
     assert _index(conn, CORPUS).replaced_version is None
     report = _index(conn, [make_chunk("alice", 0, "Nouveau texte.", V2)])
     assert report.replaced_version == V1
+
+
+def test_mot_present_dans_la_plupart_des_extraits_ignore_en_plein_texte(
+    conn: psycopg.Connection[Any],
+) -> None:
+    """En configuration `french`, « les » devient le lexème `le`, non retiré comme mot vide : présent
+    dans presque tous les extraits, il noyait la requête en OU (M2d : RRF sous la sémantique
+    seule). Les lexèmes présents dans plus de la moitié des extraits sont ignorés."""
+    _index(
+        conn,
+        [
+            make_chunk(
+                "alice", 0, "Les salariés, les ouvriers, les cadres, les artisans et les jeunes."
+            ),
+            make_chunk("alice", 1, "Nous ramènerons la retraite à 60 ans."),
+            make_chunk("bruno", 0, "Les impôts de production des entreprises baisseront."),
+            make_chunk("david", 0, "Les éoliennes défigurent nos paysages."),
+        ],
+    )
+    result = _ask(conn, "Que proposent les candidats sur les retraites ?", k=2)
+    alice = {c["chunk"]["id"][-1]: c for c in result["candidates"][0]["chunks"]}
+    assert alice["1"]["lexical_rank"] == 1
+    # Le seul mot commun (« les ») ne suffit plus à faire entrer un extrait dans le plein texte.
+    assert alice["0"]["lexical_rank"] is None
+    for c in result["candidates"][1:]:
+        assert all(ch["lexical_rank"] is None for ch in c["chunks"])
+
+
+def test_mot_discriminant_garde_meme_sil_est_frequent_chez_un_candidat(
+    conn: psycopg.Connection[Any],
+) -> None:
+    """La fréquence est calculée sur toute l'élection, pas par candidat."""
+    _index(
+        conn,
+        [
+            make_chunk("alice", 0, "La retraite à 60 ans."),
+            make_chunk("alice", 1, "Une retraite digne pour tous."),
+            make_chunk("bruno", 0, "Les impôts baisseront."),
+            make_chunk("bruno", 1, "Des entreprises plus libres."),
+            make_chunk("david", 0, "Des éoliennes partout."),
+        ],
+    )
+    result = _ask(conn, "retraite", k=2)
+    alice = result["candidates"][0]["chunks"]
+    assert {c["lexical_rank"] for c in alice} == {1, 2}
