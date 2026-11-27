@@ -1,3 +1,4 @@
+import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
 
 /** Audit RGAA (PLAN D46) : points qu'axe-core ne couvre pas, vérifiés sur chaque page. */
@@ -5,6 +6,7 @@ const PAGES = [
   { path: "/", h1: "Moi Électeur", nav: "Boussole" },
   { path: "/comparateur", h1: "Comparateur des programmes", nav: "Comparateur" },
   { path: "/explorer", h1: "Explorateur des programmes", nav: "Explorateur" },
+  { path: "/methodologie", h1: "Méthodologie", nav: "Méthodologie" },
 ];
 
 for (const p of PAGES) {
@@ -35,5 +37,29 @@ for (const p of PAGES) {
       () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
     );
     expect(overflow).toBeLessThanOrEqual(0);
+  });
+}
+
+test("méthodologie publiée : validation en bloc, limites, lien vers la déclaration", async ({
+  page,
+}) => {
+  await page.goto("/methodologie");
+  const main = page.locator("main");
+  await expect(main).toContainText("validées en bloc");
+  await expect(main.getByRole("heading", { name: /Limites et biais connus/ })).toBeVisible();
+  await expect(main.locator("table, ul").first()).toBeVisible();
+  await page.getByRole("contentinfo").getByRole("link", { name: "Accessibilité" }).click();
+  await expect(page).toHaveURL(/\/accessibilite$/);
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Accessibilité de Moi Électeur");
+  await expect(page.locator("main")).toContainText("Auto-évaluation, non certifiée");
+});
+
+for (const path of ["/methodologie", "/accessibilite"]) {
+  test(`${path} : axe sans violation`, async ({ page }) => {
+    await page.goto(path);
+    const r = await new AxeBuilder({ page })
+      .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+      .analyze();
+    expect(r.violations.map((v) => `${v.id}: ${v.nodes.length}`)).toEqual([]);
   });
 }
