@@ -59,6 +59,8 @@ services:
       ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
       CHAT_MODEL: ${CHAT_MODEL:-claude-haiku-5-5}
       DAILY_BUDGET_USD: ${DAILY_BUDGET_USD:-1}
+      CHAT_MODEL_BOOST: ${CHAT_MODEL_BOOST:-}
+      DAILY_BUDGET_BOOST_USD: ${DAILY_BUDGET_BOOST_USD:-}
     ports:
       - "127.0.0.1:3000:3000"
     depends_on:

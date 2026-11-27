@@ -13,6 +13,8 @@ export interface ModelPrice {
   readonly longContextThreshold?: number;
   readonly longInput?: number;
   readonly longOutput?: number;
+  /** Lecture du cache en $ / M tokens, quand le tarif publié n'est pas 0,1 x l'entrée. */
+  readonly cacheRead?: number;
 }
 
 /** Écriture en cache : 1,25 × l'entrée ; lecture : 0,1 × l'entrée (cache de 5 minutes). */
@@ -27,7 +29,7 @@ export const PRICES: Readonly<Record<string, ModelPrice>> = {
     longInput: 0.5,
     longOutput: 2.5,
   },
-  "claude-sonnet-5-5": { input: 2, output: 10 },
+  "claude-sonnet-5-5": { input: 2, output: 10, cacheRead: 0.1 },
 };
 
 export class UnknownModelError extends Error {
@@ -61,7 +63,7 @@ export function costUsd(model: string, usage: TokenUsage): number {
   return (
     (usage.input_tokens * input +
       write * input * CACHE_WRITE +
-      read * input * CACHE_READ +
+      read * (p.cacheRead ?? input * CACHE_READ) +
       usage.output_tokens * output) /
     1_000_000
   );

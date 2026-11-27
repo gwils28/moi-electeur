@@ -3,6 +3,7 @@ import type {
   AskCitationEvent,
   AskEvent,
   AskMetaEvent,
+  AskRequest,
   RetrieveResponse,
 } from "@moi-electeur/schemas-ts";
 import type { DailyBudget } from "./budget";
@@ -19,7 +20,7 @@ import { parseAskRequest } from "./validate";
 
 /** Extraits gardés par candidat (SPEC § 6.1). */
 export const K = 4;
-/** Plafond de sortie : ≈ 1,5 k tokens attendus pour 12 candidats (SPEC § 10), marge comprise. */
+/** Plafond de sortie du mode rapide : ≈ 3 k tokens mesurés pour 12 candidats, marge comprise. */
 export const MAX_TOKENS = 4096;
 /** Taille maximale du corps : 500 caractères de question, 3 tours d'historique, filtres. */
 export const MAX_BODY_BYTES = 100_000;
@@ -34,15 +35,32 @@ export interface ChatClient {
   };
 }
 
+export type AskMode = NonNullable<AskRequest["mode"]>;
+
+/** Réglages d'un mode : modèle, sortie, réflexion, et plafonds propres en plus des communs. */
+export interface ModeConfig {
+  model: string;
+  maxTokens: number;
+  effort: "low" | "medium" | "high";
+  /** Réflexion adaptative (`thinking: {type: "adaptive"}`) ; sinon réglage par défaut du modèle. */
+  thinking: boolean;
+  /** Plafond quotidien propre au mode, imputé en plus du plafond commun. */
+  budget: DailyBudget | null;
+  /** Limite de débit propre au mode, appliquée en plus de la limite commune. */
+  limiter: RateLimiter | null;
+}
+
 export interface AskDeps {
   /** null si `ANTHROPIC_API_KEY` est absente : le chat est alors indisponible. */
   client: () => ChatClient | null;
   retrieve: Retriever;
+  /** Limite de débit et plafond communs à tous les modes. */
   limiter: RateLimiter;
   budget: DailyBudget;
   cache: LruCache<CachedAnswer>;
   prompt: SystemPrompt;
-  model: string;
+  /** « approfondi » à null : non proposé (CHAT_MODEL_BOOST absent). */
+  modes: { rapide: ModeConfig; approfondi: ModeConfig | null };
   log: (record: AskLogRecord) => void;
   /** Tirage de l'ordre des candidats, réel de [0, 1). */
   rng: () => number;
@@ -55,6 +73,9 @@ type ErrorCode =
   | "method_not_allowed"
   | "rate_limited"
   | "budget_exhausted"
+  | "mode_rate_limited"
+  | "mode_budget_exhausted"
+  | "mode_unavailable"
   | "chat_unavailable"
   | "not_indexed"
   | "retrieval_unavailable";
@@ -67,6 +88,11 @@ const MESSAGES: Record<ErrorCode, string> = {
   rate_limited: "Trop de questions en peu de temps : réessayez dans quelques minutes.",
   budget_exhausted:
     "Le chat a atteint son plafond de dépense quotidien. Il sera de nouveau disponible demain.",
+  mode_rate_limited:
+    "Trop de questions en mode approfondi en peu de temps : le mode rapide reste disponible.",
+  mode_budget_exhausted:
+    "Le mode approfondi a atteint son plafond quotidien : le mode rapide reste disponible.",
+  mode_unavailable: "Le mode approfondi n'est pas disponible : le mode rapide reste disponible.",
   chat_unavailable: "Le chat n'est pas disponible pour le moment.",
   not_indexed: "Cette élection n'est pas disponible dans l'explorateur.",
   retrieval_unavailable: "La recherche dans les programmes est indisponible pour le moment.",
@@ -88,10 +114,11 @@ const STREAM_HEADERS = {
 export function createAskHandler(deps: AskDeps): (req: Request) => Promise<Response> {
   return async (req) => {
     const started = deps.now();
+    let model = deps.modes.rapide.model;
     const record = (fields: Partial<AskLogRecord> & { status: number }) =>
       deps.log({
         ts: new Date(deps.now()).toISOString(),
-        model: deps.model,
+        model,
         tokens_in: 0,
         tokens_out: 0,
         cost_usd: 0,
@@ -127,14 +154,19 @@ export function createAskHandler(deps: AskDeps): (req: Request) => Promise<Respo
     const limit = deps.limiter.hit(clientIp(req));
     if (!limit.ok) return fail(429, "rate_limited", { "retry-after": String(limit.retryAfterS) });
 
+    const mode: AskMode = body.mode ?? "rapide";
+    const cfg = deps.modes[mode];
+    if (!cfg || !hasPrice(cfg.model))
+      return fail(503, mode === "rapide" ? "chat_unavailable" : "mode_unavailable");
+    model = cfg.model;
+    if (cfg.limiter) {
+      const modeLimit = cfg.limiter.hit(clientIp(req));
+      if (!modeLimit.ok)
+        return fail(429, "mode_rate_limited", { "retry-after": String(modeLimit.retryAfterS) });
+    }
+
     const client = deps.client();
     if (!client) return fail(503, "chat_unavailable");
-    try {
-      costUsd(deps.model, { input_tokens: 0, output_tokens: 0 });
-    } catch (e) {
-      if (e instanceof UnknownModelError) return fail(503, "chat_unavailable");
-      throw e;
-    }
     const candidateIds = body.candidate_ids ?? null;
     const theme = body.theme ?? null;
     let retrieved: RetrieveResponse;
@@ -160,7 +192,7 @@ export function createAskHandler(deps: AskDeps): (req: Request) => Promise<Respo
             question: body.question,
             candidate_ids: candidateIds,
             theme,
-            model: deps.model,
+            model,
             corpus_version: retrieved.corpus_version,
             prompt_version: deps.prompt.version,
           })
@@ -172,11 +204,14 @@ export function createAskHandler(deps: AskDeps): (req: Request) => Promise<Respo
     }
     // Après le cache : une réponse déjà en cache ne coûte rien et reste servie budget épuisé.
     if (deps.budget.exhausted()) return fail(503, "budget_exhausted");
+    if (cfg.budget?.exhausted()) return fail(503, "mode_budget_exhausted");
 
     const built = buildRequest({
       prompt: deps.prompt,
-      model: deps.model,
-      maxTokens: MAX_TOKENS,
+      model,
+      maxTokens: cfg.maxTokens,
+      effort: cfg.effort,
+      thinking: cfg.thinking,
       question: body.question,
       history,
       retrieved,
@@ -185,19 +220,29 @@ export function createAskHandler(deps: AskDeps): (req: Request) => Promise<Respo
     // Borne supérieure des tokens d'entrée : un token par octet UTF-8 (l'historique est fourni
     // par le client, il peut contenir des écritures non latines ou des émojis).
     const inputBytes = Buffer.byteLength(JSON.stringify(built.params), "utf-8");
-    const maxCost = costUsd(deps.model, {
+    const maxCost = costUsd(model, {
       input_tokens: inputBytes,
-      output_tokens: MAX_TOKENS,
+      output_tokens: cfg.maxTokens,
     });
-    const settle = deps.budget.reserve(maxCost);
-    if (!settle) return fail(503, "budget_exhausted");
+    const settleCommon = deps.budget.reserve(maxCost);
+    if (!settleCommon) return fail(503, "budget_exhausted");
+    const settleMode = cfg.budget ? cfg.budget.reserve(maxCost) : () => {};
+    if (!settleMode) {
+      settleCommon(0);
+      return fail(503, "mode_budget_exhausted");
+    }
+    const settle = (actualUsd: number | null) => {
+      settleCommon(actualUsd);
+      settleMode(actualUsd);
+    };
 
     const meta: AskMetaEvent = {
       type: "meta",
       election_id: retrieved.election_id,
       corpus_version: retrieved.corpus_version,
       prompt_version: deps.prompt.version,
-      model: deps.model,
+      model,
+      mode,
       cached: false,
       candidates: [...built.candidates],
     };
@@ -240,7 +285,7 @@ export function createAskHandler(deps: AskDeps): (req: Request) => Promise<Respo
             }
           }
           const final = await claude.finalMessage();
-          const cost = costUsd(deps.model, final.usage);
+          const cost = costUsd(model, final.usage);
           settle(cost);
           const flags = findRankingTerms(text);
           send({
@@ -292,6 +337,16 @@ export function createAskHandler(deps: AskDeps): (req: Request) => Promise<Respo
     req.signal?.addEventListener("abort", () => abort.abort(), { once: true });
     return new Response(stream, { status: 200, headers: STREAM_HEADERS });
   };
+}
+
+function hasPrice(model: string): boolean {
+  try {
+    costUsd(model, { input_tokens: 0, output_tokens: 0 });
+    return true;
+  } catch (e) {
+    if (e instanceof UnknownModelError) return false;
+    throw e;
+  }
 }
 
 function isUnavailable(e: unknown): boolean {
