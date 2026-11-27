@@ -2,6 +2,7 @@ import type { Measure, Statement } from "@moi-electeur/schemas-ts";
 import { describe, expect, it } from "vitest";
 import {
   defaultElection,
+  maskedMeasure,
   divergences,
   formatAmount,
   isPastElection,
@@ -118,13 +119,14 @@ describe("montants", () => {
 
 describe("élection par défaut et mention d'élection passée", () => {
   const list = [
-    { id: "demo-fictive", fictional: true },
-    { id: "fr-presidentielle-2022", fictional: false },
+    { id: "demo-fictive", fictional: true, date_first_round: "2027-04-11" },
+    { id: "fr-presidentielle-2022", fictional: false, date_first_round: "2022-04-10" },
+    { id: "fr-presidentielle-2027", fictional: false, date_first_round: "2027-04-11" },
   ];
-  it("élection demandée si publiée, sinon la première réelle, sinon la première", () => {
+  it("élection demandée si publiée, sinon la réelle la plus récente, sinon la première", () => {
     expect(defaultElection(list, "demo-fictive")).toBe("demo-fictive");
-    expect(defaultElection(list, "absente")).toBe("fr-presidentielle-2022");
-    expect(defaultElection(list)).toBe("fr-presidentielle-2022");
+    expect(defaultElection(list, "absente")).toBe("fr-presidentielle-2027");
+    expect(defaultElection(list.slice(0, 2))).toBe("fr-presidentielle-2022");
     expect(defaultElection([list[0]!])).toBe("demo-fictive");
     expect(defaultElection([])).toBeNull();
   });
@@ -133,5 +135,22 @@ describe("élection par défaut et mention d'élection passée", () => {
     expect(isPastElection({ date_first_round: "2022-04-10", fictional: false }, today)).toBe(true);
     expect(isPastElection({ date_first_round: "2027-04-11", fictional: false }, today)).toBe(false);
     expect(isPastElection({ date_first_round: "2022-04-10", fictional: true }, today)).toBe(false);
+  });
+});
+
+describe("mode aveugle : texte libre des mesures", () => {
+  it("noms remplacés dans le titre, le résumé et la période", () => {
+    const m = {
+      ...measure("m009", "a", "eco", "chiffre"),
+      title: "Le plan Dupont pour l'emploi",
+      summary: "Anne Dupont propose un plan.",
+      costing: { status: "chiffre", amount_eur: 1e9, period: "mandat Dupont", quote: "Coût." },
+    } as Measure;
+    const mask = (t: string) => t.replace(/Anne Dupont|Dupont/g, "Candidat·e A");
+    const got = maskedMeasure(m, mask);
+    expect(got.title).toBe("Le plan Candidat·e A pour l'emploi");
+    expect(got.summary).toBe("Candidat·e A propose un plan.");
+    expect(got.costing.period).toBe("mandat Candidat·e A");
+    expect(maskedMeasure(m, null)).toBe(m);
   });
 });

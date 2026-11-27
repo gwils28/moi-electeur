@@ -1,11 +1,16 @@
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { expect, test } from "@playwright/test";
 
 const REAL = "fr-presidentielle-2022";
-const published = existsSync(
-  join(import.meta.dirname, "..", "public", "data", REAL, "positions.json"),
-);
+const dir = join(import.meta.dirname, "..", "public", "data", REAL);
+const published = existsSync(join(dir, "positions.json"));
+const config = published
+  ? (JSON.parse(readFileSync(join(dir, "election_config.json"), "utf-8")) as {
+      candidates: unknown[];
+      themes: unknown[];
+    })
+  : { candidates: [], themes: [] };
 
 test.describe("sélecteur d'élection (D33)", () => {
   test.skip(!published, "boussole 2022 non publiée (revue en cours)");
@@ -21,11 +26,11 @@ test.describe("sélecteur d'élection (D33)", () => {
     await expect(page.locator("fieldset").first()).toBeVisible();
   });
 
-  test("comparateur : radar des 12 candidats de 2022", async ({ page }) => {
+  test("comparateur : radar de tous les candidats de 2022", async ({ page }) => {
     await page.goto("/comparateur");
     await page.getByLabel("Élection").selectOption(REAL);
     const radar = page.getByTestId("radar");
-    await expect(radar.locator("thead th")).toHaveCount(13);
-    await expect(radar.locator("tbody tr")).toHaveCount(6);
+    await expect(radar.locator("thead th")).toHaveCount(config.candidates.length + 1);
+    await expect(radar.locator("tbody tr")).toHaveCount(config.themes.length);
   });
 });
