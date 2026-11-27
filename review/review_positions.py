@@ -111,12 +111,19 @@ def _(election, get_refresh, include_reviewed, mo, position_queue, progress):
 
 
 @app.cell
-def _(get_index, mo, queue, set_index):
+def _(mo, queue, set_index):
+    # Boutons seuls : marimo ne réexécute pas la cellule qui appelle le setter, la lecture de
+    # l'index se fait donc dans la cellule suivante.
     def _move(step):
         set_index(lambda i: max(0, min(len(queue) - 1, i + step)) if queue else 0)
 
     previous = mo.ui.button(label="← Précédente", on_click=lambda _: _move(-1))
     following = mo.ui.button(label="Suivante →", on_click=lambda _: _move(1))
+    return following, previous
+
+
+@app.cell
+def _(following, get_index, mo, previous, queue):
     position_index = min(get_index(), max(len(queue) - 1, 0))
     mo.hstack(
         [previous, following, mo.md(f"{position_index + 1 if queue else 0} / {len(queue)}")],
