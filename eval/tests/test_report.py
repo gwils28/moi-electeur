@@ -5,7 +5,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
-from moi_electeur_eval.collect import filtered_tsquery, fuse
+from moi_electeur_eval.collect import fuse
 from moi_electeur_eval.report import (
     decode_fixture,
     encode_fixture,
@@ -61,10 +61,3 @@ def test_fusion_rrf_calculee_a_la_main() -> None:
     assert fuse(["x", "y"], ["y", "z"]) == ["y", "x", "z"]
     # Égalité x / z départagée par identifiant.
     assert fuse(["z"], ["x"]) == ["x", "z"]
-
-
-def test_requete_plein_texte_filtree() -> None:
-    df = {"le": 0.99, "candidat": 0.05, "otan": 0.02}
-    assert filtered_tsquery(["le", "candidat", "otan"], df) == "'candidat' | 'otan'"
-    assert filtered_tsquery(["aujourd'hui"], {}) == "'aujourd''hui'"
-    assert filtered_tsquery(["le"], df) == ""

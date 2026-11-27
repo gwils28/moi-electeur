@@ -9,9 +9,13 @@ candidat, sans index HNSW). Un index approximatif filtré par candidat peut renv
 `POOL` résultats pour un candidat peu représenté ; au volume d'une élection (environ un
 millier d'extraits par modèle), le parcours exact prend quelques millisecondes.
 
-Plein texte : les mots de la question sont combinés en OU (`plainto_tsquery` dont les `&` sont
-remplacés par des `|`) et classés par `ts_rank_cd`. En ET, une question en langage naturel ne
-correspondrait presque jamais à un extrait.
+Plein texte : les lexèmes de la question sont combinés en OU et classés par `ts_rank_cd`. En ET,
+une question en langage naturel ne correspondrait presque jamais à un extrait. Les lexèmes
+présents dans plus de `MAX_DF` des extraits de l'élection sont ignorés : en configuration
+`french`, « les » devient le lexème `le` (le mot vide est testé avant la racinisation), présent
+dans 99 % des extraits de 2022, qui noyait la requête (M2d : rappel@4 du RRF 0,60, sous la
+sémantique seule à 0,67 ; 0,79 avec ce filtre, jeu de fumée `eval/smoke/`). Une question dont
+tous les lexèmes sont ignorés n'a pas de requête plein texte (seul le sémantique joue).
 
 Règle : ne jamais journaliser la question (SPEC § 6.3).
 """
@@ -28,6 +32,8 @@ from .ranking import rrf
 from .store import CHUNK_COLUMNS
 
 POOL = 20
+# Fréquence documentaire au-delà de laquelle un lexème de la question est ignoré en plein texte.
+MAX_DF = 0.5
 
 _COLUMNS = ", ".join(f"c.{col}" for col in CHUNK_COLUMNS) + ", e.theme"
 _FILTERS = (
@@ -49,9 +55,18 @@ SELECT * FROM (
 """
 
 LEXICAL_SQL = f"""
-WITH q AS (
-    SELECT replace(plainto_tsquery('french', %(question)s)::text, '&', '|')::tsquery AS query
-)
+WITH lexemes AS (
+    SELECT DISTINCT unnest(tsvector_to_array(to_tsvector('french', %(question)s))) AS word
+),
+total AS (SELECT count(*) AS n FROM chunks WHERE election_id = %(election)s),
+kept AS (
+    SELECT l.word FROM lexemes l, total t
+    WHERE (
+        SELECT count(*) FROM chunks c2
+        WHERE c2.election_id = %(election)s AND c2.tsv @@ quote_literal(l.word)::tsquery
+    ) <= %(max_df)s * t.n
+),
+q AS (SELECT string_agg(quote_literal(word), ' | ' ORDER BY word)::tsquery AS query FROM kept)
 SELECT * FROM (
     SELECT {_COLUMNS},
            row_number() OVER (
@@ -111,6 +126,7 @@ def retrieve(
         "pool": POOL,
         "vector": embedder.embed_query(question),
         "question": question,
+        "max_df": MAX_DF,
     }
     semantic = conn.execute(SEMANTIC_SQL, params).fetchall()
     lexical = conn.execute(LEXICAL_SQL, params).fetchall()

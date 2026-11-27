@@ -218,6 +218,9 @@ def _(answers, config, mo, pd, re):
 @app.cell
 def _(SILENCE, answers, mo, pd, retrieval, smoke):
     # 4.2 Silences : phrase exacte, puis confrontation au jeu de fumée et à la recherche.
+    # Réponses enregistrées avec la recherche de M2b (référence « brute ») ; « rrf » est la
+    # recherche servie depuis le correctif du plein texte (m2-03).
+    _rrf_m2b = retrieval["models"]["bge-m3"]["rankings"]["rrf_brut"]["q01-nucleaire"]
     _rrf = retrieval["models"]["bge-m3"]["rankings"]["rrf"]["q01-nucleaire"]
     _rows = []
     for _m, _a in answers.items():
@@ -234,7 +237,12 @@ def _(SILENCE, answers, mo, pd, retrieval, smoke):
                     "phrase exacte": _txt == SILENCE,
                     "silence attendu (jeu de fumée)": _cand in smoke.silent,
                     "extraits pertinents annotés": len(_expected),
-                    "dont dans les 4 servis (bge-m3, RRF)": len(set(_rrf[_cand][:4]) & _expected),
+                    "dont dans les 4 servis à l'enregistrement (M2b)": len(
+                        set(_rrf_m2b[_cand][:4]) & _expected
+                    ),
+                    "dont dans les 4 servis depuis le correctif": len(
+                        set(_rrf[_cand][:4]) & _expected
+                    ),
                 }
             )
     silences = pd.DataFrame(_rows)
@@ -246,9 +254,11 @@ def _(SILENCE, answers, mo, pd, retrieval, smoke):
                 "### 4.2 Silences\nToutes les sections vides reprennent la phrase imposée "
                 "à l'identique. Confrontées au jeu de fumée, une seule correspond à un vrai "
                 "silence du programme ; les autres sont des **silences faux** : le candidat traite "
-                "le sujet, mais aucun des 4 extraits servis par `/retrieve` (bge-m3, RRF) n'est "
-                "pertinent. Le modèle a donc bien appliqué la consigne ; l'erreur vient de la "
-                "recherche (voir m2-03, plein texte noyé par le lexème `le`)."
+                "le sujet, mais aucun des 4 extraits servis par `/retrieve` lors de "
+                "l'enregistrement (bge-m3, RRF de M2b) n'est pertinent. Le modèle a donc bien "
+                "appliqué la consigne ; l'erreur venait de la recherche (voir m2-03, plein texte "
+                "noyé par le lexème `le`). La dernière colonne montre les extraits pertinents "
+                "servis depuis le correctif."
             ),
             silences,
         ]
