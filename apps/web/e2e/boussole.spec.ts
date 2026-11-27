@@ -56,6 +56,10 @@ test("parcours complet sans aucune requête réseau après le chargement", async
   const items = page.getByTestId("proximity-list").locator("li");
   await expect(items).toHaveCount(config.candidates.length);
   await expect(page.getByTestId("user-point")).toBeVisible();
+  // Couverture explicite (backtest M4 : proximité moins fiable sur peu d'affirmations communes).
+  await expect(page.getByTestId("coverage").first()).toContainText(
+    /calculée sur \d+ de vos \d+ réponses/,
+  );
   await expect(page.getByTestId("position-text")).toContainText("Votre position");
 
   await items.first().getByRole("button").click();

@@ -242,6 +242,8 @@ export function harness(
     noClient?: boolean;
     model?: string;
     rng?: () => number;
+    /** Extraits par candidat demandés à /retrieve (défaut : K). */
+    k?: number;
     /** Mode approfondi : false = non configuré ; défaut : Sonnet, 0,5 $ par jour, 3 par 10 min. */
     boost?: false | { model?: string; budgetUsd?: number; limit?: number };
   } = {},
@@ -293,6 +295,7 @@ export function harness(
         : null,
     },
     log: (r) => logs.push(r),
+    ...(opts.k === undefined ? {} : { k: opts.k }),
     rng:
       opts.rng ??
       (() => {
