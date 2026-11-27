@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://moi-electeur.fr/schemas/proposal.schema.json",
+  "title": "Proposal",
+  "description": "Une ligne de proposals/{positions,measures}.jsonl (PLAN D29) : requête, sortie du modèle, vérifications et coût. Aucun texte d'extrait n'y est copié (seulement les identifiants et les citations).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "kind",
+    "custom_id",
+    "election_id",
+    "candidate_id",
+    "target",
+    "model",
+    "prompt_version",
+    "mode",
+    "batch_id",
+    "corpus_version",
+    "chunk_ids",
+    "status",
+    "stop_reason",
+    "output",
+    "error",
+    "flags",
+    "quotes",
+    "usage",
+    "cost_usd",
+    "created_at"
+  ],
+  "properties": {
+    "kind": {
+      "type": "string",
+      "enum": ["position", "measure"]
+    },
+    "custom_id": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9_-]{1,64}$"
+    },
+    "election_id": {
+      "type": "string"
+    },
+    "candidate_id": {
+      "type": "string"
+    },
+    "target": {
+      "type": "string",
+      "description": "Affirmation (position) ou thème (mesure)."
+    },
+    "model": {
+      "type": "string"
+    },
+    "prompt_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "mode": {
+      "type": "string",
+      "enum": ["direct", "batch"]
+    },
+    "batch_id": {
+      "type": ["string", "null"]
+    },
+    "corpus_version": {
+      "type": ["string", "null"]
+    },
+    "chunk_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Extraits fournis, dans l'ordre (extrait 1 = premier)."
+    },
+    "status": {
+      "type": "string",
+      "enum": ["ok", "invalid", "error"],
+      "description": "ok : sortie exploitable ; invalid : sortie conforme mais refusée par les vérifications ; error : pas de sortie exploitable (refus, troncature, erreur), redemandée au prochain lancement."
+    },
+    "stop_reason": {
+      "type": ["string", "null"]
+    },
+    "output": {
+      "type": ["object", "null"],
+      "description": "Sortie du modèle (PositionExtraction ou MeasureExtraction)."
+    },
+    "error": {
+      "type": ["string", "null"]
+    },
+    "flags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "citation_non_retrouvee",
+          "extrait_inconnu",
+          "valeur_sans_citation",
+          "confiance_faible",
+          "trop_de_mesures",
+          "mesure_sans_citation",
+          "montant_non_retrouve",
+          "chiffrage_incoherent"
+        ]
+      }
+    },
+    "quotes": {
+      "type": "array",
+      "description": "Citations de la sortie et résultat de leur vérification. `measure` : index de la mesure (null pour une position) ; `role` : justification ou passage du chiffrage.",
+      "items": {
+        "title": "CheckedQuote",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["measure", "role", "chunk_id", "text", "verified"],
+        "properties": {
+          "measure": {
+            "type": ["integer", "null"]
+          },
+          "role": {
+            "type": "string",
+            "enum": ["evidence", "costing"]
+          },
+          "chunk_id": {
+            "type": ["string", "null"]
+          },
+          "text": {
+            "type": "string"
+          },
+          "verified": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "usage": {
+      "title": "ProposalUsage",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "input_tokens",
+        "output_tokens",
+        "cache_creation_input_tokens",
+        "cache_read_input_tokens"
+      ],
+      "properties": {
+        "input_tokens": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "output_tokens": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "cache_creation_input_tokens": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "cache_read_input_tokens": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "cost_usd": {
+      "type": "number",
+      "minimum": 0
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

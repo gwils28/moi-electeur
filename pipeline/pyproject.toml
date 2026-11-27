@@ -5,6 +5,7 @@ description = "Pipeline hors ligne : sources, extraction, chunks, index, proposi
 license = "AGPL-3.0-only"
 requires-python = ">=3.12,<3.13"
 dependencies = [
+  "anthropic>=2.14.0",
   "jsonschema>=4.26",
   "moi-electeur-rag",
   "numpy>=2.5",

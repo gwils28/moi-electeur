@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://moi-electeur.fr/schemas/measure_extraction.schema.json",
+  "title": "MeasureExtraction",
+  "description": "Sortie structurée demandée au modèle pour un couple (candidat, thème), PLAN D26. Compatible avec output_config.format : le nombre de mesures et les montants sont vérifiés par le pipeline.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["measures"],
+  "properties": {
+    "measures": {
+      "type": "array",
+      "items": {
+        "title": "ExtractedMeasure",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["title", "summary", "costing", "quotes"],
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "costing": {
+            "title": "ExtractedCosting",
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["status", "amount_eur", "period", "quote"],
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": ["chiffre", "partiel", "intention"]
+              },
+              "amount_eur": {
+                "type": ["number", "null"]
+              },
+              "period": {
+                "type": ["string", "null"]
+              },
+              "quote": {
+                "type": ["string", "null"]
+              }
+            }
+          },
+          "quotes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/quote"
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "quote": {
+      "title": "ExtractedQuote",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["extrait", "text"],
+      "properties": {
+        "extrait": {
+          "type": "integer",
+          "description": "Numéro de l'extrait (1 = premier)."
+        },
+        "text": {
+          "type": "string",
+          "description": "Passage recopié mot pour mot."
+        }
+      }
+    }
+  }
+}
