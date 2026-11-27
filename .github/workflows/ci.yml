@@ -44,6 +44,20 @@ jobs:
 
   python:
     runs-on: ubuntu-latest
+    # Tests marqués `db` (PLAN D19) : obligatoires en CI (CI=true fait échouer s'il manque la base).
+    services:
+      db:
+        image: pgvector/pgvector:pg16
+        env:
+          POSTGRES_DB: moi_electeur
+          POSTGRES_USER: moi_electeur
+          POSTGRES_PASSWORD: ci-only-password
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U moi_electeur" --health-interval 5s
+          --health-timeout 3s --health-retries 20
+    env:
+      DATABASE_URL: postgresql://moi_electeur:ci-only-password@localhost:5432/moi_electeur
     steps:
       - uses: actions/checkout@v5
       - uses: astral-sh/setup-uv@v6

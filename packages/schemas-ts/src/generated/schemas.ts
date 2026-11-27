@@ -8,6 +8,8 @@ export interface AllSchemas {
   measures?: MeasuresFile;
   pca_model?: PcaModel;
   positions?: PositionsFile;
+  retrieve_request?: RetrieveRequest;
+  retrieve_response?: RetrieveResponse;
   review?: Review;
   statements?: StatementsFile;
 }
@@ -227,6 +229,55 @@ export interface Position {
   evidence: Evidence[];
   proposed_by: string;
   review: Review;
+}
+/**
+ * Requête POST /retrieve du service RAG (PLAN § 4.4). Ne jamais journaliser `question` (donnée d'opinion, RGPD art. 9).
+ */
+export interface RetrieveRequest {
+  election_id: string;
+  /**
+   * Sans caractère de contrôle (PostgreSQL refuse U+0000) ; tabulation et retours à la ligne admis.
+   */
+  question: string;
+  /**
+   * Restreint la recherche à ces candidats ; absent ou null : tous les candidats indexés.
+   *
+   * @minItems 1
+   */
+  candidate_ids?: string[] | null;
+  /**
+   * Restreint aux extraits classés dans ce thème.
+   */
+  theme?: string | null;
+  /**
+   * Nombre d'extraits gardés par candidat après fusion RRF.
+   */
+  k?: number;
+}
+/**
+ * Réponse de POST /retrieve : extraits par candidat, triés par score RRF décroissant (PLAN § 4.4). Candidats triés par identifiant : l'ordre affiché est tiré au sort par l'appelant.
+ */
+export interface RetrieveResponse {
+  election_id: string;
+  corpus_version: string;
+  /**
+   * Modèle d'embedding utilisé.
+   */
+  model: string;
+  candidates: CandidateResults[];
+}
+export interface CandidateResults {
+  candidate_id: string;
+  chunks: RetrievedChunk[];
+}
+export interface RetrievedChunk {
+  chunk: Chunk;
+  /**
+   * Score RRF : somme des 1 / (60 + rang).
+   */
+  score: number;
+  semantic_rank: number | null;
+  lexical_rank: number | null;
 }
 export interface StatementsFile {
   election_id: string;

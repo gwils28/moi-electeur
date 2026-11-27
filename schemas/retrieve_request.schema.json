@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://moi-electeur.fr/schemas/retrieve_request.schema.json",
+  "title": "RetrieveRequest",
+  "description": "Requête POST /retrieve du service RAG (PLAN § 4.4). Ne jamais journaliser `question` (donnée d'opinion, RGPD art. 9).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["election_id", "question"],
+  "properties": {
+    "election_id": { "$ref": "#/$defs/slug" },
+    "question": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500,
+      "pattern": "^[^\\u0000-\\u0008\\u000b\\u000c\\u000e-\\u001f\\u007f]*$",
+      "description": "Sans caractère de contrôle (PostgreSQL refuse U+0000) ; tabulation et retours à la ligne admis."
+    },
+    "candidate_ids": {
+      "type": ["array", "null"],
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/slug" },
+      "description": "Restreint la recherche à ces candidats ; absent ou null : tous les candidats indexés."
+    },
+    "theme": {
+      "anyOf": [{ "$ref": "#/$defs/slug" }, { "type": "null" }],
+      "description": "Restreint aux extraits classés dans ce thème."
+    },
+    "k": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10,
+      "default": 4,
+      "description": "Nombre d'extraits gardés par candidat après fusion RRF."
+    }
+  },
+  "$defs": {
+    "slug": { "type": "string", "pattern": "^[a-z0-9][a-z0-9_-]*$" }
+  }
+}

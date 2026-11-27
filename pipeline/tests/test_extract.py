@@ -185,3 +185,27 @@ def test_extract_corpus_refuse_un_chemin_hors_sources(tmp_path: Path) -> None:
     election = write_corpus_election(tmp_path, [entry])
     with pytest.raises(ExtractError, match="hors de sources"):
         extract_corpus(election)
+
+
+def test_caracteres_de_controle_retires(tmp_path: Path) -> None:
+    """Glyphes mal décodés observés dans le corpus réel (Pécresse, Hidalgo) ; \x00 est refusé
+    par PostgreSQL."""
+    md = tmp_path / "doc.md"
+    md.write_text("Europe et paix\x00\x07 Garantir\x06 la sécurité\x02.\n")
+    (page,) = extract_markdown(md)
+    assert page.blocks == (Block("text", "Europe et paix Garantir la sécurité ."),)
+
+
+def test_traits_dunion_conditionnels() -> None:
+    """Observé chez Arthaud et Le Pen : « hôpi\xad » + « taux »."""
+    assert join_lines(["personnels des hôpi\xad", "taux et des Ehpad"]) == (
+        "personnels des hôpitaux et des Ehpad"
+    )
+    assert join_lines(["une me\xadsure"]) == "une mesure"
+
+
+def test_trait_dunion_conditionnel_retire_des_titres(tmp_path: Path) -> None:
+    md = tmp_path / "doc.md"
+    md.write_text("# Pro\xadgramme\n\nTexte.\n")
+    (page,) = extract_markdown(md)
+    assert page.blocks[0] == Block("heading", "Programme")

@@ -13,7 +13,8 @@ from .chunk import ChunkError, chunk_corpus
 from .codegen import generate_models
 from .demo import ELECTION_ID, build_demo, write_demo
 from .engine_fixtures import build_engine_cases
-from .extract import extract_corpus
+from .extract import ExtractError, extract_corpus
+from .index import IndexingError, index_corpus
 from .paths import elections_dir, repo_root
 from .sources import SourceError, add_source, fetch_corpus
 from .validate import validate_election
@@ -132,7 +133,11 @@ def fetch(election: ElectionDir) -> None:
 @app.command()
 def extract(election: ElectionDir) -> None:
     """Extrait le texte des documents, page par page (PDF, HTML, Markdown)."""
-    report = extract_corpus(election)
+    try:
+        report = extract_corpus(election)
+    except ExtractError as exc:
+        typer.echo(f"ÉCHEC : {exc}", err=True)
+        raise typer.Exit(1) from exc
     typer.echo(f"{len(report.written)} document(s) extrait(s)")
     for title, pages in report.empty_pages.items():
         typer.echo(f"  pages sans texte (non indexées) dans « {title} » : {pages}")
@@ -152,6 +157,44 @@ def chunk(election: ElectionDir) -> None:
     typer.echo(f"{total} extraits, version du corpus {report.corpus_version} -> {report.path}")
     for candidate, n in sorted(report.chunks_per_candidate.items()):
         typer.echo(f"  {candidate} : {n}")
+
+
+@app.command("db-migrate")
+def db_migrate() -> None:
+    """Applique les migrations SQL du service RAG (base de DATABASE_URL)."""
+    from moi_electeur_rag.db import migrate
+
+    applied = migrate()
+    typer.echo(f"Migrations appliquées : {', '.join(applied)}" if applied else "Base à jour.")
+
+
+@app.command()
+def index(
+    election: ElectionDir,
+    model: Annotated[
+        str, typer.Option(help="bge-m3, multilingual-e5-large (ou fake pour les tests).")
+    ] = "bge-m3",
+    theme_margin: Annotated[
+        float,
+        typer.Option(help="Écart de similarité minimal entre les deux thèmes les plus proches."),
+    ] = 0.02,
+) -> None:
+    """Calcule les vecteurs et les thèmes des extraits et les écrit dans PostgreSQL."""
+    try:
+        report = index_corpus(election, model=model, theme_margin=theme_margin)
+    except IndexingError as exc:
+        typer.echo(f"ÉCHEC : {exc}", err=True)
+        raise typer.Exit(1) from exc
+    typer.echo(
+        f"{report.n_chunks} extraits indexés avec {report.model}, version {report.corpus_version}"
+    )
+    if report.replaced_version:
+        typer.echo(
+            f"  ATTENTION : remplace la version {report.replaced_version} ; "
+            "les vecteurs des autres modèles ont été supprimés, à réindexer"
+        )
+    for theme, n in sorted(report.themes.items(), key=lambda kv: (kv[0] is None, kv[0] or "")):
+        typer.echo(f"  {theme or 'sans thème (ambigu)'} : {n}")
 
 
 @app.command("engine-fixtures")
@@ -181,7 +224,6 @@ def _not_implemented(name: str, milestone: str) -> None:
 
 
 for _name, _milestone in [
-    ("index", "M2"),
     ("propose-positions", "M3"),
     ("propose-measures", "M3"),
     ("review", "M3"),

@@ -26,3 +26,19 @@ def write_election(tmp_path: Path):  # type: ignore[no-untyped-def]
         return target
 
     return _write
+
+
+@pytest.fixture(scope="session")
+def db_dsn():  # type: ignore[no-untyped-def]
+    """Base éphémère (PLAN D19) : ignorée en local sans PostgreSQL, obligatoire en CI."""
+    import os
+
+    from moi_electeur_rag.testing import DatabaseUnavailable, temporary_database
+
+    try:
+        with temporary_database() as dsn:
+            yield dsn
+    except DatabaseUnavailable as exc:
+        if os.environ.get("CI"):
+            raise
+        pytest.skip(f"PostgreSQL injoignable ({exc}) : `docker compose up -d db`")

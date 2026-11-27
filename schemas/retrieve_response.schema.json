@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://moi-electeur.fr/schemas/retrieve_response.schema.json",
+  "title": "RetrieveResponse",
+  "description": "Réponse de POST /retrieve : extraits par candidat, triés par score RRF décroissant (PLAN § 4.4). Candidats triés par identifiant : l'ordre affiché est tiré au sort par l'appelant.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["election_id", "corpus_version", "model", "candidates"],
+  "properties": {
+    "election_id": { "type": "string" },
+    "corpus_version": { "type": "string", "pattern": "^[0-9a-f]{16}$" },
+    "model": { "type": "string", "description": "Modèle d'embedding utilisé." },
+    "candidates": {
+      "type": "array",
+      "items": {
+        "title": "CandidateResults",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["candidate_id", "chunks"],
+        "properties": {
+          "candidate_id": { "type": "string" },
+          "chunks": {
+            "type": "array",
+            "items": {
+              "title": "RetrievedChunk",
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["chunk", "score", "semantic_rank", "lexical_rank"],
+              "properties": {
+                "chunk": { "$ref": "chunk.schema.json" },
+                "score": {
+                  "type": "number",
+                  "description": "Score RRF : somme des 1 / (60 + rang)."
+                },
+                "semantic_rank": { "type": ["integer", "null"], "minimum": 1 },
+                "lexical_rank": { "type": ["integer", "null"], "minimum": 1 }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
