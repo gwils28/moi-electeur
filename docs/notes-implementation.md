@@ -269,3 +269,10 @@ Suites de la relecture M0 :
 - **Prompt du chat v2** adopté après mesure (3 variantes du mode rapide, 2,15 $) : remarques d'absence 45 -> 15, affirmations non appuyées 2,3 % -> 1,3 %, effet de rang -0,12 -> -0,06 ; silences corrects 96,8 % -> 94,4 %. Sections au jeton `{{cN}}` (12) : retirées par l'explorateur (`layoutAnswer`, test ajouté), elles s'affichaient auparavant au milieu de la section précédente. `k = 4` conservé (k = 6 : gain sur les faux silences non établi, +40 % de coût). `ask()` accepte un `k` facultatif (banc d'essai), défaut inchangé, test ajouté.
 - **Couverture** : la boussole affiche pour chaque candidat « calculée sur n de vos m réponses » et une note sur la fiabilité réduite d'une proximité calculée sur peu d'affirmations ; formule inchangée. Scénario e2e complété.
 - Rapport régénéré (`eval/reports/2026-11-27.md`, sections 2 bis et 5) ; **coût total de M4 : 11,39 $**.
+
+## 2026-11-27 : M5a, audit d'accessibilité (`feat/m5-plan`)
+
+- Plan M5 détaillé (PLAN § 7, D46 à D51), autonomie déléguée.
+- **Audit RGAA 4.1** (auto-évaluation, non certifiée) : grille par thème et déclaration d'accessibilité dans `docs/accessibilite.md`. Écarts trouvés et corrigés : lien d'évitement absent (ajouté, premier élément au clavier, focus sur `#contenu`) ; page courante non signalée (`MainNav`, `aria-current`) ; focus laissé au style par défaut (contour explicite `:focus-visible`) ; **défilement horizontal à 320 px** sur la boussole et le comparateur, causé par le sélecteur d'élection (largeur contrainte). Classe `.sr-only` maison retirée au profit de l'utilitaire de Tailwind 4 (nécessaire à `focus:not-sr-only`).
+- Tests : `apps/web/e2e/accessibilite.spec.ts` (6 scénarios × ordinateur et mobile : lien d'évitement, page courante, titre et `h1` uniques, redistribution à 320 px) ; e2e 52 au total. Contrôle visuel du lien d'évitement et du focus dans Chrome.
+- Limite déclarée : aucun test avec un lecteur d'écran réel (prévu lors d'un audit externe).

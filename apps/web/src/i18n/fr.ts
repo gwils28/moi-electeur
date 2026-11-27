@@ -73,6 +73,7 @@ export const fr = {
   editAnswers: "Modifier mes réponses",
   invalidCode: "Le lien de réponses est invalide ou incomplet ; questionnaire vierge.",
   missingData: "Données introuvables : lancer `uv run pipeline build`.",
+  skipToContent: "Aller au contenu",
   nav: {
     label: "Navigation principale",
     compass: "Boussole",

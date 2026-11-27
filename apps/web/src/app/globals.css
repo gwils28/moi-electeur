@@ -16,13 +16,10 @@ body {
   font-family: system-ui, sans-serif;
 }
 
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
+/* Focus toujours visible au clavier (RGAA 10.7), quelle que soit la feuille de style du composant. */
+:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 2px;
 }
 .moved {
   transition:
