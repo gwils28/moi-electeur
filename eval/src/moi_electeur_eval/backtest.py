@@ -48,46 +48,55 @@ def _read_jsonl(path: Path) -> list[dict[str, Any]]:
     return [json.loads(x) for x in path.read_text(encoding="utf-8").splitlines() if x.strip()]
 
 
-def retrieval_section(fixture: Path, questions: Sequence[Question]) -> list[str]:
+def retrieval_results(fixture: Path, questions: Sequence[Question]) -> dict[str, Any]:
     results = reports(load_fixture(fixture), questions, k=4)
+    table = [
+        {
+            "model": model,
+            "method": method,
+            "recall": r.recall,
+            "hit_rate": r.hit_rate,
+            "full_coverage": r.full_coverage,
+        }
+        for (model, method), r in results.items()
+        if method in ("semantique", "plein_texte", "rrf")
+    ]
+
+    def per_q(r: MethodReport) -> dict[str, float]:
+        return {q.question_id: q.recall for q in r.questions if q.recall is not None}
+
+    gaps = {}
+    for method in ("rrf", "semantique"):
+        e = per_q(results[("multilingual-e5-large", method)])
+        b = per_q(results[("bge-m3", method)])
+        ids = sorted(set(e) & set(b))
+        mean, lo, hi = paired_bootstrap([e[i] for i in ids], [b[i] for i in ids])
+        gaps[method] = {"mean": mean, "lo": lo, "hi": hi, "n": len(ids)}
+    return {"table": table, "gaps": gaps}
+
+
+def retrieval_section(r: Mapping[str, Any]) -> list[str]:
     out = [
         "## 1. Recherche (60 questions, k = 4)",
         "",
         "| Modèle | Méthode | Rappel@4 (macro) | Succès@4 | Couverture 12/12 |",
         "|---|---|---|---|---|",
     ]
-    for (model, method), r in results.items():
-        if method not in ("semantique", "plein_texte", "rrf"):
-            continue
+    for row in r["table"]:
         out.append(
-            f"| {model} | {method} | {_fmt(r.recall)} | {_fmt(r.hit_rate)} | "
-            f"{'oui' if r.full_coverage else 'non'} |"
+            f"| {row['model']} | {row['method']} | {_fmt(row['recall'])} | "
+            f"{_fmt(row['hit_rate'])} | {'oui' if row['full_coverage'] else 'non'} |"
         )
-
-    def per_q(r: MethodReport) -> dict[str, float]:
-        return {q.question_id: q.recall for q in r.questions if q.recall is not None}
-
     out.append("")
-    for method in ("rrf", "semantique"):
-        e = per_q(results[("multilingual-e5-large", method)])
-        b = per_q(results[("bge-m3", method)])
-        ids = sorted(set(e) & set(b))
-        mean, lo, hi = paired_bootstrap([e[i] for i in ids], [b[i] for i in ids])
+    for method, g in r["gaps"].items():
         out.append(
-            f"- Écart e5 − bge-m3, {method} : **{mean:+.3f}** [{lo:+.3f} ; {hi:+.3f}] "
-            f"(bootstrap apparié, {len(ids)} questions, graine 7)."
+            f"- Écart e5 − bge-m3, {method} : **{g['mean']:+.3f}** [{g['lo']:+.3f} ; "
+            f"{g['hi']:+.3f}] (bootstrap apparié, {g['n']} questions, graine 7)."
         )
     return out
 
 
-def chat_section(
-    records: Sequence[Mapping[str, Any]],
-    questions: Sequence[Question],
-    names: Mapping[str, str],
-    judge: Mapping[str, Any] | None,
-) -> list[str]:
-    main = [r for r in records if r["perm"] == 0]
-    s = summarize(main, questions, names)
+def chat_section(s: Mapping[str, Any], judge: Mapping[str, Any] | None) -> list[str]:
     modes = [m for m in ("rapide", "approfondi") if m in s]
     rows: list[tuple[str, Callable[[Mapping[str, Any]], str]]] = [
         ("Réponses (erreurs)", lambda v: f"{v['answers']} ({v['errors']})"),
@@ -150,14 +159,13 @@ def chat_section(
     return out
 
 
-def permutation_section(records: Sequence[Mapping[str, Any]]) -> list[str]:
-    if not records:
+def permutation_section(e: Mapping[str, Any] | None) -> list[str]:
+    if not e:
         return [
             "## 3. Neutralité par permutation",
             "",
             "Non mesurée (aucun fichier `perms.jsonl`).",
         ]
-    e = permutation_effects(records)
     out = [
         "## 3. Neutralité par permutation",
         "",
@@ -181,7 +189,7 @@ def permutation_section(records: Sequence[Mapping[str, Any]]) -> list[str]:
     return out
 
 
-def profiles_section(election: Path) -> list[str]:
+def profiles_results(election: Path) -> dict[str, Any]:
     statements = json.loads((election / "statements.json").read_text(encoding="utf-8"))[
         "statements"
     ]
@@ -189,10 +197,23 @@ def profiles_section(election: Path) -> list[str]:
     ids = [s["id"] for s in statements]
     cands = sorted({p["candidate_id"] for p in positions})
     answers = {c: candidate_answers(positions, c, ids) for c in cands}
-    base = synthetic_profiles(answers, statements, n=200, seed=7)
-    hard = synthetic_profiles(
-        answers, statements, n=200, seed=7, noise=Noise(shift=0.5, abstain=0.4, silent_answer=0.8)
-    )
+    return {
+        "statements": len(ids),
+        "known": {c: sum(v is not None for v in answers[c].values()) for c in cands},
+        "base": synthetic_profiles(answers, statements, n=200, seed=7),
+        "hard": synthetic_profiles(
+            answers,
+            statements,
+            n=200,
+            seed=7,
+            noise=Noise(shift=0.5, abstain=0.4, silent_answer=0.8),
+        ),
+        "coords": {c: project_a(answers[c], statements) for c in cands},
+    }
+
+
+def profiles_section(p: Mapping[str, Any]) -> list[str]:
+    base, hard = p["base"], p["hard"]
     out = [
         "## 4. Profils synthétiques",
         "",
@@ -200,14 +221,14 @@ def profiles_section(election: Path) -> list[str]:
         "de ceux dont le candidat d'origine est en tête de la proximité calculée par le moteur. "
         "Test optimiste : les profils dérivent des positions mêmes qu'ils départagent.",
         "",
-        "| Candidat | Positions renseignées | 1er (bruit modéré) | 3 premiers | 1er (bruit fort) | 3 premiers |",
+        "| Candidat | Positions renseignées | 1er (bruit modéré) | 3 premiers | "
+        "1er (bruit fort) | 3 premiers |",
         "|---|---|---|---|---|---|",
     ]
-    for c in cands:
+    for c, known in p["known"].items():
         b, h = base["per_candidate"][c], hard["per_candidate"][c]
-        known = sum(v is not None for v in answers[c].values())
         out.append(
-            f"| {c} | {known} / {len(ids)} | {_pct(b['top1'])} | {_pct(b['top3'])} | "
+            f"| {c} | {known} / {p['statements']} | {_pct(b['top1'])} | {_pct(b['top3'])} | "
             f"{_pct(h['top1'])} | {_pct(h['top3'])} |"
         )
     out.append(
@@ -218,51 +239,56 @@ def profiles_section(election: Path) -> list[str]:
         "",
         "Bruit modéré : 30 % de réponses décalées d'un cran, 20 % « sans avis », réponse au "
         "hasard une fois sur deux là où le candidat est silencieux. Bruit fort : 50 %, 40 %, 80 %.",
-    ]
-    coords = {c: project_a(answers[c], statements) for c in cands}
-    out += [
         "",
         "Coordonnées du mode A (rappel) : "
-        + " ; ".join(f"{c} ({_fmt(v['x'], 1)}, {_fmt(v['y'], 1)})" for c, v in coords.items())
+        + " ; ".join(f"{c} ({_fmt(v['x'], 1)}, {_fmt(v['y'], 1)})" for c, v in p["coords"].items())
         + ".",
     ]
     return out
 
 
-def reference_section(sheet: Path, election: Path) -> list[str]:
-    out = ["## 5. Positionnement contre références externes", ""]
+def reference_results(sheet: Path, election: Path) -> dict[str, Any]:
     coded = read_sheet(sheet) if sheet.is_file() else []
-    if coded:
-        positions = json.loads((election / "positions.json").read_text(encoding="utf-8"))[
-            "positions"
-        ]
-        a = agreement(coded, positions)
-        out += [
+    positions = json.loads((election / "positions.json").read_text(encoding="utf-8"))["positions"]
+    ches_dir = sheet.parent / "ches"
+    return {
+        "agreement": agreement(coded, positions) if coded else None,
+        "ches_file": ches_dir.is_dir() and any(ches_dir.iterdir()),
+    }
+
+
+def reference_section(r: Mapping[str, Any]) -> list[str]:
+    out = ["## 5. Positionnement contre références externes", ""]
+    a = r["agreement"]
+    if a:
+        out.append(
             f"Codage manuel de référence : {a['n']} couples codés. Accord silence / non-silence "
             f"{_pct(a['silence_agreement'])} ; faux silences {a['false_silence']} ; valeurs "
             f"inventées {a['invented_value']} ; sur {a['both_valued']} couples valués des deux "
             f"côtés, accord exact {_pct(a['exact'])}, à un cran près {_pct(a['within_one'])}, "
-            f"kappa pondéré {_fmt(a['weighted_kappa'])}.",
-        ]
+            f"kappa pondéré {_fmt(a['weighted_kappa'])}."
+        )
     else:
         out.append(
             "Codage manuel de référence : feuille `eval/reference/codage-2022.csv` prête "
             "(60 couples), **non encore codée** par le mainteneur."
         )
-    ches_dir = sheet.parent / "ches"
-    if ches_dir.is_dir() and any(ches_dir.iterdir()):
-        out.append("")
+    out.append("")
+    if r["ches_file"]:
         out.append("CHES : fichier présent, comparaison à brancher (`reference.ches_correlation`).")
     else:
-        out += [
-            "",
+        out.append(
             "CHES (lrecon, galtan) : **non mesuré**, le fichier de la Chapel Hill Expert Survey "
-            "n'est pas déposé (téléchargement soumis à l'accord du mainteneur).",
-        ]
+            "n'est pas déposé (téléchargement soumis à l'accord du mainteneur)."
+        )
     return out
 
 
-def build_report(
+def _strip_scores(summary: Mapping[str, Any]) -> dict[str, Any]:
+    return {m: {k: v for k, v in d.items() if k != "scores"} for m, d in summary.items()}
+
+
+def collect_results(
     *,
     date: str,
     questions: Sequence[Question],
@@ -271,32 +297,54 @@ def build_report(
     run_dir: Path,
     election: Path,
     sheet: Path,
-) -> str:
+) -> dict[str, Any]:
+    """Toutes les mesures, sous une forme JSON versionnable (aucun texte de réponse)."""
     records = _read_jsonl(run_dir / "ask.jsonl")
-    verdicts = {v["custom_id"]: v["verdict"] for v in _read_jsonl(run_dir / "judge.jsonl")}
-    judge = (
-        summarize_judgements(verdicts, [r for r in records if r["perm"] == 0]) if verdicts else None
-    )
+    main = [r for r in records if r["perm"] == 0]
+    judged = _read_jsonl(run_dir / "judge.jsonl")
+    verdicts = {v["custom_id"]: v["verdict"] for v in judged}
     perms = _read_jsonl(run_dir / "perms.jsonl")
-    costs = {
-        "chat": sum(r["log"]["cost_usd"] for r in records if r.get("log")),
-        "permutations": sum(r["log"]["cost_usd"] for r in perms if r.get("log")),
-        "juge": sum(v.get("cost_usd", 0.0) for v in _read_jsonl(run_dir / "judge.jsonl")),
+    effects = permutation_effects(perms) if perms else None
+    if effects:
+        effects["by_rank"] = {str(k): v for k, v in effects["by_rank"].items()}
+    judge = summarize_judgements(verdicts, main) if verdicts else None
+    return {
+        "date": date,
+        "run_dir": run_dir.as_posix(),
+        "retrieval": retrieval_results(retrieval_fixture, questions),
+        "chat": _strip_scores(summarize(main, questions, names)),
+        "judge": judge,
+        "permutations": effects,
+        "profiles": profiles_results(election),
+        "reference": reference_results(sheet, election),
+        "costs": {
+            "chat": sum(r["log"]["cost_usd"] for r in records if r.get("log")),
+            "permutations": sum(r["log"]["cost_usd"] for r in perms if r.get("log")),
+            "juge": sum(v.get("cost_usd", 0.0) for v in judged),
+        },
     }
+
+
+def render(results: Mapping[str, Any], decisions: str | None = None) -> str:
+    costs = results["costs"]
     lines = [
-        f"# Backtest 2022 ({date})",
+        f"# Backtest 2022 ({results['date']})",
         "",
-        "Rapport généré par `uv run --project eval moi-electeur-eval backtest-report "
-        f"--run-dir {run_dir.as_posix()}` à partir de fichiers versionnés (PLAN § 6, SPEC § 9). "
-        "Élection : présidentielle 2022, 12 candidats, corpus des programmes officiels.",
+        "Rapport généré par `uv run --project eval moi-electeur-eval backtest-report` à partir "
+        f"de `eval/results/{results['date']}.json` (mesures sans texte de réponse, versionnées) ; "
+        "PLAN § 6, SPEC § 9. Élection : présidentielle 2022, 12 candidats, corpus des programmes "
+        "officiels.",
         "",
-    ]
-    lines += [*retrieval_section(retrieval_fixture, questions), ""]
-    lines += [*chat_section(records, questions, names, judge), ""]
-    lines += [*permutation_section(perms), ""]
-    lines += [*profiles_section(election), ""]
-    lines += [*reference_section(sheet, election), ""]
-    lines += [
+        *retrieval_section(results["retrieval"]),
+        "",
+        *chat_section(results["chat"], results["judge"]),
+        "",
+        *permutation_section(results["permutations"]),
+        "",
+        *profiles_section(results["profiles"]),
+        "",
+        *reference_section(results["reference"]),
+        "",
         "## 6. Coût",
         "",
         "| Poste | Coût |",
@@ -305,7 +353,7 @@ def build_report(
         f"| **total** | **{sum(costs.values()):.2f} $** |",
         "",
     ]
-    decisions = run_dir / "decisions.md"
-    if decisions.is_file():
-        lines += ["## 7. Décisions", "", decisions.read_text(encoding="utf-8").strip(), ""]
-    return "\n".join(lines)
+    if decisions:
+        lines += ["## 7. Décisions", "", decisions.strip(), ""]
+    # Texte cité (réponses du chat) : tiret cadratin interdit dans le dépôt, écrit en entité HTML.
+    return "\n".join(lines).replace(chr(0x2014), "&#8212;")

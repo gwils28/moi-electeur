@@ -26,9 +26,14 @@ CORPUS_FIXTURE = FIXTURES / "m2-corpus-stats.json"
 MODELS = ("bge-m3", "multilingual-e5-large")
 
 
+EM_DASH = chr(0x2014)
+
+
 def _write_json(path: Path, data: Any) -> None:
+    """JSON lisible ; le tiret cadratin (interdit dans le dépôt) d'un texte cité est échappé."""
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    text = json.dumps(data, ensure_ascii=False, indent=1).replace(EM_DASH, "\\u2014")
+    path.write_text(text + "\n", encoding="utf-8")
 
 
 def _election_dir(election: str) -> Path:
@@ -201,25 +206,35 @@ def cmd_judge_collect(args: argparse.Namespace) -> int:
 
 
 def cmd_backtest_report(args: argparse.Namespace) -> int:
-    from .backtest import build_report
+    """Mesures -> eval/results/<date>.json (si --run-dir) puis rapport eval/reports/<date>.md."""
+    from .backtest import collect_results, render
     from .smoke import full_questions_path
 
-    election = _election_dir(args.election)
-    config = json.loads((election / "election_config.json").read_text(encoding="utf-8"))
-    names = {c["id"]: c["name"] for c in config["candidates"]}
-    date = args.run_dir.name
-    text = build_report(
-        date=date,
-        questions=load_questions(full_questions_path()),
-        names=names,
-        retrieval_fixture=FIXTURES / "m4-retrieval-60.json",
-        run_dir=args.run_dir,
-        election=election,
-        sheet=ROOT / "eval" / "reference" / "codage-2022.csv",
-    )
-    out = args.out or ROOT / "eval" / "reports" / f"{date}.md"
+    if args.run_dir:
+        election = _election_dir(args.election)
+        config = json.loads((election / "election_config.json").read_text(encoding="utf-8"))
+        results = collect_results(
+            date=args.run_dir.name,
+            questions=load_questions(full_questions_path()),
+            names={c["id"]: c["name"] for c in config["candidates"]},
+            retrieval_fixture=FIXTURES / "m4-retrieval-60.json",
+            run_dir=args.run_dir,
+            election=election,
+            sheet=ROOT / "eval" / "reference" / "codage-2022.csv",
+        )
+        results_path = ROOT / "eval" / "results" / f"{results['date']}.json"
+        _write_json(results_path, results)
+        print(f"Mesures écrites : {results_path}")
+    elif args.results:
+        results = json.loads(args.results.read_text(encoding="utf-8"))
+    else:
+        print("--run-dir ou --results requis.")
+        return 1
+    decisions_path = ROOT / "eval" / "results" / f"{results['date']}-decisions.md"
+    decisions = decisions_path.read_text(encoding="utf-8") if decisions_path.is_file() else None
+    out = args.out or ROOT / "eval" / "reports" / f"{results['date']}.md"
     out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(text + "\n", encoding="utf-8")
+    out.write_text(render(results, decisions) + "\n", encoding="utf-8")
     print(f"Rapport écrit : {out}")
     return 0
 
@@ -267,7 +282,8 @@ def build_parser() -> argparse.ArgumentParser:
     p.set_defaults(func=cmd_judge_submit)
 
     p = sub.add_parser("backtest-report", help="rapport du backtest M4 (fichiers versionnés)")
-    p.add_argument("--run-dir", type=Path, required=True)
+    p.add_argument("--run-dir", type=Path, default=None, help="fichiers bruts du banc d'essai")
+    p.add_argument("--results", type=Path, default=None, help="mesures versionnées (sans brut)")
     p.add_argument("--election", default=ELECTION)
     p.add_argument("--out", type=Path, default=None)
     p.set_defaults(func=cmd_backtest_report)

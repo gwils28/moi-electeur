@@ -18,7 +18,8 @@ from .smoke import Question
 SILENCE = "Aucune proposition recensée dans le programme officiel sur ce point."
 HEADING = re.compile(r"^###\s*\{\{(c\w*)\}\}[ \t]*$", re.M)
 REFUSAL = re.compile(
-    r"orient\w*\s+(?:le\s+|votre\s+)?vote|sans\s+orienter|ne\s+(?:recommande|conseille)",
+    r"orient\w*\s+(?:le\s+|votre\s+)?vote|sans\s+(?:orienter|classer|juger|hiérarchiser)"
+    r"|ne\s+(?:recommande|conseille|classe)",
     re.I,
 )
 
