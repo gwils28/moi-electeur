@@ -16,13 +16,10 @@ body {
   font-family: system-ui, sans-serif;
 }
 
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
+/* Focus toujours visible au clavier (RGAA 10.7), quelle que soit la feuille de style du composant. */
+:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 2px;
 }
 .moved {
   transition:
@@ -34,4 +31,60 @@ body {
   .moved {
     transition: none;
   }
+}
+
+/* Documents publiés (méthodologie, accessibilité) : mise en forme sobre du Markdown rendu. */
+.doc h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin: 0 0 1rem;
+}
+.doc h2 {
+  font-size: 1.375rem;
+  font-weight: 600;
+  margin: 2rem 0 0.75rem;
+}
+.doc h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.5rem;
+}
+.doc p,
+.doc ul,
+.doc ol,
+.doc table {
+  margin: 0 0 1rem;
+  line-height: 1.6;
+}
+.doc ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+}
+.doc ol {
+  list-style: decimal;
+  padding-left: 1.5rem;
+}
+.doc li {
+  margin: 0.25rem 0;
+}
+.doc a {
+  text-decoration: underline;
+  overflow-wrap: anywhere;
+}
+.doc code {
+  font-family: ui-monospace, monospace;
+  font-size: 0.9em;
+  overflow-wrap: anywhere;
+}
+.doc table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+.doc th,
+.doc td {
+  border: 1px solid currentColor;
+  padding: 0.375rem 0.5rem;
+  vertical-align: top;
+  overflow-wrap: anywhere;
 }

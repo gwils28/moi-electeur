@@ -341,11 +341,26 @@ Plan initial (annoté « ok ») : jeu d'environ 60 questions annotées (dont pi�
 
 ## 7. M5 : Accessibilité, méthodologie, déploiement
 
-Audit RGAA manuel en plus d'axe, `docs/methodologie.md` + page publique, `docker-compose.prod.yml` + Caddy (TLS), durcissement (en-têtes CSP stricts, pas de log d'IP), déploiement VPS documenté. Prérequis de ton côté : VPS et domaine `moi-electeur.fr` réservé.
+Plan initial (annoté « ok ») : audit RGAA manuel en plus d'axe, `docs/methodologie.md` + page publique, `docker-compose.prod.yml` + Caddy (TLS), durcissement (en-têtes CSP stricts, pas de log d'IP), déploiement VPS documenté. Prérequis du mainteneur : VPS et domaine `moi-electeur.fr`. Coût : VPS 8 à 15 € par mois, domaine environ 10 € par an.
 
-Coût : VPS ≈ 8-15 € / mois, domaine ≈ 10 € / an.
+### 7.0 Décisions (M5, détaillées par l'agent en autonomie déléguée le 2026-11-27)
 
-> 📝 Annotation : ok
+| # | Sujet | Décision |
+|---|---|---|
+| D46 | Audit d'accessibilité | Audit RGAA 4.1 manuel des quatre pages (boussole, comparateur, explorateur, méthodologie) au clavier, au lecteur d'écran (structure, noms accessibles), à 200 % et 400 % de zoom et à 320 px, en plus d'axe-core en CI ; grille des critères applicables et écarts dans `docs/accessibilite.md`, qui sert aussi de déclaration d'accessibilité publique (état de conformité, dérogations, contact) ; écarts corrigés avec un test e2e quand c'est possible |
+| D47 | Méthodologie | `docs/methodologie.md` (source) et page `/methodologie` : sources et corpus, affirmations et axes, extraction des positions et validation **en bloc** de 2022, formules (proximité, projection, ACP), chat (recherche hybride, prompt, garde-fous), résultats du backtest (rapport M4) avec ses limites, biais connus, confidentialité, licence ; lien depuis la navigation |
+| D48 | Production | `docker-compose.prod.yml` (web, rag, db, caddy) et `Caddyfile` : TLS automatique (Let's Encrypt), domaine par variable, aucun port public hors 80 et 443, base et service de recherche sur le seul réseau interne, redémarrage automatique, journaux de Caddy **sans adresse IP** (format réduit) |
+| D49 | En-têtes de sécurité | CSP stricte à nonce (`proxy.ts`, Next 16) : `script-src 'self' 'nonce-…' 'strict-dynamic'`, aucun `unsafe-inline` pour les scripts, `connect-src 'self'`, `frame-ancestors 'none'`, `object-src 'none'`, `base-uri 'none'`, `form-action 'self'` ; pages en rendu dynamique (nonce par requête), données lues une fois et gardées en mémoire ; HSTS, `Referrer-Policy: no-referrer`, `X-Content-Type-Options`, `Permissions-Policy` restrictive, par Caddy ; test e2e des en-têtes |
+| D50 | Déploiement documenté | `docs/deploiement.md` : prérequis (VPS 4 vCPU / 8 Go, DNS), installation, `.env` de production (clé, plafonds), poids des modèles, indexation, mise à jour, sauvegarde de la base, vérifications après mise en ligne ; script `scripts/deploy-check.sh` (en-têtes, TLS, santé) |
+| D51 | Sous-lots | M5a accessibilité ; M5b méthodologie ; M5c production, en-têtes et documentation du déploiement. La mise en ligne elle-même attend le VPS et le domaine du mainteneur |
+
+> 📝 Annotation : autonomie déléguée par le mainteneur (2026-11-27) ; plan suivi par l'agent, écarts consignés dans `docs/notes-implementation.md`.
+
+### 7.1 Critères d'acceptation M5
+- [x] Audit RGAA documenté, écarts corrigés ou justifiés, déclaration d'accessibilité publiée ; axe sans violation (auto-évaluation ; publication sur le site avec la page méthodologie).
+- [x] Page `/methodologie` publiée, à jour du backtest et de la validation en bloc.
+- [ ] Stack de production prête (compose, Caddy, CSP stricte vérifiée par test), déploiement documenté ; CI verte.
+- [ ] Mise en ligne sur le VPS du mainteneur (hors de portée de l'agent sans accès).
 
 ## 8. M6 : Présidentielle 2027
 

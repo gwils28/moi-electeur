@@ -73,11 +73,20 @@ export const fr = {
   editAnswers: "Modifier mes réponses",
   invalidCode: "Le lien de réponses est invalide ou incomplet ; questionnaire vierge.",
   missingData: "Données introuvables : lancer `uv run pipeline build`.",
+  skipToContent: "Aller au contenu",
   nav: {
     label: "Navigation principale",
     compass: "Boussole",
     comparator: "Comparateur",
     explorer: "Explorateur",
+    methodology: "Méthodologie",
+  },
+  footer: {
+    label: "Informations sur le site",
+    methodology: "Méthodologie",
+    accessibility: "Accessibilité",
+    source: "Code source et données",
+    license: "Code sous licence AGPL-3.0, données sous licence CC BY-SA 4.0.",
   },
   election: "Élection",
   pastElection: (date: string) =>
