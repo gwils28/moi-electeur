@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { connection } from "next/server";
 import type { ReactNode } from "react";
 import { MainNav } from "@/components/MainNav";
 import { fr } from "@/i18n/fr";
@@ -7,7 +8,9 @@ import "./globals.css";
 
 export const metadata: Metadata = { title: fr.appName, description: fr.tagline };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default async function RootLayout({ children }: { children: ReactNode }) {
+  // Rendu à chaque requête : le nonce de la CSP (proxy.ts) n'existe pas au build.
+  await connection();
   return (
     <html lang="fr">
       <body>

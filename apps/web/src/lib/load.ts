@@ -7,7 +7,18 @@ import { assembleElection, type ElectionData } from "./data";
 export const PREFERRED_ELECTION = process.env.ELECTION_ID;
 
 /** Lecture au build (composant serveur) des JSON produits par `pipeline build`. */
+const elections = new Map<string, ElectionData>();
+
+/** Données lues une fois par processus (pages rendues à chaque requête pour la CSP à nonce). */
 export function loadElection(id: string): ElectionData {
+  const cached = elections.get(id);
+  if (cached) return cached;
+  const data = readElection(id);
+  elections.set(id, data);
+  return data;
+}
+
+function readElection(id: string): ElectionData {
   const dir = join(process.cwd(), "public", "data", id);
   const read = (f: string) => JSON.parse(readFileSync(join(dir, f), "utf-8"));
   return assembleElection({

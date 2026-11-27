@@ -1,0 +1,97 @@
+# Production (PLAN D48) : `docker compose -f docker-compose.prod.yml --env-file .env up -d --build`.
+# Seul Caddy est exposé (80, 443 ; TLS automatique Let's Encrypt). Base et service de recherche
+# restent sur le réseau interne. Procédure complète : docs/deploiement.md.
+name: moi-electeur-prod
+
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-moi_electeur}
+      POSTGRES_USER: ${POSTGRES_USER:-moi_electeur}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD requis (.env)}
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks: [internal]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 3s
+      retries: 20
+
+  rag:
+    build:
+      context: .
+      dockerfile: services/rag/Dockerfile
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-moi_electeur}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-moi_electeur}
+      EMBEDDING_MODEL: ${EMBEDDING_MODEL:-multilingual-e5-large}
+      MODELS_DIR: /models
+      HF_HUB_OFFLINE: "1"
+    volumes:
+      - ./models:/models:ro
+    networks: [internal]
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')",
+        ]
+      interval: 15s
+      timeout: 3s
+      retries: 10
+      start_period: 90s
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    restart: unless-stopped
+    environment:
+      RAG_URL: http://rag:8000
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      CHAT_MODEL: ${CHAT_MODEL:-claude-haiku-5-5}
+      DAILY_BUDGET_USD: ${DAILY_BUDGET_USD:-1}
+      CHAT_MODEL_BOOST: ${CHAT_MODEL_BOOST:-}
+      DAILY_BUDGET_BOOST_USD: ${DAILY_BUDGET_BOOST_USD:-}
+      # Servi derrière TLS : la CSP force le HTTPS des sous-ressources (apps/web/src/proxy.ts).
+      CSP_UPGRADE_INSECURE: "1"
+    networks: [internal, edge]
+    depends_on:
+      rag:
+        condition: service_healthy
+
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    environment:
+      DOMAIN: ${DOMAIN:?DOMAIN requis (.env), par exemple moi-electeur.fr}
+      ACME_EMAIL: ${ACME_EMAIL:?ACME_EMAIL requis (.env) pour les avis de Let's Encrypt}
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    networks: [edge]
+    depends_on:
+      - web
+
+networks:
+  internal:
+    internal: true
+  edge: {}
+
+volumes:
+  db-data:
+  caddy-data:
+  caddy-config:

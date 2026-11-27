@@ -31,6 +31,7 @@ Boussole électorale + explorateur RAG des programmes officiels. Spécification 
 - Types depuis `schemas/` : `pnpm gen:types` (TS) et `uv run pipeline gen-models [--check]` (Pydantic)
 - Notebooks : `uv run --project notebooks marimo edit notebooks/<fichier>.py`
 - Stack locale : `docker compose up -d --build --wait` (web :3000, rag :8000, db :5432)
+- Production : `docker compose -f docker-compose.prod.yml --env-file .env up -d --build --wait` puis `scripts/deploy-check.sh https://<domaine>` (guide : `docs/deploiement.md`)
 
 ## Compaction
 En cas de compaction, conserver : fichiers modifiés, commandes de test et leur dernier résultat, décisions de modélisation (formules, schémas), points ouverts de SPEC.md § 15.

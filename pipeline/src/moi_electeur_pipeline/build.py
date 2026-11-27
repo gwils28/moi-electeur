@@ -96,3 +96,30 @@ def build_election(election_dir: Path, out_root: Path) -> Path:
         raise BuildError(manifest_issues)
     (target / "manifest.json").write_text(_dump(manifest), encoding="utf-8")
     return target
+
+
+def main(argv: list[str] | None = None) -> int:
+    """Point d'entrée autonome (`python -m moi_electeur_pipeline.build [--out DIR]`), utilisé
+    par l'image web : n'importe ni la CLI, ni le service de recherche, ni le client Claude."""
+    import argparse
+    import sys
+
+    from .paths import elections_dir, repo_root
+
+    parser = argparse.ArgumentParser(description="JSON statiques du front (toutes les élections).")
+    parser.add_argument(
+        "--out", type=Path, default=repo_root() / "apps" / "web" / "public" / "data"
+    )
+    args = parser.parse_args(argv)
+    for d in sorted(p for p in elections_dir().iterdir() if p.is_dir()):
+        try:
+            written = build_election(d, args.out)
+        except BuildError as exc:
+            print(f"ÉCHEC {d.name} :\n{exc}", file=sys.stderr)
+            return 1
+        print(f"Écrit {written}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

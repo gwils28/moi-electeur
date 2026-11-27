@@ -2,16 +2,17 @@
 # Étape 1 : JSON statiques validés produits par le pipeline (D5 : non commités).
 FROM python:3.12-slim AS data
 COPY --from=ghcr.io/astral-sh/uv:0.12 /uv /bin/uv
-ENV UV_PROJECT_ENVIRONMENT=/opt/venv
 WORKDIR /app
-COPY pyproject.toml uv.lock .python-version pnpm-workspace.yaml ./
-COPY pipeline pipeline
-COPY services/rag/pyproject.toml services/rag/pyproject.toml
-COPY eval/pyproject.toml eval/pyproject.toml
-COPY notebooks/pyproject.toml notebooks/pyproject.toml
+# `pipeline build` seul (point d'entrée autonome) : ni torch, ni service de recherche, ni CLI.
+# Versions minimales de pipeline/pyproject.toml.
+RUN uv pip install --system --no-cache "jsonschema>=4.26" "referencing>=0.37" "numpy>=2.5" \
+    "rfc3339-validator>=0.1.4" "rfc3986-validator>=0.1.1"
+# pnpm-workspace.yaml : repère de la racine du dépôt (moi_electeur_pipeline.paths).
+COPY pnpm-workspace.yaml ./
+COPY pipeline/src pipeline/src
 COPY schemas schemas
 COPY data data
-RUN uv sync --frozen --no-dev --package moi-electeur-pipeline && uv run --no-sync pipeline build
+RUN PYTHONPATH=pipeline/src python -m moi_electeur_pipeline.build
 
 FROM node:24-slim AS build
 RUN corepack enable
