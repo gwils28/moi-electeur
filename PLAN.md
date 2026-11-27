@@ -251,15 +251,63 @@ Coût estimé du jalon : **< 2 $** (quelques centaines de questions à ≈ 0,002
 
 ## 5. M3 : Positions, mesures, revue ; comparateur et radar
 
-1. Rédaction des affirmations 2022 : Claude propose 30 affirmations conformes aux règles de couverture, **tu valides**.
-2. `propose-positions` et `propose-measures` (Sonnet 5.5, Batch API, sortie structurée validée par les schémas) ; prompts versionnés dans `prompts/`.
-3. `review` : page locale `/admin/review` (désactivée en prod par variable d'environnement **et** absente du build prod) ou CLI ; décisions tracées.
-4. `build` : JSON validés + `pca_model.json` pour 2022.
-5. Comparateur face-à-face et grille radar (pictogramme + libellé texte).
+Objectif : publier la boussole 2022 sur des positions **réelles**, extraites des programmes officiels par Claude puis revues une à une par le mainteneur, et ajouter le comparateur face-à-face et la grille radar des chiffrages. Prérequis du backtest M4.
 
-Coût estimé : **≈ 10-20 $** (positions + mesures pour 2022, éventuelles relances).
+Plan initial (annoté « ok ») : 1. affirmations 2022 proposées par Claude, validées par le mainteneur ; 2. `propose-positions` et `propose-measures` (Sonnet 5.5, Batch API, sortie structurée validée par les schémas, prompts versionnés) ; 3. `review` (page locale ou CLI, décisions tracées) ; 4. `build` 2022 avec `pca_model.json` ; 5. comparateur et grille radar. Détail ci-dessous.
 
-> 📝 Annotation : ok
+### 5.0 Décisions à trancher (M3)
+
+| # | Sujet | Proposition | Alternative |
+|---|---|---|---|
+| D22 | Affirmations 2022 | **Rédigées par l'agent dans la session (aucun appel API), proposées dans `docs/affirmations-2022.md`** (30 affirmations, 5 par thème, 12 sur l'axe x et 18 sur l'axe y, sens alternés) ; tu valides ou corriges ligne par ligne, puis elles sont écrites dans `statements.json` | Génération par l'API |
+| D23 | Axe des thèmes | Économie et social sur x (sauf l'uniforme à l'école) ; **écologie partagée** : régulation et fiscalité sur x, nucléaire et éolien sur y (clivage progressisme / conservatisme) ; Europe, régalien et institutions sur y. Les cas discutables sont signalés dans le document | Écologie entièrement sur x |
+| D24 | Unité de `propose-positions` | **Une requête par couple (candidat, affirmation)**, soit 360 : les 6 extraits du candidat les plus proches de l'affirmation (`retrieve()` corrigé, bge-m3), sans le nom du candidat (extraction « aveugle », pour limiter les connaissances a priori du modèle) | Une requête par candidat pour les 30 affirmations (moins de requêtes, mais contexte long et contamination entre affirmations) |
+| D25 | Échelle et preuves | `prompts/positions_system.md` (en-tête `version`) : +2 / -2 engagement explicite, +1 / -1 orientation nette sans engagement chiffré ou daté, 0 position explicitement mitigée (rare), `null` si les extraits ne traitent pas le sujet ; au moins une citation exacte si la valeur n'est pas `null`. Les citations natives étant incompatibles avec la sortie structurée (vérifié dans la doc), **chaque citation est vérifiée après coup** (sous-chaîne de l'extrait, espaces normalisés, comme `/api/ask`) ; citation non retrouvée : signalée à la revue | Citations natives sans sortie structurée, puis analyse du texte |
+| D26 | Unité de `propose-measures` | **Une requête par couple (candidat, thème)**, soit 72 : 10 extraits du candidat (requête = description du thème, filtre de thème si au moins 4 extraits classés), 5 mesures phares au plus, chiffrage `chiffre` (montant cité), `partiel` (coût ou financement évoqué sans montant complet) ou `intention` ; tout montant doit figurer dans la citation (vérifié) ; identifiants `mNNN` attribués par le pipeline | Extraction de toutes les mesures du programme en une passe par document |
+| D27 | Modèle et réglages | **Sonnet 5.5**, réflexion adaptative, effort `medium`, sortie structurée (`output_config.format`), Batch API (-50 %). Réglages et prompts vérifiés contre la doc Claude au moment d'écrire le code | Haiku 5.5 (comparaison possible en M4 sur l'échantillon revu) |
+| D28 | Pilote avant le lot complet | **Pilote sur 2 candidats** (60 positions, 12 requêtes de mesures, appels directs) : tu en revois un échantillon, le prompt est ajusté, puis le lot complet part en Batch | Lot complet d'emblée |
+| D29 | Stockage des propositions | **`data/elections/<id>/proposals/{positions,measures}.jsonl` versionnés** (modèle, version du prompt, identifiant de lot, extraits fournis, sortie brute, résultat de la vérification des citations, coût) ; `positions.json` et `measures.json` sont écrits à partir des propositions avec `review.status = pending`, puis mis à jour par la revue | Propositions non versionnées |
+| D30 | Traçabilité des corrections | Champ facultatif **`proposed_value`** ajouté à `positions.schema.json` (valeur proposée quand le statut est `corrected`) et `proposed` (titre, résumé, chiffrage d'origine) à `measures.schema.json` ; la note de revue reste libre | Historique dans un fichier séparé |
+| D31 | Outil de revue | **Application marimo locale** (`review/review_positions.py`, `review/review_measures.py`, lancées par `uv run marimo run`) : jamais construite ni servie par le web, aucune surface en production. Affiche la proposition, les citations surlignées dans leur extrait, le lien vers la page du PDF, les signalements (citation non retrouvée, confiance faible) ; boutons valider / corriger / rejeter, écriture immédiate et validée par le schéma ; reprise là où on s'est arrêté. File triée : signalements d'abord | Page Next `/admin/review` (meilleure ergonomie au clavier, mais route d'écriture à exclure du build prod) ; CLI interactive |
+| D32 | Garde-fous de coût | `--dry-run` (nombre de requêtes et coût estimé) ; `--max-usd` (refus au-delà) ; confirmation explicite avant l'envoi d'un lot ; reprise d'un lot interrompu (identifiant de lot conservé) ; propositions déjà présentes non redemandées ; **aucun appel réel en CI** (client simulé, fixtures) | Pas de plafond |
+| D33 | Boussole 2022 publiée | Dès que les positions 2022 sont revues, `build` publie 2022 complet ; **sélecteur d'élection sur l'accueil** (démo fictive et 2022), 2022 par défaut avec la mention « élection passée, programmes du 1er tour » | Démo par défaut jusqu'en 2027 |
+| D34 | Comparateur et radar | Page statique `/comparateur` : 2 ou 3 candidats, tableau thème × candidat (mesures phares, chiffrage annoncé, divergences = affirmations à écart ≥ 3), grille radar (statut par thème : `chiffré` si au moins une mesure chiffrée, sinon `partiel`, sinon `intention`, sinon `silence`), pictogramme **et** libellé, cellule qui ouvre mesures et citations ; ordre de session, mode aveugle via `displayCandidate()` ; aucun total ni classement | Radar en graphique polaire (refusé en § 15) |
+| D35 | Sous-lots et branches | **Quatre PR** : `feat/m3a-affirmations` (D22, D23, D30 : affirmations, schémas), `feat/m3b-extraction` (D24 à D29, D32 : prompts, propositions, pilote puis lot), `feat/m3c-revue` (D31 et ta revue), `feat/m3d-comparateur` (D33, D34 : build 2022, accueil, comparateur, radar) | Une seule PR M3 |
+
+> 📝 Annotation : OK
+
+### 5.1 Affirmations 2022 (M3a)
+- `docs/affirmations-2022.md` : 30 affirmations proposées, avec pour chacune thème, axe, sens, poids et remarque sur les cas discutables. Règles SPEC § 4.2 : au moins 4 par thème et 10 par axe, sens alternés, formulations neutres et vérifiables dans les programmes (une affirmation sur laquelle les programmes se taisent presque tous est écartée).
+- Après ta validation : `statements.json` 2022, `pipeline validate` vert (contrôles de couverture), fixture du moteur inchangée.
+
+### 5.2 Extraction (M3b), test d'abord
+| Commande | Rôle | Tests clés |
+|---|---|---|
+| `propose-positions E [--candidates] [--pilot] [--dry-run] [--max-usd]` | extraits par couple, requête Claude (directe en pilote, Batch sinon), sortie structurée validée, citations vérifiées, écriture de `proposals/positions.jsonl` puis de `positions.json` (`pending`) | client simulé ; schéma de sortie ; citation absente de l'extrait signalée ; `null` sans citation accepté, valeur sans citation refusée ; reprise d'un lot ; plafond de coût ; aucune requête sans `--yes` |
+| `propose-measures E …` | idem par (candidat, thème) ; montants vérifiés dans la citation ; identifiants stables | montant absent de la citation signalé ; identifiants déterministes |
+| `batch-status E` | état des lots en cours, coût réel relevé depuis `usage` | lot simulé |
+
+- Prompts `prompts/positions_system.md` et `prompts/measures_system.md` : mêmes règles de neutralité que le chat (aucun jugement, extraits seuls, aucune connaissance extérieure), plus l'échelle D25.
+- Notebook `m3-01-extraction-positions.py` : distribution des valeurs et des silences par candidat et par thème, confiance, taux de citations vérifiées, coût par requête ; pilote puis lot complet.
+
+### 5.3 Revue (M3c)
+- Applications marimo (D31), décisions écrites dans `positions.json` / `measures.json` (`review.reviewer`, `date`, `note`, `proposed_value`). **100 % des propositions revues** avant la publication de 2022 (environ 360 positions et 250 mesures : plusieurs heures de ton temps, découpables).
+- Notebook `m3-02-corrections.py` : taux de validation, de correction et de rejet, écart moyen des corrections, corrections par thème et par niveau de confiance (mesure de la fiabilité de l'extraction, réutilisée en M4).
+
+### 5.4 Build 2022, accueil, comparateur, radar (M3d)
+- `build` 2022 complet (positions et mesures `validated` / `corrected` seulement, ACP) ; sélecteur d'élection sur l'accueil (D33).
+- `/comparateur` et grille radar (D34) ; chaînes dans `fr.ts` (contrôle des formulations interdites) ; tests unitaires (statut radar, divergences), Playwright + axe (ordinateur et mobile), mode aveugle.
+
+### 5.5 Critères d'acceptation M3
+- [x] `statements.json` 2022 validé par le mainteneur, `pipeline validate` vert.
+- [ ] `propose-positions` / `propose-measures` testés avec client simulé (aucun appel réel en CI) ; sorties conformes aux schémas ; citations vérifiées.
+- [ ] Pilote revu, prompt ajusté, lot complet traité ; coût réel relevé.
+- [ ] 100 % des propositions revues, décisions tracées ; notebook m3-02 (taux de correction).
+- [ ] Boussole 2022 publiée (positions revues seulement), comparateur et radar en ligne ; Playwright + axe ; CI verte ; revue `relecteur` sans problème bloquant.
+
+**Coût estimé** : positions 360 requêtes (environ 5 k tokens d'entrée, 1,5 k de sortie réflexion comprise) environ 4,5 $ en Batch ; mesures 72 requêtes environ 1,7 $ ; pilote en appels directs environ 1,5 $ ; marge pour relances : **environ 8 à 12 $** (prévision initiale 10-20 $).
+
+> 📝 Annotation :
 
 ## 6. M4 : Backtest 2022
 

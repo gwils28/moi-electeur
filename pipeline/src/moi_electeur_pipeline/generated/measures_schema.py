@@ -23,6 +23,15 @@ class Costing(BaseModel):
     quote: str | None = None
 
 
+class ProposedMeasure(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    title: str | None = None
+    summary: str | None = None
+    costing: Costing | None = None
+
+
 class Measure(BaseModel):
     model_config = ConfigDict(
         extra="forbid",
@@ -32,8 +41,13 @@ class Measure(BaseModel):
     theme: str
     title: constr(min_length=1)
     summary: str
-    costing: Costing = Field(..., title="Costing")
+    costing: Costing
     evidence: list[evidence_schema.Evidence]
+    proposed: ProposedMeasure | None = Field(
+        None,
+        description="Contenu proposé par l'extraction, conservé quand la revue le corrige (statut corrected seulement).",
+        title="ProposedMeasure",
+    )
     review: review_schema.Review
 
 

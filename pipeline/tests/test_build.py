@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+from collections.abc import Callable
 from pathlib import Path
 from typing import Any
 
@@ -120,3 +121,13 @@ def test_build_corpus_seul_publie_la_configuration_seule(tmp_path: Path) -> None
     assert sorted(p.name for p in target.iterdir()) == ["election_config.json"]
     written = json.loads((target / "election_config.json").read_text(encoding="utf-8"))
     assert written == read_config(election)
+
+
+def test_build_affirmations_seules_publie_la_configuration_seule(
+    demo_docs: dict[str, Any], write_election: Callable[[dict[str, Any]], Path], tmp_path: Path
+) -> None:
+    """M3 : affirmations validées mais positions pas encore revues, pas de boussole publiée."""
+    del demo_docs["positions.json"]
+    del demo_docs["measures.json"]
+    target = build_election(write_election(demo_docs), tmp_path / "out")
+    assert sorted(p.name for p in target.iterdir()) == ["election_config.json"]

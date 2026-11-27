@@ -163,6 +163,29 @@ def _mutate_evidence_outside_corpus(d: Docs) -> None:
     d["election_config.json"]["fictional"] = False
 
 
+def _mutate_proposed_value_out_of_range(d: Docs) -> None:
+    p = d["positions.json"]["positions"][0]
+    p["review"]["status"] = "corrected"
+    p["proposed_value"] = 5
+
+
+def _mutate_proposed_value_not_corrected(d: Docs) -> None:
+    p = next(p for p in d["positions.json"]["positions"] if p["review"]["status"] == "validated")
+    p["proposed_value"] = p["value"]
+
+
+def _mutate_measure_proposed_not_corrected(d: Docs) -> None:
+    m = d["measures.json"]["measures"][0]
+    m["review"]["status"] = "validated"
+    m["proposed"] = {"title": m["title"], "summary": m["summary"], "costing": m["costing"]}
+
+
+def _mutate_measure_proposed_extra(d: Docs) -> None:
+    m = d["measures.json"]["measures"][0]
+    m["review"]["status"] = "corrected"
+    m["proposed"] = {"title": m["title"], "inconnu": 1}
+
+
 @pytest.mark.parametrize(
     ("mutate", "expected"),
     [
@@ -194,6 +217,10 @@ def _mutate_evidence_outside_corpus(d: Docs) -> None:
         (_mutate_corrected_no_evidence, "sans citation"),
         (_mutate_alias_surname, "révèle"),
         (_mutate_evidence_outside_corpus, "document cité hors corpus"),
+        (_mutate_proposed_value_out_of_range, "maximum"),
+        (_mutate_proposed_value_not_corrected, "proposed_value hors statut corrected"),
+        (_mutate_measure_proposed_not_corrected, "proposed hors statut corrected"),
+        (_mutate_measure_proposed_extra, "Additional properties"),
     ],
 )
 def test_regle_rejette_cas_casse(
@@ -232,6 +259,42 @@ def test_silence_valide_sans_citation(
     p = next(p for p in demo_docs["positions.json"]["positions"] if p["value"] is None)
     assert p["review"]["status"] == "validated" and p["evidence"] == []
     assert validate_election(write_election(demo_docs)) == []
+
+
+def test_correction_tracee_valide(demo_docs: Docs, write_election: Callable[[Docs], Path]) -> None:
+    """PLAN D30 : la valeur (ou la mesure) proposée est conservée quand la revue la corrige."""
+    p = next(p for p in demo_docs["positions.json"]["positions"] if p["value"] is not None)
+    p["review"]["status"] = "corrected"
+    p["proposed_value"] = None
+    m = demo_docs["measures.json"]["measures"][0]
+    m["review"]["status"] = "corrected"
+    m["proposed"] = {"title": "Titre proposé", "summary": "Résumé.", "costing": m["costing"]}
+    assert validate_election(write_election(demo_docs)) == []
+
+
+# Boussole « en préparation » (M3) : affirmations validées, positions pas encore extraites.
+
+
+def test_affirmations_seules_valides(
+    demo_docs: Docs, write_election: Callable[[Docs], Path]
+) -> None:
+    del demo_docs["positions.json"]
+    del demo_docs["measures.json"]
+    assert validate_election(write_election(demo_docs)) == []
+
+
+def test_affirmations_seules_couverture_controlee(
+    demo_docs: Docs, write_election: Callable[[Docs], Path]
+) -> None:
+    del demo_docs["positions.json"]
+    del demo_docs["measures.json"]
+    _mutate_theme_coverage(demo_docs)
+    assert "thème institutions" in messages(write_election(demo_docs))
+
+
+def test_affirmations_2022_commitees_valides() -> None:
+    election = elections_dir() / "fr-presidentielle-2022"
+    assert validate_election(election) == []
 
 
 # Élection « corpus seul » (PLAN D13) et contrôles du corpus.
