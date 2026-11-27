@@ -3,10 +3,11 @@ import type { ElectionConfig } from "@moi-electeur/schemas-ts";
 import { join } from "node:path";
 import { assembleElection, type ElectionData } from "./data";
 
-export const DEFAULT_ELECTION = process.env.ELECTION_ID ?? "demo-fictive";
+/** Élection demandée par défaut (`ELECTION_ID`) ; sinon la première élection réelle publiée (D33). */
+export const PREFERRED_ELECTION = process.env.ELECTION_ID;
 
 /** Lecture au build (composant serveur) des JSON produits par `pipeline build`. */
-export function loadElection(id: string = DEFAULT_ELECTION): ElectionData {
+export function loadElection(id: string): ElectionData {
   const dir = join(process.cwd(), "public", "data", id);
   const read = (f: string) => JSON.parse(readFileSync(join(dir, f), "utf-8"));
   return assembleElection({
@@ -16,6 +17,23 @@ export function loadElection(id: string = DEFAULT_ELECTION): ElectionData {
     measures: read("measures.json"),
     pca: read("pca_model.json"),
   });
+}
+
+/**
+ * Boussoles publiées par `pipeline build` (élections avec affirmations, positions revues et
+ * ACP ; une élection « corpus seul » ou en cours de revue n'a que sa configuration).
+ */
+export function loadCompassElections(): ElectionData[] {
+  const root = join(process.cwd(), "public", "data");
+  if (!existsSync(root)) return [];
+  return readdirSync(root)
+    .sort()
+    .filter((id) =>
+      ["statements.json", "positions.json", "pca_model.json"].every((f) =>
+        existsSync(join(root, id, f)),
+      ),
+    )
+    .map((id) => loadElection(id));
 }
 
 /** Élection proposée dans l'explorateur : celles qui ont un corpus de documents officiels. */

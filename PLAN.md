@@ -304,6 +304,7 @@ Plan initial (annoté « ok ») : 1. affirmations 2022 proposées par Claude, va
 - [x] Pilote revu, prompt ajusté, lot complet traité ; coût réel relevé (4,68 $).
 - [ ] 100 % des propositions revues, décisions tracées ; notebook m3-02 (taux de correction).
 - [ ] Boussole 2022 publiée (positions revues seulement), comparateur et radar en ligne ; Playwright + axe ; CI verte ; revue `relecteur` sans problème bloquant.
+  - Fait (M3d) : sélecteur d'élection, `/comparateur` et radar, Playwright + axe ; reste : revue humaine 2022 (M3c) pour publier la boussole 2022, notebook m3-02, revue `relecteur` de fin de jalon.
 
 **Coût estimé** : positions 360 requêtes (environ 5 k tokens d'entrée, 1,5 k de sortie réflexion comprise) environ 4,5 $ en Batch ; mesures 72 requêtes environ 1,7 $ ; pilote en appels directs environ 1,5 $ ; marge pour relances : **environ 8 à 12 $** (prévision initiale 10-20 $).
 
