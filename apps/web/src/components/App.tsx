@@ -7,18 +7,19 @@ import {
   type Answers,
   type ThemeWeights,
 } from "@moi-electeur/engine";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { themeIds, type ElectionData } from "@/lib/data";
 import { displayCandidates } from "@/lib/present";
 import { loadLocal, saveLocal, sessionSeed } from "@/lib/session";
 import { fr } from "@/i18n/fr";
+import { PastElectionNote } from "./ElectionPicker";
 import { Questionnaire } from "./Questionnaire";
 import { Results } from "./Results";
 
 type Step = "intro" | "questions" | "results";
 
 /** Boussole : tout est calculé ici, dans le navigateur. Aucune réponse n'est envoyée au réseau. */
-export function App({ data }: { data: ElectionData }) {
+export function App({ data, picker }: { data: ElectionData; picker?: ReactNode }) {
   const { config, statements, positions } = data;
   const themes = useMemo(() => themeIds(config), [config]);
   const [step, setStep] = useState<Step>("intro");
@@ -82,7 +83,9 @@ export function App({ data }: { data: ElectionData }) {
       <header>
         <h1 className="text-3xl font-bold">{fr.appName}</h1>
         <p>{fr.tagline}</p>
+        {picker}
         {config.fictional && <p className="mt-1 text-sm font-medium">{fr.fictional}</p>}
+        <PastElectionNote config={config} />
         <p className="text-sm">{fr.privacy}</p>
       </header>
       {notice && (

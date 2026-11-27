@@ -14,6 +14,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <Link href="/" className="underline">
             {fr.nav.compass}
           </Link>
+          <Link href="/comparateur" className="underline">
+            {fr.nav.comparator}
+          </Link>
           <Link href="/explorer" className="underline">
             {fr.nav.explorer}
           </Link>

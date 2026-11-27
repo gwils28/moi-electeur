@@ -70,7 +70,57 @@ export const fr = {
   editAnswers: "Modifier mes réponses",
   invalidCode: "Le lien de réponses est invalide ou incomplet ; questionnaire vierge.",
   missingData: "Données introuvables : lancer `uv run pipeline build`.",
-  nav: { label: "Navigation principale", compass: "Boussole", explorer: "Explorateur" },
+  nav: {
+    label: "Navigation principale",
+    compass: "Boussole",
+    comparator: "Comparateur",
+    explorer: "Explorateur",
+  },
+  election: "Élection",
+  pastElection: (date: string) =>
+    `Élection passée : positions tirées des programmes officiels du premier tour (${date}).`,
+  noCompass: "Aucune boussole n'est encore publiée.",
+  comparator: {
+    title: "Comparateur des programmes",
+    intro:
+      "Choisissez deux ou trois candidats : leurs mesures phares et leurs chiffrages s'affichent thème par thème, avec les affirmations sur lesquelles leurs programmes s'opposent.",
+    orderNote:
+      "Les candidats sont affichés dans un ordre aléatoire, tiré à chaque visite. Aucun total ni classement : chaque cellule décrit un programme.",
+    pick: "Candidats comparés (deux ou trois)",
+    pickMore: "Choisissez au moins deux candidats.",
+    pickLimit: "Trois candidats au plus : retirez-en un pour en choisir un autre.",
+    faceToFace: "Face-à-face",
+    faceCaption: "Mesures phares et chiffrage annoncé, par thème",
+    theme: "Thème",
+    noMeasure: "Aucune mesure retenue",
+    divergences: "Divergences (écart de 3 ou 4 entre deux programmes)",
+    divergencesHelp:
+      "Affirmations de la boussole sur lesquelles au moins deux des programmes choisis prennent des positions opposées.",
+    noDivergence: "Aucune divergence de cette ampleur entre ces programmes.",
+    positionLabels: {
+      "2": "S'engage pour (+2)",
+      "1": "Plutôt pour (+1)",
+      "0": "Position intermédiaire (0)",
+      "-1": "Plutôt contre (-1)",
+      "-2": "S'engage contre (-2)",
+    } as Record<string, string>,
+    silence: "Silence du programme",
+    radar: "Radar des chiffrages",
+    radarHelp:
+      "Pour chaque thème, le statut le plus précis des mesures relevées : chiffré si au moins une mesure annonce un montant, partiel si un coût ou un financement est évoqué sans montant complet, intention sinon, silence si aucune mesure n'est retenue. Sélectionnez une cellule pour voir les mesures et leurs citations.",
+    radarCaption: "Statut des chiffrages par thème et par candidat",
+    status: {
+      chiffre: "chiffré",
+      partiel: "partiel",
+      intention: "intention",
+      silence: "silence",
+    },
+    cellLabel: (candidate: string, theme: string, status: string) =>
+      `${candidate}, ${theme} : ${status}. Afficher les mesures.`,
+    details: (candidate: string, theme: string) => `Mesures de ${candidate} : ${theme}`,
+    costingQuote: "Passage du chiffrage",
+    citations: "Citations",
+  },
   explorer: {
     title: "Explorateur des programmes",
     intro:

@@ -40,6 +40,13 @@ export function assembleElection(raw: RawElectionFiles): ElectionData {
   };
 }
 
+/** Options du sélecteur d'élection (D33) : identifiant et nom de l'élection. */
+export function electionOptions(
+  elections: readonly ElectionData[],
+): { readonly id: string; readonly label: string }[] {
+  return elections.map((e) => ({ id: e.config.id, label: e.config.name }));
+}
+
 export function themeIds(config: ElectionConfig): string[] {
   return config.themes.map((t) => t.id);
 }
