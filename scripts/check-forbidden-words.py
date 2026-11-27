@@ -1,25 +1,24 @@
 #!/usr/bin/env python3
 """CI : aucun texte produit par l'app ne classe un candidat (CLAUDE.md, SPEC § 1).
 
-Analyse les chaînes UI (apps/web/src/i18n/) et les prompts (prompts/).
+Analyse les chaînes UI (apps/web/src/i18n/), le code du chat (apps/web/src/lib/rag/) et les prompts (prompts/).
 """
 
+import json
 import re
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-TARGETS = [ROOT / "apps/web/src/i18n", ROOT / "prompts", ROOT / "services/rag/src"]
-FORBIDDEN = [
-    r"\bmeilleure?s?\b",
-    r"\bpire\b",
-    r"\bplus\s+crédibles?\b",
-    r"\bgagnante?s?\b",
-    r"\bperdante?s?\b",
-    r"\brecommand\w*",
-    r"\bvotez\b",
-    r"\bfavori(te)?s?\b",
+TARGETS = [
+    ROOT / "apps/web/src/i18n",
+    ROOT / "apps/web/src/lib/rag",
+    ROOT / "prompts",
+    ROOT / "services/rag/src",
 ]
+# Source unique, partagée avec le garde-fou de /api/ask (apps/web/src/lib/rag/neutrality.ts).
+WORDS_FILE = ROOT / "prompts/forbidden_words.json"
+FORBIDDEN: list[str] = json.loads(WORDS_FILE.read_text(encoding="utf-8"))["patterns"]
 PATTERN = re.compile("|".join(FORBIDDEN), re.IGNORECASE)
 # Une ligne peut assumer un mot interdit en le justifiant (ex. une consigne qui l'interdit).
 ALLOW = "mots-interdits: autorise"
@@ -33,6 +32,9 @@ def scan(paths: list[Path], allowed: list[str] | None = None) -> list[str]:
         for path in sorted(p for p in base.rglob("*") if p.is_file()):
             # Caches compilés (__pycache__/*.pyc) : binaires, hors périmètre.
             if "__pycache__" in path.parts or path.suffix == ".pyc":
+                continue
+            # La liste elle-même.
+            if path == WORDS_FILE:
                 continue
             for i, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
                 m = PATTERN.search(line)

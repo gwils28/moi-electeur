@@ -22,6 +22,9 @@ COPY packages/engine/package.json packages/engine/package.json
 COPY packages/schemas-ts/package.json packages/schemas-ts/package.json
 RUN pnpm install --frozen-lockfile
 COPY packages packages
+# Schémas (validation de /api/ask) et prompts (prompt système, mots interdits) : lus par la route.
+COPY schemas schemas
+COPY prompts prompts
 COPY apps/web apps/web
 COPY --from=data /app/apps/web/public/data apps/web/public/data
 # Données déjà produites par l'étape « data » : on saute le prebuild (pnpm data).

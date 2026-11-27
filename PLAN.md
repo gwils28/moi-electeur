@@ -241,7 +241,7 @@ Table `chunks` : `id, election_id, candidate_id, document_title, source_url, pag
 - [x] `docs/sources-2022.md` validé, `pipeline fetch` vérifie les 12 candidats (sha256 OK), `pipeline validate` vert sur 2022 (M2a, 2026-11-19 : 24 documents).
 - [ ] `extract` + `chunk` + `index` sur 2022 avec les deux modèles ; aucun chunk sans métadonnée ; rapport de couverture (pages et chunks par candidat) dans le notebook m2-01.
 - [ ] `/retrieve` renvoie au moins un chunk par candidat sur chaque question du jeu de fumée ; rappel@4 mesuré pour les deux modèles et RRF vs sémantique seul (chiffres dans les notes).
-- [ ] `/api/ask` : tests verts (rate limit, budget, cache, post-validation, absence de logs de question) avec client Anthropic simulé.
+- [x] `/api/ask` : tests verts (rate limit, budget, cache, post-validation, absence de logs de question) avec client Anthropic simulé (M2c, 2026-11-27 : 83 tests web).
 - [ ] Parcours manuel dans `/explorer` sur Haiku, captures jointes, coût réel relevé (< 2 $).
 - [ ] Playwright + axe sur `/explorer` (réponse simulée), CI verte, revue `relecteur` sans problème bloquant.
 

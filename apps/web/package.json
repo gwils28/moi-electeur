@@ -16,7 +16,9 @@
     "prebuild": "pnpm data"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^1.14.0",
     "@moi-electeur/engine": "workspace:*",
+    "ajv": "^8.20.0",
     "d3-scale": "^4.0.3",
     "next": "^16.4.6",
     "react": "^19.3.1",
