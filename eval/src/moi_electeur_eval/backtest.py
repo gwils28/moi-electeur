@@ -22,7 +22,7 @@ from .judge import summarize_judgements
 from .neutrality import permutation_effects
 from .profiles import Noise, synthetic_profiles
 from .recall import MethodReport
-from .reference import agreement, read_sheet
+from .reference import agreement, ches_correlation, read_sheet
 from .report import load_fixture, reports
 from .smoke import Question
 from .stats import paired_bootstrap
@@ -249,12 +249,24 @@ def profiles_section(p: Mapping[str, Any]) -> list[str]:
 
 def reference_results(sheet: Path, election: Path) -> dict[str, Any]:
     coded = read_sheet(sheet) if sheet.is_file() else []
+    statements = json.loads((election / "statements.json").read_text(encoding="utf-8"))[
+        "statements"
+    ]
     positions = json.loads((election / "positions.json").read_text(encoding="utf-8"))["positions"]
-    ches_dir = sheet.parent / "ches"
-    return {
-        "agreement": agreement(coded, positions) if coded else None,
-        "ches_file": ches_dir.is_dir() and any(ches_dir.iterdir()),
-    }
+    ids = [s["id"] for s in statements]
+    coords = {}
+    for c in sorted({p["candidate_id"] for p in positions}):
+        a = project_a(candidate_answers(positions, c, ids), statements)
+        if a["x"] is not None and a["y"] is not None:
+            coords[c] = (a["x"], a["y"])
+    ches_file = sheet.parent / "ches-france.json"
+    ches = {}
+    if ches_file.is_file():
+        doc = json.loads(ches_file.read_text(encoding="utf-8"))
+        for wave, parties in sorted(doc["waves"].items()):
+            scores = {k: (v["lrecon"], v["galtan"]) for k, v in parties.items()}
+            ches[wave] = ches_correlation(coords, scores, doc["mapping"][wave])
+    return {"agreement": agreement(coded, positions) if coded else None, "ches": ches}
 
 
 def reference_section(r: Mapping[str, Any]) -> list[str]:
@@ -274,18 +286,98 @@ def reference_section(r: Mapping[str, Any]) -> list[str]:
             "(60 couples), **non encore codée** par le mainteneur."
         )
     out.append("")
-    if r["ches_file"]:
-        out.append("CHES : fichier présent, comparaison à brancher (`reference.ches_correlation`).")
+    if r["ches"]:
+        out += [
+            "Chapel Hill Expert Survey (`eval/reference/ches-france.json`) : corrélation de rangs "
+            "(Spearman) entre les coordonnées du mode A et les scores des partis de rattachement "
+            "(lrecon pour l'axe économique, galtan pour l'axe société).",
+            "",
+            "| Vague CHES | Candidats comparés | Spearman x / lrecon | Spearman y / galtan | "
+            "Sans parti couvert |",
+            "|---|---|---|---|---|",
+        ]
+        for wave, c in r["ches"].items():
+            out.append(
+                f"| {wave} | {c['n']} | {_fmt(c['spearman_x'])} | {_fmt(c['spearman_y'])} | "
+                f"{', '.join(c['missing'])} |"
+            )
+        out += [
+            "",
+            "Huit points seulement : une corrélation de rangs de 0,8 y reste fragile "
+            "(intervalle large) ; elle indique un ordre des programmes cohérent avec le jugement "
+            "des experts sur les partis, pas une mesure de l'exactitude de chaque position.",
+        ]
     else:
         out.append(
-            "CHES (lrecon, galtan) : **non mesuré**, le fichier de la Chapel Hill Expert Survey "
-            "n'est pas déposé (téléchargement soumis à l'accord du mainteneur)."
+            "CHES (lrecon, galtan) : **non mesuré**, `eval/reference/ches-france.json` absent."
         )
     return out
 
 
 def _strip_scores(summary: Mapping[str, Any]) -> dict[str, Any]:
     return {m: {k: v for k, v in d.items() if k != "scores"} for m, d in summary.items()}
+
+
+def variant_results(
+    run_dir: Path, questions: Sequence[Question], names: Mapping[str, str]
+) -> dict[str, Any]:
+    """Une variante du mode rapide (autre prompt ou autre k) : chat, juge, permutations."""
+    records = [r for r in _read_jsonl(run_dir / "ask.jsonl") if r["perm"] == 0]
+    judged = _read_jsonl(run_dir / "judge.jsonl")
+    verdicts = {v["custom_id"]: v["verdict"] for v in judged}
+    perms = _read_jsonl(run_dir / "perms.jsonl")
+    effects = permutation_effects(perms) if perms else None
+    meta = next((e for r in records for e in r["events"] if e["type"] == "meta"), None)
+    return {
+        "name": run_dir.name,
+        "prompt_version": meta["prompt_version"] if meta else None,
+        "chat": _strip_scores(summarize(records, questions, names)).get("rapide"),
+        "judge": (summarize_judgements(verdicts, records).get("rapide") if verdicts else None),
+        "spearman_rank_length": effects["spearman_rank_length"] if effects else None,
+        "cost_usd": sum(r["log"]["cost_usd"] for r in records if r.get("log"))
+        + sum(r["log"]["cost_usd"] for r in perms if r.get("log"))
+        + sum(v.get("cost_usd", 0.0) for v in judged),
+    }
+
+
+def variants_section(base: Mapping[str, Any], variants: Sequence[Mapping[str, Any]]) -> list[str]:
+    if not variants:
+        return []
+    rows = [
+        {
+            "name": "référence (prompt v1, k = 4)",
+            "chat": base["chat"].get("rapide"),
+            "judge": (base["judge"] or {}).get("rapide"),
+            "spearman_rank_length": (base["permutations"] or {}).get("spearman_rank_length"),
+        }
+    ]
+    rows += [{**v, "name": v["label"]} for v in variants]
+    metrics: list[tuple[str, Callable[[Mapping[str, Any]], str]]] = [
+        ("Citations vérifiées", lambda r: _pct(r["chat"]["verified_rate"])),
+        ("Faux silences", lambda r: _pct(r["chat"]["false_silence_rate"])),
+        ("Silences corrects", lambda r: _pct(r["chat"]["correct_silence_rate"])),
+        ("Refus d'orienter le vote", lambda r: _pct(r["chat"]["refusal_rate"])),
+        ("Jetons inconnus", lambda r: str(r["chat"]["unknown_tokens"])),
+        ("Noms écrits", lambda r: str(r["chat"]["name_leaks"])),
+        (
+            "Affirmations non appuyées (juge)",
+            lambda r: _pct(r["judge"]["unsupported_rate"]) if r.get("judge") else "n/d",
+        ),
+        ("Effet de rang (Spearman)", lambda r: _fmt(r.get("spearman_rank_length"))),
+        (
+            "Coût moyen par question",
+            lambda r: f"{r['chat']['cost_usd'] / max(r['chat']['answers'], 1):.4f} $",
+        ),
+    ]
+    out = [
+        "## 2 bis. Variantes du mode rapide (Haiku 5.5, 60 questions)",
+        "",
+        "| Mesure | " + " | ".join(r["name"] for r in rows) + " |",
+        "|---|" + "---|" * len(rows),
+    ]
+    for label, fn in metrics:
+        out.append(f"| {label} | " + " | ".join(fn(r) for r in rows) + " |")
+    return out
 
 
 def collect_results(
@@ -297,6 +389,7 @@ def collect_results(
     run_dir: Path,
     election: Path,
     sheet: Path,
+    variants: Sequence[tuple[str, Path]] = (),
 ) -> dict[str, Any]:
     """Toutes les mesures, sous une forme JSON versionnable (aucun texte de réponse)."""
     records = _read_jsonl(run_dir / "ask.jsonl")
@@ -317,10 +410,17 @@ def collect_results(
         "permutations": effects,
         "profiles": profiles_results(election),
         "reference": reference_results(sheet, election),
+        "variants": (
+            computed := [
+                {**variant_results(path, questions, names), "label": label}
+                for label, path in variants
+            ]
+        ),
         "costs": {
             "chat": sum(r["log"]["cost_usd"] for r in records if r.get("log")),
             "permutations": sum(r["log"]["cost_usd"] for r in perms if r.get("log")),
             "juge": sum(v.get("cost_usd", 0.0) for v in judged),
+            "variantes (chat, permutations, juge)": sum(v["cost_usd"] for v in computed),
         },
     }
 
@@ -338,6 +438,8 @@ def render(results: Mapping[str, Any], decisions: str | None = None) -> str:
         *retrieval_section(results["retrieval"]),
         "",
         *chat_section(results["chat"], results["judge"]),
+        "",
+        *variants_section(results, results.get("variants", [])),
         "",
         *permutation_section(results["permutations"]),
         "",

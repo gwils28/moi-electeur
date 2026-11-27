@@ -778,11 +778,366 @@
  },
  "reference": {
   "agreement": null,
-  "ches_file": false
+  "ches": {
+   "2019": {
+    "n": 8,
+    "missing": [
+     "arthaud",
+     "lassalle",
+     "poutou",
+     "zemmour"
+    ],
+    "spearman_x": 0.8571428571428572,
+    "spearman_y": 0.9047619047619048
+   },
+   "2024": {
+    "n": 8,
+    "missing": [
+     "arthaud",
+     "dupont-aignan",
+     "lassalle",
+     "poutou"
+    ],
+    "spearman_x": 0.880952380952381,
+    "spearman_y": 0.8333333333333335
+   }
+  }
  },
+ "variants": [
+  {
+   "name": "2026-11-27-v2",
+   "prompt_version": "2",
+   "chat": {
+    "answers": 60,
+    "errors": 0,
+    "truncated": 0,
+    "citations": 1277,
+    "verified_rate": 0.9929522317932654,
+    "wrong_candidate_rate": 0.007047768206734534,
+    "false_silence_rate": 0.08423326133909287,
+    "correct_silence_rate": 0.9435483870967742,
+    "expected_total": 463,
+    "silent_total": 124,
+    "missing_sections": 1,
+    "unknown_tokens": 12,
+    "name_leaks": 1,
+    "neutrality_flags": 12,
+    "refusal_rate": 1.0,
+    "cost_usd": 0.448,
+    "latency_ms_mean": 15502,
+    "tokens_out_mean": 3788
+   },
+   "judge": {
+    "judged": 60,
+    "failed": 0,
+    "claims": 1492,
+    "unsupported": 20,
+    "unsupported_rate": 0.013404825737265416,
+    "sections_with_unsupported": 20,
+    "examples": [
+     [
+      "q10-ecole",
+      "pecresse",
+      "Le programme prévoit de donner plus de liberté aux écoles, collèges et lycées pour innover et mener à bien leurs projets pédagogiques"
+     ],
+     [
+      "q11-otan",
+      "pecresse",
+      "Aucune proposition de sortie de l'OTAN ni de son commandement intégré n'apparaît dans ces extraits."
+     ],
+     [
+      "q14-vote-ecologie",
+      "lassalle",
+      "Il propose aussi de prévenir les ouragans et des tempêtes dans les territoires d'outre-mer."
+     ],
+     [
+      "q15-quel-candidat",
+      "jadot",
+      "Le programme prévoit de utiliser le rendement de la hausse des tranches supérieures et de la suppression de quotient conjugal pour baisser les taux des premières tranches de l'impôt sur le revenu."
+     ],
+     [
+      "q19-succession",
+      "pecresse",
+      "jusqu'à 100 000 € sans impôt par enfant et par petit-enfant tous les 6 ans"
+     ],
+     [
+      "q20-nationalisations",
+      "hidalgo",
+      "Cette prise de participation est présentée comme temporaire, pour reprendre et accompagner temporairement les entreprises en difficulté."
+     ],
+     [
+      "q22-energie-prix",
+      "hidalgo",
+      "Le programme propose de atteindre 100 % d'énergies renouvelables dès que possible et permettre notre indépendance énergétique."
+     ],
+     [
+      "q24-rsa",
+      "zemmour",
+      "Il indique que cette mesure sera réservée aux citoyens qui respectent la loi."
+     ],
+     [
+      "q26-famille",
+      "poutou",
+      "Il ne comporte pas de proposition sur les allocations familiales dans les extraits analysés."
+     ],
+     [
+      "q28-handicap",
+      "arthaud",
+      "Le programme ne détaille pas de mesure spécifique sur l'AAH."
+     ],
+     [
+      "q29-temps-travail",
+      "zemmour",
+      "Le programme ne traite pas d'une durée légale hebdomadaire de 35 ou 32 heures."
+     ],
+     [
+      "q29-temps-travail",
+      "macron",
+      "Il ne mentionne pas de durée hebdomadaire de 35 ou 32 heures."
+     ],
+     [
+      "q29-temps-travail",
+      "lassalle",
+      "Cette mesure concerne les accompagnants d'élèves en situation de handicap et non la durée légale du travail en général."
+     ],
+     [
+      "q42-peines",
+      "melenchon",
+      "Il ne mentionne pas de peines planchers dans les extraits consultés."
+     ],
+     [
+      "q45-laicite",
+      "poutou",
+      "Le programme propose de garantir le libre habillement pour les lycéen·ne·s, sans évoquer explicitement le port du voile."
+     ],
+     [
+      "q51-outre-mer",
+      "roussel",
+      "Il prévoit aussi que la politique fiscale spécifique à l'Outre-Mer sera profondément revue."
+     ],
+     [
+      "q57-culture",
+      "roussel",
+      "la création d'un grand ministère de la Culture doté d'un budget égal à 1 % du PIB, présentée comme une intervention publique distincte"
+     ],
+     [
+      "q58-numerique",
+      "pecresse",
+      "Le document mentionne en outre, comme objectif, de garantir notre souveraineté numérique, sans autre détail dans les extraits."
+     ],
+     [
+      "q60-programme-serieux",
+      "jadot",
+      "Il prévoit aussi de augmenter le taux de la taxe sur les transactions financières de 0,3% à 0,4%."
+     ],
+     [
+      "q60-programme-serieux",
+      "arthaud",
+      "Il prévoit d'imposer le contrôle des travailleurs sur les banques."
+     ]
+    ]
+   },
+   "spearman_rank_length": -0.06320451676833545,
+   "cost_usd": 1.1341257,
+   "label": "prompt v2, k = 4"
+  },
+  {
+   "name": "2026-11-27-v2k6",
+   "prompt_version": "2",
+   "chat": {
+    "answers": 60,
+    "errors": 0,
+    "truncated": 0,
+    "citations": 1295,
+    "verified_rate": 0.9953667953667954,
+    "wrong_candidate_rate": 0.004633204633204633,
+    "false_silence_rate": 0.06479481641468683,
+    "correct_silence_rate": 0.9596774193548387,
+    "expected_total": 463,
+    "silent_total": 124,
+    "missing_sections": 0,
+    "unknown_tokens": 6,
+    "name_leaks": 3,
+    "neutrality_flags": 10,
+    "refusal_rate": 1.0,
+    "cost_usd": 0.6099,
+    "latency_ms_mean": 16176,
+    "tokens_out_mean": 3914
+   },
+   "judge": {
+    "judged": 60,
+    "failed": 0,
+    "claims": 1555,
+    "unsupported": 35,
+    "unsupported_rate": 0.022508038585209004,
+    "sections_with_unsupported": 31,
+    "examples": [
+     [
+      "q01-nucleaire",
+      "poutou",
+      "fermeture immédiate des réacteurs de plus de 40 ans, abandon des projets d'enfouissement des déchets"
+     ],
+     [
+      "q04-fin-de-vie",
+      "melenchon",
+      "Le texte ne détaille pas de dispositif précis sur ce point."
+     ],
+     [
+      "q04-fin-de-vie",
+      "jadot",
+      "Le programme affirme vouloir un droit à une fin de vie digne, choisie et apaisée."
+     ],
+     [
+      "q06-isf",
+      "dupont-aignan",
+      "Il ne s'agit pas explicitement de l'ISF tel qu'il existait, mais d'un impôt visant les très grandes fortunes."
+     ],
+     [
+      "q08-immigration",
+      "macron",
+      "de créer une « force des frontières » pour renforcer les frontières nationales"
+     ],
+     [
+      "q08-immigration",
+      "poutou",
+      "le droit de vote des étrangers résidant en France à toutes les élections"
+     ],
+     [
+      "q08-immigration",
+      "hidalgo",
+      "de relancer la politique d'intégration"
+     ],
+     [
+      "q09-hopital",
+      "arthaud",
+      "Il estime qu'on arriverait à des centaines de milliers d’emplois utiles et indispensables à créer tout de suite en demandant aux personnels des hôpitaux, des Ehpad et d'autres services publics quels recrutements ils jugent nécessaires."
+     ],
+     [
+      "q09-hopital",
+      "zemmour",
+      "Il prévoit de doubler le nombre des médecins et de soignants formés, en revalorisant les emplois d'infirmiers et d'aides-soignants."
+     ],
+     [
+      "q11-otan",
+      "pecresse",
+      "Il ne prévoit pas de sortie de l'organisation."
+     ],
+     [
+      "q11-otan",
+      "arthaud",
+      "Il ne formule pas de proposition de retrait de l'OTAN ou de son commandement intégré."
+     ],
+     [
+      "q18-tva",
+      "lassalle",
+      "Il ne mentionne pas de baisse de TVA sur les produits de première nécessité."
+     ],
+     [
+      "q25-logement",
+      "zemmour",
+      "réserver aux Français, en priorité les plus modestes, l'attribution des logements sociaux"
+     ],
+     [
+      "q26-famille",
+      "zemmour",
+      "Il vise la suppression des aides sociales non contributives pour les étrangers extra-européens (allocations familiales, RSA, aides au logement, minimum vieillesse…)."
+     ],
+     [
+      "q28-handicap",
+      "macron",
+      "Il rappelle des actions déjà menées, dont l'investissement pour accompagner les personnes en situation de handicap."
+     ],
+     [
+      "q28-handicap",
+      "lassalle",
+      "Pour l'école, il prévoit de former et revaloriser les accompagnants d'élèves en situation de handicap (AESH) et les aidants."
+     ],
+     [
+      "q29-temps-travail",
+      "macron",
+      "Il ne contient pas de mesure portant sur la durée légale de 35 ou 32 heures."
+     ],
+     [
+      "q37-droit-europeen",
+      "dupont-aignan",
+      "le traité étant soumis à référendum si les négociations aboutissent"
+     ],
+     [
+      "q41-prisons",
+      "melenchon",
+      "Le programme prévoit d'« en finir avec la surpopulation dans les prisons »"
+     ],
+     [
+      "q41-prisons",
+      "macron",
+      "Le document indique que, depuis 2017, la construction de 15 000 places de prison a été lancée."
+     ],
+     [
+      "q42-peines",
+      "jadot",
+      "Le programme ne mentionne pas de peines planchers."
+     ],
+     [
+      "q42-peines",
+      "zemmour",
+      "Le programme ne mentionne pas de peines planchers."
+     ],
+     [
+      "q42-peines",
+      "hidalgo",
+      "Le programme ne mentionne pas de peines planchers."
+     ],
+     [
+      "q42-peines",
+      "melenchon",
+      "Le programme ne mentionne pas de peines planchers."
+     ],
+     [
+      "q44-regularisation",
+      "zemmour",
+      "Le programme s'inscrit dans une politique de fermeté envers les étrangers en situation irrégulière."
+     ],
+     [
+      "q45-laicite",
+      "poutou",
+      "Il annonce aussi que le traitement inhumain des migrant·e·s en France, les contrôles au faciès, les violences policières et les discriminations seraient combattus contre le racisme d'État et l'islamophobie."
+     ],
+     [
+      "q49-vote-etrangers",
+      "hidalgo",
+      "dans le cadre d'une citoyenneté identique pour tous"
+     ],
+     [
+      "q50-decentralisation",
+      "roussel",
+      "Les lois de réorganisation territoriale précédentes seront abrogées"
+     ],
+     [
+      "q56-espace",
+      "pecresse",
+      "dans le cadre d'1 milliard supplémentaire pour la recherche"
+     ],
+     [
+      "q56-espace",
+      "melenchon",
+      "un traité international pour la non-appropriation des ressources spatiales et la démilitarisation de l'espace"
+     ],
+     [
+      "q58-numerique",
+      "lassalle",
+      "Une profession de foi reprend la même mesure, avec une nouvelle discipline pour maîtriser les outils numériques et non plus les subir, avec un CAPES dédié."
+     ]
+    ]
+   },
+   "spearman_rank_length": null,
+   "cost_usd": 1.0175718,
+   "label": "prompt v2, k = 6"
+  }
+ ],
  "costs": {
   "chat": 8.1580693,
   "permutations": 0.2709361,
-  "juge": 0.8104124
+  "juge": 0.8104124,
+  "variantes (chat, permutations, juge)": 2.1516975
  }
 }

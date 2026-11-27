@@ -171,6 +171,7 @@ export function Results(p: Props) {
         </div>
       )}
 
+      <p className="text-sm">{fr.coverageNote}</p>
       <ul className="grid gap-2 sm:grid-cols-2" data-testid="proximity-list">
         {computed.rows.map((r) => {
           const prev = previous?.scores[r.display.id];
@@ -188,8 +189,9 @@ export function Results(p: Props) {
                 <>
                   <p>
                     {fr.proximity} : <strong>{Math.round(r.prox.score)} %</strong>{" "}
-                    <span className="text-sm">
-                      ({fr.coverage(Math.round(r.prox.coverage * 100))})
+                    <span className="text-sm" data-testid="coverage">
+                      ({fr.coverage(Math.round(r.prox.coverage * 100))},{" "}
+                      {fr.coverageDetail(r.prox.n, r.prox.answered)})
                     </span>
                   </p>
                   <meter

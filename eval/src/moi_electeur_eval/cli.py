@@ -221,6 +221,10 @@ def cmd_backtest_report(args: argparse.Namespace) -> int:
             run_dir=args.run_dir,
             election=election,
             sheet=ROOT / "eval" / "reference" / "codage-2022.csv",
+            variants=[
+                (label, Path(path))
+                for label, _, path in (v.rpartition("=") for v in args.variant or [])
+            ],
         )
         results_path = ROOT / "eval" / "results" / f"{results['date']}.json"
         _write_json(results_path, results)
@@ -284,6 +288,11 @@ def build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("backtest-report", help="rapport du backtest M4 (fichiers versionnés)")
     p.add_argument("--run-dir", type=Path, default=None, help="fichiers bruts du banc d'essai")
     p.add_argument("--results", type=Path, default=None, help="mesures versionnées (sans brut)")
+    p.add_argument(
+        "--variant",
+        action="append",
+        help="variante du mode rapide « libellé=dossier » (répétable)",
+    )
     p.add_argument("--election", default=ELECTION)
     p.add_argument("--out", type=Path, default=None)
     p.set_defaults(func=cmd_backtest_report)

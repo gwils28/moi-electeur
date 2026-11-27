@@ -1,0 +1,107 @@
+{
+  "description": "Scores des partis français dans la Chapel Hill Expert Survey (vagues 2019 et 2024), extraits du fichier de tendance 1999-2024 (1999-2024_CHES_dataset_meansV2.csv, téléchargé le 2026-11-27 depuis https://github.com/chesdata/chesdata.github.io/releases/download/ches-trend/1999-2024_CHES_dataset_meansV2.csv, lien publié sur https://www.chesdata.eu/ches-europe). lrecon : position économique gauche (0) - droite (10) ; galtan : libertaire (0) - autoritaire (10). Source : Jolly et al., Chapel Hill Expert Survey Trend File 1999-2019 ; Rovny et al., 2024 Chapel Hill Expert Survey, Electoral Studies 2025 (doi:10.1016/j.electstud.2025.102981).",
+  "waves": {
+    "2019": {
+      "FI": {
+        "lrecon": 0.875,
+        "galtan": 3.125
+      },
+      "RN": {
+        "lrecon": 6.875,
+        "galtan": 8.125
+      },
+      "DLF": {
+        "lrecon": 7.0,
+        "galtan": 8.2857
+      },
+      "EELV": {
+        "lrecon": 2.875,
+        "galtan": 1.625
+      },
+      "PS": {
+        "lrecon": 3.125,
+        "galtan": 2.75
+      },
+      "MoDem": {
+        "lrecon": 6.25,
+        "galtan": 4.5
+      },
+      "LREM": {
+        "lrecon": 6.3333,
+        "galtan": 3.1667
+      },
+      "LR": {
+        "lrecon": 8.125,
+        "galtan": 6.875
+      },
+      "PCF": {
+        "lrecon": 1.125,
+        "galtan": 3.75
+      }
+    },
+    "2024": {
+      "RN": {
+        "lrecon": 6.0,
+        "galtan": 8.3636
+      },
+      "PCF": {
+        "lrecon": 1.2727,
+        "galtan": 3.5455
+      },
+      "MoDem": {
+        "lrecon": 5.7,
+        "galtan": 4.5
+      },
+      "Horizons": {
+        "lrecon": 6.8,
+        "galtan": 5.3
+      },
+      "REC": {
+        "lrecon": 8.3333,
+        "galtan": 9.1
+      },
+      "LR": {
+        "lrecon": 7.8182,
+        "galtan": 7.1818
+      },
+      "LE/EELV": {
+        "lrecon": 2.3,
+        "galtan": 1.7
+      },
+      "RE": {
+        "lrecon": 6.1818,
+        "galtan": 4.0909
+      },
+      "FI": {
+        "lrecon": 0.9091,
+        "galtan": 1.8182
+      },
+      "PS": {
+        "lrecon": 3.3636,
+        "galtan": 2.7273
+      }
+    }
+  },
+  "mapping": {
+    "2019": {
+      "melenchon": "FI",
+      "roussel": "PCF",
+      "hidalgo": "PS",
+      "jadot": "EELV",
+      "macron": "LREM",
+      "pecresse": "LR",
+      "dupont-aignan": "DLF",
+      "le-pen": "RN"
+    },
+    "2024": {
+      "melenchon": "FI",
+      "roussel": "PCF",
+      "hidalgo": "PS",
+      "jadot": "LE/EELV",
+      "macron": "RE",
+      "pecresse": "LR",
+      "le-pen": "RN",
+      "zemmour": "REC"
+    }
+  }
+}

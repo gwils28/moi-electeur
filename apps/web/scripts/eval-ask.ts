@@ -39,6 +39,7 @@ interface Args {
   only: Set<string> | null;
   maxUsd: number;
   dryRun: boolean;
+  k: number | undefined;
 }
 
 function parseArgs(argv: string[]): Args {
@@ -58,6 +59,7 @@ function parseArgs(argv: string[]): Args {
     only: only ? new Set(only.split(",")) : null,
     maxUsd: Number(get("max-usd") ?? "5"),
     dryRun: argv.includes("--dry-run"),
+    k: get("k") ? Number(get("k")) : undefined,
   };
 }
 
@@ -168,6 +170,7 @@ async function main(): Promise<void> {
         log = r;
       },
       rng: seededRng(`${q.id}|${perm}`),
+      ...(args.k === undefined ? {} : { k: args.k }),
       now: Date.now,
     });
     const res = await handler(

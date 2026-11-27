@@ -120,6 +120,8 @@ const MARK = "\uE000";
 const MARK_RE = /\uE000(\d+)\uE000/g;
 const HEADING = /^[ \t]*#{1,6}[ \t]*\{\{(c\d+)\}\}[^\n]*$/gm;
 const TOKEN = /\{\{(c\d+)\}\}/g;
+// Titre à jeton non numéroté (`### {{cN}}`), défaut de format observé en backtest (M4) : retiré.
+const BAD_HEADING = /^[ \t]*#{1,6}[ \t]*\{\{c(?!\d+\}\})[^}\n]*\}\}[ \t]*$/gm;
 
 /**
  * Mise en page d'une réponse : une section par candidat (`### {{cN}}`), **dans l'ordre de session
@@ -147,6 +149,7 @@ export function layoutAnswer(
     const marks = b.citations.map((c) => `${MARK}${pool.push(c) - 1}${MARK}`).join("");
     text += trimmed + marks + body.slice(trimmed.length);
   }
+  text = text.replace(BAD_HEADING, "");
   if (opts.streaming) {
     // Dernière ligne encore incomplète qui commence un titre : affichée une fois terminée.
     const cut = text.lastIndexOf("\n") + 1;
