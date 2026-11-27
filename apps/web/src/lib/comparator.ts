@@ -102,13 +102,35 @@ export function formatAmount(eur: number): string {
   return `${new Intl.NumberFormat("fr-FR", { maximumFractionDigits: 0 }).format(eur)} euros`;
 }
 
-/** Élection affichée par défaut : celle demandée si publiée, sinon la première réelle. */
+/**
+ * Élection affichée par défaut : celle demandée si publiée, sinon l'élection réelle la plus
+ * récente (2027 avant 2022), sinon la première.
+ */
 export function defaultElection(
-  elections: readonly { id: string; fictional?: boolean | undefined }[],
+  elections: readonly {
+    id: string;
+    fictional?: boolean | undefined;
+    date_first_round?: string | undefined;
+  }[],
   preferred?: string,
 ): string | null {
   if (preferred && elections.some((e) => e.id === preferred)) return preferred;
-  return (elections.find((e) => !e.fictional) ?? elections[0])?.id ?? null;
+  const real = elections
+    .filter((e) => !e.fictional)
+    .sort((a, b) => (b.date_first_round ?? "").localeCompare(a.date_first_round ?? ""));
+  return (real[0] ?? elections[0])?.id ?? null;
+}
+
+/** Mode aveugle : noms masqués dans le texte libre d'une mesure (titre, résumé, période). */
+export function maskedMeasure(measure: Measure, mask: ((text: string) => string) | null): Measure {
+  if (!mask) return measure;
+  const period = measure.costing.period;
+  return {
+    ...measure,
+    title: mask(measure.title),
+    summary: mask(measure.summary),
+    costing: { ...measure.costing, ...(period ? { period: mask(period) } : {}) },
+  };
 }
 
 /** Élection réelle dont le premier tour est passé (mention « élection passée »). */

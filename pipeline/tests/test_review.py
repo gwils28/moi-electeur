@@ -244,6 +244,8 @@ def test_tout_revu_rend_la_boussole_publiable(proposed: Path) -> None:
             reviewer="r",
             on=DAY,
         )
+    for e in measure_queue(proposed):  # mesures revues aussi (relecture de fin de M3)
+        review_measure(proposed, e["id"], decision="validated", reviewer="r", on=DAY)
     assert compass_ready(proposed)
     assert progress(proposed)["positions"] == {"validated": 180}
 
@@ -330,3 +332,108 @@ def test_propositions_intactes(proposed: Path) -> None:
     review_position(proposed, "c1", "s01", decision="corrected", reviewer="r", on=DAY, value=2)
     assert load_records(proposals_path(proposed, "position")) == before
     assert json.loads((proposed / "positions.json").read_text(encoding="utf-8"))
+
+
+# Suites de la relecture de fin de M3.
+
+
+def _validate_all(election: Path) -> None:
+    for e in position_queue(election):
+        review_position(
+            election,
+            e["candidate_id"],
+            e["statement_id"],
+            decision="validated",
+            reviewer="r",
+            on=DAY,
+        )
+
+
+def test_boussole_non_publiable_tant_que_des_mesures_attendent(proposed: Path) -> None:
+    _validate_all(proposed)
+    assert not compass_ready(proposed)  # 36 mesures encore en attente
+    for e in measure_queue(proposed):
+        review_measure(proposed, e["id"], decision="validated", reviewer="r", on=DAY)
+    assert compass_ready(proposed)
+
+
+def test_build_retire_les_fichiers_d_une_boussole_redevenue_non_prete(
+    proposed: Path, tmp_path: Path
+) -> None:
+    from moi_electeur_pipeline.build import build_election
+
+    _validate_all(proposed)
+    for e in measure_queue(proposed):
+        review_measure(proposed, e["id"], decision="validated", reviewer="r", on=DAY)
+    target = build_election(proposed, tmp_path / "out")
+    assert (target / "positions.json").is_file()
+    doc = _read(proposed, "positions.json")
+    doc["positions"][0]["review"] = {"status": "pending"}
+    (proposed / "positions.json").write_text(json.dumps(doc), encoding="utf-8")
+    build_election(proposed, tmp_path / "out")
+    assert sorted(f.name for f in target.iterdir()) == ["election_config.json"]
+
+
+def test_decision_sans_sources_locales(proposed: Path) -> None:
+    (proposed / "sources" / "chunks.jsonl").unlink()
+    review_position(proposed, "c1", "s01", decision="rejected", reviewer="r", on=DAY)
+    review_position(proposed, "c1", "s02", decision="validated", reviewer="r", on=DAY)
+    with pytest.raises(ReviewError, match="sources"):
+        review_position(
+            proposed,
+            "c1",
+            "s03",
+            decision="corrected",
+            reviewer="r",
+            on=DAY,
+            value=2,
+            quotes=["Une citation quelconque du programme."],
+        )
+
+
+def test_citations_refusees_pour_un_silence(proposed: Path) -> None:
+    with pytest.raises(ReviewError, match="silence"):
+        review_position(
+            proposed,
+            "c1",
+            "s01",
+            decision="corrected",
+            reviewer="r",
+            on=DAY,
+            value=None,
+            quotes=["L'âge de départ sera ramené à 60 ans."],
+        )
+
+
+def test_chiffrage_inchange_ni_reecrit_ni_reverifie(proposed: Path) -> None:
+    m = next(x for x in _read(proposed, "measures.json")["measures"] if x["id"] == "m001")
+    (proposed / "sources" / "chunks.jsonl").unlink()  # aucune revérification possible
+    review_measure(
+        proposed,
+        "m001",
+        decision="corrected",
+        reviewer="r",
+        on=DAY,
+        title="Nouveau titre",
+        costing=dict(m["costing"]),
+    )
+    after = next(x for x in _read(proposed, "measures.json")["measures"] if x["id"] == "m001")
+    assert after["costing"] == m["costing"]
+    assert after["proposed"] == {"title": m["title"]}
+
+
+def test_ecriture_restauree_si_la_validation_plante(
+    proposed: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    from moi_electeur_pipeline import review as review_module
+
+    before = (proposed / "positions.json").read_text(encoding="utf-8")
+
+    def boom(_: Path) -> list[Any]:
+        raise RuntimeError("panne")
+
+    monkeypatch.setattr(review_module, "validate_election", boom)
+    with pytest.raises(RuntimeError):
+        review_position(proposed, "c1", "s01", decision="validated", reviewer="r", on=DAY)
+    assert (proposed / "positions.json").read_text(encoding="utf-8") == before
+    assert not list(proposed.glob("*.tmp"))

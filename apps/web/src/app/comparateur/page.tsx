@@ -10,7 +10,11 @@ export const metadata: Metadata = { title: `${fr.comparator.title} · ${fr.appNa
 export default function ComparatorPage() {
   const elections = loadCompassElections();
   const defaultId = defaultElection(
-    elections.map((e) => ({ id: e.config.id, fictional: e.config.fictional })),
+    elections.map((e) => ({
+      id: e.config.id,
+      fictional: e.config.fictional,
+      date_first_round: e.config.date_first_round,
+    })),
     PREFERRED_ELECTION,
   );
   if (defaultId === null) {

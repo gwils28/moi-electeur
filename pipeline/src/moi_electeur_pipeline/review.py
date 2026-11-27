@@ -141,17 +141,32 @@ def progress(election_dir: Path) -> dict[str, dict[str, int]]:
 
 
 def _write_validated(election_dir: Path, name: str, doc: dict[str, Any]) -> None:
-    """Écrit le fichier puis le valide avec toute l'élection ; en cas d'échec, rétablit
-    l'ancien contenu et lève `ReviewError` (rien n'est conservé)."""
+    """Écrit le fichier puis le valide avec toute l'élection ; en cas d'échec (problèmes
+    trouvés ou exception), rétablit l'ancien contenu : rien n'est conservé."""
     path = election_dir / name
     before = path.read_text(encoding="utf-8")
     tmp = path.with_suffix(".json.tmp")
-    tmp.write_text(dumps(doc, indent=2) + "\n", encoding="utf-8")
-    tmp.replace(path)
-    issues = validate_election(election_dir)
+    try:
+        tmp.write_text(dumps(doc, indent=2) + "\n", encoding="utf-8")
+        tmp.replace(path)
+        issues = validate_election(election_dir)
+    except BaseException:
+        path.write_text(before, encoding="utf-8")
+        raise
+    finally:
+        tmp.unlink(missing_ok=True)
     if issues:
         path.write_text(before, encoding="utf-8")
         raise ReviewError("décision refusée : " + "; ".join(map(str, issues)))
+
+
+def _lookup(election_dir: Path) -> dict[str, dict[str, Any]]:
+    try:
+        return load_chunk_lookup(election_dir)
+    except FileNotFoundError as exc:
+        raise ReviewError(
+            "texte des extraits absent (sources/chunks.jsonl) : lancer `pipeline chunk`"
+        ) from exc
 
 
 def _check_decision(decision: str, reviewer: str) -> str:
@@ -175,7 +190,7 @@ def _candidate_evidence(
 ) -> list[dict[str, Any]]:
     """Citations saisies par le réviseur : chacune doit figurer (à la normalisation près) dans
     un extrait du corpus de ce candidat ; elle est enregistrée telle qu'elle y figure."""
-    lookup = load_chunk_lookup(election_dir)
+    lookup = _lookup(election_dir)
     mine = [c for c in lookup.values() if c["candidate_id"] == candidate_id]
     out = []
     for quote in quotes:
@@ -197,14 +212,20 @@ def _candidate_evidence(
 def _original_position(
     election_dir: Path, p: dict[str, Any]
 ) -> tuple[int | None, list[dict[str, Any]]]:
-    """Valeur et citations d'origine (celles écrites depuis la proposition)."""
-    value = p["proposed_value"] if "proposed_value" in p else p["value"]
+    """Valeur et citations d'origine (celles écrites depuis la proposition). Tant que la
+    position n'est pas corrigée, ce sont les siennes : aucun accès aux sources locales."""
+    if p["review"]["status"] != "corrected":
+        return p["value"], list(p["evidence"])
+    value = p.get("proposed_value")
     rec = load_records(proposals_path(election_dir, "position")).get(
         position_custom_id(p["candidate_id"], p["statement_id"])
     )
     if rec is None or rec["status"] != "ok" or value is None:
-        return value, list(p["evidence"]) if p["review"]["status"] != "corrected" else []
-    return value, _evidence(rec["quotes"], load_chunk_lookup(election_dir), None)
+        return value, []
+    try:
+        return value, _evidence(rec["quotes"], _lookup(election_dir), None)
+    except KeyError as exc:
+        raise ReviewError(f"extrait d'origine introuvable dans sources/ : {exc}") from exc
 
 
 def review_position(
@@ -240,6 +261,8 @@ def review_position(
             raise ReviewError("une correction exige une valeur (entier de -2 à 2, ou silence)")
         p["proposed_value"] = original
         p["value"] = value
+        if quotes and value is None:
+            raise ReviewError("un silence ne prend pas de citation : retirer les citations")
         if quotes:
             p["evidence"] = _candidate_evidence(election_dir, candidate_id, quotes)
         elif p["review"]["status"] != "corrected" and not p["evidence"]:
@@ -289,6 +312,8 @@ def review_measure(
     m.pop("proposed", None)
     if decision == "corrected":
         changes = {"title": title, "summary": summary, "costing": costing}
+        if costing is not None and costing == original["costing"]:
+            costing = None  # chiffrage inchangé : ni réécrit, ni revérifié
         if costing is not None and costing.get("quote"):
             ev = _candidate_evidence(election_dir, m["candidate_id"], [costing["quote"]])[0]
             changes["costing"] = {**costing, "quote": ev["quote"]}
