@@ -362,6 +362,17 @@ Plan initial (annoté « ok ») : audit RGAA manuel en plus d'axe, `docs/methodo
 - [x] Stack de production prête (compose, Caddy, CSP stricte vérifiée par test), déploiement documenté ; CI verte (stack vérifiée en local par `deploy-check.sh`).
 - [ ] Mise en ligne sur le VPS du mainteneur (hors de portée de l'agent sans accès).
 
+## 7 bis. Matrice des positions (demande du mainteneur, 2026-11-28)
+
+Les positions des candidats sur les affirmations (-2 à +2 ou silence, avec citations) servent au calcul mais ne se consultent nulle part en entier : le panneau d'un candidat les compare aux réponses de l'utilisateur, le comparateur n'en montre que les divergences. Le mainteneur souhaite retrouver la vue explorée pendant la conception.
+
+| # | Sujet | Décision |
+|---|---|---|
+| D52 | Page `/positions` | Page statique : tableau affirmations (lignes, groupées par thème dans l'ordre de la config) × candidats (colonnes, **ordre aléatoire de session**), sélecteur d'élection, filtre par thème, mode aveugle via `displayCandidates()`. Cellule = **libellé texte** (+2, +1, 0, -1, -2, silence) doublé d'un pictogramme de position sur une échelle à cinq crans (forme, pas de couleur : ni rouge ni bleu, aucune connotation politique) ; silence = trait, comme le radar. Une cellule ouvre le détail : affirmation, libellé complet, confiance, correction à la revue, citations et pages (masquées en mode aveugle). Seules les positions `validated` / `corrected` (absence = silence, même convention que le comparateur). Aucun total, compte ni classement par candidat. Rappel de méthode en tête (positions proposées par un modèle puis revues, renvoi à la méthodologie). Logique pure dans `apps/web/src/lib/positions.ts` (tests Vitest), page testée en e2e (axe, clavier, aucune requête après chargement, 320 px) |
+| D53 | Navigation | En-tête : Boussole, Comparateur, Positions, Explorateur. **Méthodologie** quitte l'en-tête et reste dans le pied de page (avec Accessibilité) |
+
+> 📝 Annotation : demandé par le mainteneur (« complète le PLAN et implémente dans le même commit, pousse en autonomie »).
+
 ## 8. M6 : Présidentielle 2027
 
 Création de `fr-presidentielle-2027` dès la publication des programmes, même chaîne que 2022 (affirmations, propositions, revue, build). Calendrier dépendant des candidats.

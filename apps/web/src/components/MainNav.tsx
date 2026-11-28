@@ -7,8 +7,8 @@ import { fr } from "@/i18n/fr";
 const LINKS = [
   { href: "/", label: fr.nav.compass },
   { href: "/comparateur", label: fr.nav.comparator },
+  { href: "/positions", label: fr.nav.positions },
   { href: "/explorer", label: fr.nav.explorer },
-  { href: "/methodologie", label: fr.nav.methodology },
 ] as const;
 
 /** Navigation principale ; la page courante est signalée (`aria-current`, RGAA 12). */

@@ -67,6 +67,9 @@ envoyées nulle part.
 - **Comparateur** : mesures phares par thème ; divergences = affirmations où deux programmes
   choisis s'écartent de 3 points ou plus ; radar = statut le plus précis des chiffrages du thème
   (chiffré, partiel, intention, ou silence si aucune mesure n'est retenue).
+- **Positions** : tableau complet des affirmations × candidats, par thème : la position retenue
+  pour chaque programme (-2 à +2, ou silence), sa confiance, une éventuelle correction à la revue
+  et les passages cités. Mêmes données que la boussole, sans total ni classement.
 
 ## 5. Explorateur des programmes (chat)
 
