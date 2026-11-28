@@ -27,7 +27,7 @@ test.describe("sélecteur d'élection (D33)", () => {
   });
 
   test("comparateur : radar de tous les candidats de 2022", async ({ page }) => {
-    await page.goto("/comparateur");
+    await page.goto("/positions/comparateur");
     await page.getByLabel("Élection").selectOption(REAL);
     const radar = page.getByTestId("radar");
     await expect(radar.locator("thead th")).toHaveCount(config.candidates.length + 1);

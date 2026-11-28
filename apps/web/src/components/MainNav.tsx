@@ -8,7 +8,6 @@ import { fr } from "@/i18n/fr";
 const LINKS = [
   { href: "/interrogatoire", label: fr.nav.ask, featured: true },
   { href: "/", label: fr.nav.compass, featured: false },
-  { href: "/comparateur", label: fr.nav.comparator, featured: false },
   { href: "/positions", label: fr.nav.positions, featured: false },
 ] as const;
 

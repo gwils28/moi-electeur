@@ -326,3 +326,9 @@ Suites de la relecture M0 :
 - **Choix conservateur** : noms internes inchangés (`Explorer.tsx`, `lib/explorer/`, `loadExplorerElections`, `test/explorer.test.ts`) pour limiter le diff ; seul le test e2e est renommé (`e2e/interrogatoire.spec.ts`). Titres historiques de PLAN et SPEC non réécrits.
 - Tests : e2e de mise en avant (premier lien, encart, clic, redirection) ; tests d'accessibilité et de CSP basculés sur `/interrogatoire`.
 
+## 2026-11-28 : comparateur en sous-onglet de Positions (PLAN D55)
+
+- **Routes** : `/positions` (tableau complet) et `/positions/comparateur` ; `/comparateur` redirigé de façon permanente (`next.config.ts`). En-tête réduit à Interrogatoire, Boussole, Positions ; l'onglet Positions reste la page courante sur les deux vues.
+- **Sous-navigation** (`components/PositionsTabs.tsx`, rendue par `app/positions/layout.tsx`) : simples liens avec `aria-current="page"`, gras et trait épais, et non un widget ARIA `tablist` (chaque vue a sa propre adresse et se recharge, un `tablist` promettrait des flèches au clavier et un panneau dans la même page).
+- Tests : e2e des sous-onglets (en-tête sans Comparateur, page courante dans les deux navigations, redirection) ; adresses mises à jour dans les tests du comparateur, des élections, d'accessibilité et de CSP, et dans `scripts/deploy-check.sh`.
+

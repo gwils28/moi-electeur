@@ -9,7 +9,11 @@ const nextConfig: NextConfig = {
   agentRules: false,
   // L'explorateur est devenu l'interrogatoire (PLAN D54) : anciens liens conservés.
   async redirects() {
-    return [{ source: "/explorer", destination: "/interrogatoire", permanent: true }];
+    return [
+      { source: "/explorer", destination: "/interrogatoire", permanent: true },
+      // Le comparateur est un sous-onglet de Positions (PLAN D55).
+      { source: "/comparateur", destination: "/positions/comparateur", permanent: true },
+    ];
   },
 };
 

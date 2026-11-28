@@ -19,7 +19,7 @@ async function expectNoAxeViolations(page: Page) {
 const picker = (page: Page) => page.getByRole("group", { name: /Candidats comparés/ });
 
 test("face-à-face, divergences et radar, sans requête après le chargement", async ({ page }) => {
-  await page.goto("/comparateur");
+  await page.goto("/positions/comparateur");
   await page.waitForLoadState("networkidle");
   const requests: string[] = [];
   page.on("request", (r) => requests.push(r.url()));
@@ -69,7 +69,7 @@ test("face-à-face, divergences et radar, sans requête après le chargement", a
 });
 
 test("mode aveugle : ni nom, ni parti, ni couleur, ni citation", async ({ page }) => {
-  await page.goto("/comparateur");
+  await page.goto("/positions/comparateur");
   await page.getByLabel("Mode aveugle").check();
   await page
     .getByTestId("radar")
@@ -87,15 +87,37 @@ test("mode aveugle : ni nom, ni parti, ni couleur, ni citation", async ({ page }
 });
 
 test("accessibilité (axe) : comparateur, sélection et détail du radar", async ({ page }) => {
-  await page.goto("/comparateur");
+  await page.goto("/positions/comparateur");
   await expect(page.getByTestId("radar")).toBeVisible();
   await expectNoAxeViolations(page);
   await page.getByTestId("radar").locator("tbody button").first().click();
   await expectNoAxeViolations(page);
 });
 
-test("navigation principale : lien vers le comparateur", async ({ page }) => {
+test("sous-onglets de Positions (PLAN D55) : tableau complet et comparateur", async ({ page }) => {
   await page.goto("/");
-  await page.getByRole("navigation").getByRole("link", { name: "Comparateur" }).click();
-  await expect(page).toHaveURL(/\/comparateur$/);
+  const main = page.getByRole("navigation", { name: "Navigation principale" });
+  await expect(main.getByRole("link", { name: "Comparateur" })).toHaveCount(0);
+  await main.getByRole("link", { name: "Positions" }).click();
+  await expect(page).toHaveURL(/\/positions$/);
+  const tabs = page.getByRole("navigation", { name: "Vues des positions" });
+  await expect(tabs.getByRole("link", { name: "Tableau complet" })).toHaveAttribute(
+    "aria-current",
+    "page",
+  );
+  await tabs.getByRole("link", { name: "Comparateur" }).click();
+  await expect(page).toHaveURL(/\/positions\/comparateur$/);
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Comparateur des programmes");
+  await expect(tabs.getByRole("link", { name: "Comparateur" })).toHaveAttribute(
+    "aria-current",
+    "page",
+  );
+  // L'onglet Positions de l'en-tête reste la page courante.
+  await expect(main.getByRole("link", { name: "Positions" })).toHaveAttribute(
+    "aria-current",
+    "page",
+  );
+  // Ancienne adresse redirigée.
+  await page.goto("/comparateur");
+  await expect(page).toHaveURL(/\/positions\/comparateur$/);
 });
