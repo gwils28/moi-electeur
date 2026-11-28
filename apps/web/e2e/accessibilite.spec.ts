@@ -6,7 +6,7 @@ const PAGES = [
   { path: "/", h1: "Moi Électeur", nav: "Boussole" },
   { path: "/comparateur", h1: "Comparateur des programmes", nav: "Comparateur" },
   { path: "/positions", h1: "Positions des candidats", nav: "Positions" },
-  { path: "/explorer", h1: "Explorateur des programmes", nav: "Explorateur" },
+  { path: "/interrogatoire", h1: "Interrogatoire des programmes", nav: "Interrogatoire" },
   // Méthodologie : dans le pied de page seulement (PLAN D53), aucune entrée courante en tête.
   { path: "/methodologie", h1: "Méthodologie", nav: null },
 ];

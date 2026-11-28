@@ -11,7 +11,7 @@ taux de conformité au sens réglementaire. Aucune non-conformité connue n'est 
 de l'audit ; la déclaration sera mise à jour après un audit externe.
 
 Pages évaluées : boussole (`/`), comparateur (`/comparateur`), positions (`/positions`, ajoutée
-le 28/11 : tests automatisés et clavier, sans nouvel audit manuel), explorateur (`/explorer`),
+le 28/11 : tests automatisés et clavier, sans nouvel audit manuel), interrogatoire (`/interrogatoire`, ex-`/explorer`),
 méthodologie (`/methodologie`).
 
 ## Méthode

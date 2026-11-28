@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { electionOptions, type ElectionData } from "@/lib/data";
 import { App } from "./App";
+import { AskCallout } from "./AskCallout";
 import { ElectionPicker } from "./ElectionPicker";
 
 /** Accueil : boussole de l'élection choisie ; changer d'élection repart d'un questionnaire vierge. */
@@ -21,6 +22,7 @@ export function CompassHome({
       key={data.config.id}
       data={data}
       picker={<ElectionPicker options={options} value={data.config.id} onChange={setId} />}
+      callout={<AskCallout />}
     />
   );
 }

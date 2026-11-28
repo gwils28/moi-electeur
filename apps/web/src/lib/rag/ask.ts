@@ -99,7 +99,7 @@ const MESSAGES: Record<ErrorCode, string> = {
     "Le mode approfondi a atteint son plafond quotidien : le mode rapide reste disponible.",
   mode_unavailable: "Le mode approfondi n'est pas disponible : le mode rapide reste disponible.",
   chat_unavailable: "Le chat n'est pas disponible pour le moment.",
-  not_indexed: "Cette élection n'est pas disponible dans l'explorateur.",
+  not_indexed: "Cette élection n'est pas disponible pour l'interrogatoire.",
   retrieval_unavailable: "La recherche dans les programmes est indisponible pour le moment.",
 };
 

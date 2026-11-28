@@ -316,3 +316,12 @@ Suites de la relecture M0 :
 - **Constat sur les données 2022 (non corrigé)** : la vue rend visibles des positions discutables, par exemple Fabien Roussel à +1 (confiance faible) sur le rétablissement de l'ISF alors que la citation l'affirme sans réserve. Conséquence attendue de la validation en bloc ; une relecture des 360 positions reste recommandée avant une mise en ligne.
 - Tests : `test/positions.test.ts` (9), `e2e/positions.spec.ts` (matrice, filtre, détail, mode aveugle, axe, clavier, aucune requête) ; `/positions` ajoutée aux tests d'accessibilité (h1, lien d'évitement, page courante, 320 px) et de CSP. Vitest 152, e2e 94.
 - **Sélection des candidats** (ajout demandé le même jour) : cases à cocher et boutons Tous / Aucun, sur le modèle de l'explorateur ; tous affichés par défaut, sélection remise à zéro au changement d'élection ; les colonnes gardent l'ordre aléatoire de session ; aucun candidat coché : tableau masqué et message (`role="status"`, avec le nombre de candidats affichés) ; le détail ouvert d'un candidat retiré se ferme. Test e2e dédié.
+
+## 2026-11-28 : l'explorateur devient l'Interrogatoire (PLAN D54, `feat/interrogatoire`)
+
+- **Nom** : « Interrogatoire », choix du mainteneur. Connotation policière signalée avant l'implémentation (risque de lecture accusatrice envers les candidats) ; nom maintenu par le mainteneur. Les textes de la page restent neutres (« Interrogatoire des programmes » : ce sont les programmes, pas les personnes, qui sont interrogés).
+- **Route** : `/interrogatoire` ; `/explorer` redirigé de façon permanente (`next.config.ts`, 308) pour les liens existants. `scripts/deploy-check.sh` vérifie aussi `/positions` et `/interrogatoire`.
+- **Mise en avant** : premier lien de l'en-tête, en bouton plein aux couleurs du texte (`--fg` sur `--bg`, aucune teinte rouge ou bleue), page courante soulignée en plus d'`aria-current` ; encart sur l'accueil (`components/AskCallout.tsx`, section nommée par son titre) entre l'en-tête de la boussole et le questionnaire.
+- **Choix conservateur** : noms internes inchangés (`Explorer.tsx`, `lib/explorer/`, `loadExplorerElections`, `test/explorer.test.ts`) pour limiter le diff ; seul le test e2e est renommé (`e2e/interrogatoire.spec.ts`). Titres historiques de PLAN et SPEC non réécrits.
+- Tests : e2e de mise en avant (premier lien, encart, clic, redirection) ; tests d'accessibilité et de CSP basculés sur `/interrogatoire`.
+

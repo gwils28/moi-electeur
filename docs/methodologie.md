@@ -71,7 +71,7 @@ envoyées nulle part.
   pour chaque programme (-2 à +2, ou silence), sa confiance, une éventuelle correction à la revue
   et les passages cités. Mêmes données que la boussole, sans total ni classement.
 
-## 5. Explorateur des programmes (chat)
+## 5. Interrogatoire des programmes (chat)
 
 - Votre question est comparée aux 794 extraits par une **recherche hybride** (sens des mots avec
   le modèle multilingual-e5-large, et mots exacts), qui retient les 4 extraits les plus proches

@@ -1,9 +1,9 @@
 # Moi Électeur
 
-Boussole électorale et explorateur des programmes officiels des candidats, à commencer par la présidentielle 2027.
+Boussole électorale et interrogatoire des programmes officiels des candidats, à commencer par la présidentielle 2027.
 
 - **Boussole** : questionnaire, score de proximité et échiquier 2D, calculés entièrement dans le navigateur (aucune réponse n'est envoyée au serveur).
-- **Explorateur** : questions en langage naturel, réponses neutres sourcées par des citations des programmes officiels (RAG + Claude).
+- **Interrogatoire** (`/interrogatoire`, fonction centrale) : questions ouvertes en langage naturel, réponses neutres sourcées par des citations des programmes officiels (RAG + Claude).
 
 Spécification : [SPEC.md](SPEC.md). Plan : [PLAN.md](PLAN.md). Statut : socle en place (jalon M0), données de démonstration fictives.
 

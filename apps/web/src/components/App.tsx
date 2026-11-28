@@ -19,7 +19,16 @@ import { Results } from "./Results";
 type Step = "intro" | "questions" | "results";
 
 /** Boussole : tout est calculé ici, dans le navigateur. Aucune réponse n'est envoyée au réseau. */
-export function App({ data, picker }: { data: ElectionData; picker?: ReactNode }) {
+export function App({
+  data,
+  picker,
+  callout,
+}: {
+  data: ElectionData;
+  picker?: ReactNode;
+  /** Encart affiché sous l'en-tête (accueil : appel vers l'interrogatoire). */
+  callout?: ReactNode;
+}) {
   const { config, statements, positions } = data;
   const themes = useMemo(() => themeIds(config), [config]);
   const [step, setStep] = useState<Step>("intro");
@@ -88,6 +97,7 @@ export function App({ data, picker }: { data: ElectionData; picker?: ReactNode }
         <PastElectionNote config={config} />
         <p className="text-sm">{fr.privacy}</p>
       </header>
+      {callout}
       {notice && (
         <p role="status" className="rounded border p-2">
           {notice}
