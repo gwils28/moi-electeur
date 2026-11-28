@@ -72,7 +72,7 @@ export function ProximityDial({ score, coverage, low, previous, example }: Proxi
             patternUnits="userSpaceOnUse"
             patternTransform="rotate(45)"
           >
-            <rect width="2" height="4" fill="var(--fg)" />
+            <rect width="2" height="4" fill="var(--dial)" />
           </pattern>
         </defs>
       )}
@@ -94,7 +94,7 @@ export function ProximityDial({ score, coverage, low, previous, example }: Proxi
           cy={C}
           r={R_ARC}
           fill="none"
-          stroke={low ? `url(#${hatch})` : "var(--fg)"}
+          stroke={low ? `url(#${hatch})` : "var(--dial)"}
           strokeWidth={10}
           strokeLinecap="butt"
           strokeDasharray={dialDash(score / 100, ARC_LEN)}

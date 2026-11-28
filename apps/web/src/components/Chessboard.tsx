@@ -272,8 +272,10 @@ export function Chessboard(p: Props) {
           style={{ transform: `translate(${sx(ux)}px, ${sy(uy)}px)` }}
           data-testid="user-point"
         >
-          <circle r={9} fill="var(--surface)" stroke="currentColor" strokeWidth={3} />
-          <circle r={3} fill="currentColor" />
+          {/* « Vous » au bleu interactif : distinct des candidats (encre neutre) par la couleur, la
+              forme et le libellé. */}
+          <circle r={9} fill="var(--surface)" stroke="var(--link)" strokeWidth={3} />
+          <circle r={3} fill="var(--link)" />
           <text x={12} y={-10} fontSize={12} fontWeight={700} fill="currentColor" {...HALO}>
             {fr.you}
           </text>

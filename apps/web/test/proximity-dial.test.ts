@@ -17,7 +17,7 @@ describe("ProximityDial (spec de design 6.2)", () => {
     const arc = valueArc(render({ score: 50, coverage: 0.5, low: false }));
     expect(arc).not.toBeNull();
     expect(arc).toMatch(/stroke-dasharray="108\.38/);
-    expect(arc).toContain('stroke="var(--fg)"');
+    expect(arc).toContain('stroke="var(--dial)"');
     expect(dialDash(0.5, ARC_LEN)).toBe("108.38 289.03");
     expect(dialDash(1, ARC_LEN)).toBe("216.77 289.03");
   });

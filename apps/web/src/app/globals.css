@@ -1,48 +1,56 @@
 @import "tailwindcss";
 
 /*
- * Design system « encre et papier » (spec de design, vague 1). Le marine du logo sert à
- * l'interface seulement, jamais aux données ; aucune teinte rouge, bleue ou verte n'encode un
- * score ou une position ; l'ambre est réservé aux avertissements. Contrastes AA vérifiés dans
- * les deux thèmes.
+ * Charte graphique (PLAN D61) : palette du mainteneur, bleu foncé #0B2265 (identité : boutons
+ * principaux, titres, page courante), bleu vif #2563EB (interactif : liens, focus, cadrans),
+ * rouge #E21B23 (erreurs seulement), orange #F59E0B (avertissements, bordures et icônes, jamais
+ * en texte : 2,2:1), texte ardoise #1E293B, gris #94A3B8 (décoratif), fond #F8FAFC.
+ * Neutralité : ni rouge ni bleu n'encode une position, un candidat ou un axe de la carte.
+ * Contrastes AA vérifiés dans les deux thèmes.
  */
 :root {
   color-scheme: light dark;
-  --bg: #f7f7f4;
+  --bg: #f8fafc;
   --surface: #ffffff;
-  --surface-2: #eeeee8;
-  --fg: #1b1f3b;
-  --muted: #4b5068;
-  --line: #d3d4dc;
-  --line-strong: #767b93;
-  --accent: #1b1f3b;
+  --surface-2: #eef2f7;
+  --fg: #1e293b;
+  --heading: #0b2265;
+  --muted: #475569;
+  --line: #e2e8f0;
+  --line-strong: #64748b;
+  --decor: #94a3b8;
+  --accent: #0b2265;
   --accent-fg: #ffffff;
-  --link: #2e3a80;
-  --track: #e2e3e8;
-  --warn-bg: #fff4d6;
-  --warn-line: #8a5a00;
-  --danger-line: #9b1c1c;
-  --blind: #5f6368;
-  --shadow-card: 0 1px 2px rgb(27 31 59 / 0.06), 0 1px 1px rgb(27 31 59 / 0.04);
-  --shadow-pop: 0 8px 24px rgb(27 31 59 / 0.12);
+  --link: #2563eb;
+  --dial: #2563eb;
+  --track: #e2e8f0;
+  --warn-bg: #fef3c7;
+  --warn-line: #f59e0b;
+  --danger-line: #e21b23;
+  --blind: #64748b;
+  --shadow-card: 0 1px 2px rgb(11 34 101 / 0.06), 0 1px 1px rgb(11 34 101 / 0.04);
+  --shadow-pop: 0 8px 24px rgb(11 34 101 / 0.14);
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #0e1120;
-    --surface: #161a2c;
-    --surface-2: #1e2338;
-    --fg: #ecedf5;
-    --muted: #a8acc2;
-    --line: #2c3150;
-    --line-strong: #7a80a3;
-    --accent: #d9dcf5;
-    --accent-fg: #0e1120;
-    --link: #b8c0f5;
-    --track: #2c3150;
-    --warn-bg: #2a2210;
-    --warn-line: #e0b44c;
-    --danger-line: #f2a7a7;
-    --blind: #9aa0a6;
+    --bg: #0f172a;
+    --surface: #1e293b;
+    --surface-2: #273449;
+    --fg: #f8fafc;
+    --heading: #f8fafc;
+    --muted: #94a3b8;
+    --line: #334155;
+    --line-strong: #64748b;
+    --decor: #64748b;
+    --accent: #2563eb;
+    --accent-fg: #ffffff;
+    --link: #60a5fa;
+    --dial: #60a5fa;
+    --track: #334155;
+    --warn-bg: #3a2a0a;
+    --warn-line: #f59e0b;
+    --danger-line: #f87171;
+    --blind: #94a3b8;
     --shadow-card: none;
     --shadow-pop: 0 8px 24px rgb(0 0 0 / 0.5);
   }
@@ -54,6 +62,9 @@
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
   --color-fg: var(--fg);
+  --color-heading: var(--heading);
+  --color-decor: var(--decor);
+  --color-dial: var(--dial);
   --color-muted: var(--muted);
   --color-line: var(--line);
   --color-line-strong: var(--line-strong);
@@ -87,6 +98,11 @@ progress,
 meter {
   accent-color: var(--accent);
 }
+/* Titres à la couleur d'identité (bleu foncé en clair). */
+h1,
+h2 {
+  color: var(--heading);
+}
 a:not([class]) {
   color: var(--link);
   text-decoration: underline;
@@ -95,7 +111,7 @@ a:not([class]) {
 
 /* Focus toujours visible au clavier (RGAA 10.7), quelle que soit la feuille de style du composant. */
 :focus-visible {
-  outline: 3px solid var(--accent);
+  outline: 3px solid var(--link);
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -358,7 +374,7 @@ progress.bar::-moz-progress-bar {
     outline: 1px solid var(--line-strong);
   }
   .segmented > label:has(:focus-visible) {
-    outline: 3px solid var(--accent);
+    outline: 3px solid var(--link);
     outline-offset: 1px;
   }
 
@@ -386,7 +402,7 @@ progress.bar::-moz-progress-bar {
     color: var(--muted);
   }
   .chip:has(:focus-visible) {
-    outline: 3px solid var(--accent);
+    outline: 3px solid var(--link);
     outline-offset: 2px;
   }
 
