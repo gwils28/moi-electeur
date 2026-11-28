@@ -33,7 +33,7 @@ check "Permissions-Policy" "$(has '^permissions-policy:')"
 check "aucun en-tête Server ni X-Powered-By" "$(lacks '^(server|x-powered-by):')"
 check "aucun cookie déposé" "$(lacks '^set-cookie:')"
 
-for path in /positions /positions/comparateur /interrogatoire /methodologie /accessibilite; do
+for path in /boussole /positions /positions/comparateur /methodologie /accessibilite; do
   code="$("${CURL[@]}" -o /dev/null -w '%{http_code}' "$BASE$path")"
   check "$path en 200" "$([ "$code" = "200" ] && echo 1 || echo 0)"
 done

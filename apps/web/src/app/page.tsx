@@ -1,21 +1,18 @@
-import { CompassHome } from "@/components/CompassHome";
-import { defaultElection } from "@/lib/comparator";
-import { loadCompassElections, PREFERRED_ELECTION } from "@/lib/load";
+import type { Metadata } from "next";
+import { Explorer } from "@/components/Explorer";
+import { LegacyCompassLink } from "@/components/LegacyCompassLink";
 import { fr } from "@/i18n/fr";
+import { loadExplorerElections } from "@/lib/load";
 
-// Page statique : les données sont lues au build et embarquées ; la boussole fonctionne ensuite hors ligne.
-export default function Home() {
-  const elections = loadCompassElections();
-  const defaultId = defaultElection(
-    elections.map((e) => ({
-      id: e.config.id,
-      fictional: e.config.fictional,
-      date_first_round: e.config.date_first_round,
-    })),
-    PREFERRED_ELECTION,
+export const metadata: Metadata = { title: `${fr.explorer.title} · ${fr.appName}` };
+
+// Accueil = interrogatoire (PLAN D56). La liste des élections et des candidats est lue côté
+// serveur ; seules les questions passent par /api/ask.
+export default function HomePage() {
+  return (
+    <>
+      <LegacyCompassLink />
+      <Explorer elections={loadExplorerElections()} />
+    </>
   );
-  if (defaultId === null) {
-    return <main className="mx-auto max-w-6xl p-4 sm:p-6">{fr.noCompass}</main>;
-  }
-  return <CompassHome elections={elections} defaultId={defaultId} />;
 }

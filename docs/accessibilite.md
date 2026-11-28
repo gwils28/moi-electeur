@@ -10,8 +10,8 @@ développement, 2026-11-27), pas par un auditeur indépendant : il ne permet pas
 taux de conformité au sens réglementaire. Aucune non-conformité connue n'est ouverte à la date
 de l'audit ; la déclaration sera mise à jour après un audit externe.
 
-Pages évaluées : boussole (`/`), comparateur (`/positions/comparateur`, ex-`/comparateur`), positions (`/positions`, ajoutée
-le 28/11 : tests automatisés et clavier, sans nouvel audit manuel), interrogatoire (`/interrogatoire`, ex-`/explorer`),
+Pages évaluées : boussole (`/boussole`, à l'accueil `/` avant le 28/11), comparateur (`/positions/comparateur`, ex-`/comparateur`), positions (`/positions`, ajoutée
+le 28/11 : tests automatisés et clavier, sans nouvel audit manuel), interrogatoire (page d'accueil `/`, ex-`/explorer`),
 méthodologie (`/methodologie`).
 
 ## Méthode

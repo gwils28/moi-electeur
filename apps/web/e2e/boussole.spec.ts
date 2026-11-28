@@ -47,7 +47,7 @@ async function expectNoAxeViolations(page: Page) {
 }
 
 test("parcours complet sans aucune requête réseau après le chargement", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/boussole");
   await page.waitForLoadState("networkidle");
   const requests: string[] = [];
   page.on("request", (r) => requests.push(r.url()));
@@ -73,7 +73,7 @@ test("parcours complet sans aucune requête réseau après le chargement", async
 });
 
 test("mode aveugle : aucun nom ni parti dans la page", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/boussole");
   await answerAll(page);
   await page.getByLabel("Mode aveugle").check();
   await page.getByTestId("proximity-list").locator("li").first().getByRole("button").click();
@@ -91,7 +91,7 @@ test("mode aveugle : aucun nom ni parti dans la page", async ({ page }) => {
 });
 
 test("« Et si » : trace animée et variation de proximité", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/boussole");
   await answerAll(page);
   await page.getByText("Et si… ?").click();
   await page.getByTestId("whatif-s01").selectOption("-2");
@@ -104,7 +104,7 @@ test("lien #r= : reprise des résultats, fragment jamais envoyé au serveur", as
   page,
   context,
 }) => {
-  await page.goto("/");
+  await page.goto("/boussole");
   await answerAll(page);
   const url = await page.getByTestId("share-url").inputValue();
   expect(url).toMatch(/#r=1[a-en]+\.[1-3]+$/);
@@ -122,13 +122,13 @@ test("lien #r= : reprise des résultats, fragment jamais envoyé au serveur", as
 });
 
 test("lien #r= invalide : questionnaire vierge et message", async ({ page }) => {
-  await page.goto("/#r=9zz");
+  await page.goto("/boussole#r=9zz");
   await expect(page.getByRole("status")).toContainText("invalide");
   await expect(page.getByRole("button", { name: "Commencer le questionnaire" })).toBeVisible();
 });
 
 test("sauvegarde locale désactivée par défaut, active sur demande", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/boussole");
   await answerAll(page);
   expect(await page.evaluate(() => Object.keys(localStorage))).toEqual([]);
   await page.getByLabel("Sauvegarder mes réponses sur cet appareil").check();
@@ -140,12 +140,12 @@ test("sauvegarde locale désactivée par défaut, active sur demande", async ({ 
 test("accessibilité (axe) : accueil, questionnaire, résultats, panneau, mode aveugle", async ({
   page,
 }) => {
-  await page.goto("/");
+  await page.goto("/boussole");
   await expectNoAxeViolations(page);
   await page.getByRole("button", { name: "Commencer le questionnaire" }).click();
   await expectNoAxeViolations(page);
   await page.getByRole("button", { name: "Thème précédent" }).isDisabled();
-  await page.goto("/");
+  await page.goto("/boussole");
   await answerAll(page);
   await expectNoAxeViolations(page);
   await page.getByTestId("proximity-list").locator("li").first().getByRole("button").click();
@@ -154,7 +154,7 @@ test("accessibilité (axe) : accueil, questionnaire, résultats, panneau, mode a
 });
 
 test("questionnaire utilisable au clavier", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/boussole");
   await page.getByRole("button", { name: "Commencer le questionnaire" }).focus();
   await page.keyboard.press("Enter");
   await page.keyboard.press("Tab"); // sélecteur de poids
@@ -169,7 +169,7 @@ test("mode aveugle : alias non liés à l'ordre du fichier de configuration", as
   for (let i = 0; i < 6; i++) {
     const ctx = await browser.newContext();
     const page = await ctx.newPage();
-    await page.goto("/");
+    await page.goto("/boussole");
     await answerAll(page);
     await page.getByLabel("Mode aveugle").check();
     await page.getByRole("button", { name: config.candidates[0]!.blind_alias }).first().click();

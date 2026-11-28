@@ -6,6 +6,6 @@ test("la page d'accueil s'affiche sans requête vers un tiers", async ({ page, b
     if (!req.url().startsWith(baseURL ?? "http://localhost:3000")) external.push(req.url());
   });
   await page.goto("/");
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Moi Électeur");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Interrogatoire des programmes");
   expect(external).toEqual([]);
 });
