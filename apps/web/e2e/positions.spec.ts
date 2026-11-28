@@ -54,6 +54,41 @@ test("matrice complète, filtre par thème, détail avec citations, sans requêt
   expect(requests).toEqual([]);
 });
 
+test("sélection des candidats : un, plusieurs, tous ou aucun", async ({ page }) => {
+  await page.goto("/positions");
+  const table = page.getByTestId("positions");
+  const picker = page.getByRole("group", { name: "Candidats affichés" });
+  const status = picker.getByRole("status");
+  const n = config.candidates.length;
+  await expect(picker.getByRole("checkbox", { checked: true })).toHaveCount(n);
+  await expect(status).toContainText(`Tous les candidats affichés (${n})`);
+
+  // Aucun : le tableau disparaît, un message le dit.
+  await picker.getByRole("button", { name: "Aucun" }).click();
+  await expect(table).toHaveCount(0);
+  await expect(status).toContainText("au moins un candidat");
+
+  // Un seul candidat, puis deux : une colonne par candidat coché.
+  const boxes = picker.getByRole("checkbox");
+  await boxes.nth(0).check();
+  await expect(status).toContainText(`1 candidat affiché sur ${n}`);
+  await expect(table.locator("thead th")).toHaveCount(2);
+  await expect(table.locator("tbody button")).toHaveCount(statements.length);
+  await boxes.nth(3).check();
+  await expect(table.locator("thead th")).toHaveCount(3);
+  await expect(status).toContainText(`2 candidats affichés sur ${n}`);
+
+  // Le détail d'un candidat retiré se ferme.
+  await table.locator("tbody button").first().click();
+  await expect(page.getByTestId("position-details")).toBeVisible();
+  await boxes.nth(0).uncheck();
+  await expect(page.getByTestId("position-details")).toHaveCount(0);
+
+  // Tous : retour au tableau complet.
+  await picker.getByRole("button", { name: "Tous" }).click();
+  await expect(table.locator("thead th")).toHaveCount(n + 1);
+});
+
 test("mode aveugle : ni nom, ni parti, ni citation", async ({ page }) => {
   await page.goto("/positions");
   const table = page.getByTestId("positions");

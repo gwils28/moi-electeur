@@ -106,6 +106,16 @@ export const fr = {
       "Les candidats sont affichés dans un ordre aléatoire, tiré à chaque visite. Aucun total ni classement : chaque cellule décrit un programme.",
     themeFilter: "Thème affiché",
     allThemes: "Tous les thèmes",
+    candidateFilter: "Candidats affichés",
+    allCandidates: "Tous",
+    noCandidates: "Aucun",
+    pickOne: "Choisissez au moins un candidat pour afficher le tableau.",
+    shownCount: (shown: number, total: number) =>
+      shown === total
+        ? `Tous les candidats affichés (${total}).`
+        : shown === 1
+          ? `1 candidat affiché sur ${total}.`
+          : `${shown} candidats affichés sur ${total}.`,
     caption: "Position de chaque programme sur les affirmations de la boussole, par thème",
     statement: "Affirmation",
     legend: "Lecture des cellules",
