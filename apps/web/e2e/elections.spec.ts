@@ -16,7 +16,7 @@ test.describe("sélecteur d'élection (D33)", () => {
   test.skip(!published, "boussole 2022 non publiée (revue en cours)");
 
   test("accueil : passage à 2022, mention d'élection passée, questionnaire", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/boussole");
     const select = page.getByLabel("Élection");
     await expect(select).toHaveValue("demo-fictive");
     await select.selectOption(REAL);

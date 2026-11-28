@@ -332,3 +332,10 @@ Suites de la relecture M0 :
 - **Sous-navigation** (`components/PositionsTabs.tsx`, rendue par `app/positions/layout.tsx`) : simples liens avec `aria-current="page"`, gras et trait épais, et non un widget ARIA `tablist` (chaque vue a sa propre adresse et se recharge, un `tablist` promettrait des flèches au clavier et un panneau dans la même page).
 - Tests : e2e des sous-onglets (en-tête sans Comparateur, page courante dans les deux navigations, redirection) ; adresses mises à jour dans les tests du comparateur, des élections, d'accessibilité et de CSP, et dans `scripts/deploy-check.sh`.
 
+## 2026-11-28 : l'interrogatoire devient la page d'accueil (PLAN D56)
+
+- **Routes** : `/` sert l'interrogatoire, la boussole passe à `/boussole` ; `/interrogatoire` (publiée le matin même) et `/explorer` redirigés vers `/`. **Choix** : accueil servi directement plutôt qu'une redirection de `/`, pour que la page d'accueil réponde en 200 avec ses en-têtes (vérifiés par `scripts/deploy-check.sh`) et qu'aucune adresse ne double l'autre.
+- **Anciens liens de partage** de la boussole (`/#r=…`, fragment jamais envoyé au serveur, donc hors de portée d'une redirection) : `components/LegacyCompassLink.tsx` les renvoie vers `/boussole#r=…` côté navigateur. Les nouveaux liens portent `/boussole` (le lien de partage reprend `location.pathname`).
+- **Boussole** : encart vers l'interrogatoire retiré (`AskCallout.tsx` supprimé), titre « Boussole électorale » et phrase d'introduction propre (`fr.compass`) au lieu du nom et du slogan de l'app ; le slogan (description des métadonnées) met l'interrogatoire en premier.
+- Tests : boussole, élections et CSP sur `/boussole` ; accueil, redirections, ancien lien `/#r=` et absence de mention de l'interrogatoire sur la boussole testés ; `deploy-check.sh` vérifie `/boussole`.
+

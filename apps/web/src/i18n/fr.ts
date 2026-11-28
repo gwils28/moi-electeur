@@ -1,7 +1,8 @@
 // Chaînes de l'interface. Vérifiées par scripts/check-forbidden-words.py (aucun texte ne classe un candidat).
 export const fr = {
   appName: "Moi Électeur",
-  tagline: "Boussole électorale et interrogatoire des programmes officiels.",
+  tagline:
+    "Interrogatoire des programmes officiels, boussole électorale et positions des candidats.",
   status: "Version en construction : données de démonstration fictives.",
   privacy: "Vos réponses restent dans votre navigateur. Aucun cookie, aucun suivi.",
   fictional: "Élection fictive : candidats, partis et citations sont inventés.",
@@ -83,10 +84,10 @@ export const fr = {
     positions: "Positions",
     ask: "Interrogatoire",
   },
-  askCallout: {
-    title: "Interrogez les programmes",
-    text: "Posez une question ouverte, même large : la réponse résume ce que dit chaque programme officiel, passages cités à l'appui.",
-    action: "Lancer l'interrogatoire",
+  compass: {
+    title: "Boussole électorale",
+    intro:
+      "Donnez votre avis sur une trentaine d'affirmations : la boussole calcule votre proximité avec chaque programme et vous situe sur la carte politique, directement dans votre navigateur.",
   },
   footer: {
     label: "Informations sur le site",

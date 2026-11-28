@@ -5,7 +5,7 @@ const PAGES = [
   "/",
   "/positions/comparateur",
   "/positions",
-  "/interrogatoire",
+  "/boussole",
   "/methodologie",
   "/accessibilite",
 ];
@@ -56,7 +56,7 @@ test("nonce renouvelé à chaque requête", async ({ request }) => {
 });
 
 test("boussole hydratée sous CSP : le questionnaire démarre", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/boussole");
   await page.getByRole("button", { name: "Commencer le questionnaire" }).click();
   await expect(page.locator("fieldset").first()).toBeVisible();
 });

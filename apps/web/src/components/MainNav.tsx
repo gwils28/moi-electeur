@@ -4,10 +4,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { fr } from "@/i18n/fr";
 
-// L'interrogatoire, fonction centrale, vient en tête et prend la forme d'un bouton (PLAN D54).
+// L'interrogatoire, fonction centrale et page d'accueil, vient en tête en forme de bouton (D54, D56).
 const LINKS = [
-  { href: "/interrogatoire", label: fr.nav.ask, featured: true },
-  { href: "/", label: fr.nav.compass, featured: false },
+  { href: "/", label: fr.nav.ask, featured: true },
+  { href: "/boussole", label: fr.nav.compass, featured: false },
   { href: "/positions", label: fr.nav.positions, featured: false },
 ] as const;
 

@@ -7,10 +7,11 @@ const nextConfig: NextConfig = {
   // Sinon `next dev` lancé par un agent écrit apps/web/AGENTS.md (texte de Next, avec des tirets
   // cadratins refusés par check:hygiene). Les consignes de l'agent sont dans CLAUDE.md.
   agentRules: false,
-  // L'explorateur est devenu l'interrogatoire (PLAN D54) : anciens liens conservés.
+  // L'interrogatoire est la page d'accueil (PLAN D54, D56) : anciennes adresses conservées.
   async redirects() {
     return [
-      { source: "/explorer", destination: "/interrogatoire", permanent: true },
+      { source: "/explorer", destination: "/", permanent: true },
+      { source: "/interrogatoire", destination: "/", permanent: true },
       // Le comparateur est un sous-onglet de Positions (PLAN D55).
       { source: "/comparateur", destination: "/positions/comparateur", permanent: true },
     ];
