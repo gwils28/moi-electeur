@@ -1,7 +1,14 @@
 import { expect, test } from "@playwright/test";
 
 /** En-têtes de sécurité (PLAN D49) : CSP stricte à nonce, sans `unsafe-inline` pour les scripts. */
-const PAGES = ["/", "/comparateur", "/positions", "/explorer", "/methodologie", "/accessibilite"];
+const PAGES = [
+  "/",
+  "/comparateur",
+  "/positions",
+  "/interrogatoire",
+  "/methodologie",
+  "/accessibilite",
+];
 
 function directive(csp: string, name: string): string {
   return (

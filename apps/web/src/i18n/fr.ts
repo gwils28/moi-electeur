@@ -1,7 +1,7 @@
 // Chaînes de l'interface. Vérifiées par scripts/check-forbidden-words.py (aucun texte ne classe un candidat).
 export const fr = {
   appName: "Moi Électeur",
-  tagline: "Boussole électorale et explorateur des programmes officiels.",
+  tagline: "Boussole électorale et interrogatoire des programmes officiels.",
   status: "Version en construction : données de démonstration fictives.",
   privacy: "Vos réponses restent dans votre navigateur. Aucun cookie, aucun suivi.",
   fictional: "Élection fictive : candidats, partis et citations sont inventés.",
@@ -82,7 +82,12 @@ export const fr = {
     compass: "Boussole",
     comparator: "Comparateur",
     positions: "Positions",
-    explorer: "Explorateur",
+    ask: "Interrogatoire",
+  },
+  askCallout: {
+    title: "Interrogez les programmes",
+    text: "Posez une question ouverte, même large : la réponse résume ce que dit chaque programme officiel, passages cités à l'appui.",
+    action: "Lancer l'interrogatoire",
   },
   footer: {
     label: "Informations sur le site",
@@ -182,15 +187,15 @@ export const fr = {
     citations: "Citations",
   },
   explorer: {
-    title: "Explorateur des programmes",
+    title: "Interrogatoire des programmes",
     intro:
-      "Posez une question : la réponse résume, candidat par candidat, ce que disent leurs documents officiels, avec les passages cités.",
+      "Posez vos questions, précises ou larges : la réponse résume, candidat par candidat, ce que disent leurs documents officiels, avec les passages cités.",
     disclaimer:
       "Réponses générées automatiquement à partir des seuls programmes officiels : elles peuvent contenir des erreurs. Vérifiez toujours la source citée.",
     privacy:
       "Votre question est envoyée au serveur pour produire la réponse, sans être enregistrée. L'historique de la conversation reste dans cet onglet.",
     election: "Élection",
-    noElection: "Aucune élection n'est disponible dans l'explorateur.",
+    noElection: "Aucune élection n'est disponible pour l'interrogatoire.",
     mode: "Type de réponse",
     modeFast: "Réponse rapide",
     modeFastHelp: "Modèle économique, adapté à la plupart des questions.",

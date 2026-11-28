@@ -1,4 +1,4 @@
-// Explorateur (M2d) : /api/ask simulé dans le navigateur, aucun appel réel à Claude.
+// Interrogatoire (ex-explorateur, M2d) : /api/ask simulé dans le navigateur, aucun appel réel à Claude.
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import AxeBuilder from "@axe-core/playwright";
@@ -108,8 +108,8 @@ test("question, réponse streamée par candidat dans l'ordre de session, citatio
     if (!r.url().startsWith(baseURL ?? "http://localhost:3000")) external.push(r.url());
   });
   const bodies = await mockAsk(page);
-  await page.goto("/explorer");
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Explorateur des programmes");
+  await page.goto("/interrogatoire");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Interrogatoire des programmes");
   await expect(page.getByTestId("disclaimer")).toContainText("peuvent contenir des erreurs");
 
   await ask(page, "Que proposent les candidats sur les retraites ?");
@@ -183,7 +183,7 @@ test("mode détaillé envoyé ; plafond du mode atteint : reposer en réponse ra
       body: sse("rapide"),
     });
   });
-  await page.goto("/explorer");
+  await page.goto("/interrogatoire");
   await page.getByLabel("Réponse détaillée").check();
   await ask(page, "Que disent-ils du nucléaire ?");
   await expect(page.getByTestId("turn").getByRole("alert")).toContainText("plafond quotidien");
@@ -198,7 +198,7 @@ test("filtre de candidats et de thème transmis ; mode aveugle : aucun nom ni li
   page,
 }) => {
   const bodies = await mockAsk(page);
-  await page.goto("/explorer");
+  await page.goto("/interrogatoire");
   await page.getByRole("button", { name: "Aucun", exact: true }).click();
   for (const c of [A, B, C]) await page.getByLabel(c.name, { exact: true }).check();
   await page.getByLabel("Thème").selectOption("economie");
@@ -229,8 +229,24 @@ test("flux coupé sans événement de fin : réponse signalée comme incomplète
       body: cut,
     });
   });
-  await page.goto("/explorer");
+  await page.goto("/interrogatoire");
   await ask(page, "Question coupée ?");
   await expect(page.getByTestId("turn").getByRole("alert")).toContainText("peut être incomplète");
   await expect(page.getByText(/Contexte de la question suivante/)).toHaveCount(0);
+});
+
+test("mise en avant (PLAN D54) : premier lien de la navigation, encart d'accueil, ancienne adresse redirigée", async ({
+  page,
+}) => {
+  await page.goto("/");
+  const nav = page.getByRole("navigation", { name: "Navigation principale" });
+  await expect(nav.getByRole("link").first()).toHaveText("Interrogatoire");
+  const callout = page.getByRole("region", { name: "Interrogez les programmes" });
+  await expect(callout).toBeVisible();
+  await callout.getByRole("link", { name: "Lancer l'interrogatoire" }).click();
+  await expect(page).toHaveURL(/\/interrogatoire$/);
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Interrogatoire des programmes");
+
+  await page.goto("/explorer");
+  await expect(page).toHaveURL(/\/interrogatoire$/);
 });
