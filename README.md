@@ -14,7 +14,7 @@ Prérequis : Node 24, pnpm, [uv](https://docs.astral.sh/uv/), Docker.
 pnpm install && uv sync --all-packages
 pnpm check                              # lint, types, tests JS, hygiène
 uv run pipeline validate                # validation des données
-docker compose up -d --build --wait     # web http://localhost:3000, rag http://localhost:8000/health
+docker compose up -d --build --wait     # web http://localhost:3000, rag http://localhost:8001/health
 ```
 
 Les notebooks R&D qui expliquent les choix de conception sont dans [notebooks/](notebooks/).

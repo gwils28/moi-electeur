@@ -30,7 +30,7 @@ Boussole électorale + explorateur RAG des programmes officiels. Spécification 
 - Fixture croisée Python/TS du moteur : `uv run pipeline engine-fixtures [--check]`
 - Types depuis `schemas/` : `pnpm gen:types` (TS) et `uv run pipeline gen-models [--check]` (Pydantic)
 - Notebooks : `uv run --project notebooks marimo edit notebooks/<fichier>.py`
-- Stack locale : `docker compose up -d --build --wait` (web :3000, rag :8000, db :5432)
+- Stack locale : `docker compose up -d --build --wait` (web :3000, rag :8001, db :5432)
 - Production : `docker compose -f docker-compose.prod.yml --env-file .env up -d --build --wait` puis `scripts/deploy-check.sh https://<domaine>` (guide : `docs/deploiement.md`)
 
 ## Compaction
