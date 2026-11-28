@@ -16,16 +16,16 @@ interface Props {
 /** Simulateur « Et si… » (SPEC § 5.6) : réponses et poids modifiables depuis les résultats. */
 export function WhatIf(p: Props) {
   return (
-    <details className="rounded border p-4">
-      <summary className="cursor-pointer font-semibold">{fr.whatIf}</summary>
-      <p className="mt-2 text-sm">{fr.whatIfHelp}</p>
+    <details className="card">
+      <summary className="cursor-pointer text-lg font-semibold">{fr.whatIf}</summary>
+      <p className="hint mt-2">{fr.whatIfHelp}</p>
       {p.config.themes.map((t) => (
-        <fieldset key={t.id} className="mt-4">
-          <legend className="font-medium">{t.label}</legend>
-          <label className="block text-sm">
-            {fr.weight}{" "}
+        <fieldset key={t.id} className="m-0 mt-6 min-w-0 border-0 border-t border-line p-0 pt-4">
+          <legend className="float-left mb-2 w-full font-semibold">{t.label}</legend>
+          <label className="clear-left flex flex-wrap items-center gap-2 text-sm font-medium">
+            {fr.weight}
             <select
-              className="rounded border bg-[var(--bg)] text-[var(--fg)]"
+              className="field"
               value={p.weights[t.id] ?? 1}
               onChange={(e) => p.onWeight(t.id, Number(e.target.value))}
             >
@@ -41,12 +41,12 @@ export function WhatIf(p: Props) {
             .map((s) => (
               <label
                 key={s.id}
-                className="mt-1 flex flex-col text-sm sm:flex-row sm:items-center sm:justify-between sm:gap-2"
+                className="mt-3 flex flex-col gap-1 text-sm sm:flex-row sm:items-center sm:justify-between sm:gap-4"
               >
                 <span>{s.text}</span>
                 <select
                   data-testid={`whatif-${s.id}`}
-                  className="rounded border bg-[var(--bg)] text-[var(--fg)]"
+                  className="field shrink-0"
                   value={p.answers[s.id] ?? "na"}
                   onChange={(e) =>
                     p.onAnswer(s.id, e.target.value === "na" ? null : Number(e.target.value))

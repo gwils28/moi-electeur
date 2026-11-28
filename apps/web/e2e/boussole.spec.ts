@@ -121,6 +121,29 @@ test("lien #r= : reprise des résultats, fragment jamais envoyé au serveur", as
   for (const u of sent) expect(u).not.toContain("r=1");
 });
 
+test("neutralité (PLAN D58) : aucune couleur de candidat dans la page, même hors mode aveugle", async ({
+  page,
+}) => {
+  await page.goto("/boussole");
+  await answerAll(page);
+  await page.getByTestId("proximity-list").locator("li").first().getByRole("button").click();
+  const html = (await page.locator("main").innerHTML()).toLowerCase();
+  for (const c of config.candidates) expect(html).not.toContain(c.color.toLowerCase());
+});
+
+test("résultats triés par score ajusté décroissant (PLAN D59)", async ({ page }) => {
+  await page.goto("/boussole");
+  await answerAll(page);
+  const items = page.getByTestId("proximity-list").locator("li");
+  // Premier pourcentage de chaque carte : le score ajusté, au centre du cadran.
+  const firsts = (await items.allInnerTexts())
+    .map((t) => /(\d+) %/.exec(t)?.[1])
+    .filter((v): v is string => v !== undefined)
+    .map(Number);
+  expect(firsts.length).toBeGreaterThan(1);
+  for (let i = 1; i < firsts.length; i++) expect(firsts[i]!).toBeLessThanOrEqual(firsts[i - 1]!);
+});
+
 test("lien #r= invalide : questionnaire vierge et message", async ({ page }) => {
   await page.goto("/boussole#r=9zz");
   await expect(page.getByRole("status")).toContainText("invalide");

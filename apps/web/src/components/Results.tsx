@@ -11,10 +11,13 @@ import {
 import { useMemo, useRef, useState } from "react";
 import type { ElectionData } from "@/lib/data";
 import type { CandidateDisplay } from "@/lib/present";
+import { orderByAdjusted } from "@/lib/results";
 import { fr } from "@/i18n/fr";
 import { AccessibleTable } from "./AccessibleTable";
 import { CandidatePanel } from "./CandidatePanel";
 import { Chessboard } from "./Chessboard";
+import { Icon } from "./Icon";
+import { ProximityDial } from "./ProximityDial";
 import { WhatIf } from "./WhatIf";
 
 interface Props {
@@ -54,12 +57,15 @@ export function Results(p: Props) {
       return { x: b.x, y: b.y, clamped: b.clamped };
     };
     const user = point(p.answers);
-    const rows = p.displays.map((d) => {
-      const c = p.candidateAnswers[d.id]!;
-      const prox = proximity(p.answers, c, active, p.weights);
-      const pt = point(c);
-      return { display: d, prox, x: pt.x, y: pt.y };
-    });
+    // Score ajusté décroissant, égalités dans l'ordre de session (PLAN D59).
+    const rows = orderByAdjusted(
+      p.displays.map((d) => {
+        const c = p.candidateAnswers[d.id]!;
+        const prox = proximity(p.answers, c, active, p.weights);
+        const pt = point(c);
+        return { display: d, prox, x: pt.x, y: pt.y };
+      }),
+    );
     return { user, rows };
   }, [mode, active, pca, p.answers, p.weights, p.displays, p.candidateAnswers]);
 
@@ -70,7 +76,7 @@ export function Results(p: Props) {
   const snapshot = (): Snapshot => ({
     user: { x: current.current.user.x, y: current.current.user.y },
     scores: Object.fromEntries(
-      current.current.rows.map((r) => [r.display.id, r.prox?.score ?? null]),
+      current.current.rows.map((r) => [r.display.id, r.prox?.adjusted ?? null]),
     ),
   });
   const whatIfAnswer = (id: string, v: number | null) => {
@@ -99,29 +105,41 @@ export function Results(p: Props) {
   const ux = computed.user.x;
   const uy = computed.user.y;
 
+  // Panneau : mémoriser le contrôle d'origine pour lui rendre le focus à la fermeture.
+  const opener = useRef<HTMLElement | SVGElement | null>(null);
+  const openPanel = (id: string) => {
+    const el = document.activeElement;
+    opener.current = el instanceof HTMLElement || el instanceof SVGElement ? el : null;
+    setSelected(id);
+  };
+  const closePanel = () => {
+    setSelected(null);
+    opener.current?.focus();
+    opener.current = null;
+  };
+
   return (
     <section aria-labelledby="results-title" className="space-y-6">
       <h2 id="results-title" className="text-2xl font-semibold">
         {fr.results}
       </h2>
-      <p className="text-sm">{fr.orderNote}</p>
 
-      <div className="flex flex-wrap items-end gap-4">
-        <fieldset>
-          <legend className="text-sm font-medium">{fr.mode}</legend>
-          <div className="flex gap-3">
+      <div className="panel flex flex-wrap items-end gap-x-6 gap-y-4">
+        <fieldset className="m-0 min-w-0 border-0 p-0">
+          <legend className="label">{fr.mode}</legend>
+          <div className="segmented">
             {(["A", "B"] as const).map((m) => (
-              <label key={m} className="flex items-center gap-1">
+              <label key={m}>
                 <input type="radio" name="mode" checked={mode === m} onChange={() => setMode(m)} />
                 {m === "A" ? fr.modeA : fr.modeB}
               </label>
             ))}
           </div>
         </fieldset>
-        <label className="text-sm">
-          {fr.themeFilter}{" "}
+        <label className="min-w-0">
+          <span className="label">{fr.themeFilter}</span>
           <select
-            className="rounded border bg-[var(--bg)] text-[var(--fg)]"
+            className="field"
             value={theme}
             disabled={mode === "B"}
             onChange={(e) => setTheme(e.target.value)}
@@ -134,23 +152,34 @@ export function Results(p: Props) {
             ))}
           </select>
         </label>
-        <label className="flex items-center gap-1">
-          <input type="checkbox" checked={p.blind} onChange={(e) => p.onBlind(e.target.checked)} />
-          {fr.blind}
-        </label>
-        {p.blind && (
-          <button
-            type="button"
-            className="rounded border px-2 py-1"
-            onClick={() => p.onBlind(false)}
-          >
-            {fr.reveal}
-          </button>
-        )}
+        <div className="flex min-h-11 flex-wrap items-center gap-3">
+          <label className="flex items-center gap-2 text-sm font-medium">
+            <input
+              type="checkbox"
+              className="size-4"
+              checked={p.blind}
+              onChange={(e) => p.onBlind(e.target.checked)}
+            />
+            {fr.blind}
+          </label>
+          {p.blind && (
+            <button
+              type="button"
+              className="btn btn-secondary btn-sm"
+              onClick={() => p.onBlind(false)}
+            >
+              {fr.reveal}
+            </button>
+          )}
+        </div>
       </div>
-      {p.blind && <p className="text-sm">{fr.blindOn}</p>}
+      <div className="space-y-2 text-sm text-muted">
+        <p>{fr.orderNote}</p>
+        {p.blind && <p className="font-medium text-fg">{fr.blindOn}</p>}
+        <p>{fr.coverageNote}</p>
+      </div>
       {mode === "B" && (
-        <div className="text-sm" data-testid="pca-info">
+        <div className="card space-y-2 text-sm" data-testid="pca-info">
           <p>
             {fr.modeBNote(
               Math.round(pca.explained_variance_ratio[0]! * 100),
@@ -160,8 +189,8 @@ export function Results(p: Props) {
           </p>
           {pca.top_statements.map((ids, i) => (
             <div key={i}>
-              <p>{fr.modeBAxis(i + 1)}</p>
-              <ul className="ml-4 list-disc">
+              <p className="font-medium">{fr.modeBAxis(i + 1)}</p>
+              <ul className="ml-5 list-disc">
                 {ids.map((id) => (
                   <li key={id}>{stmtText.get(id)}</li>
                 ))}
@@ -171,53 +200,77 @@ export function Results(p: Props) {
         </div>
       )}
 
-      <p className="text-sm">{fr.coverageNote}</p>
-      <ul className="grid gap-2 sm:grid-cols-2" data-testid="proximity-list">
+      <div className="flex items-start gap-3 text-sm text-muted">
+        <ProximityDial score={60} coverage={0.7} low={false} example />
+        <ProximityDial score={60} coverage={0.3} low example />
+        <p>{fr.dialLegend}</p>
+      </div>
+      <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" data-testid="proximity-list">
         {computed.rows.map((r) => {
           const prev = previous?.scores[r.display.id];
-          const delta = r.prox && prev != null ? r.prox.score - prev : null;
+          const delta = r.prox && prev != null ? r.prox.adjusted - prev : null;
           return (
-            <li key={r.display.id} className="rounded border p-3">
-              <button
-                type="button"
-                className="font-semibold underline"
-                onClick={() => setSelected(r.display.id)}
-              >
-                {r.display.label}
-              </button>
-              {r.prox ? (
-                <>
-                  <p>
-                    {fr.proximity} : <strong>{Math.round(r.prox.score)} %</strong>{" "}
-                    <span className="text-sm" data-testid="coverage">
-                      ({fr.coverage(Math.round(r.prox.coverage * 100))},{" "}
-                      {fr.coverageDetail(r.prox.n, r.prox.answered)})
-                    </span>
-                  </p>
-                  <meter
-                    min={0}
-                    max={100}
-                    value={r.prox.score}
-                    className="w-full"
-                    aria-hidden="true"
-                  />
-                  {r.prox.lowCoverage && <p className="text-sm">{fr.lowCoverage}</p>}
-                  {delta !== null && Math.abs(delta) > 0.05 && (
-                    <p className="text-sm" data-testid="delta">
-                      {fr.delta(fmtDelta(delta))}
+            <li key={r.display.id} className="card flex items-start gap-4">
+              <ProximityDial
+                score={r.prox?.adjusted ?? null}
+                coverage={r.prox?.coverage ?? null}
+                low={r.prox?.lowCoverage ?? false}
+                previous={prev ?? null}
+              />
+              <div className="min-w-0 flex-1 space-y-1">
+                <button
+                  type="button"
+                  className="inline-flex items-center gap-2 text-left text-lg font-semibold hover:underline"
+                  onClick={() => openPanel(r.display.id)}
+                >
+                  {r.display.label}
+                  <Icon name="chevron-right" />
+                </button>
+                {r.display.party && <p className="text-sm text-muted">{r.display.party}</p>}
+                {r.prox ? (
+                  <>
+                    <p className="text-sm text-muted">{fr.commonScore(Math.round(r.prox.score))}</p>
+                    <p className="text-sm text-muted first-letter:uppercase" data-testid="coverage">
+                      {fr.coverage(Math.round(r.prox.coverage * 100))},{" "}
+                      {fr.coverageDetail(r.prox.n, r.prox.answered)}
                     </p>
-                  )}
-                </>
-              ) : (
-                <p className="text-sm">{fr.noCommon}</p>
-              )}
+                    {r.prox.lowCoverage && (
+                      <>
+                        <p className="badge badge-warn">
+                          <Icon name="alert" size={14} />
+                          {fr.lowCoverageBadge}
+                        </p>
+                        <p className="text-sm">{fr.lowCoverage}</p>
+                      </>
+                    )}
+                    {delta !== null && Math.abs(delta) > 0.05 && (
+                      <p className="badge tabular-nums" data-testid="delta">
+                        {fr.delta(fmtDelta(delta))}
+                      </p>
+                    )}
+                  </>
+                ) : (
+                  <p className="text-sm">{fr.noCommon}</p>
+                )}
+              </div>
             </li>
           );
         })}
       </ul>
 
+      {selectedDisplay && (
+        <CandidatePanel
+          display={selectedDisplay}
+          user={p.answers}
+          candidate={p.candidateAnswers[selectedDisplay.id]!}
+          statements={active}
+          positions={p.data.positions}
+          onClose={closePanel}
+        />
+      )}
+
       <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-        <div>
+        <div className="card space-y-2">
           <Chessboard
             config={config}
             candidates={computed.rows}
@@ -225,34 +278,25 @@ export function Results(p: Props) {
             previousUser={previous?.user ?? null}
             axisLabels={axisLabels}
             showQuadrants={mode === "A"}
-            onSelect={setSelected}
+            onSelect={openPanel}
           />
           <p className="text-sm" data-testid="position-text">
             {ux !== null && uy !== null ? fr.description(ux.toFixed(1), uy.toFixed(1)) : ""}
           </p>
           {clamped && <p className="text-sm">{fr.clamped}</p>}
+          {ux !== null && uy !== null && <p className="text-sm text-muted">{fr.ringsNote}</p>}
         </div>
-        <div className="space-y-4">
-          {selectedDisplay && (
-            <CandidatePanel
-              display={selectedDisplay}
-              user={p.answers}
-              candidate={p.candidateAnswers[selectedDisplay.id]!}
-              statements={active}
-              positions={p.data.positions}
-              onClose={() => setSelected(null)}
-            />
-          )}
-          <AccessibleTable
-            rows={computed.rows.map((r) => ({
-              display: r.display,
-              score: r.prox?.score ?? null,
-              x: r.x,
-              y: r.y,
-            }))}
-            onSelect={setSelected}
-          />
-        </div>
+        <AccessibleTable
+          rows={computed.rows.map((r) => ({
+            display: r.display,
+            score: r.prox?.adjusted ?? null,
+            common: r.prox?.score ?? null,
+            coverage: r.prox?.coverage ?? null,
+            x: r.x,
+            y: r.y,
+          }))}
+          onSelect={openPanel}
+        />
       </div>
 
       <WhatIf

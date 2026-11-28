@@ -48,12 +48,14 @@ describe("moteur TS = référence Python (fixture engine_cases.json)", () => {
           const e = expected as {
             score: number;
             coverage: number;
+            adjusted: number;
             n: number;
             answered: number;
             lowCoverage: boolean;
           };
           expect(r?.score).toBeCloseTo(e.score, 9);
           expect(r?.coverage).toBeCloseTo(e.coverage, 9);
+          expect(r?.adjusted).toBeCloseTo(e.adjusted, 9);
           expect([r?.n, r?.answered, r?.lowCoverage]).toEqual([e.n, e.answered, e.lowCoverage]);
         }
       }

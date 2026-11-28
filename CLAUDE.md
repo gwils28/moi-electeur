@@ -6,7 +6,7 @@ Boussole électorale + explorateur RAG des programmes officiels. Spécification 
 - Les réponses au questionnaire, les poids et (X_user, Y_user) ne quittent **jamais** le navigateur. Aucun appel réseau dans `packages/engine` (vérifié par ESLint et `packages/engine/test/no-io.test.ts`).
 - Ne jamais logguer le contenu des questions du chat (donnée d'opinion, RGPD art. 9).
 - Le front ne charge que des positions/mesures au statut `validated` ou `corrected`.
-- Aucun texte produit par l'app ne classe un candidat (« meilleur », « plus crédible »…). Ordre des candidats aléatoire.
+- Aucun texte produit par l'app ne classe un candidat (« meilleur », « plus crédible »…). Ordre des candidats aléatoire, sauf les résultats de la boussole : triés par score ajusté de proximité avec les réponses de l'utilisateur, égalités dans l'ordre aléatoire (PLAN D59, décision du mainteneur).
 - Les (x, y) des candidats sont **calculés**, jamais saisis à la main.
 - Types de données : source unique = `schemas/*.schema.json`. Ne pas dupliquer à la main en TS/Pydantic.
 

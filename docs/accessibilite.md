@@ -18,7 +18,8 @@ méthodologie (`/methodologie`).
 
 - **Automatique, à chaque modification (CI)** : axe-core (règles WCAG 2.0 / 2.1 A et AA) sur
   chaque page et chaque état important (questionnaire, résultats, panneau, mode aveugle,
-  comparateur, détail du radar, réponse du chat), sur ordinateur et sur mobile (360 px).
+  comparateur, détail du radar, réponse du chat), sur ordinateur et sur mobile (360 px) ; chaque
+  page est aussi contrôlée en thème sombre (depuis le 28/11).
 - **Tests e2e dédiés** (`apps/web/e2e/accessibilite.spec.ts`) : lien d'évitement premier au
   clavier et focus déplacé sur le contenu, page courante signalée dans la navigation, titre de
   page et `h1` uniques, contenu redistribué à 320 px (zoom 400 %) sans défilement horizontal.
@@ -31,7 +32,7 @@ méthodologie (`/methodologie`).
 |---|---|---|
 | 1. Images | l'échiquier (SVG) a un nom accessible et une alternative complète : tableau trié des proximités et coordonnées, description textuelle de la position ; pictogrammes du radar `aria-hidden`, doublés d'un libellé texte | conforme |
 | 2. Cadres | aucun cadre | non applicable |
-| 3. Couleurs | aucune information portée par la seule couleur (formes sur l'échiquier, libellés du radar) ; contrastes vérifiés par axe, en mode clair et sombre | conforme |
+| 3. Couleurs | aucune information portée par la seule couleur (candidats désignés par leur nom, sans couleur ni forme ; libellés du radar) ; contrastes vérifiés par axe, en mode clair et sombre | conforme |
 | 4. Multimédia | aucun média temporel | non applicable |
 | 5. Tableaux | tableaux de données avec `caption`, en-têtes `th` et `scope` (proximités, face-à-face, radar) ; tableaux défilants rendus focalisables et nommés | conforme |
 | 6. Liens | intitulés explicites (navigation, sources des citations, documents) | conforme |

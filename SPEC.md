@@ -134,7 +134,11 @@ d(c)        = Σ_{s∈S} w_theme(s) · |u_s − c_s|
 d_max(c)    = Σ_{s∈S} w_theme(s) · 4
 proximité   = 100 · (1 − d(c) / d_max(c))
 couverture  = |S| / |affirmations répondues|      → affichée ; si < 50 %, avertissement
+W_S         = Σ_{s∈S} w_theme(s)       W_Z = Σ_{s∈Z} w_theme(s)   (Z : silences du programme parmi vos réponses)
+ajusté      = (W_S · proximité + W_Z · 40 + k · 50) / (W_S + W_Z + k),  k = 5   (PLAN D59)
 ```
+
+Le **score ajusté** porte sur toutes les réponses de l'utilisateur : un silence du programme compte pour 40 (légère pénalité, en deçà du neutre 50) et k affirmations fictives à 50 lissent les scores quand l'utilisateur a peu répondu. C'est le score affiché dans le cadran et l'ordre des résultats (décroissant, égalités dans l'ordre aléatoire de session) ; la proximité sur les seuls points communs et la couverture restent affichées.
 
 ### 5.3 Projection 2D : deux modes
 **Mode A (affirmations taguées, défaut)** :
@@ -146,7 +150,7 @@ idem pour Y. Formule **identique** pour candidats et utilisateur → les (x, y) 
 **Mode B (ACP)** : ACP sur la matrice candidats × affirmations (silences imputés par 0, centrée). Les 2 premières composantes donnent les axes ; l'utilisateur est projeté avec les mêmes chargements. Chargements précalculés par le pipeline et embarqués en JSON (le calcul de projection reste côté client). Les axes sont présentés avec leur interprétation (affirmations les plus contributives) et la variance expliquée. Rescale [-10, 10].
 
 ### 5.4 Échiquier 2D (D3)
-- 4 quadrants nommés, points candidats (couleur + forme pour daltonisme), marqueur utilisateur distinct.
+- 4 quadrants nommés, points candidats identiques et neutres, identifiés par leur nom (ni couleur ni forme, PLAN D58), marqueur utilisateur distinct.
 - Cercles concentriques de proximité autour de l'utilisateur.
 - Filtre par thème : recalcul de (x, y) et proximité sur le sous-ensemble du thème.
 - Clic candidat → panneau latéral : accords / désaccords (|écart| ≤ 1 / ≥ 3), silences, avec citations sources.

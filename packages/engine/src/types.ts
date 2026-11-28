@@ -36,6 +36,12 @@ export interface PcaModelLike {
 export interface ProximityResult {
   /** 0..100 (100 = mêmes réponses sur toutes les affirmations communes). */
   readonly score: number;
+  /**
+   * Score ajusté (PLAN D59), sur toutes les réponses : (W_S · score + W_Z · 40 + 5 · 50) /
+   * (W_S + W_Z + 5), W_S et W_Z poids des affirmations communes et des silences du programme.
+   * Score du cadran et ordre des résultats.
+   */
+  readonly adjusted: number;
   /** |S| / nombre d'affirmations répondues par l'utilisateur, dans [0, 1]. */
   readonly coverage: number;
   /** |S| : affirmations où l'utilisateur et le candidat ont une valeur. */

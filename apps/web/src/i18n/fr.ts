@@ -17,6 +17,7 @@ export const fr = {
     { value: 2, label: "Tout à fait d'accord" },
   ],
   noOpinion: "Sans avis",
+  likertEnds: { min: "Désaccord", max: "Accord" },
   weight: "Importance de ce thème",
   weightLabels: { 1: "Normale (×1)", 2: "Importante (×2)", 3: "Très importante (×3)" },
   previous: "Thème précédent",
@@ -24,13 +25,18 @@ export const fr = {
   seeResults: "Voir les résultats",
   results: "Vos résultats",
   orderNote:
-    "Les candidats sont affichés dans un ordre aléatoire, tiré à chaque visite. Le score indique une proximité de réponses, pas une préférence.",
+    "Les candidats sont présentés par score de proximité décroissant avec vos réponses (à égalité, dans un ordre tiré au sort). Ce score porte sur toutes vos réponses : quand un programme ne se prononce pas, la réponse compte pour 40 %. Il mesure une proximité de réponses, pas une préférence.",
   proximity: "Proximité",
+  commonScore: (pct: number) => `${pct} % sur les seuls points communs`,
+  commonCol: "Sur les points communs",
   coverage: (pct: number) => `couverture ${pct} %`,
   coverageDetail: (n: number, answered: number) => `calculée sur ${n} de vos ${answered} réponses`,
   coverageNote:
     "La proximité ne porte que sur les affirmations où le programme se prononce : calculée sur peu d'affirmations communes, elle est moins fiable. Vérifiez la couverture de chaque candidat.",
   lowCoverage: "Le programme ne se prononce pas sur plus de la moitié de vos réponses.",
+  lowCoverageBadge: "Couverture faible",
+  dialLegend:
+    "Arc extérieur : score de proximité sur toutes vos réponses (0 à 100 %), les silences du programme comptant pour 40 %. Anneau intérieur : part de vos réponses sur lesquelles le programme se prononce (couverture). Arc hachuré : couverture inférieure à 50 %, score peu fiable.",
   noCommon: "Aucune affirmation commune : proximité non calculable.",
   mode: "Mode de projection",
   modeA: "Axes thématiques (A)",
@@ -43,20 +49,22 @@ export const fr = {
   themeFilter: "Filtrer par thème",
   allThemes: "Tous les thèmes",
   blind: "Mode aveugle",
-  blindOn: "Noms, partis et couleurs masqués.",
+  blindOn: "Noms et partis masqués.",
   reveal: "Révéler les candidats",
   quoteHidden: "Citation masquée en mode aveugle (elle pourrait révéler le candidat).",
   you: "Vous",
   chessboardLabel: "Échiquier politique",
   tableCaption: "Proximité et coordonnées de chaque candidat",
-  sortBy: "Trier le tableau par proximité",
-  unsort: "Revenir à l'ordre aléatoire",
+  candidateCol: "Candidat",
+  coverageCol: "Couverture",
+  ringsNote:
+    "Cercles pointillés : distance de 2,5, 5 et 7,5 autour de votre point sur la carte (indicatif ; le score de proximité est calculé sur les réponses, pas sur la carte).",
   description: (x: string, y: string) =>
     `Votre position : ${x} sur l'axe horizontal, ${y} sur l'axe vertical.`,
   panelTitle: (label: string) => `Comparaison avec ${label}`,
   close: "Fermer",
   agreements: "Accords (écart de 0 ou 1)",
-  partial: "Écarts modérés (2)",
+  partial: "Écarts modérés (écart de 2)",
   disagreements: "Désaccords (écart de 3 ou 4)",
   silences: "Silences du programme",
   none: "Aucune",
@@ -88,6 +96,11 @@ export const fr = {
     title: "Boussole électorale",
     intro:
       "Donnez votre avis sur une trentaine d'affirmations : la boussole calcule votre proximité avec chaque programme et vous situe sur la carte politique, directement dans votre navigateur.",
+    facts: [
+      "Une trentaine d'affirmations, environ 5 minutes",
+      "Calcul fait dans votre navigateur : rien n'est envoyé",
+      "Candidats affichés dans un ordre tiré au sort",
+    ],
   },
   footer: {
     label: "Informations sur le site",
@@ -111,9 +124,12 @@ export const fr = {
       "Pour chacune des affirmations de la boussole, la position que prend chaque programme, de « s'engage contre » (-2) à « s'engage pour » (+2), ou son silence. Sélectionnez une cellule pour lire les passages cités.",
     method:
       "Positions proposées par un modèle de langue à partir des programmes officiels, puis revues par le mainteneur : elles peuvent contenir des erreurs. La méthode et ses limites sont décrites dans la méthodologie.",
+    methodTitle: "Comment ces positions sont établies",
     methodLink: "Lire la méthodologie",
     orderNote:
       "Les candidats sont affichés dans un ordre aléatoire, tiré à chaque visite. Aucun total ni classement : chaque cellule décrit un programme.",
+    scrollHint: (candidates: number) =>
+      `Le tableau défile horizontalement (${candidates} candidats).`,
     themeFilter: "Thème affiché",
     allThemes: "Tous les thèmes",
     candidateFilter: "Candidats affichés",
@@ -207,7 +223,9 @@ export const fr = {
     modeDeep: "Réponse détaillée",
     modeDeepHelp:
       "Modèle avec réflexion, plus coûteux : nombre de questions limité. Les deux répondent à partir des mêmes passages.",
+    settings: "Réglages de la question",
     candidates: "Candidats inclus",
+    includedCount: (n: number, total: number) => `${n} sur ${total}`,
     allCandidates: "Tous",
     noCandidates: "Aucun",
     theme: "Thème",

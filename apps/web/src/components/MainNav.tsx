@@ -15,17 +15,18 @@ const LINKS = [
 export function MainNav() {
   const path = usePathname();
   return (
-    <nav aria-label={fr.nav.label} className="flex flex-wrap items-center gap-4">
+    <nav aria-label={fr.nav.label} className="flex flex-wrap items-center gap-1 sm:gap-2">
       {LINKS.map((l) => {
         const current = l.href === "/" ? path === "/" : path.startsWith(l.href);
-        // Bouton plein aux couleurs du texte (aucune teinte connotée) ; page courante soulignée.
-        const style = l.featured
-          ? `rounded-full bg-[var(--fg)] px-4 py-1.5 font-semibold text-[var(--bg)] hover:opacity-90 ${
-              current ? "underline underline-offset-4" : "no-underline"
-            }`
-          : current
-            ? "font-semibold underline"
-            : "underline";
+        // Page courante : pilule pleine (encre). L'interrogatoire garde une forme de bouton
+        // (contour) sur les autres pages, pour rester mis en avant sans passer pour la page
+        // courante (spec de design G2, écart assumé à D54).
+        const base = "inline-flex min-h-10 items-center rounded-full px-4 py-1.5";
+        const style = current
+          ? `${base} bg-accent font-semibold text-accent-fg`
+          : l.featured
+            ? `${base} border-2 border-fg font-semibold text-fg hover:bg-surface-2`
+            : `${base} font-medium text-fg hover:bg-surface-2`;
         return (
           <Link
             key={l.href}
