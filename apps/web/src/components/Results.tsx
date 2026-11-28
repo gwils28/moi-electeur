@@ -9,6 +9,7 @@ import {
   type ThemeWeights,
 } from "@moi-electeur/engine";
 import { useMemo, useRef, useState } from "react";
+import { proximityLayout } from "@/lib/chessboard";
 import type { ElectionData } from "@/lib/data";
 import type { CandidateDisplay } from "@/lib/present";
 import { orderByAdjusted } from "@/lib/results";
@@ -17,6 +18,7 @@ import { AccessibleTable } from "./AccessibleTable";
 import { CandidatePanel } from "./CandidatePanel";
 import { Chessboard } from "./Chessboard";
 import { Icon } from "./Icon";
+import { InfoBubble } from "./InfoBubble";
 import { ProximityDial } from "./ProximityDial";
 import { WhatIf } from "./WhatIf";
 
@@ -42,6 +44,8 @@ interface Snapshot {
 export function Results(p: Props) {
   const { config, statements, pca } = p.data;
   const [mode, setMode] = useState<Mode>("A");
+  // Carte : proximité centrée sur l'utilisateur par défaut (PLAN D60), ou positions politiques.
+  const [view, setView] = useState<"proximity" | "positions">("proximity");
   const [theme, setTheme] = useState<string>("");
   const [selected, setSelected] = useState<string | null>(null);
 
@@ -104,6 +108,19 @@ export function Results(p: Props) {
   const clamped = "clamped" in computed.user && computed.user.clamped;
   const ux = computed.user.x;
   const uy = computed.user.y;
+  const proximityView = view === "proximity";
+  const placed = proximityLayout(
+    { x: ux, y: uy },
+    computed.rows.map((r) => ({
+      id: r.display.id,
+      x: r.x,
+      y: r.y,
+      score: r.prox?.adjusted ?? null,
+    })),
+  );
+  const mapCandidates = proximityView
+    ? computed.rows.map((r, i) => ({ display: r.display, x: placed[i]!.x, y: placed[i]!.y }))
+    : computed.rows;
 
   // Panneau : mémoriser le contrôle d'origine pour lui rendre le focus à la fermeture.
   const opener = useRef<HTMLElement | SVGElement | null>(null);
@@ -200,6 +217,12 @@ export function Results(p: Props) {
         </div>
       )}
 
+      <h3 className="flex items-center gap-1 text-lg font-semibold">
+        {fr.scoreTitle}
+        <InfoBubble label={fr.scoreInfoLabel}>
+          <ScoreExplanation />
+        </InfoBubble>
+      </h3>
       <div className="flex items-start gap-3 text-sm text-muted">
         <ProximityDial score={60} coverage={0.7} low={false} example />
         <ProximityDial score={60} coverage={0.3} low example />
@@ -271,20 +294,49 @@ export function Results(p: Props) {
 
       <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
         <div className="card space-y-2">
+          <fieldset className="flex flex-wrap items-center gap-x-3 gap-y-2">
+            <legend className="sr-only">{fr.mapView}</legend>
+            <span aria-hidden="true" className="text-sm font-medium">
+              {fr.mapView}
+            </span>
+            <div className="segmented">
+              {(["proximity", "positions"] as const).map((v) => (
+                <label key={v}>
+                  <input
+                    type="radio"
+                    name="map-view"
+                    checked={view === v}
+                    onChange={() => setView(v)}
+                  />
+                  {v === "proximity" ? fr.mapViewProximity : fr.mapViewPositions}
+                </label>
+              ))}
+            </div>
+            <InfoBubble label={fr.mapInfoLabel}>
+              <p>{fr.mapInfoProximity}</p>
+              <p>{fr.mapInfoPositions}</p>
+            </InfoBubble>
+          </fieldset>
           <Chessboard
             config={config}
-            candidates={computed.rows}
-            user={{ x: ux, y: uy }}
-            previousUser={previous?.user ?? null}
+            candidates={mapCandidates}
+            user={proximityView ? { x: 0, y: 0 } : { x: ux, y: uy }}
+            previousUser={proximityView ? null : (previous?.user ?? null)}
             axisLabels={axisLabels}
             showQuadrants={mode === "A"}
+            variant={view}
+            label={proximityView ? fr.proximityMapLabel : fr.chessboardLabel}
             onSelect={openPanel}
           />
           <p className="text-sm" data-testid="position-text">
             {ux !== null && uy !== null ? fr.description(ux.toFixed(1), uy.toFixed(1)) : ""}
           </p>
           {clamped && <p className="text-sm">{fr.clamped}</p>}
-          {ux !== null && uy !== null && <p className="text-sm text-muted">{fr.ringsNote}</p>}
+          {proximityView ? (
+            <p className="text-sm text-muted">{fr.proximityMapNote}</p>
+          ) : (
+            ux !== null && uy !== null && <p className="text-sm text-muted">{fr.ringsNote}</p>
+          )}
         </div>
         <AccessibleTable
           rows={computed.rows.map((r) => ({
@@ -308,5 +360,18 @@ export function Results(p: Props) {
         onWeight={whatIfWeight}
       />
     </section>
+  );
+}
+
+/** Contenu de la bulle d'information du score (PLAN D59). */
+function ScoreExplanation() {
+  return (
+    <>
+      {fr.scoreInfo.map((line, i) => (
+        <span key={i} className="block">
+          {line}
+        </span>
+      ))}
+    </>
   );
 }

@@ -70,6 +70,11 @@ envoyées nulle part.
   préférence. **Limites** : compter un silence à 40 % plutôt qu'à 50 % (neutre) est un choix
   éditorial qui défavorise un peu les programmes courts ou peu détaillés ; 40 et 5 sont des
   réglages, documentés ici, et non des valeurs objectives.
+- **Carte de proximité** (vue par défaut des résultats) : vous êtes au centre ; un candidat est
+  placé à une distance proportionnelle à 100 % moins son score ajusté (bord du cercle : 25 % ou
+  moins), dans la direction qu'il a par rapport à vous sur la carte politique. Les distances
+  y traduisent donc les scores ; la carte des positions politiques, elle, montre les positions
+  des programmes sur les axes.
 - **Projection sur l'échiquier (mode A)** : sur chaque axe, 10 × Σ w·sens·v / Σ w·2, où v est la
   position (la vôtre ou celle d'un candidat), sens et w ceux de l'affirmation ; les silences
   sont exclus.

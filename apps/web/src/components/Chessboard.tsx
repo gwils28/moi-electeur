@@ -2,7 +2,7 @@
 
 import type { ElectionConfig } from "@moi-electeur/schemas-ts";
 import { scaleLinear } from "d3-scale";
-import { layoutLabels, wrapLabel } from "@/lib/chessboard";
+import { layoutLabels, PROXIMITY_EDGE_SCORE, wrapLabel } from "@/lib/chessboard";
 import type { CandidateDisplay } from "@/lib/present";
 import { fr } from "@/i18n/fr";
 
@@ -19,8 +19,19 @@ interface Props {
   previousUser: { x: number | null; y: number | null } | null;
   axisLabels: { x: [string, string]; y: [string, string] };
   showQuadrants: boolean;
+  /**
+   * « positions » : carte politique (projection). « proximity » : carte de proximité (PLAN D60),
+   * utilisateur au centre, candidats déjà placés par `proximityLayout` (distance = 100 - score).
+   */
+  variant?: "positions" | "proximity";
+  /** Nom accessible de la carte. */
+  label?: string;
   onSelect: (id: string) => void;
 }
+
+/** Cercles de la carte de proximité (du bord vers le centre) : score ajusté de chaque rayon. */
+const SCORE_RINGS = [PROXIMITY_EDGE_SCORE, 50, 75] as const;
+const ringRadius = (score: number) => ((100 - score) / (100 - PROXIMITY_EDGE_SCORE)) * 10;
 
 // viewBox 560 x 480 : cadre carré de 336, marges latérales pour les libellés de l'axe x (deux ou
 // trois lignes) et marges hautes et basses pour les libellés de quadrants et de l'axe y.
@@ -49,6 +60,7 @@ export function Chessboard(p: Props) {
   const ux = p.user.x ?? 0;
   const uy = p.user.y ?? 0;
   const hasUser = p.user.x !== null && p.user.y !== null;
+  const proximityView = p.variant === "proximity";
   const q = p.config.quadrants;
   const plotted = p.candidates.flatMap((c) =>
     c.x === null || c.y === null ? [] : [{ c, x: c.x, y: c.y }],
@@ -58,7 +70,9 @@ export function Chessboard(p: Props) {
       id: c.display.id,
       px: sx(x),
       py: sy(y),
-      side: x > 4 ? ("left" as const) : ("right" as const),
+      // Carte de proximité : étiquettes vers l'extérieur du cercle ; carte des positions :
+      // à gauche du point près du bord droit, pour rester dans le cadre.
+      side: (p.variant === "proximity" ? x < 0 : x > 4) ? ("left" as const) : ("right" as const),
     })),
   );
   const xLines = (text: string) => wrapLabel(text, 17);
@@ -77,19 +91,49 @@ export function Chessboard(p: Props) {
       viewBox={`0 0 ${W} ${H}`}
       className="mx-auto w-full max-w-[560px]"
       role="group"
-      aria-label={fr.chessboardLabel}
+      aria-label={p.label ?? fr.chessboardLabel}
     >
-      <rect
-        x={MX}
-        y={MY}
-        width={PLOT}
-        height={PLOT}
-        fill="var(--surface)"
-        stroke="var(--line-strong)"
-      />
+      {proximityView ? (
+        <g>
+          {SCORE_RINGS.map((s) => {
+            const edge = s === PROXIMITY_EDGE_SCORE;
+            const r = sx(ringRadius(s)) - sx(0);
+            return (
+              <g key={s}>
+                <circle
+                  cx={sx(0)}
+                  cy={sy(0)}
+                  r={r}
+                  fill={edge ? "var(--surface)" : "none"}
+                  stroke={edge ? "var(--line-strong)" : "var(--muted)"}
+                  strokeDasharray={edge ? undefined : "3 4"}
+                />
+                <text
+                  x={sx(0) + r * Math.SQRT1_2 + 4}
+                  y={sy(0) + r * Math.SQRT1_2 + 12}
+                  fontSize={10}
+                  fill="var(--muted)"
+                  {...HALO}
+                >
+                  {edge ? `${s} % ou moins` : `${s} %`}
+                </text>
+              </g>
+            );
+          })}
+        </g>
+      ) : (
+        <rect
+          x={MX}
+          y={MY}
+          width={PLOT}
+          height={PLOT}
+          fill="var(--surface)"
+          stroke="var(--line-strong)"
+        />
+      )}
       <line x1={sx(0)} x2={sx(0)} y1={MY} y2={H - MY} stroke="var(--line-strong)" opacity={0.6} />
       <line x1={MX} x2={W - MX} y1={sy(0)} y2={sy(0)} stroke="var(--line-strong)" opacity={0.6} />
-      {p.showQuadrants && (
+      {p.showQuadrants && !proximityView && (
         <g fontSize={10} fontStyle="italic" fill="var(--muted)">
           <text x={MX} y={MY - 10} {...HALO}>
             {q.tl}
@@ -117,6 +161,7 @@ export function Chessboard(p: Props) {
       </g>
 
       {hasUser &&
+        !proximityView &&
         [2.5, 5, 7.5].map((r) => (
           <ellipse
             key={r}
@@ -227,8 +272,10 @@ export function Chessboard(p: Props) {
           style={{ transform: `translate(${sx(ux)}px, ${sy(uy)}px)` }}
           data-testid="user-point"
         >
-          <circle r={9} fill="var(--surface)" stroke="currentColor" strokeWidth={3} />
-          <circle r={3} fill="currentColor" />
+          {/* « Vous » au bleu interactif : distinct des candidats (encre neutre) par la couleur, la
+              forme et le libellé. */}
+          <circle r={9} fill="var(--surface)" stroke="var(--link)" strokeWidth={3} />
+          <circle r={3} fill="var(--link)" />
           <text x={12} y={-10} fontSize={12} fontWeight={700} fill="currentColor" {...HALO}>
             {fr.you}
           </text>

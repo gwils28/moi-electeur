@@ -93,6 +93,8 @@ test("mode aveugle : aucun nom ni parti dans la page", async ({ page }) => {
 test("« Et si » : trace animée et variation de proximité", async ({ page }) => {
   await page.goto("/boussole");
   await answerAll(page);
+  // La trace du point de l'utilisateur n'existe que sur la carte des positions (PLAN D60).
+  await page.getByLabel("Positions politiques").check();
   await page.getByText("Et si… ?").click();
   await page.getByTestId("whatif-s01").selectOption("-2");
   await page.getByTestId("whatif-s02").selectOption("2");
@@ -142,6 +144,29 @@ test("résultats triés par score ajusté décroissant (PLAN D59)", async ({ pag
     .map(Number);
   expect(firsts.length).toBeGreaterThan(1);
   for (let i = 1; i < firsts.length; i++) expect(firsts[i]!).toBeLessThanOrEqual(firsts[i - 1]!);
+});
+
+test("carte de proximité par défaut et bulles d'information (PLAN D60)", async ({ page }) => {
+  await page.goto("/boussole");
+  await answerAll(page);
+  await expect(page.getByLabel("Proximité avec vous")).toBeChecked();
+  await expect(page.getByRole("group", { name: "Carte de proximité" })).toBeVisible();
+  await expect(page.getByTestId("user-point")).toBeVisible();
+
+  const scoreInfo = page.getByRole("button", { name: "Comment est calculé ce score ?" });
+  await expect(scoreInfo).toHaveAttribute("aria-expanded", "false");
+  await scoreInfo.click();
+  await expect(scoreInfo).toHaveAttribute("aria-expanded", "true");
+  await expect(page.getByRole("note")).toContainText("compte pour 40 %");
+  await page.keyboard.press("Escape");
+  await expect(page.getByRole("note")).toHaveCount(0);
+  await expect(scoreInfo).toBeFocused();
+
+  await page.getByRole("button", { name: "Comment lire la carte ?" }).click();
+  await expect(page.getByRole("note")).toContainText("100 % moins son score");
+
+  await page.getByLabel("Positions politiques").check();
+  await expect(page.getByRole("group", { name: "Échiquier politique" })).toBeVisible();
 });
 
 test("lien #r= invalide : questionnaire vierge et message", async ({ page }) => {

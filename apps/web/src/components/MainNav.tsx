@@ -25,7 +25,7 @@ export function MainNav() {
         const style = current
           ? `${base} bg-accent font-semibold text-accent-fg`
           : l.featured
-            ? `${base} border-2 border-fg font-semibold text-fg hover:bg-surface-2`
+            ? `${base} border-2 border-heading font-semibold text-heading hover:bg-surface-2`
             : `${base} font-medium text-fg hover:bg-surface-2`;
         return (
           <Link

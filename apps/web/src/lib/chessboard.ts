@@ -80,3 +80,49 @@ export function wrapLabel(text: string, max: number): string[] {
   }
   return lines;
 }
+
+export interface ProximityInput {
+  readonly id: string;
+  /** Position sur la carte politique (projection), null si inconnue. */
+  readonly x: number | null;
+  readonly y: number | null;
+  /** Score ajusté de proximité (0..100), null si non calculable. */
+  readonly score: number | null;
+}
+
+/** Score placé sur le bord du cercle de la carte de proximité (en deçà : sur le bord). */
+export const PROXIMITY_EDGE_SCORE = 25;
+
+/**
+ * Carte de proximité (PLAN D60) : l'utilisateur au centre (0, 0) ; chaque candidat à une
+ * distance proportionnelle à (100 - score ajusté), sur l'échelle [-10, 10] de la carte (score
+ * 100 au centre, PROXIMITY_EDGE_SCORE ou moins sur le bord : les scores ajustés réels se
+ * situent rarement sous 30, ce bord exploite mieux la place sans changer l'ordre des distances),
+ * dans la direction qu'il a par rapport à l'utilisateur sur la carte politique. Si cette
+ * direction est indéfinie (même point, position inconnue), directions réparties sur le cercle
+ * selon l'ordre reçu ; la distance reste exacte.
+ */
+export function proximityLayout(
+  user: { readonly x: number | null; readonly y: number | null },
+  candidates: readonly ProximityInput[],
+): { id: string; x: number | null; y: number | null }[] {
+  const undefinedDir = candidates.filter(
+    (c) =>
+      c.score !== null &&
+      (c.x === null ||
+        c.y === null ||
+        user.x === null ||
+        user.y === null ||
+        Math.hypot(c.x - user.x, c.y - user.y) < 1e-9),
+  );
+  return candidates.map((c) => {
+    if (c.score === null) return { id: c.id, x: null, y: null };
+    const rho = Math.min(10, Math.max(0, ((100 - c.score) / (100 - PROXIMITY_EDGE_SCORE)) * 10));
+    const k = undefinedDir.indexOf(c);
+    const theta =
+      k >= 0
+        ? Math.PI / 2 - (2 * Math.PI * k) / undefinedDir.length
+        : Math.atan2(c.y! - user.y!, c.x! - user.x!);
+    return { id: c.id, x: rho * Math.cos(theta), y: rho * Math.sin(theta) };
+  });
+}

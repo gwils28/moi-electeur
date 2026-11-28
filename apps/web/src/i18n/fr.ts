@@ -32,7 +32,7 @@ export const fr = {
   coverage: (pct: number) => `couverture ${pct} %`,
   coverageDetail: (n: number, answered: number) => `calculée sur ${n} de vos ${answered} réponses`,
   coverageNote:
-    "La proximité ne porte que sur les affirmations où le programme se prononce : calculée sur peu d'affirmations communes, elle est moins fiable. Vérifiez la couverture de chaque candidat.",
+    "Sous chaque nom, la proximité « sur les seuls points communs » ne compte que les affirmations où le programme se prononce ; le score de proximité, lui, tient compte de toutes vos réponses. Vérifiez aussi la couverture.",
   lowCoverage: "Le programme ne se prononce pas sur plus de la moitié de vos réponses.",
   lowCoverageBadge: "Couverture faible",
   dialLegend:
@@ -54,6 +54,26 @@ export const fr = {
   quoteHidden: "Citation masquée en mode aveugle (elle pourrait révéler le candidat).",
   you: "Vous",
   chessboardLabel: "Échiquier politique",
+  proximityMapLabel: "Carte de proximité",
+  mapView: "Vue de la carte",
+  mapViewProximity: "Proximité avec vous",
+  mapViewPositions: "Positions politiques",
+  mapInfoLabel: "Comment lire la carte ?",
+  mapInfoProximity:
+    "Proximité avec vous : vous êtes au centre. Plus le score de proximité d'un candidat est élevé, plus il est près de vous : la distance est proportionnelle à 100 % moins son score (cercles à 75 et 50 %, bord à 25 % ou moins). Sa direction est celle qu'il a par rapport à vous sur la carte politique.",
+  mapInfoPositions:
+    "Positions politiques : chaque point est la position du programme sur les deux axes, calculée à partir de ses réponses aux affirmations. La distance entre deux points n'est pas le score de proximité.",
+  proximityMapNote:
+    "Distance à votre point proportionnelle à 100 % moins le score de proximité (bord : 25 % ou moins) ; direction : celle de la carte politique.",
+  scoreTitle: "Score de proximité",
+  scoreInfoLabel: "Comment est calculé ce score ?",
+  scoreInfo: [
+    "Le score porte sur toutes vos réponses, pondérées par l'importance que vous donnez à chaque thème.",
+    "Quand le programme se prononce : 100 % si sa position est identique à votre réponse, 0 % si elle est opposée (écart de 4 crans), entre les deux sinon.",
+    "Quand le programme ne se prononce pas : la réponse compte pour 40 %.",
+    "On ajoute 5 affirmations fictives à 50 %, pour qu'un score ne repose jamais sur trop peu de réponses.",
+    "Le score mesure une proximité de réponses, pas une préférence. Détails dans la méthodologie.",
+  ],
   tableCaption: "Proximité et coordonnées de chaque candidat",
   candidateCol: "Candidat",
   coverageCol: "Couverture",
