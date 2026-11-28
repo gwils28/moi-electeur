@@ -293,3 +293,7 @@ Suites de la relecture M0 :
 - Tests : `apps/web/e2e/securite.spec.ts` (CSP sur les cinq pages, aucune violation en console, nonce renouvelé, boussole hydratée sous CSP) ; e2e 76 ; `pipeline/tests/test_build.py` (point d'entrée autonome).
 - Guide : `docs/deploiement.md` (prérequis, `.env`, index, démarrage, mise à jour, sauvegarde, essai local). Les variables `DOMAIN`, `ACME_EMAIL` et `POSTGRES_PASSWORD` sont à ajouter au `.env` du serveur (le fichier `.env.example` est géré par le mainteneur).
 - **Reste au mainteneur** : VPS, DNS du domaine, `.env` de production, puis la mise en ligne (`docs/deploiement.md`).
+
+## 2026-11-28 : port local du service de recherche
+
+- **Écart** : en local, `rag` est publié sur `127.0.0.1:8001` (au lieu de 8000, occupé par une autre application du poste). Seul le port côté hôte change : dans le conteneur le service écoute toujours sur 8000, le web l'appelle par le réseau Docker (`RAG_URL: http://rag:8000`) et la production n'est pas touchée. Défaut de `RAG_URL` dans `apps/web/src/lib/rag/server.ts` aligné sur 8001 (cas `pnpm dev` hors Docker), README et CLAUDE.md mis à jour.

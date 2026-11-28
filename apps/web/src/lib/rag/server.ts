@@ -60,7 +60,7 @@ export const askHandler = createAskHandler({
     }
     return client;
   },
-  retrieve: createRetriever(process.env.RAG_URL ?? "http://127.0.0.1:8000"),
+  retrieve: createRetriever(process.env.RAG_URL ?? "http://127.0.0.1:8001"),
   limiter: new RateLimiter({ limit: 10, windowMs: 10 * 60_000 }),
   budget: new DailyBudget({ limitUsd: DAILY_BUDGET_USD }),
   cache: new LruCache<CachedAnswer>({ max: 500, ttlMs: 24 * 3600_000 }),
