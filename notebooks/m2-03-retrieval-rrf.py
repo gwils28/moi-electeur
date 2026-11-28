@@ -13,54 +13,52 @@ def _():
 
 @app.cell
 def _(mo):
-    mo.md(
-        r"""
-        # M2-03 : Recherche hybride, sémantique, plein texte et RRF
+    mo.md(r"""
+    # M2-03 : Recherche hybride, sémantique, plein texte et RRF
 
-        | Métadonnée | Valeur |
-        |---|---|
-        | Date | 2026-11-27 |
-        | Auteur | Claude Code (revue : mainteneur) |
-        | Données | `fr-presidentielle-2022` (794 extraits) ; jeu de fumée `eval/smoke/questions-2022.jsonl` |
-        | Fixture | `notebooks/fixtures/m2-retrieval-smoke.json` (`uv run --project eval moi-electeur-eval retrieval`) |
-        | Modèle / prompt | bge-m3 et multilingual-e5-large ; PostgreSQL `french` ; aucun appel LLM |
-        | Graine | 7 (bootstrap) |
-        | Statut | décision prise : lexèmes fréquents ignorés en plein texte (`MAX_DF` = 0,5, branche `fix/rag-lexical`) |
-        | Code | `services/rag/src/moi_electeur_rag/retrieve.py`, `ranking.py` ; `eval/src/moi_electeur_eval/collect.py` |
+    | Métadonnée | Valeur |
+    |---|---|
+    | Date | 2026-11-27 |
+    | Auteur | Claude Code (revue : mainteneur) |
+    | Données | `fr-presidentielle-2022` (794 extraits) ; jeu de fumée `eval/smoke/questions-2022.jsonl` |
+    | Fixture | `notebooks/fixtures/m2-retrieval-smoke.json` (`uv run --project eval moi-electeur-eval retrieval`) |
+    | Modèle / prompt | bge-m3 et multilingual-e5-large ; PostgreSQL `french` ; aucun appel LLM |
+    | Graine | 7 (bootstrap) |
+    | Statut | décision prise : lexèmes fréquents ignorés en plein texte (`MAX_DF` = 0,5, branche `fix/rag-lexical`) |
+    | Code | `services/rag/src/moi_electeur_rag/retrieve.py`, `ranking.py` ; `eval/src/moi_electeur_eval/collect.py` |
 
-        ## 1. Question et contexte
-        `/retrieve` (SPEC § 6.1, PLAN D17) fusionne, pour chaque candidat, les 20 extraits les plus
-        proches sémantiquement et les 20 mieux classés en plein texte (`ts_rank_cd`, mots de la
-        question en **OU**), par Reciprocal Rank Fusion. La fusion apporte-t-elle quelque chose par
-        rapport à chaque méthode seule, au $k = 4$ servi ? Et chaque candidat reçoit-il bien au
-        moins un extrait sur chaque question (critère PLAN § 4.9) ?
+    ## 1. Question et contexte
+    `/retrieve` (SPEC § 6.1, PLAN D17) fusionne, pour chaque candidat, les 20 extraits les plus
+    proches sémantiquement et les 20 mieux classés en plein texte (`ts_rank_cd`, mots de la
+    question en **OU**), par Reciprocal Rank Fusion. La fusion apporte-t-elle quelque chose par
+    rapport à chaque méthode seule, au $k = 4$ servi ? Et chaque candidat reçoit-il bien au
+    moins un extrait sur chaque question (critère PLAN § 4.9) ?
 
-        ## 2. Hypothèses et alternatives envisagées
-        | Méthode | Pour | Contre |
-        |---|---|---|
-        | Sémantique seule | robuste aux reformulations | rate les termes rares exacts (sigles : RIC, OTAN, SMIC) |
-        | Plein texte seul | exact sur les sigles et noms propres | dépend des mots de la question, sensible aux mots vides |
-        | **RRF (servi)** | sans calibrage des scores, robuste | n'aide que si les deux listes sont informatives |
-        | Combinaison pondérée des scores | réglable | scores hétérogènes, calibrage par modèle (cf. m2-02) |
+    ## 2. Hypothèses et alternatives envisagées
+    | Méthode | Pour | Contre |
+    |---|---|---|
+    | Sémantique seule | robuste aux reformulations | rate les termes rares exacts (sigles : RIC, OTAN, SMIC) |
+    | Plein texte seul | exact sur les sigles et noms propres | dépend des mots de la question, sensible aux mots vides |
+    | **RRF (servi)** | sans calibrage des scores, robuste | n'aide que si les deux listes sont informatives |
+    | Combinaison pondérée des scores | réglable | scores hétérogènes, calibrage par modèle (cf. m2-02) |
 
-        ## 3. Formalisation
-        Pour un candidat, avec $r_s(d)$ et $r_\ell(d)$ les rangs (à partir de 1) d'un extrait $d$
-        dans les listes sémantique et plein texte (terme absent si $d$ n'y figure pas) :
+    ## 3. Formalisation
+    Pour un candidat, avec $r_s(d)$ et $r_\ell(d)$ les rangs (à partir de 1) d'un extrait $d$
+    dans les listes sémantique et plein texte (terme absent si $d$ n'y figure pas) :
 
-        $$\text{RRF}(d) = \frac{1}{60 + r_s(d)} + \frac{1}{60 + r_\ell(d)}$$
+    $$\text{RRF}(d) = \frac{1}{60 + r_s(d)} + \frac{1}{60 + r_\ell(d)}$$
 
-        Exemple calculé à la main (cellule suivante) : un extrait 1er en sémantique et absent du
-        plein texte obtient $1/61 \approx 0{,}01639$ ; un extrait 3e dans les deux listes obtient
-        $2/63 \approx 0{,}03175$ et passe devant. Un plein texte bruité déplace donc les extraits
-        que la sémantique avait bien classés. Métriques : rappel@k, succès@k et couverture, définis
-        dans m2-02 et `moi_electeur_eval.recall`.
+    Exemple calculé à la main (cellule suivante) : un extrait 1er en sémantique et absent du
+    plein texte obtient $1/61 \approx 0{,}01639$ ; un extrait 3e dans les deux listes obtient
+    $2/63 \approx 0{,}03175$ et passe devant. Un plein texte bruité déplace donc les extraits
+    que la sémantique avait bien classés. Métriques : rappel@k, succès@k et couverture, définis
+    dans m2-02 et `moi_electeur_eval.recall`.
 
-        **Plein texte servi** : les lexèmes de la question en OU, sans ceux présents dans plus de
-        50 % des extraits de l'élection (`MAX_DF`, compté en SQL via l'index GIN). **Référence
-        « brute » (M2b, non servie)** : tous les lexèmes en OU, la requête d'origine, gardée pour
-        mesurer l'écart avant/après le correctif.
-        """
-    )
+    **Plein texte servi** : les lexèmes de la question en OU, sans ceux présents dans plus de
+    50 % des extraits de l'élection (`MAX_DF`, compté en SQL via l'index GIN). **Référence
+    « brute » (M2b, non servie)** : tous les lexèmes en OU, la requête d'origine, gardée pour
+    mesurer l'écart avant/après le correctif.
+    """)
     return
 
 
@@ -92,7 +90,17 @@ def _():
     questions = load_questions(repo_root() / fixture["questions_file"])
     models = list(fixture["models"])
     res4 = reports(fixture, questions, k=4)
-    return METHOD_LABELS, fixture, models, np, pd, plt, questions, res4, reports
+    return (
+        METHOD_LABELS,
+        fixture,
+        models,
+        np,
+        pd,
+        plt,
+        questions,
+        reports,
+        res4,
+    )
 
 
 @app.cell
@@ -111,7 +119,7 @@ def _(METHOD_LABELS, mo, pd, res4):
         ]
     )
     mo.vstack([mo.md("## 4. Expérimentation\n### 4.1 Rappel@4 par modèle et méthode"), table])
-    return (table,)
+    return
 
 
 @app.cell
@@ -151,7 +159,7 @@ def _(METHOD_LABELS, mo, models, pd, res4):
             per_question,
         ]
     )
-    return (per_question,)
+    return
 
 
 @app.cell
@@ -186,7 +194,7 @@ def _(fixture, mo, models, pd):
             lexemes,
         ]
     )
-    return (lexemes,)
+    return
 
 
 @app.cell

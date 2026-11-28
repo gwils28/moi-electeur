@@ -13,49 +13,47 @@ def _():
 
 @app.cell
 def _(mo):
-    mo.md(
-        r"""
-        # M2-02 : bge-m3 ou multilingual-e5-large ?
+    mo.md(r"""
+    # M2-02 : bge-m3 ou multilingual-e5-large ?
 
-        | Métadonnée | Valeur |
-        |---|---|
-        | Date | 2026-11-27 |
-        | Auteur | Claude Code (revue : mainteneur) |
-        | Données | `fr-presidentielle-2022` (794 extraits) ; jeu de fumée `eval/smoke/questions-2022.jsonl` (15 questions) |
-        | Fixture | `notebooks/fixtures/m2-retrieval-smoke.json`, produite par `uv run --project eval moi-electeur-eval retrieval` (base indexée et poids requis) |
-        | Modèle / prompt | `BAAI/bge-m3`, `intfloat/multilingual-e5-large` (CPU) ; aucun appel LLM |
-        | Graine | 7 (bootstrap sur les questions) |
-        | Statut | exploration, décision provisoire |
-        | Code | `services/rag/src/moi_electeur_rag/embedding.py`, `eval/src/moi_electeur_eval/` |
+    | Métadonnée | Valeur |
+    |---|---|
+    | Date | 2026-11-27 |
+    | Auteur | Claude Code (revue : mainteneur) |
+    | Données | `fr-presidentielle-2022` (794 extraits) ; jeu de fumée `eval/smoke/questions-2022.jsonl` (15 questions) |
+    | Fixture | `notebooks/fixtures/m2-retrieval-smoke.json`, produite par `uv run --project eval moi-electeur-eval retrieval` (base indexée et poids requis) |
+    | Modèle / prompt | `BAAI/bge-m3`, `intfloat/multilingual-e5-large` (CPU) ; aucun appel LLM |
+    | Graine | 7 (bootstrap sur les questions) |
+    | Statut | exploration, décision provisoire |
+    | Code | `services/rag/src/moi_electeur_rag/embedding.py`, `eval/src/moi_electeur_eval/` |
 
-        ## 1. Question et contexte
-        Le service de recherche (SPEC § 6.1, PLAN D15) charge un seul modèle d'embedding. Les deux
-        candidats retenus en M2b sont multilingues et produisent des vecteurs de dimension 1024.
-        Lequel retrouve le mieux, **par candidat**, les extraits qui traitent la question ?
-        Ce notebook ne regarde que la recherche **sémantique seule** ; la fusion avec le plein
-        texte est l'objet de m2-03.
+    ## 1. Question et contexte
+    Le service de recherche (SPEC § 6.1, PLAN D15) charge un seul modèle d'embedding. Les deux
+    candidats retenus en M2b sont multilingues et produisent des vecteurs de dimension 1024.
+    Lequel retrouve le mieux, **par candidat**, les extraits qui traitent la question ?
+    Ce notebook ne regarde que la recherche **sémantique seule** ; la fusion avec le plein
+    texte est l'objet de m2-03.
 
-        ## 2. Hypothèses et alternatives envisagées
-        | Modèle | Pour | Contre |
-        |---|---|---|
-        | **bge-m3** (défaut actuel) | 8 192 tokens de contexte (aucun extrait tronqué) | similarités plus dispersées, rien d'autre de connu a priori |
-        | **multilingual-e5-large** | bon score multilingue publié | 512 tokens : la fin des extraits les plus longs est tronquée ; préfixes `query:` / `passage:` obligatoires |
-        | Modèle d'API (OpenAI, Voyage…) | qualité | envoie les questions à un tiers : écarté (RGPD, SPEC § 6.3) |
+    ## 2. Hypothèses et alternatives envisagées
+    | Modèle | Pour | Contre |
+    |---|---|---|
+    | **bge-m3** (défaut actuel) | 8 192 tokens de contexte (aucun extrait tronqué) | similarités plus dispersées, rien d'autre de connu a priori |
+    | **multilingual-e5-large** | bon score multilingue publié | 512 tokens : la fin des extraits les plus longs est tronquée ; préfixes `query:` / `passage:` obligatoires |
+    | Modèle d'API (OpenAI, Voyage…) | qualité | envoie les questions à un tiers : écarté (RGPD, SPEC § 6.3) |
 
-        ## 3. Formalisation
-        Pour la question $q$, le candidat attendu $c$, ses extraits pertinents $R_{qc}$ (annotés à la
-        main dans le jeu de fumée) et le classement $L_{qc}$ par similarité cosinus décroissante :
+    ## 3. Formalisation
+    Pour la question $q$, le candidat attendu $c$, ses extraits pertinents $R_{qc}$ (annotés à la
+    main dans le jeu de fumée) et le classement $L_{qc}$ par similarité cosinus décroissante :
 
-        $$\text{rappel@}k(q,c) = \frac{|L_{qc}[1..k] \cap R_{qc}|}{\min(k, |R_{qc}|)}, \qquad
-        \text{succès@}k(q,c) = \mathbb{1}\big[L_{qc}[1..k] \cap R_{qc} \neq \varnothing\big]$$
+    $$\text{rappel@}k(q,c) = \frac{|L_{qc}[1..k] \cap R_{qc}|}{\min(k, |R_{qc}|)}, \qquad
+    \text{succès@}k(q,c) = \mathbb{1}\big[L_{qc}[1..k] \cap R_{qc} \neq \varnothing\big]$$
 
-        Rappel d'une question : moyenne sur ses candidats attendus ; rappel global (macro) : moyenne
-        sur les 13 questions qui ont des attendus (les 2 demandes de recommandation n'en ont pas).
-        $k = 4$ est la valeur servie par `/retrieve`. Séparation des similarités :
-        $\Delta_q = \overline{s}(\text{pertinents}) - \overline{s}(\text{autres})$, rapportée à
-        l'étendue $\max - \min$ des similarités de la question.
-        """
-    )
+    Rappel d'une question : moyenne sur ses candidats attendus ; rappel global (macro) : moyenne
+    sur les 13 questions qui ont des attendus (les 2 demandes de recommandation n'en ont pas).
+    $k = 4$ est la valeur servie par `/retrieve`. Séparation des similarités :
+    $\Delta_q = \overline{s}(\text{pertinents}) - \overline{s}(\text{autres})$, rapportée à
+    l'étendue $\max - \min$ des similarités de la question.
+    """)
     return
 
 
@@ -142,7 +140,7 @@ def _(mo, models, np, pd, res4):
             per_q.round(2),
         ]
     )
-    return ci, per_q
+    return (ci,)
 
 
 @app.cell
@@ -163,7 +161,7 @@ def _(mo, models, pd, res4):
             per_cand,
         ]
     )
-    return (per_cand,)
+    return
 
 
 @app.cell

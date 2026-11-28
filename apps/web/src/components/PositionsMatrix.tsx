@@ -80,12 +80,15 @@ export function PositionsMatrix({
   const [seed, setSeed] = useState<number | null>(null);
   const [blind, setBlind] = useState(false);
   const [theme, setTheme] = useState("");
+  // Candidats masqués par l'utilisateur ; par défaut, tous sont affichés.
+  const [excluded, setExcluded] = useState<ReadonlySet<string>>(new Set());
   const [open, setOpen] = useState<{ statement: string; candidate: string } | null>(null);
   const details = useRef<HTMLDivElement>(null);
 
   useEffect(() => setSeed(sessionSeed()), []);
   useEffect(() => {
     setTheme("");
+    setExcluded(new Set());
     setOpen(null);
   }, [config]);
   useEffect(() => {
@@ -96,15 +99,17 @@ export function PositionsMatrix({
     () => (seed === null ? [] : displayCandidates(config.candidates, seed, blind)),
     [config, seed, blind],
   );
+  // Ordre de session conservé quelle que soit la sélection.
+  const visible = useMemo(() => displays.filter((d) => !excluded.has(d.id)), [displays, excluded]);
   const groups = useMemo(
     () =>
       positionMatrix(
         config.themes,
         statements,
         positions,
-        displays.map((d) => d.id),
+        visible.map((d) => d.id),
       ),
-    [config, statements, positions, displays],
+    [config, statements, positions, visible],
   );
   const shown = theme === "" ? groups : groups.filter((g) => g.theme.id === theme);
 
@@ -119,7 +124,7 @@ export function PositionsMatrix({
       openedCell = r.cells.find((c) => c.candidateId === open.candidate);
     }
   }
-  const openedDisplay = displays.find((d) => d.id === open?.candidate);
+  const openedDisplay = visible.find((d) => d.id === open?.candidate);
   const position = openedCell?.position ?? null;
 
   return (
@@ -169,6 +174,53 @@ export function PositionsMatrix({
         </label>
       </section>
 
+      <fieldset className="rounded border p-3 text-sm">
+        <legend className="px-1 font-medium">{t.candidateFilter}</legend>
+        <div className="mb-2 flex gap-2">
+          <button
+            type="button"
+            className="rounded border px-2"
+            onClick={() => setExcluded(new Set())}
+          >
+            {t.allCandidates}
+          </button>
+          <button
+            type="button"
+            className="rounded border px-2"
+            onClick={() => {
+              setExcluded(new Set(displays.map((d) => d.id)));
+              setOpen(null);
+            }}
+          >
+            {t.noCandidates}
+          </button>
+        </div>
+        <div className="grid grid-cols-1 gap-x-4 gap-y-1 sm:grid-cols-2 md:grid-cols-3">
+          {displays.map((d) => (
+            <label key={d.id} className="flex items-center gap-2">
+              <input
+                type="checkbox"
+                checked={!excluded.has(d.id)}
+                onChange={(e) => {
+                  const show = e.target.checked;
+                  setExcluded((x) => {
+                    const next = new Set(x);
+                    if (show) next.delete(d.id);
+                    else next.add(d.id);
+                    return next;
+                  });
+                  if (!show && open?.candidate === d.id) setOpen(null);
+                }}
+              />
+              {d.label}
+            </label>
+          ))}
+        </div>
+        <p role="status" className="mt-2">
+          {visible.length === 0 ? t.pickOne : t.shownCount(visible.length, displays.length)}
+        </p>
+      </fieldset>
+
       <section aria-labelledby="legend-title" className="text-sm">
         <h2 id="legend-title" className="font-semibold">
           {t.legend}
@@ -187,76 +239,78 @@ export function PositionsMatrix({
         </ul>
       </section>
 
-      <div className="overflow-x-auto" tabIndex={0} role="region" aria-label={t.caption}>
-        <table className="border-collapse text-sm" data-testid="positions">
-          <caption className="mb-2 text-left">{t.caption}</caption>
-          <thead>
-            <tr>
-              <th
-                scope="col"
-                className="sticky left-0 z-10 min-w-56 border bg-[var(--bg)] p-2 text-left"
-              >
-                {t.statement}
-              </th>
-              {displays.map((display) => (
-                <CandidateHeader key={display.id} display={display} />
-              ))}
-            </tr>
-          </thead>
-          {shown.map((g) => (
-            <tbody key={g.theme.id}>
+      {visible.length > 0 && (
+        <div className="overflow-x-auto" tabIndex={0} role="region" aria-label={t.caption}>
+          <table className="border-collapse text-sm" data-testid="positions">
+            <caption className="mb-2 text-left">{t.caption}</caption>
+            <thead>
               <tr>
                 <th
-                  scope="colgroup"
-                  colSpan={displays.length + 1}
-                  className="border bg-[var(--fg)]/5 p-2 text-left text-base font-semibold"
+                  scope="col"
+                  className="sticky left-0 z-10 min-w-56 border bg-[var(--bg)] p-2 text-left"
                 >
-                  {g.theme.label}
+                  {t.statement}
                 </th>
+                {visible.map((display) => (
+                  <CandidateHeader key={display.id} display={display} />
+                ))}
               </tr>
-              {g.rows.map((r) => (
-                <tr key={r.statement.id}>
+            </thead>
+            {shown.map((g) => (
+              <tbody key={g.theme.id}>
+                <tr>
                   <th
-                    scope="row"
-                    className="sticky left-0 z-10 border bg-[var(--bg)] p-2 text-left align-top font-normal"
+                    scope="colgroup"
+                    colSpan={visible.length + 1}
+                    className="border bg-[var(--fg)]/5 p-2 text-left text-base font-semibold"
                   >
-                    {r.statement.text}
+                    {g.theme.label}
                   </th>
-                  {r.cells.map((c) => {
-                    const d = displays.find((x) => x.id === c.candidateId)!;
-                    const isOpen =
-                      open?.statement === r.statement.id && open.candidate === c.candidateId;
-                    return (
-                      <td key={c.candidateId} className="relative border p-1 align-top">
-                        <button
-                          type="button"
-                          className={`w-full rounded px-1 py-1 text-left underline-offset-2 hover:underline ${
-                            isOpen ? "outline outline-2" : ""
-                          }`}
-                          aria-expanded={isOpen}
-                          aria-controls="position-details"
-                          onClick={() =>
-                            setOpen(
-                              isOpen
-                                ? null
-                                : { statement: r.statement.id, candidate: c.candidateId },
-                            )
-                          }
-                        >
-                          {/* Nom accessible = texte visible encadré de précisions (WCAG 2.5.3). */}
-                          <span className="sr-only">{t.cellBefore(d.label)}</span>
-                          <PositionMark value={c.value} />
-                          <span className="sr-only">{t.cellAfter(fullLabel(c.value))}</span>
-                        </button>
-                      </td>
-                    );
-                  })}
                 </tr>
-              ))}
-            </tbody>
-          ))}
-        </table>
-      </div>
+                {g.rows.map((r) => (
+                  <tr key={r.statement.id}>
+                    <th
+                      scope="row"
+                      className="sticky left-0 z-10 border bg-[var(--bg)] p-2 text-left align-top font-normal"
+                    >
+                      {r.statement.text}
+                    </th>
+                    {r.cells.map((c) => {
+                      const d = displays.find((x) => x.id === c.candidateId)!;
+                      const isOpen =
+                        open?.statement === r.statement.id && open.candidate === c.candidateId;
+                      return (
+                        <td key={c.candidateId} className="relative border p-1 align-top">
+                          <button
+                            type="button"
+                            className={`w-full rounded px-1 py-1 text-left underline-offset-2 hover:underline ${
+                              isOpen ? "outline outline-2" : ""
+                            }`}
+                            aria-expanded={isOpen}
+                            aria-controls="position-details"
+                            onClick={() =>
+                              setOpen(
+                                isOpen
+                                  ? null
+                                  : { statement: r.statement.id, candidate: c.candidateId },
+                              )
+                            }
+                          >
+                            {/* Nom accessible = texte visible encadré de précisions (WCAG 2.5.3). */}
+                            <span className="sr-only">{t.cellBefore(d.label)}</span>
+                            <PositionMark value={c.value} />
+                            <span className="sr-only">{t.cellAfter(fullLabel(c.value))}</span>
+                          </button>
+                        </td>
+                      );
+                    })}
+                  </tr>
+                ))}
+              </tbody>
+            ))}
+          </table>
+        </div>
+      )}
 
       <div id="position-details" ref={details} aria-live="polite">
         {open && openedCell && openedDisplay && openedStatement && (
