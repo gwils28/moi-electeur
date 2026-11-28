@@ -5,8 +5,10 @@ import { expect, test } from "@playwright/test";
 const PAGES = [
   { path: "/", h1: "Moi Électeur", nav: "Boussole" },
   { path: "/comparateur", h1: "Comparateur des programmes", nav: "Comparateur" },
+  { path: "/positions", h1: "Positions des candidats", nav: "Positions" },
   { path: "/explorer", h1: "Explorateur des programmes", nav: "Explorateur" },
-  { path: "/methodologie", h1: "Méthodologie", nav: "Méthodologie" },
+  // Méthodologie : dans le pied de page seulement (PLAN D53), aucune entrée courante en tête.
+  { path: "/methodologie", h1: "Méthodologie", nav: null },
 ];
 
 for (const p of PAGES) {
@@ -23,6 +25,10 @@ for (const p of PAGES) {
     await expect(page.locator("#contenu")).toBeFocused();
     // RGAA 12.x : page courante signalée dans la navigation.
     const nav = page.getByRole("navigation", { name: "Navigation principale" });
+    if (p.nav === null) {
+      await expect(nav.locator('[aria-current="page"]')).toHaveCount(0);
+      return;
+    }
     await expect(nav.getByRole("link", { name: p.nav })).toHaveAttribute("aria-current", "page");
     await expect(nav.locator('[aria-current="page"]')).toHaveCount(1);
   });
@@ -48,6 +54,15 @@ test("méthodologie publiée : validation en bloc, limites, lien vers la déclar
   await expect(main).toContainText("validées en bloc");
   await expect(main.getByRole("heading", { name: /Limites et biais connus/ })).toBeVisible();
   await expect(main.locator("table, ul").first()).toBeVisible();
+  // PLAN D53 : la méthodologie se trouve dans le pied de page, plus dans l'en-tête.
+  await expect(
+    page.getByRole("navigation", { name: "Navigation principale" }).getByRole("link", {
+      name: "Méthodologie",
+    }),
+  ).toHaveCount(0);
+  await expect(
+    page.getByRole("contentinfo").getByRole("link", { name: "Méthodologie" }),
+  ).toBeVisible();
   await page.getByRole("contentinfo").getByRole("link", { name: "Accessibilité" }).click();
   await expect(page).toHaveURL(/\/accessibilite$/);
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Accessibilité de Moi Électeur");

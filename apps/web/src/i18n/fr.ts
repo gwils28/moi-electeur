@@ -81,8 +81,8 @@ export const fr = {
     label: "Navigation principale",
     compass: "Boussole",
     comparator: "Comparateur",
+    positions: "Positions",
     explorer: "Explorateur",
-    methodology: "Méthodologie",
   },
   footer: {
     label: "Informations sur le site",
@@ -95,6 +95,40 @@ export const fr = {
   pastElection: (date: string) =>
     `Élection passée : positions tirées des programmes officiels du premier tour (${date}).`,
   noCompass: "Aucune boussole n'est encore publiée.",
+  positions: {
+    title: "Positions des candidats",
+    intro:
+      "Pour chacune des affirmations de la boussole, la position que prend chaque programme, de « s'engage contre » (-2) à « s'engage pour » (+2), ou son silence. Sélectionnez une cellule pour lire les passages cités.",
+    method:
+      "Positions proposées par un modèle de langue à partir des programmes officiels, puis revues par le mainteneur : elles peuvent contenir des erreurs. La méthode et ses limites sont décrites dans la méthodologie.",
+    methodLink: "Lire la méthodologie",
+    orderNote:
+      "Les candidats sont affichés dans un ordre aléatoire, tiré à chaque visite. Aucun total ni classement : chaque cellule décrit un programme.",
+    themeFilter: "Thème affiché",
+    allThemes: "Tous les thèmes",
+    caption: "Position de chaque programme sur les affirmations de la boussole, par thème",
+    statement: "Affirmation",
+    legend: "Lecture des cellules",
+    short: {
+      "2": "+2",
+      "1": "+1",
+      "0": "0",
+      "-1": "-1",
+      "-2": "-2",
+    } as Record<string, string>,
+    silenceShort: "silence",
+    cellBefore: (candidate: string) => `${candidate} : `,
+    cellAfter: (position: string) => `, ${position}. Afficher les citations.`,
+    details: (candidate: string) => `Position de ${candidate}`,
+    confidence: "Confiance de l'extraction",
+    confidenceLevels: { high: "élevée", medium: "moyenne", low: "faible" } as Record<
+      string,
+      string
+    >,
+    corrected: (proposed: string) => `Corrigée à la revue (valeur proposée : ${proposed}).`,
+    noEvidence: "Aucun passage cité.",
+    close: "Fermer le détail",
+  },
   comparator: {
     title: "Comparateur des programmes",
     intro:
