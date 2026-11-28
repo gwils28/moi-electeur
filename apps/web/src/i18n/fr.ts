@@ -80,7 +80,6 @@ export const fr = {
   nav: {
     label: "Navigation principale",
     compass: "Boussole",
-    comparator: "Comparateur",
     positions: "Positions",
     ask: "Interrogatoire",
   },
@@ -100,6 +99,11 @@ export const fr = {
   pastElection: (date: string) =>
     `Élection passée : positions tirées des programmes officiels du premier tour (${date}).`,
   noCompass: "Aucune boussole n'est encore publiée.",
+  positionsTabs: {
+    label: "Vues des positions",
+    matrix: "Tableau complet",
+    comparator: "Comparateur",
+  },
   positions: {
     title: "Positions des candidats",
     intro:

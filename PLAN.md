@@ -372,6 +372,7 @@ Les positions des candidats sur les affirmations (-2 à +2 ou silence, avec cita
 | D53 | Navigation | En-tête : Boussole, Comparateur, Positions, Explorateur. **Méthodologie** quitte l'en-tête et reste dans le pied de page (avec Accessibilité) |
 
 | D54 | Interrogatoire | L'explorateur devient **l'Interrogatoire** (nom choisi par le mainteneur, fonction centrale de l'app) : route `/interrogatoire`, `/explorer` redirigé de façon permanente ; **premier lien de l'en-tête, en forme de bouton** (plein, aux couleurs du texte, aucune teinte connotée) ; **encart sur l'accueil** (« Interrogez les programmes », lien « Lancer l'interrogatoire »). Ordre de l'en-tête : Interrogatoire, Boussole, Comparateur, Positions (remplace D53 pour l'ordre). Noms internes du code (`Explorer`, `lib/explorer`) inchangés |
+| D55 | Comparateur sous Positions | Le comparateur devient un **sous-onglet de Positions** : `/positions` (« Tableau complet ») et `/positions/comparateur` (« Comparateur »), sous-navigation commune (`app/positions/layout.tsx`, liens avec `aria-current`, pas de `tablist` : chaque vue est une page) ; `/comparateur` redirigé de façon permanente. En-tête : Interrogatoire, Boussole, Positions |
 
 > 📝 Annotation : demandé par le mainteneur (« complète le PLAN et implémente dans le même commit, pousse en autonomie »). D54 : demandé le 28/11, nom et mise en avant choisis par le mainteneur.
 

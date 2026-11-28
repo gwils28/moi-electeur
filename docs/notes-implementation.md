@@ -297,6 +297,7 @@ Suites de la relecture M0 :
 ## 2026-11-27 / 28 : logo et favicons (`apps/web/public/brand/`, `apps/web/src/app/`)
 
 - **Logo retenu (28/11, choix du mainteneur)** : rose des vents avec urne, bulletin et aiguille de boussole, fourni en JPEG 2048 px (image générée). Fond blanc rendu transparent (remplissage depuis les bords, bord adouci par « couleur vers alpha »), recadré au carré, quantifié en 256 couleurs. Remplace la version vectorielle du 27/11 (urne transparente, aiguille verticale), abandonnée avec `logo.svg`, `logo-mark.svg` et `icon.svg`.
+- **Logo v3 (28/11, après-midi, choix du mainteneur)** : même concept épuré (cercle épais, quatre repères, urne au trait, aiguille sans rose des vents ni bulletin rouge), même traitement et mêmes noms de fichiers, donc aucun changement de code. Plus lisible en favicon (16 et 32 px) que la version du matin ; en thème sombre, les quatre repères bleu marine qui dépassent du cercle ressortent peu (accepté).
 - **Fichiers** : `public/brand/logo-mark.png` (192 px, affiché en 40 px), `public/brand/logotype.svg` (nom vectorisé en Noto Sans Bold, licence OFL, suit le thème clair ou sombre) ; conventions Next : `src/app/icon.png` (256), `src/app/favicon.ico` (16, 32, 48), `src/app/apple-icon.png` (180, fond blanc, iOS ne gère pas la transparence).
 - **Points de neutralité à arbitrer (signalés, non bloquants)** : l'aiguille est inclinée (nord rouge vers le haut à droite, sud bleu vers le bas à gauche) et le couple rouge/bleu est proche des couleurs du drapeau. La note du 27/11 craignait qu'une inclinaison gauche/droite soit lue comme politique ; le logo n'a pas d'axes, le risque est faible mais à garder en tête. **Toujours à respecter** : ne jamais réutiliser le couple rouge/bleu sur les axes de la carte politique.
 - **Limites acceptées** : logo raster (pas de version vectorielle ni monochrome) ; le favicon 16 px est peu lisible (détails fins), 32 px reste reconnaissable ; pas d'adaptation au thème sombre (le logo a son propre fond blanc intérieur, lisible sur les deux thèmes, vérifié par capture).
@@ -324,4 +325,10 @@ Suites de la relecture M0 :
 - **Mise en avant** : premier lien de l'en-tête, en bouton plein aux couleurs du texte (`--fg` sur `--bg`, aucune teinte rouge ou bleue), page courante soulignée en plus d'`aria-current` ; encart sur l'accueil (`components/AskCallout.tsx`, section nommée par son titre) entre l'en-tête de la boussole et le questionnaire.
 - **Choix conservateur** : noms internes inchangés (`Explorer.tsx`, `lib/explorer/`, `loadExplorerElections`, `test/explorer.test.ts`) pour limiter le diff ; seul le test e2e est renommé (`e2e/interrogatoire.spec.ts`). Titres historiques de PLAN et SPEC non réécrits.
 - Tests : e2e de mise en avant (premier lien, encart, clic, redirection) ; tests d'accessibilité et de CSP basculés sur `/interrogatoire`.
+
+## 2026-11-28 : comparateur en sous-onglet de Positions (PLAN D55)
+
+- **Routes** : `/positions` (tableau complet) et `/positions/comparateur` ; `/comparateur` redirigé de façon permanente (`next.config.ts`). En-tête réduit à Interrogatoire, Boussole, Positions ; l'onglet Positions reste la page courante sur les deux vues.
+- **Sous-navigation** (`components/PositionsTabs.tsx`, rendue par `app/positions/layout.tsx`) : simples liens avec `aria-current="page"`, gras et trait épais, et non un widget ARIA `tablist` (chaque vue a sa propre adresse et se recharge, un `tablist` promettrait des flèches au clavier et un panneau dans la même page).
+- Tests : e2e des sous-onglets (en-tête sans Comparateur, page courante dans les deux navigations, redirection) ; adresses mises à jour dans les tests du comparateur, des élections, d'accessibilité et de CSP, et dans `scripts/deploy-check.sh`.
 

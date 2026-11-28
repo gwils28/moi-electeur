@@ -4,7 +4,7 @@ import { expect, test } from "@playwright/test";
 /** Audit RGAA (PLAN D46) : points qu'axe-core ne couvre pas, vérifiés sur chaque page. */
 const PAGES = [
   { path: "/", h1: "Moi Électeur", nav: "Boussole" },
-  { path: "/comparateur", h1: "Comparateur des programmes", nav: "Comparateur" },
+  { path: "/positions/comparateur", h1: "Comparateur des programmes", nav: "Positions" },
   { path: "/positions", h1: "Positions des candidats", nav: "Positions" },
   { path: "/interrogatoire", h1: "Interrogatoire des programmes", nav: "Interrogatoire" },
   // Méthodologie : dans le pied de page seulement (PLAN D53), aucune entrée courante en tête.
