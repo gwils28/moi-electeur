@@ -13,43 +13,41 @@ def _():
 
 @app.cell
 def _(mo):
-    mo.md(
-        r"""
-        # M0-01 : Construction des données de démonstration
+    mo.md(r"""
+    # M0-01 : Construction des données de démonstration
 
-        | Métadonnée | Valeur |
-        |---|---|
-        | Date | 2026-11-17 |
-        | Auteur | Claude Code (revue : mainteneur) |
-        | Données | `data/elections/demo-fictive`, généré par `pipeline make-demo` |
-        | Modèle / prompt | aucun appel LLM |
-        | Graine | `SEED = 2027` (`moi_electeur_pipeline.demo`) |
-        | Statut | décision prise (PLAN D9) |
+    | Métadonnée | Valeur |
+    |---|---|
+    | Date | 2026-11-17 |
+    | Auteur | Claude Code (revue : mainteneur) |
+    | Données | `data/elections/demo-fictive`, généré par `pipeline make-demo` |
+    | Modèle / prompt | aucun appel LLM |
+    | Graine | `SEED = 2027` (`moi_electeur_pipeline.demo`) |
+    | Statut | décision prise (PLAN D9) |
 
-        ## 1. Question et contexte
-        Les jalons M0 et M1 doivent avancer avant de disposer d'un vrai corpus (M2/M3).
-        Il faut donc une élection **fictive** qui respecte toutes les règles de la SPEC (§ 4.2) :
-        25 à 35 affirmations, au moins 4 par thème et 10 par axe, sens alternés, positions
-        revues, plus quelques cas limites (silence, positions rejetées).
+    ## 1. Question et contexte
+    Les jalons M0 et M1 doivent avancer avant de disposer d'un vrai corpus (M2/M3).
+    Il faut donc une élection **fictive** qui respecte toutes les règles de la SPEC (§ 4.2) :
+    25 à 35 affirmations, au moins 4 par thème et 10 par axe, sens alternés, positions
+    revues, plus quelques cas limites (silence, positions rejetées).
 
-        ## 2. Alternatives envisagées
-        - **Positions saisies à la main** : fastidieux, et peu de contrôle sur la cohérence.
-        - **Positions tirées au hasard** : aucune structure, l'échiquier serait illisible.
-        - **Retenu : positions dérivées d'un profil idéologique latent + bruit seedé.**
-          Les données sont plausibles (structure 2D visible), reproductibles, et le bruit
-          évite que le mode A redonne exactement le profil.
+    ## 2. Alternatives envisagées
+    - **Positions saisies à la main** : fastidieux, et peu de contrôle sur la cohérence.
+    - **Positions tirées au hasard** : aucune structure, l'échiquier serait illisible.
+    - **Retenu : positions dérivées d'un profil idéologique latent + bruit seedé.**
+      Les données sont plausibles (structure 2D visible), reproductibles, et le bruit
+      évite que le mode A redonne exactement le profil.
 
-        ## 3. Formalisation
-        Chaque candidat fictif $c$ a un profil $(e_x, e_y) \in [-1, 1]^2$. Pour une affirmation
-        $s$ d'axe $a(s)$ et de sens $d(s) \in \{-1, +1\}$ :
+    ## 3. Formalisation
+    Chaque candidat fictif $c$ a un profil $(e_x, e_y) \in [-1, 1]^2$. Pour une affirmation
+    $s$ d'axe $a(s)$ et de sens $d(s) \in \{-1, +1\}$ :
 
-        $$v_{c,s} = \operatorname{clip}_{[-2, 2]}\Big(\operatorname{round}\big(2\, d(s)\, e_{a(s)} + \varepsilon\big)\Big),
-        \qquad \varepsilon \sim \mathcal{N}(0, 0{,}5^2)$$
+    $$v_{c,s} = \operatorname{clip}_{[-2, 2]}\Big(\operatorname{round}\big(2\, d(s)\, e_{a(s)} + \varepsilon\big)\Big),
+    \qquad \varepsilon \sim \mathcal{N}(0, 0{,}5^2)$$
 
-        Le profil n'est **jamais** affiché : les coordonnées de l'échiquier seront recalculées
-        par le moteur depuis les positions (règle « (x, y) calculés, jamais saisis »).
-        """
-    )
+    Le profil n'est **jamais** affiché : les coordonnées de l'échiquier seront recalculées
+    par le moteur depuis les positions (règle « (x, y) calculés, jamais saisis »).
+    """)
     return
 
 
@@ -64,7 +62,14 @@ def _():
     demo = build_demo()
     statements = pd.DataFrame(demo["statements.json"]["statements"])
     positions = pd.DataFrame(demo["positions.json"]["positions"])
-    return CANDIDATES, demo, elections_dir, pd, positions, statements, validate_election
+    return (
+        CANDIDATES,
+        elections_dir,
+        pd,
+        positions,
+        statements,
+        validate_election,
+    )
 
 
 @app.cell

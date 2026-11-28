@@ -13,47 +13,45 @@ def _():
 
 @app.cell
 def _(mo):
-    mo.md(
-        r"""
-        # M2-01 : Extraction et découpage en extraits
+    mo.md(r"""
+    # M2-01 : Extraction et découpage en extraits
 
-        | Métadonnée | Valeur |
-        |---|---|
-        | Date | 2026-11-27 |
-        | Auteur | Claude Code (revue : mainteneur) |
-        | Données | `fr-presidentielle-2022`, 24 documents ; fixture `notebooks/fixtures/m2-corpus-stats.json` |
-        | Fixture produite par | `uv run --project eval moi-electeur-eval corpus-stats` (lit `sources/`, ignoré par git) |
-        | Modèle / prompt | aucun appel LLM ; tokenizer `FacebookAI/xlm-roberta-base` |
-        | Graine | aucune (calcul déterministe) |
-        | Statut | décision prise |
-        | Code | `pipeline/src/moi_electeur_pipeline/extract.py`, `chunk.py` |
+    | Métadonnée | Valeur |
+    |---|---|
+    | Date | 2026-11-27 |
+    | Auteur | Claude Code (revue : mainteneur) |
+    | Données | `fr-presidentielle-2022`, 24 documents ; fixture `notebooks/fixtures/m2-corpus-stats.json` |
+    | Fixture produite par | `uv run --project eval moi-electeur-eval corpus-stats` (lit `sources/`, ignoré par git) |
+    | Modèle / prompt | aucun appel LLM ; tokenizer `FacebookAI/xlm-roberta-base` |
+    | Graine | aucune (calcul déterministe) |
+    | Statut | décision prise |
+    | Code | `pipeline/src/moi_electeur_pipeline/extract.py`, `chunk.py` |
 
-        ## 1. Question et contexte
-        Le chat (SPEC § 6) ne peut citer que ce que l'extraction a lu et que le découpage a rangé
-        dans un extrait. Ce notebook contrôle, document par document, la qualité de l'extraction
-        PDF et le découpage : tailles, cas limites, couverture des pages et des candidats
-        (critère PLAN § 4.9 : « aucun chunk sans métadonnée ; rapport de couverture »).
+    ## 1. Question et contexte
+    Le chat (SPEC § 6) ne peut citer que ce que l'extraction a lu et que le découpage a rangé
+    dans un extrait. Ce notebook contrôle, document par document, la qualité de l'extraction
+    PDF et le découpage : tailles, cas limites, couverture des pages et des candidats
+    (critère PLAN § 4.9 : « aucun chunk sans métadonnée ; rapport de couverture »).
 
-        ## 2. Hypothèses et alternatives envisagées
-        | Option | Pour | Contre |
-        |---|---|---|
-        | Fenêtres fixes de N tokens | simple | coupe au milieu des phrases et des sections |
-        | Une page = un extrait | citation de page triviale | tailles très inégales (couvertures, pages denses) |
-        | **Unités titre / phrase regroupées entre `min` et `max` tokens** | respecte les sections, tailles bornées | plus de code, recouvrement à gérer |
+    ## 2. Hypothèses et alternatives envisagées
+    | Option | Pour | Contre |
+    |---|---|---|
+    | Fenêtres fixes de N tokens | simple | coupe au milieu des phrases et des sections |
+    | Une page = un extrait | citation de page triviale | tailles très inégales (couvertures, pages denses) |
+    | **Unités titre / phrase regroupées entre `min` et `max` tokens** | respecte les sections, tailles bornées | plus de code, recouvrement à gérer |
 
-        Retenu en M2a : unités titres et phrases, 300 à 600 tokens, recouvrement de 50 tokens au
-        plus après une coupure par la taille.
+    Retenu en M2a : unités titres et phrases, 300 à 600 tokens, recouvrement de 50 tokens au
+    plus après une coupure par la taille.
 
-        ## 3. Formalisation
-        Pour chaque extrait $e$ : $t(e)$ = nombre de tokens recompté sur le texte final,
-        $[p_0(e), p_1(e)]$ = pages couvertes. Invariants attendus :
+    ## 3. Formalisation
+    Pour chaque extrait $e$ : $t(e)$ = nombre de tokens recompté sur le texte final,
+    $[p_0(e), p_1(e)]$ = pages couvertes. Invariants attendus :
 
-        - $t(e) \le 600$ pour tout $e$, et $t(e) \ge 300$ sauf pour le dernier extrait d'un document ;
-        - toute page contenant du texte est couverte par au moins un extrait :
-          $\forall p,\ \text{texte}(p) \neq \varnothing \Rightarrow \exists e,\ p_0(e) \le p \le p_1(e)$ ;
-        - aucune métadonnée manquante (candidat, document, URL, sha256, pages).
-        """
-    )
+    - $t(e) \le 600$ pour tout $e$, et $t(e) \ge 300$ sauf pour le dernier extrait d'un document ;
+    - toute page contenant du texte est couverte par au moins un extrait :
+      $\forall p,\ \text{texte}(p) \neq \varnothing \Rightarrow \exists e,\ p_0(e) \le p \le p_1(e)$ ;
+    - aucune métadonnée manquante (candidat, document, URL, sha256, pages).
+    """)
     return
 
 
@@ -147,7 +145,7 @@ def _(mo, pd, plt, stats):
             fig_cov,
         ]
     )
-    return (cov,)
+    return
 
 
 @app.cell
