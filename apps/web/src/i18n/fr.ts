@@ -74,6 +74,9 @@ export const fr = {
   invalidCode: "Le lien de réponses est invalide ou incomplet ; questionnaire vierge.",
   missingData: "Données introuvables : lancer `uv run pipeline build`.",
   skipToContent: "Aller au contenu",
+  header: {
+    logoAlt: "Moi Électeur, accueil",
+  },
   nav: {
     label: "Navigation principale",
     compass: "Boussole",
