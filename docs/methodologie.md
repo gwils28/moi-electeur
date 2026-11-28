@@ -2,7 +2,8 @@
 
 Moi Électeur aide à connaître le contenu des programmes officiels des candidats à une élection.
 Il ne dit pas pour qui voter : aucun texte de l'application ne classe un candidat, l'ordre des
-candidats est tiré au sort à chaque visite, et un mode aveugle masque noms, partis et couleurs.
+candidats est tiré au sort à chaque visite, et un mode aveugle masque noms et partis. Aucune couleur ni forme n'est associée à un candidat :
+il est désigné par son nom seul.
 
 Cette page décrit d'où viennent les données, comment elles sont calculées, comment l'ensemble a
 été évalué, et ce qu'il faut savoir de ses limites. Le code, les données validées, les prompts et
@@ -58,6 +59,17 @@ envoyées nulle part.
   w : le poids que vous donnez au thème, de 1 à 3). Les « sans avis » et les silences sont
   exclus. La **couverture** indique sur combien de vos réponses la proximité est calculée :
   calculée sur peu d'affirmations, elle est moins fiable.
+- **Score ajusté** (celui du cadran et de l'ordre des résultats) : une moyenne sur **toutes**
+  vos réponses, pondérée par vos poids. Chaque affirmation commune compte pour la proximité
+  calculée ci-dessus, chaque affirmation sur laquelle le programme se tait compte pour **40 %**,
+  et l'on ajoute 5 affirmations fictives à 50 % (lissage, utile quand on a peu répondu) :
+  (W_communes × proximité + W_silences × 40 + 5 × 50) / (W_communes + W_silences + 5).
+  Exemple : 75 % sur 5 affirmations communes avec 21 silences donne 47 ; 66 % sur 14 avec
+  12 silences donne 53. Les résultats sont présentés par score ajusté décroissant, les
+  égalités dans un ordre tiré au sort ; ce score mesure une proximité de réponses, pas une
+  préférence. **Limites** : compter un silence à 40 % plutôt qu'à 50 % (neutre) est un choix
+  éditorial qui défavorise un peu les programmes courts ou peu détaillés ; 40 et 5 sont des
+  réglages, documentés ici, et non des valeurs objectives.
 - **Projection sur l'échiquier (mode A)** : sur chaque axe, 10 × Σ w·sens·v / Σ w·2, où v est la
   position (la vôtre ou celle d'un candidat), sens et w ceux de l'affirmation ; les silences
   sont exclus.
@@ -114,7 +126,8 @@ Le rapport complet est dans le dépôt (`eval/reports/2026-11-27.md`). Principau
   boussole comme par le chat).
 - **Couverture inégale** : certains programmes ne se prononcent que sur quelques affirmations
   (7 sur 30 pour deux candidats) ; leur proximité est alors calculée sur peu de réponses et
-  peut paraître élevée. La couverture est affichée à côté de chaque proximité.
+  peut paraître élevée. Le score ajusté corrige en partie cet effet ; la couverture reste
+  affichée à côté de chaque score.
 - **Choix éditoriaux** : affirmations, axes et poids conditionnent l'échiquier ; d'autres choix
   donneraient d'autres positions.
 - **Modèles de langage** : les positions, les mesures et les réponses du chat sont produites par

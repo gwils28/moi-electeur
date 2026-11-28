@@ -19,6 +19,8 @@ import { displayCandidates, nameMasker, type CandidateDisplay } from "@/lib/pres
 import { sessionSeed } from "@/lib/session";
 import { fr } from "@/i18n/fr";
 import { ElectionPicker, PastElectionNote } from "./ElectionPicker";
+import { Icon } from "./Icon";
+import { ScrollRegion, STICKY_SHADOW } from "./PositionsMatrix";
 
 const t = fr.comparator;
 
@@ -54,9 +56,12 @@ function StatusMark({ status }: { status: RadarStatus }) {
 
 function CandidateHeader(p: { display: CandidateDisplay }) {
   return (
-    <th scope="col" className="border p-2 text-left">
+    <th scope="col" className="sticky top-0 z-10 border-r border-line align-bottom">
+      <span className="mb-1 block"></span>
       {p.display.label}
-      {p.display.party && <span className="block font-normal">{p.display.party}</span>}
+      {p.display.party && (
+        <span className="block text-xs font-normal text-muted">{p.display.party}</span>
+      )}
     </th>
   );
 }
@@ -71,22 +76,23 @@ function costingLabel(m: Measure): string {
 
 function MeasureDetails({ measure, display }: { measure: Measure; display: CandidateDisplay }) {
   return (
-    <li className="space-y-1">
-      <p className="font-medium">
-        {measure.title} <span className="font-normal">({costingLabel(measure)})</span>
+    <li className="space-y-2">
+      <p className="font-semibold">{measure.title}</p>
+      <p>
+        <span className="badge">{costingLabel(measure)}</span>
       </p>
       <p className="text-sm">{measure.summary}</p>
       {display.hideQuotes ? (
-        <p className="text-xs italic opacity-80">{fr.quoteHidden}</p>
+        <p className="text-xs text-muted">{fr.quoteHidden}</p>
       ) : (
         <>
           {measure.costing.quote && (
-            <blockquote className="ml-3 border-l-2 pl-2 text-sm italic opacity-80">
+            <blockquote className="border-l-2 border-line-strong pl-3 text-sm text-muted">
               {t.costingQuote} : « {measure.costing.quote} »
             </blockquote>
           )}
           {measure.evidence.map((ev, i) => (
-            <blockquote key={i} className="ml-3 border-l-2 pl-2 text-sm italic opacity-80">
+            <blockquote key={i} className="border-l-2 border-line-strong pl-3 text-sm text-muted">
               « {ev.quote} » [{display.documentLabel}
               {ev.page ? `, p. ${ev.page}` : ""}]
             </blockquote>
@@ -164,26 +170,35 @@ export function Comparator({
 
   return (
     <main className="mx-auto max-w-6xl space-y-6 p-4 sm:p-6">
-      <header>
-        <h1 className="text-3xl font-bold">{t.title}</h1>
-        <p>{t.intro}</p>
-        <ElectionPicker options={options} value={config.id} onChange={setElectionId} />
-        {config.fictional && <p className="mt-1 text-sm font-medium">{fr.fictional}</p>}
-        <PastElectionNote config={config} />
-        <p className="mt-1 text-sm">{t.orderNote}</p>
+      <header className="space-y-4">
+        <div className="space-y-2">
+          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">{t.title}</h1>
+          <p className="max-w-prose text-lg text-muted">{t.intro}</p>
+        </div>
+        <div className="space-y-1">
+          <ElectionPicker options={options} value={config.id} onChange={setElectionId} />
+          {config.fictional && <p className="text-sm font-medium">{fr.fictional}</p>}
+          <PastElectionNote config={config} />
+          <p className="flex items-start gap-1.5 text-sm text-muted">
+            <span className="mt-0.5">
+              <Icon name="info" size={16} />
+            </span>
+            {t.orderNote}
+          </p>
+        </div>
       </header>
 
-      <section aria-labelledby="pick-title" className="space-y-2">
-        <fieldset className="rounded border p-3">
-          <legend id="pick-title" className="px-1 font-semibold">
+      <section aria-labelledby="pick-title" className="panel space-y-4 text-sm">
+        <fieldset className="min-w-0 space-y-2">
+          <legend id="pick-title" className="mb-2 font-semibold">
             {t.pick}
           </legend>
-          <div className="flex flex-wrap gap-x-4 gap-y-2">
+          <div className="flex flex-wrap gap-2">
             {displays.map((d) => {
               const checked = selected.includes(d.id);
               const full = !checked && selected.length >= MAX_COMPARED;
               return (
-                <label key={d.id} className="flex items-center gap-1">
+                <label key={d.id} className="chip">
                   <input
                     type="checkbox"
                     checked={checked}
@@ -195,28 +210,31 @@ export function Comparator({
               );
             })}
           </div>
-          <p role="status" className="mt-2 text-sm">
+          <p role="status" className="text-muted">
             {selected.length < 2 ? t.pickMore : selected.length >= MAX_COMPARED ? t.pickLimit : ""}
           </p>
         </fieldset>
-        <label className="flex items-center gap-1 text-sm">
+        <label className="chip">
           <input type="checkbox" checked={blind} onChange={(e) => setBlind(e.target.checked)} />
           {fr.blind}
-          {blind && <span className="ml-1">({fr.blindOn})</span>}
+          {blind && <span className="font-normal">({fr.blindOn})</span>}
         </label>
       </section>
 
       {compared.length >= 2 && (
-        <section aria-labelledby="face-title" className="space-y-3">
-          <h2 id="face-title" className="text-xl font-semibold">
+        <section aria-labelledby="face-title" className="space-y-4">
+          <h2 id="face-title" className="text-2xl font-semibold">
             {t.faceToFace}
           </h2>
-          <div className="overflow-x-auto" tabIndex={0} role="region" aria-label={t.faceCaption}>
-            <table className="w-full border-collapse text-sm" data-testid="face-to-face">
-              <caption className="mb-2 text-left">{t.faceCaption}</caption>
+          <ScrollRegion label={t.faceCaption} hint={fr.positions.scrollHint(compared.length)}>
+            <table className="data-table w-full" data-testid="face-to-face">
+              <caption className="px-3 py-2 text-left font-medium">{t.faceCaption}</caption>
               <thead>
                 <tr>
-                  <th scope="col" className="border p-2 text-left">
+                  <th
+                    scope="col"
+                    className={`sticky left-0 top-0 z-20 border-r border-line align-bottom ${STICKY_SHADOW}`}
+                  >
                     {t.theme}
                   </th>
                   {compared.map((display) => (
@@ -227,20 +245,24 @@ export function Comparator({
               <tbody>
                 {config.themes.map((th) => (
                   <tr key={th.id}>
-                    <th scope="row" className="border p-2 text-left align-top">
+                    <th
+                      scope="row"
+                      className={`sticky left-0 z-10 border-r border-line bg-surface text-left ${STICKY_SHADOW}`}
+                    >
                       {th.label}
                     </th>
                     {compared.map((d) => {
                       const ms = cellMeasures(d.id, th.id);
                       return (
-                        <td key={d.id} className="border p-2 align-top">
+                        <td key={d.id} className="min-w-48 border-r border-line">
                           {ms.length === 0 ? (
-                            <span className="italic">{t.noMeasure}</span>
+                            <span className="text-muted">{t.noMeasure}</span>
                           ) : (
-                            <ul className="list-disc space-y-1 pl-4">
+                            <ul className="space-y-3">
                               {ms.map((m) => (
-                                <li key={m.id}>
-                                  {m.title} <span className="opacity-80">({costingLabel(m)})</span>
+                                <li key={m.id} className="space-y-1">
+                                  <span className="block">{m.title}</span>
+                                  <span className="badge">{costingLabel(m)}</span>
                                 </li>
                               ))}
                             </ul>
@@ -252,27 +274,31 @@ export function Comparator({
                 ))}
               </tbody>
             </table>
-          </div>
+          </ScrollRegion>
 
           <h3 className="text-lg font-semibold">{t.divergences}</h3>
-          <p className="text-sm">{t.divergencesHelp}</p>
+          <p className="hint max-w-prose">{t.divergencesHelp}</p>
           {diverging.length === 0 ? (
             <p className="text-sm">{t.noDivergence}</p>
           ) : (
             <ul className="space-y-3" data-testid="divergences">
               {diverging.map((dv) => (
-                <li key={dv.statementId} className="rounded border p-2 text-sm">
+                <li key={dv.statementId} className="card text-sm">
                   <p>
-                    <span className="opacity-80">{themeLabel(dv.theme)} · </span>
+                    <span className="text-muted">{themeLabel(dv.theme)} · </span>
                     {statementText.get(dv.statementId)}
                   </p>
-                  <ul className="mt-1 flex flex-wrap gap-x-4">
+                  <ul className="mt-2 flex flex-wrap gap-x-6 gap-y-1">
                     {compared.map((d) => {
                       const v = dv.values[d.id];
                       return (
-                        <li key={d.id}>
-                          <span className="font-medium">{d.label}</span> :{" "}
-                          {v === null || v === undefined ? t.silence : t.positionLabels[String(v)]}
+                        <li key={d.id} className="flex items-center gap-1.5">
+                          <span>
+                            <span className="font-semibold">{d.label}</span> :{" "}
+                            {v === null || v === undefined
+                              ? t.silence
+                              : t.positionLabels[String(v)]}
+                          </span>
                         </li>
                       );
                     })}
@@ -284,32 +310,40 @@ export function Comparator({
         </section>
       )}
 
-      <section aria-labelledby="radar-title" className="space-y-3">
-        <h2 id="radar-title" className="text-xl font-semibold">
+      <section aria-labelledby="radar-title" className="space-y-4">
+        <h2 id="radar-title" className="text-2xl font-semibold">
           {t.radar}
         </h2>
-        <p className="text-sm">{t.radarHelp}</p>
+        <p className="hint max-w-prose">{t.radarHelp}</p>
         {measures.length === 0 ? (
           <p className="text-sm">{t.noMeasures}</p>
         ) : (
           <>
-            <ul className="flex flex-wrap gap-4 text-sm" aria-label={t.radar}>
+            <ul className="card flex flex-wrap gap-x-5 gap-y-2 text-sm" aria-label={t.radar}>
               {RADAR_STATUSES.map((s) => (
                 <li key={s}>
                   <StatusMark status={s} />
                 </li>
               ))}
             </ul>
-            <div className="overflow-x-auto" tabIndex={0} role="region" aria-label={t.radarCaption}>
-              <table className="border-collapse text-sm" data-testid="radar">
-                <caption className="mb-2 text-left">{t.radarCaption}</caption>
+            <ScrollRegion label={t.radarCaption} hint={fr.positions.scrollHint(displays.length)}>
+              <table className="data-table" data-testid="radar">
+                <caption className="px-3 py-2 text-left font-medium">{t.radarCaption}</caption>
                 <thead>
                   <tr>
-                    <th scope="col" className="border p-2 text-left">
+                    <th
+                      scope="col"
+                      className={`sticky left-0 top-0 z-20 border-r border-line align-bottom ${STICKY_SHADOW}`}
+                    >
                       {t.theme}
                     </th>
                     {displays.map((d) => (
-                      <th key={d.id} scope="col" className="border p-2 text-left">
+                      <th
+                        key={d.id}
+                        scope="col"
+                        className="sticky top-0 z-10 border-r border-line align-bottom"
+                      >
+                        <span className="mb-1 block"></span>
                         {d.label}
                       </th>
                     ))}
@@ -318,17 +352,22 @@ export function Comparator({
                 <tbody>
                   {config.themes.map((th) => (
                     <tr key={th.id}>
-                      <th scope="row" className="border p-2 text-left">
+                      <th
+                        scope="row"
+                        className={`sticky left-0 z-10 border-r border-line bg-surface text-left ${STICKY_SHADOW}`}
+                      >
                         {th.label}
                       </th>
                       {displays.map((d) => {
                         const status = grid[th.id]![d.id]!;
                         const open = cell?.theme === th.id && cell.candidate === d.id;
                         return (
-                          <td key={d.id} className="border p-1">
+                          <td key={d.id} className="border-r border-line p-1">
                             <button
                               type="button"
-                              className="w-full rounded px-1 py-1 text-left underline-offset-2 hover:underline"
+                              className={`w-full rounded-md px-1.5 py-1.5 text-left underline-offset-2 hover:underline ${
+                                open ? "bg-surface outline outline-2 outline-[var(--fg)]" : ""
+                              }`}
                               aria-expanded={open}
                               aria-controls="radar-details"
                               aria-label={t.cellLabel(d.label, th.label, t.status[status])}
@@ -345,17 +384,19 @@ export function Comparator({
                   ))}
                 </tbody>
               </table>
-            </div>
+            </ScrollRegion>
           </>
         )}
         <div id="radar-details" aria-live="polite">
           {cell && opened && (
-            <section className="rounded border p-3" data-testid="radar-details">
-              <h3 className="font-semibold">{t.details(opened.label, themeLabel(cell.theme))}</h3>
+            <section className="card" data-testid="radar-details">
+              <h3 className="text-lg font-semibold">
+                {t.details(opened.label, themeLabel(cell.theme))}
+              </h3>
               {cellMeasures(cell.candidate, cell.theme).length === 0 ? (
-                <p className="text-sm">{t.noMeasure}</p>
+                <p className="mt-2 text-sm">{t.noMeasure}</p>
               ) : (
-                <ul className="mt-2 space-y-3">
+                <ul className="mt-3 space-y-4">
                   {cellMeasures(cell.candidate, cell.theme).map((m) => (
                     <MeasureDetails key={m.id} measure={m} display={opened} />
                   ))}

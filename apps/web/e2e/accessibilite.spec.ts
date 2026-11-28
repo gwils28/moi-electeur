@@ -78,3 +78,25 @@ for (const path of ["/methodologie", "/accessibilite"]) {
     expect(r.violations.map((v) => `${v.id}: ${v.nodes.length}`)).toEqual([]);
   });
 }
+
+/** Thème sombre (spec de design G5) : axe, contrastes compris, sur chaque page. */
+test.describe("thème sombre", () => {
+  test.use({ colorScheme: "dark" });
+  for (const path of [
+    "/",
+    "/boussole",
+    "/positions",
+    "/positions/comparateur",
+    "/methodologie",
+    "/accessibilite",
+  ]) {
+    test(`${path} : axe sans violation en thème sombre`, async ({ page }) => {
+      await page.goto(path);
+      await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+      const r = await new AxeBuilder({ page })
+        .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+        .analyze();
+      expect(r.violations.map((v) => `${v.id}: ${v.nodes.length}`)).toEqual([]);
+    });
+  }
+});

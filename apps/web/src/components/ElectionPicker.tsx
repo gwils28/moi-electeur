@@ -22,10 +22,10 @@ export function ElectionPicker({
 }) {
   if (options.length < 2) return null;
   return (
-    <label className="mt-2 flex max-w-full flex-wrap items-center gap-2 text-sm">
+    <label className="mt-2 flex min-w-0 max-w-full flex-wrap items-center gap-2 text-sm">
       <span className="font-medium">{fr.election}</span>
       <select
-        className="w-full min-w-0 max-w-full rounded border bg-[var(--bg)] px-2 py-1 text-[var(--fg)] sm:w-auto"
+        className="field w-full min-w-0 sm:w-auto"
         value={value}
         onChange={(e) => onChange(e.target.value)}
       >

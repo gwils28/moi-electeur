@@ -11,12 +11,12 @@ const TABS = [
 
 /**
  * Sous-onglets de Positions (PLAN D55) : liens de navigation, pas un widget `tablist` (chaque
- * vue est une page). Page courante signalée par `aria-current`, le gras et un trait épais.
+ * vue est une page). Page courante signalée par `aria-current` (gras et trait épais, `.tab`).
  */
 export function PositionsTabs() {
   const path = usePathname();
   return (
-    <nav aria-label={fr.positionsTabs.label} className="flex flex-wrap gap-x-1 border-b">
+    <nav aria-label={fr.positionsTabs.label} className="tabs">
       {TABS.map((tab) => {
         const current = path === tab.href;
         return (
@@ -25,9 +25,7 @@ export function PositionsTabs() {
             href={tab.href}
             prefetch={false}
             aria-current={current ? "page" : undefined}
-            className={`-mb-px border-b-4 px-3 py-2 ${
-              current ? "border-[var(--fg)] font-semibold" : "border-transparent hover:underline"
-            }`}
+            className="tab"
           >
             {tab.label}
           </Link>

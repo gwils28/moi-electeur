@@ -13,6 +13,8 @@ import { displayCandidates } from "@/lib/present";
 import { loadLocal, saveLocal, sessionSeed } from "@/lib/session";
 import { fr } from "@/i18n/fr";
 import { PastElectionNote } from "./ElectionPicker";
+import { Icon } from "./Icon";
+import { Notice } from "./Notice";
 import { Questionnaire } from "./Questionnaire";
 import { Results } from "./Results";
 
@@ -78,30 +80,51 @@ export function App({ data, picker }: { data: ElectionData; picker?: ReactNode }
       ? ""
       : `${window.location.origin}${window.location.pathname}#r=${code}`;
 
+  const mentions = (
+    <div className="space-y-1 text-sm text-muted">
+      {config.fictional && <p className="font-medium text-fg">{fr.fictional}</p>}
+      <PastElectionNote config={config} />
+      <p>{fr.privacy}</p>
+    </div>
+  );
+
   return (
-    <main className="mx-auto max-w-6xl space-y-6 p-4 sm:p-6">
-      <header>
-        <h1 className="text-3xl font-bold">{fr.compass.title}</h1>
-        <p>{fr.compass.intro}</p>
-        {picker}
-        {config.fictional && <p className="mt-1 text-sm font-medium">{fr.fictional}</p>}
-        <PastElectionNote config={config} />
-        <p className="text-sm">{fr.privacy}</p>
-      </header>
+    <main className="mx-auto max-w-6xl space-y-8 p-4 sm:p-6">
       {notice && (
-        <p role="status" className="rounded border p-2">
-          {notice}
-        </p>
+        <Notice variant="info" role="status" className="mx-auto max-w-2xl">
+          <p>{notice}</p>
+        </Notice>
       )}
 
-      {step === "intro" && (
-        <button
-          type="button"
-          className="rounded border-2 px-4 py-2 font-semibold"
-          onClick={() => setStep("questions")}
-        >
-          {fr.start}
-        </button>
+      {step === "intro" ? (
+        <div className="card mx-auto max-w-2xl space-y-6 sm:p-8">
+          <header className="space-y-3">
+            <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">{fr.compass.title}</h1>
+            <p className="max-w-prose text-lg text-muted">{fr.compass.intro}</p>
+          </header>
+          <ul className="space-y-2">
+            {fr.compass.facts.map((f) => (
+              <li key={f} className="flex items-start gap-2">
+                <span className="mt-1 text-muted">
+                  <Icon name="check" />
+                </span>
+                {f}
+              </li>
+            ))}
+          </ul>
+          {picker}
+          {mentions}
+          <button type="button" className="btn btn-primary" onClick={() => setStep("questions")}>
+            {fr.start}
+            <Icon name="arrow-right" />
+          </button>
+        </div>
+      ) : (
+        <header className="space-y-2">
+          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">{fr.compass.title}</h1>
+          {picker}
+          {mentions}
+        </header>
       )}
 
       {step === "questions" && (
@@ -131,22 +154,24 @@ export function App({ data, picker }: { data: ElectionData; picker?: ReactNode }
             onAnswer={setAnswer}
             onWeight={setWeight}
           />
-          <section aria-labelledby="share-title" className="space-y-2 rounded border p-4">
-            <h2 id="share-title" className="text-lg font-semibold">
-              {fr.share}
-            </h2>
-            <p className="text-sm">{fr.shareHelp}</p>
-            <input
-              readOnly
-              aria-label={fr.share}
-              data-testid="share-url"
-              className="w-full rounded border bg-[var(--bg)] px-2 py-1 text-sm text-[var(--fg)]"
-              value={shareUrl}
-            />
-            <div className="flex flex-wrap gap-3">
+          <section aria-labelledby="share-title" className="card space-y-4">
+            <div className="space-y-1">
+              <h2 id="share-title" className="text-lg font-semibold">
+                {fr.share}
+              </h2>
+              <p className="hint">{fr.shareHelp}</p>
+            </div>
+            <div className="relative flex flex-col gap-2 sm:flex-row sm:items-center">
+              <input
+                readOnly
+                aria-label={fr.share}
+                data-testid="share-url"
+                className="field min-w-0 flex-1 text-sm"
+                value={shareUrl}
+              />
               <button
                 type="button"
-                className="rounded border px-2 py-1"
+                className="btn btn-primary btn-sm self-start sm:self-auto"
                 onClick={async () => {
                   try {
                     await navigator.clipboard.writeText(shareUrl);
@@ -156,29 +181,36 @@ export function App({ data, picker }: { data: ElectionData; picker?: ReactNode }
                   }
                 }}
               >
+                <Icon name={copied ? "check" : "copy"} />
                 {copied ? fr.copied : fr.copyLink}
               </button>
-              <label className="flex items-center gap-1 text-sm">
-                <input
-                  type="checkbox"
-                  checked={keepLocal}
-                  onChange={(e) => {
-                    setKeepLocal(e.target.checked);
-                    if (!e.target.checked) saveLocal(null);
-                  }}
-                />
-                {fr.saveLocal}
-              </label>
+              <span role="status" className="sr-only">
+                {copied ? fr.copied : ""}
+              </span>
+            </div>
+            <label className="flex items-center gap-2 text-sm">
+              <input
+                type="checkbox"
+                className="size-4"
+                checked={keepLocal}
+                onChange={(e) => {
+                  setKeepLocal(e.target.checked);
+                  if (!e.target.checked) saveLocal(null);
+                }}
+              />
+              {fr.saveLocal}
+            </label>
+            <div className="flex flex-wrap justify-between gap-3 border-t border-line pt-4">
               <button
                 type="button"
-                className="rounded border px-2 py-1"
+                className="btn btn-secondary"
                 onClick={() => setStep("questions")}
               >
                 {fr.editAnswers}
               </button>
               <button
                 type="button"
-                className="rounded border px-2 py-1"
+                className="btn btn-ghost"
                 onClick={() => {
                   setAnswers({});
                   setWeights({});
@@ -187,6 +219,7 @@ export function App({ data, picker }: { data: ElectionData; picker?: ReactNode }
                   setStep("questions");
                 }}
               >
+                <Icon name="refresh" />
                 {fr.restart}
               </button>
             </div>
