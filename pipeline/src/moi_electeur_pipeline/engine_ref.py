@@ -44,6 +44,11 @@ def project_a(
     return out
 
 
+PRIOR_STRENGTH = 5
+PRIOR_SCORE = 50
+SILENCE_SCORE = 40
+
+
 def proximity(
     user: Mapping[str, int | None],
     candidate: Mapping[str, int | None],
@@ -52,24 +57,29 @@ def proximity(
 ) -> dict[str, Any] | None:
     """Référence de `proximity` (SPEC § 5.2)."""
     weights = weights or {}
-    d = d_max = 0.0
+    d = d_max = w_silent = 0.0
     n = answered = 0
     for s in statements:
         u, c = user.get(s["id"]), candidate.get(s["id"])
         if u is None:
             continue
         answered += 1
-        if c is None:
-            continue
         w = weights.get(s["theme"], 1)
+        if c is None:
+            w_silent += w
+            continue
         d += w * abs(u - c)
         d_max += w * 4
         n += 1
     if n == 0:
         return None
     coverage = n / answered
+    score = 100 * (1 - d / d_max)
     return {
-        "score": 100 * (1 - d / d_max),
+        "score": score,
+        # PLAN D59 : silences à 40, k affirmations fictives à 50, poids de thème.
+        "adjusted": ((d_max / 4) * score + w_silent * SILENCE_SCORE + PRIOR_STRENGTH * PRIOR_SCORE)
+        / (d_max / 4 + w_silent + PRIOR_STRENGTH),
         "coverage": coverage,
         "n": n,
         "answered": answered,
