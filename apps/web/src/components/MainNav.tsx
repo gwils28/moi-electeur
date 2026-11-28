@@ -15,10 +15,7 @@ const LINKS = [
 export function MainNav() {
   const path = usePathname();
   return (
-    <nav
-      aria-label={fr.nav.label}
-      className="mx-auto flex max-w-6xl flex-wrap gap-4 px-4 pt-3 sm:px-6"
-    >
+    <nav aria-label={fr.nav.label} className="flex flex-wrap gap-4">
       {LINKS.map((l) => {
         const current = l.href === "/" ? path === "/" : path.startsWith(l.href);
         return (

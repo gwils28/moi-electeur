@@ -294,6 +294,15 @@ Suites de la relecture M0 :
 - Guide : `docs/deploiement.md` (prérequis, `.env`, index, démarrage, mise à jour, sauvegarde, essai local). Les variables `DOMAIN`, `ACME_EMAIL` et `POSTGRES_PASSWORD` sont à ajouter au `.env` du serveur (le fichier `.env.example` est géré par le mainteneur).
 - **Reste au mainteneur** : VPS, DNS du domaine, `.env` de production, puis la mise en ligne (`docs/deploiement.md`).
 
+## 2026-11-27 / 28 : logo et favicons (`apps/web/public/brand/`, `apps/web/src/app/`)
+
+- **Logo retenu (28/11, choix du mainteneur)** : rose des vents avec urne, bulletin et aiguille de boussole, fourni en JPEG 2048 px (image générée). Fond blanc rendu transparent (remplissage depuis les bords, bord adouci par « couleur vers alpha »), recadré au carré, quantifié en 256 couleurs. Remplace la version vectorielle du 27/11 (urne transparente, aiguille verticale), abandonnée avec `logo.svg`, `logo-mark.svg` et `icon.svg`.
+- **Fichiers** : `public/brand/logo-mark.png` (192 px, affiché en 40 px), `public/brand/logotype.svg` (nom vectorisé en Noto Sans Bold, licence OFL, suit le thème clair ou sombre) ; conventions Next : `src/app/icon.png` (256), `src/app/favicon.ico` (16, 32, 48), `src/app/apple-icon.png` (180, fond blanc, iOS ne gère pas la transparence).
+- **Points de neutralité à arbitrer (signalés, non bloquants)** : l'aiguille est inclinée (nord rouge vers le haut à droite, sud bleu vers le bas à gauche) et le couple rouge/bleu est proche des couleurs du drapeau. La note du 27/11 craignait qu'une inclinaison gauche/droite soit lue comme politique ; le logo n'a pas d'axes, le risque est faible mais à garder en tête. **Toujours à respecter** : ne jamais réutiliser le couple rouge/bleu sur les axes de la carte politique.
+- **Limites acceptées** : logo raster (pas de version vectorielle ni monochrome) ; le favicon 16 px est peu lisible (détails fins), 32 px reste reconnaissable ; pas d'adaptation au thème sombre (le logo a son propre fond blanc intérieur, lisible sur les deux thèmes, vérifié par capture).
+- **Intégration** : `<header>` (repère `banner`) dans `layout.tsx` : lien vers l'accueil contenant le symbole (alternative « Moi Électeur, accueil ») et le logotype (décoratif, `alt=""`), puis la navigation principale. Test : `apps/web/e2e/marque.spec.ts` (réécrit pour le nouveau logo : deux images chargées, favicons PNG, ICO et Apple servis).
+- **Reste** : icône maskable 512, image de partage 1200x630, éventuelle version vectorielle.
+
 ## 2026-11-28 : port local du service de recherche
 
 - **Écart** : en local, `rag` est publié sur `127.0.0.1:8001` (au lieu de 8000, occupé par une autre application du poste). Seul le port côté hôte change : dans le conteneur le service écoute toujours sur 8000, le web l'appelle par le réseau Docker (`RAG_URL: http://rag:8000`) et la production n'est pas touchée. Défaut de `RAG_URL` dans `apps/web/src/lib/rag/server.ts` aligné sur 8001 (cas `pnpm dev` hors Docker), README et CLAUDE.md mis à jour.
